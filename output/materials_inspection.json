@@ -1,0 +1,1418 @@
+{
+  "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\streets-01.blend",
+  "palagan_last_operation": "streets-01",
+  "engine": "BLENDER_EEVEE",
+  "resolution": [
+    1600,
+    1000
+  ],
+  "exposure": -0.15000000596046448,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "world": {
+    "name": "World",
+    "use_nodes": true,
+    "nodes": [
+      {
+        "type": "OUTPUT_WORLD",
+        "name": "World Output"
+      },
+      {
+        "type": "BACKGROUND",
+        "name": "Background"
+      }
+    ],
+    "color": [
+      0.550000011920929,
+      0.6200000047683716,
+      0.6800000071525574,
+      1.0
+    ],
+    "strength": 1.0
+  },
+  "lights": [
+    {
+      "name": "Light",
+      "type": "POINT",
+      "energy": 1000.0,
+      "angle_deg": null,
+      "color": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.65,
+        0.06,
+        1.87
+      ],
+      "hide_render": true
+    },
+    {
+      "name": "PALAGAN_SUN",
+      "type": "SUN",
+      "energy": 1.5499999523162842,
+      "angle_deg": 9.17,
+      "color": [
+        1.0,
+        0.9549999833106995,
+        0.8799999952316284
+      ],
+      "rotation": [
+        0.84,
+        0.0,
+        -2.31
+      ],
+      "hide_render": false
+    }
+  ],
+  "cameras": [
+    {
+      "name": "Camera",
+      "lens_mm": 50.0,
+      "sensor": 36.0,
+      "loc": [
+        7.36,
+        -6.93,
+        4.96
+      ],
+      "rot_deg": [
+        63.56,
+        0.0,
+        46.69
+      ],
+      "type": "PERSP",
+      "palagan_owner": null
+    },
+    {
+      "name": "CAM_DISTRICT_OVERVIEW",
+      "lens_mm": 42.0,
+      "sensor": 36.0,
+      "loc": [
+        -455.0,
+        -545.0,
+        390.0
+      ],
+      "rot_deg": [
+        61.16,
+        0.0,
+        -38.41
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_PLAN_CHECK",
+      "lens_mm": 50.0,
+      "sensor": 36.0,
+      "loc": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "rot_deg": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "type": "ORTHO",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_BRIDGE",
+      "lens_mm": 46.0,
+      "sensor": 36.0,
+      "loc": [
+        -92.0,
+        -35.0,
+        7.0
+      ],
+      "rot_deg": [
+        87.11,
+        -0.0,
+        -69.44
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_INTERNATIO_REFERENCE",
+      "lens_mm": 32.0,
+      "sensor": 36.0,
+      "loc": [
+        -106.54,
+        107.38,
+        2.2
+      ],
+      "rot_deg": [
+        95.84,
+        -0.0,
+        161.57
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_SINGA_REFERENCE",
+      "lens_mm": 45.0,
+      "sensor": 36.0,
+      "loc": [
+        -9.0,
+        112.0,
+        2.7
+      ],
+      "rot_deg": [
+        94.33,
+        -0.0,
+        143.86
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_KEMBANG_STREET",
+      "lens_mm": 28.0,
+      "sensor": 36.0,
+      "loc": [
+        56.82,
+        -11.13,
+        2.05
+      ],
+      "rot_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    },
+    {
+      "name": "CAM_FABRIC_OVERVIEW",
+      "lens_mm": 52.0,
+      "sensor": 36.0,
+      "loc": [
+        -245.0,
+        -265.0,
+        155.0
+      ],
+      "rot_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "type": "PERSP",
+      "palagan_owner": "PALAGAN_SURABAYA_V1"
+    }
+  ],
+  "materials": [
+    {
+      "name": "MAT_AWNING_CANVAS",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.52,
+        0.45,
+        0.34,
+        1.0
+      ],
+      "roughness": 0.96,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_AWNING_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.2,
+        0.18,
+        0.15,
+        1.0
+      ],
+      "roughness": 0.97,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_BRICK_WEATHERED",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.55,
+        0.36,
+        0.28,
+        1.0
+      ],
+      "roughness": 0.88,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 29
+    },
+    {
+      "name": "MAT_FACADE_CREAM",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "VALTORGB",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.92,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_FACADE_OCHRE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "VALTORGB",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.93,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_FACADE_PALE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "VALTORGB",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.92,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_FACADE_ROSE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "VALTORGB",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.93,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_FACADE_SAGE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "VALTORGB",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.93,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_GROUND_EARTH",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.44,
+        0.41,
+        0.34,
+        1.0
+      ],
+      "roughness": 0.95,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_INTERNATIO_GLASS",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.095,
+        0.11,
+        0.115,
+        1.0
+      ],
+      "roughness": 0.3,
+      "metallic": 0.3,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 3
+    },
+    {
+      "name": "MAT_INTERNATIO_PLASTER",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.63,
+        0.61,
+        0.54,
+        1.0
+      ],
+      "roughness": 0.86,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 5
+    },
+    {
+      "name": "MAT_INTERNATIO_REVEAL",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.29,
+        0.29,
+        0.265,
+        1.0
+      ],
+      "roughness": 0.9,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_INTERNATIO_TRIM",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.78,
+        0.76,
+        0.68,
+        1.0
+      ],
+      "roughness": 0.8,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 6
+    },
+    {
+      "name": "MAT_KALIMAS_WATER",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.075,
+        0.13,
+        0.115,
+        1.0
+      ],
+      "roughness": 0.16,
+      "metallic": 0.05,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 1
+    },
+    {
+      "name": "MAT_MAP_UNDERLAY",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "EMISSION",
+        "TEX_IMAGE"
+      ],
+      "linked": {},
+      "users": 1
+    },
+    {
+      "name": "MAT_METAL_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.055,
+        0.058,
+        0.058,
+        1.0
+      ],
+      "roughness": 0.48,
+      "metallic": 0.75,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 3
+    },
+    {
+      "name": "MAT_METAL_OXIDE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.072,
+        0.062,
+        0.052,
+        1.0
+      ],
+      "roughness": 0.64,
+      "metallic": 0.55,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 3
+    },
+    {
+      "name": "MAT_PLASTER_GREY",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.63,
+        0.62,
+        0.57,
+        1.0
+      ],
+      "roughness": 0.85,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 2
+    },
+    {
+      "name": "MAT_PLASTER_OCHRE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.68,
+        0.58,
+        0.45,
+        1.0
+      ],
+      "roughness": 0.85,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 3
+    },
+    {
+      "name": "MAT_PLASTER_WHITE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.85,
+        0.83,
+        0.77,
+        1.0
+      ],
+      "roughness": 0.8,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 1
+    },
+    {
+      "name": "MAT_ROAD_ASPHALT",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.085,
+        0.082,
+        0.076,
+        1.0
+      ],
+      "roughness": 0.93,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 6
+    },
+    {
+      "name": "MAT_ROAD_SETTS",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.22,
+        0.21,
+        0.185,
+        1.0
+      ],
+      "roughness": 0.9,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 54
+    },
+    {
+      "name": "MAT_ROOF_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.36,
+        0.24,
+        0.19,
+        1.0
+      ],
+      "roughness": 0.9,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 2
+    },
+    {
+      "name": "MAT_SINGA_GLASS",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.075,
+        0.085,
+        0.085,
+        1.0
+      ],
+      "roughness": 0.32,
+      "metallic": 0.15,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_SINGA_INTERIOR",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.055,
+        0.055,
+        0.05,
+        1.0
+      ],
+      "roughness": 0.94,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_SINGA_PLASTER",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.69,
+        0.66,
+        0.57,
+        1.0
+      ],
+      "roughness": 0.86,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 6
+    },
+    {
+      "name": "MAT_SINGA_SIGN_METAL",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.1,
+        0.095,
+        0.085,
+        1.0
+      ],
+      "roughness": 0.6,
+      "metallic": 0.4,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 1
+    },
+    {
+      "name": "MAT_SINGA_STONE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.47,
+        0.45,
+        0.39,
+        1.0
+      ],
+      "roughness": 0.92,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_SINGA_TILE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.1,
+        0.09,
+        0.08,
+        1.0
+      ],
+      "roughness": 0.95,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 1
+    },
+    {
+      "name": "MAT_SINGA_TIMBER",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.16,
+        0.105,
+        0.07,
+        1.0
+      ],
+      "roughness": 0.78,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 2
+    },
+    {
+      "name": "MAT_SINGA_TRIM",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.82,
+        0.8,
+        0.71,
+        1.0
+      ],
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 7
+    },
+    {
+      "name": "MAT_STONE",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.55,
+        0.53,
+        0.47,
+        1.0
+      ],
+      "roughness": 0.84,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 38
+    },
+    {
+      "name": "MAT_STONE_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.38,
+        0.37,
+        0.33,
+        1.0
+      ],
+      "roughness": 0.9,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 3
+    },
+    {
+      "name": "MAT_STREET_INTERIOR",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.045,
+        0.045,
+        0.04,
+        1.0
+      ],
+      "roughness": 0.95,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_STREET_METAL",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.085,
+        0.082,
+        0.075,
+        1.0
+      ],
+      "roughness": 0.58,
+      "metallic": 0.55,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_STREET_PARTY",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.5,
+        0.47,
+        0.4,
+        1.0
+      ],
+      "roughness": 0.94,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_STREET_ROOF_A",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.155,
+        0.115,
+        0.092,
+        1.0
+      ],
+      "roughness": 0.95,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_STREET_ROOF_B",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "linked": {},
+      "base": [
+        0.115,
+        0.105,
+        0.095,
+        1.0
+      ],
+      "roughness": 0.96,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": true,
+      "users": 29
+    },
+    {
+      "name": "MAT_STREET_TRIM",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.78,
+        0.75,
+        0.66,
+        1.0
+      ],
+      "roughness": 0.86,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 29
+    },
+    {
+      "name": "MAT_WINDOW_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.045,
+        0.055,
+        0.055,
+        1.0
+      ],
+      "roughness": 0.22,
+      "metallic": 0.15,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 30
+    },
+    {
+      "name": "MAT_WOOD_DARK",
+      "owner": "PALAGAN_SURABAYA_V1",
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED",
+        "TEX_COORD",
+        "MAPPING",
+        "TEX_IMAGE",
+        "HUE_SAT",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "linked": {},
+      "base": [
+        0.22,
+        0.15,
+        0.1,
+        1.0
+      ],
+      "roughness": 0.75,
+      "metallic": 0.0,
+      "base_linked": true,
+      "rough_linked": true,
+      "normal_linked": true,
+      "uv_repeat": [
+        0.35,
+        0.35,
+        1.0
+      ],
+      "users": 32
+    },
+    {
+      "name": "Material",
+      "owner": null,
+      "nodes": [
+        "OUTPUT_MATERIAL",
+        "BSDF_PRINCIPLED"
+      ],
+      "linked": {},
+      "base": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "roughness": 0.5,
+      "metallic": 0.0,
+      "base_linked": false,
+      "rough_linked": false,
+      "normal_linked": false,
+      "users": 1
+    }
+  ],
+  "images": [
+    {
+      "name": "brick_wall_001_diffuse_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\brick_wall_001\\brick_wall_001_diffuse_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "brick_wall_001_nor_gl_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\brick_wall_001\\brick_wall_001_nor_gl_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "brick_wall_001_rough_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\brick_wall_001\\brick_wall_001_rough_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "clay_roof_tiles_diff_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\clay_roof_tiles\\clay_roof_tiles_diff_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "clay_roof_tiles_nor_gl_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\clay_roof_tiles\\clay_roof_tiles_nor_gl_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "clay_roof_tiles_rough_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\clay_roof_tiles\\clay_roof_tiles_rough_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "dark_wooden_planks_diff_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\dark_wooden_planks\\dark_wooden_planks_diff_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "dark_wooden_planks_nor_gl_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\dark_wooden_planks\\dark_wooden_planks_nor_gl_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "dark_wooden_planks_rough_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\dark_wooden_planks\\dark_wooden_planks_rough_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "district_base_reference.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\references\\maps\\district_base_reference.jpg",
+      "size": [
+        1260,
+        1260
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "grey_plaster_diff_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\grey_plaster\\grey_plaster_diff_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "grey_plaster_nor_gl_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\grey_plaster\\grey_plaster_nor_gl_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "grey_plaster_rough_1k.jpg",
+      "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\assets\\materials\\grey_plaster\\grey_plaster_rough_1k.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "packed": false,
+      "source": "FILE"
+    },
+    {
+      "name": "Render Result",
+      "filepath": "",
+      "size": [
+        0,
+        0
+      ],
+      "packed": false,
+      "source": "VIEWER"
+    },
+    {
+      "name": "Viewer Node",
+      "filepath": "",
+      "size": [
+        256,
+        256
+      ],
+      "packed": false,
+      "source": "VIEWER"
+    }
+  ]
+}

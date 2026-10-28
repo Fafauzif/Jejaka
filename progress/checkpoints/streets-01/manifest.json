@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "streets-01",
+  "stage": "street_fabric",
+  "created_at": "2026-10-23T22:36:36+00:00",
+  "verification": "Recovered the pending operation by deterministic headless rerun of the on-disk build script from the singa-01 checkpoint (GUI MCP socket had stopped executing code; singa-01.blend untouched). Reopened output/working/streets-01.blend: 137 objects (134 owned, 3 preserved baseline), 42 materials, 431258 base triangles, palagan_last_operation=streets-01. Independent footprint validation over 573 front module records found 0 river, 0 road and 0 bridge-keepout violations against the W_KALIMAS polygon, the eight mapped road ribbons and the bridge keepout; 246 rear ranges were validated at build time by the same test. Inspected EEVEE renders of CAM_KEMBANG_STREET, CAM_FABRIC_OVERVIEW, the plan camera with the M001 underlay, and bridgehead/east-approach review cameras: rows follow the mapped roads, the river corridor and bridge crossing align with the underlay, Kembang Djepoen reads as a continuous shophouse street with kerbed sidewalks, and the east bridgehead sits correctly against the Singa arcade and Internatio. Remaining approximations: authored module widths/storeys/colours, blank signboards, authored rear ranges and 414 background terraces, terrace roofs reading continuous along a row, flat daylight and black shopfront glass (materials/lighting deferred to Task 5).",
+  "outputs": [
+    {
+      "path": "output/working/streets-01.blend",
+      "bytes": 10231834,
+      "sha256": "24fa5f2bc44247d01758650c3269483282f1a7b25968c847e581f461282f5e80"
+    },
+    {
+      "path": "output/working/streets-01.inventory.json",
+      "bytes": 72082,
+      "sha256": "5e7ca524fccd692bc31944b42b7adc9820c39d1e683e73325aefd716691e32ad"
+    },
+    {
+      "path": "output/renders/kembang_street_01.png",
+      "bytes": 1771282,
+      "sha256": "7ba8f563e0287aeee0e248fd5e53a71762534fe2488d1bea980f734a0572bd71"
+    },
+    {
+      "path": "output/renders/streets_01_overview.png",
+      "bytes": 2120785,
+      "sha256": "80f83773d2c2ca927a447a2b369ac925bd476b643c289fe7afbfc90dde73fcc9"
+    },
+    {
+      "path": "output/street_fabric_plan.json",
+      "bytes": 5616,
+      "sha256": "5aa44e6865dc38c37298ea820691f4adf00b688319ee0f20e1edb98e81d216e6"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/streets-01.blend",
+    "snapshot_path": "progress/checkpoints/streets-01/scene.blend",
+    "sha256": "24fa5f2bc44247d01758650c3269483282f1a7b25968c847e581f461282f5e80"
+  },
+  "state_snapshot": "progress/checkpoints/streets-01/state.json",
+  "state_sha256": "9f43e9a12faa9473002b68eb80680b959c3044f7b6d60ab6b9680c1fb8d1c260"
+}

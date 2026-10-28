@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "owner": "PALAGAN_SURABAYA_V1",
+  "texture_policy": {
+    "background_default_px": 1024,
+    "hero_optional_px": 2048
+  },
+  "render_policy": {
+    "preview_engine": "detect_and_use_EEVEE",
+    "final_engine": "EEVEE_or_tested_Cycles",
+    "neutral_light_for_verification": true
+  },
+  "authored_placeholder_values": {
+    "default_road_width_m": 10,
+    "default_footprint_height_m": 8,
+    "ground_datum_m": 0,
+    "status": "production_placeholders_not_measured_historical_values"
+  },
+  "cameras": [
+    "CAM_DISTRICT_OVERVIEW",
+    "CAM_PLAN_CHECK",
+    "CAM_BRIDGE",
+    "CAM_INTERNATIO_REFERENCE",
+    "CAM_SINGA_REFERENCE",
+    "CAM_KEMBANG_STREET"
+  ],
+  "runtime_limits": "set after actual hardware/scene benchmark, no invented universalbudget"
+}

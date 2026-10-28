@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "operation_id": "streets-02",
+  "stage": "street_fabric",
+  "created_at": "2026-10-24T03:42:38+00:00",
+  "verification": "Rebuilt the street fabric deterministically from the singa-01 checkpoint with articulated shopfronts, then re-applied the material palette (30 materials) and the lighting rig so the checkpoint carries the full look. The shopfront change replaces the single unbroken glazed panel per bay with a timber stall riser (0.14-0.92 m), a capping bead, and glazing divided by mullions into panes of about 1.15 m, with the door opening left clear so no pane fights the door leaf. Plan totals: 327 front modules plus 246 rear ranges (= 573 total module records, consistent with the streets-01 count; the earlier note had reported the combined figure as front-only). Re-rendered CAM_KEMBANG_STREET and CAM_FABRIC_OVERVIEW at 1400x900 and inspected them: the frontage now reads as a row of individual shops with framed windows, timber panels and shop doors, rather than a continuous black band. Paving, roofs, facades and the daylight gradient are carried over. Not verified in this operation: camera positions, which are the next task; CAM_BRIDGE is still occluded by this fabric.",
+  "outputs": [
+    {
+      "path": "output/working/streets-02.blend",
+      "bytes": 11688055,
+      "sha256": "c8ce5e88b3d40f9f6944aca6676956658de138c9cb9967e8f13af7f860dafd16"
+    },
+    {
+      "path": "output/working/streets-02.inventory.json",
+      "bytes": 72088,
+      "sha256": "0c9e59e265ec33c98056d6c4e8c2aeaf199ef51b7fca1af6cc61ccb5420bd11d"
+    },
+    {
+      "path": "output/renders/streets_02_kembang.png",
+      "bytes": 1511686,
+      "sha256": "998b7b908d46d79275440560f47ec5fa4efd56d91140d36dcc46aefb5c2c70b7"
+    },
+    {
+      "path": "output/renders/streets_02_overview.png",
+      "bytes": 1819153,
+      "sha256": "002d710aae73fba54e869cb3dd87fcdcb4a0c4a1b2c692c0ef12f8b2c1b56ba7"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/streets-02.blend",
+    "snapshot_path": "progress/checkpoints/streets-02/scene.blend",
+    "sha256": "c8ce5e88b3d40f9f6944aca6676956658de138c9cb9967e8f13af7f860dafd16"
+  },
+  "state_snapshot": "progress/checkpoints/streets-02/state.json",
+  "state_sha256": "c8665776e4af3bdb5a3c01da45793639e3c98f3c8b1d1c39208020302e2ea9f8"
+}

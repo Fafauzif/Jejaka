@@ -1,0 +1,787 @@
+{
+  "roads": [
+    {
+      "id": "R_HEEREN",
+      "points": [
+        [
+          -749.7,
+          243.95
+        ],
+        [
+          -464.1,
+          142.8
+        ],
+        [
+          -208.25,
+          71.4
+        ],
+        [
+          -83.3,
+          29.75
+        ],
+        [
+          -47.6,
+          0.0
+        ]
+      ],
+      "width": 16.0,
+      "detail": true,
+      "object": "PALAGAN_R_HEEREN"
+    },
+    {
+      "id": "R_KEMBANG",
+      "points": [
+        [
+          5.95,
+          0.0
+        ],
+        [
+          178.5,
+          -47.6
+        ],
+        [
+          368.9,
+          -83.3
+        ],
+        [
+          535.5,
+          -130.9
+        ],
+        [
+          749.7,
+          -188.0
+        ]
+      ],
+      "width": 11.5,
+      "detail": true,
+      "object": "PALAGAN_R_KEMBANG"
+    },
+    {
+      "id": "R_WILLEMS",
+      "points": [
+        [
+          -47.6,
+          0.0
+        ],
+        [
+          -95.2,
+          -214.2
+        ],
+        [
+          -71.4,
+          -267.75
+        ],
+        [
+          -47.6,
+          -440.3
+        ],
+        [
+          0.0,
+          -654.5
+        ],
+        [
+          30.0,
+          -749.7
+        ]
+      ],
+      "width": 10.5,
+      "detail": true,
+      "object": "PALAGAN_R_WILLEMS"
+    },
+    {
+      "id": "R_OOSTER",
+      "points": [
+        [
+          61.88,
+          749.7
+        ],
+        [
+          65.45,
+          511.7
+        ],
+        [
+          71.4,
+          273.7
+        ],
+        [
+          57.12,
+          83.3
+        ],
+        [
+          38.0,
+          34.0
+        ],
+        [
+          14.0,
+          10.0
+        ]
+      ],
+      "width": 9.5,
+      "detail": true,
+      "object": "PALAGAN_R_OOSTER"
+    },
+    {
+      "id": "R_CHINEESCHE",
+      "points": [
+        [
+          18.0,
+          -8.0
+        ],
+        [
+          57.12,
+          -35.7
+        ],
+        [
+          64.26,
+          -202.3
+        ],
+        [
+          83.3,
+          -380.8
+        ],
+        [
+          119.0,
+          -535.5
+        ],
+        [
+          142.0,
+          -690.0
+        ]
+      ],
+      "width": 8.5,
+      "detail": true,
+      "object": "PALAGAN_R_CHINEESCHE"
+    },
+    {
+      "id": "R_PARADE",
+      "points": [
+        [
+          -650.0,
+          -175.0
+        ],
+        [
+          -321.3,
+          -202.3
+        ],
+        [
+          -214.2,
+          -243.95
+        ],
+        [
+          -95.2,
+          -255.85
+        ],
+        [
+          -55.0,
+          -260.0
+        ]
+      ],
+      "width": 9.0,
+      "detail": true,
+      "object": "PALAGAN_R_PARADE"
+    },
+    {
+      "id": "R_BOOM",
+      "points": [
+        [
+          -160.0,
+          58.0
+        ],
+        [
+          -172.55,
+          59.5
+        ],
+        [
+          -214.2,
+          -83.3
+        ],
+        [
+          -232.05,
+          -232.05
+        ],
+        [
+          -236.0,
+          -270.0
+        ]
+      ],
+      "width": 8.0,
+      "detail": true,
+      "object": "PALAGAN_R_BOOM"
+    },
+    {
+      "id": "R_KALISOSOK",
+      "points": [
+        [
+          -715.0,
+          485.0
+        ],
+        [
+          -392.7,
+          440.3
+        ],
+        [
+          -238.0,
+          404.6
+        ],
+        [
+          -107.1,
+          398.65
+        ],
+        [
+          -47.6,
+          416.5
+        ]
+      ],
+      "width": 10.0,
+      "detail": true,
+      "object": "PALAGAN_R_KALISOSOK"
+    },
+    {
+      "id": "R_TJANTIAN",
+      "points": [
+        [
+          340.0,
+          -75.0
+        ],
+        [
+          368.9,
+          -83.3
+        ],
+        [
+          499.8,
+          -107.1
+        ],
+        [
+          535.5,
+          -130.9
+        ],
+        [
+          606.9,
+          -148.75
+        ],
+        [
+          749.7,
+          -205.0
+        ]
+      ],
+      "width": 8.5,
+      "detail": true,
+      "object": "PALAGAN_R_TJANTIAN"
+    },
+    {
+      "id": "R_SASAK",
+      "points": [
+        [
+          250.0,
+          355.0
+        ],
+        [
+          297.5,
+          380.8
+        ],
+        [
+          416.5,
+          428.4
+        ],
+        [
+          517.65,
+          464.1
+        ],
+        [
+          680.0,
+          520.0
+        ]
+      ],
+      "width": 8.0,
+      "detail": true,
+      "object": "PALAGAN_R_SASAK"
+    },
+    {
+      "id": "R_NIEUW_HOLLAND",
+      "points": [
+        [
+          -210.0,
+          70.0
+        ],
+        [
+          -215.0,
+          210.0
+        ],
+        [
+          -208.0,
+          400.0
+        ]
+      ],
+      "width": 7.5,
+      "detail": false,
+      "object": "PALAGAN_R_NIEUW_HOLLAND"
+    },
+    {
+      "id": "R_WERF",
+      "points": [
+        [
+          -48.0,
+          418.0
+        ],
+        [
+          -68.0,
+          260.0
+        ],
+        [
+          -78.0,
+          120.0
+        ],
+        [
+          -60.0,
+          18.0
+        ]
+      ],
+      "width": 7.0,
+      "detail": true,
+      "object": "PALAGAN_R_WERF"
+    },
+    {
+      "id": "R_RUSTENBURG",
+      "points": [
+        [
+          -640.0,
+          500.0
+        ],
+        [
+          -450.0,
+          415.0
+        ],
+        [
+          -270.0,
+          365.0
+        ]
+      ],
+      "width": 7.0,
+      "detail": false,
+      "object": "PALAGAN_R_RUSTENBURG"
+    },
+    {
+      "id": "R_PROFETEN",
+      "points": [
+        [
+          -540.0,
+          -500.0
+        ],
+        [
+          -300.0,
+          -490.0
+        ],
+        [
+          -80.0,
+          -505.0
+        ]
+      ],
+      "width": 8.0,
+      "detail": true,
+      "object": "PALAGAN_R_PROFETEN"
+    },
+    {
+      "id": "R_KALONGAN",
+      "points": [
+        [
+          -350.0,
+          -230.0
+        ],
+        [
+          -360.0,
+          -420.0
+        ],
+        [
+          -375.0,
+          -650.0
+        ]
+      ],
+      "width": 7.5,
+      "detail": false,
+      "object": "PALAGAN_R_KALONGAN"
+    },
+    {
+      "id": "R_SLOMPRETAN",
+      "points": [
+        [
+          230.0,
+          -120.0
+        ],
+        [
+          245.0,
+          -300.0
+        ],
+        [
+          255.0,
+          -520.0
+        ]
+      ],
+      "width": 7.5,
+      "detail": true,
+      "object": "PALAGAN_R_SLOMPRETAN"
+    },
+    {
+      "id": "R_BONGKARAN",
+      "points": [
+        [
+          310.0,
+          -150.0
+        ],
+        [
+          325.0,
+          -350.0
+        ],
+        [
+          340.0,
+          -600.0
+        ]
+      ],
+      "width": 7.5,
+      "detail": false,
+      "object": "PALAGAN_R_BONGKARAN"
+    },
+    {
+      "id": "R_BOENGGERAN",
+      "points": [
+        [
+          520.0,
+          -230.0
+        ],
+        [
+          540.0,
+          -450.0
+        ],
+        [
+          560.0,
+          -650.0
+        ]
+      ],
+      "width": 7.0,
+      "detail": false,
+      "object": "PALAGAN_R_BOENGGERAN"
+    },
+    {
+      "id": "R_PANGGGOENG",
+      "points": [
+        [
+          150.0,
+          35.0
+        ],
+        [
+          165.0,
+          200.0
+        ],
+        [
+          180.0,
+          380.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": true,
+      "object": "PALAGAN_R_PANGGGOENG"
+    },
+    {
+      "id": "R_TJINASTRAAT",
+      "points": [
+        [
+          300.0,
+          80.0
+        ],
+        [
+          315.0,
+          260.0
+        ],
+        [
+          330.0,
+          420.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_TJINASTRAAT"
+    },
+    {
+      "id": "R_SONGOYUDAN",
+      "points": [
+        [
+          250.0,
+          35.0
+        ],
+        [
+          270.0,
+          200.0
+        ],
+        [
+          285.0,
+          360.0
+        ]
+      ],
+      "width": 6.0,
+      "detail": false,
+      "object": "PALAGAN_R_SONGOYUDAN"
+    },
+    {
+      "id": "R_WEST_LANE1",
+      "points": [
+        [
+          -540.0,
+          300.0
+        ],
+        [
+          -400.0,
+          280.0
+        ],
+        [
+          -260.0,
+          260.0
+        ],
+        [
+          -150.0,
+          240.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_WEST_LANE1"
+    },
+    {
+      "id": "R_WEST_LANE2",
+      "points": [
+        [
+          -540.0,
+          80.0
+        ],
+        [
+          -400.0,
+          90.0
+        ],
+        [
+          -260.0,
+          100.0
+        ],
+        [
+          -150.0,
+          110.0
+        ]
+      ],
+      "width": 6.0,
+      "detail": false,
+      "object": "PALAGAN_R_WEST_LANE2"
+    },
+    {
+      "id": "R_SOUTH_LANE",
+      "points": [
+        [
+          -520.0,
+          -350.0
+        ],
+        [
+          -300.0,
+          -340.0
+        ],
+        [
+          -120.0,
+          -350.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_SOUTH_LANE"
+    },
+    {
+      "id": "R_EAST_LANE1",
+      "points": [
+        [
+          80.0,
+          -250.0
+        ],
+        [
+          200.0,
+          -260.0
+        ],
+        [
+          330.0,
+          -270.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_EAST_LANE1"
+    },
+    {
+      "id": "R_EAST_LANE2",
+      "points": [
+        [
+          80.0,
+          -420.0
+        ],
+        [
+          200.0,
+          -430.0
+        ],
+        [
+          330.0,
+          -440.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_EAST_LANE2"
+    },
+    {
+      "id": "R_WEST_NORTH",
+      "points": [
+        [
+          -650.0,
+          620.0
+        ],
+        [
+          -350.0,
+          600.0
+        ],
+        [
+          -100.0,
+          590.0
+        ],
+        [
+          -40.0,
+          580.0
+        ]
+      ],
+      "width": 6.0,
+      "detail": false,
+      "object": "PALAGAN_R_WEST_NORTH"
+    },
+    {
+      "id": "R_EAST_NORTH",
+      "points": [
+        [
+          90.0,
+          650.0
+        ],
+        [
+          250.0,
+          640.0
+        ],
+        [
+          430.0,
+          630.0
+        ]
+      ],
+      "width": 6.0,
+      "detail": false,
+      "object": "PALAGAN_R_EAST_NORTH"
+    },
+    {
+      "id": "R_WEST_SOUTH",
+      "points": [
+        [
+          -650.0,
+          -620.0
+        ],
+        [
+          -450.0,
+          -600.0
+        ],
+        [
+          -250.0,
+          -620.0
+        ],
+        [
+          -60.0,
+          -650.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_WEST_SOUTH"
+    },
+    {
+      "id": "R_EAST_SOUTH",
+      "points": [
+        [
+          200.0,
+          -700.0
+        ],
+        [
+          350.0,
+          -690.0
+        ],
+        [
+          500.0,
+          -680.0
+        ]
+      ],
+      "width": 6.5,
+      "detail": false,
+      "object": "PALAGAN_R_EAST_SOUTH"
+    }
+  ],
+  "internatio": {
+    "center": [
+      -135.0,
+      22.0
+    ],
+    "angle_deg": 161.565051177078,
+    "length": 84.0,
+    "depth": 24.0
+  },
+  "singa": {
+    "front_x": -53.0,
+    "y_range": [
+      8.0,
+      86.0
+    ],
+    "depth": 18.0
+  },
+  "exclusions": [
+    {
+      "id": "LM_INTERNATIO",
+      "center": [
+        -135.0,
+        22.0
+      ],
+      "radius": 70.0
+    },
+    {
+      "id": "LM_SINGA",
+      "center": [
+        -62.0,
+        47.0
+      ],
+      "radius": 50.0
+    },
+    {
+      "id": "F_PWD_1",
+      "center": [
+        -86.0,
+        46.0
+      ],
+      "radius": 30.0
+    },
+    {
+      "id": "F_PHONE",
+      "center": [
+        -126.0,
+        176.0
+      ],
+      "radius": 30.0
+    },
+    {
+      "id": "F_POST_7",
+      "center": [
+        -75.0,
+        -617.0
+      ],
+      "radius": 75.0
+    },
+    {
+      "id": "F_TRADING_62",
+      "center": [
+        -145.0,
+        -447.0
+      ],
+      "radius": 50.0
+    }
+  ]
+}

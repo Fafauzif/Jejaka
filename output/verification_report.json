@@ -1,0 +1,142 @@
+{
+  "filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\background-02.blend",
+  "operation": "background-02",
+  "palagan_checkpoint_at": "2026-10-24T03:56:03+00:00",
+  "checks": {
+    "missing_images": [],
+    "image_count": 13,
+    "nan_or_infinite_transforms": [],
+    "zero_scale_objects": [],
+    "mesh_objects_beyond_2000m": [],
+    "owned_meshes_without_material": []
+  },
+  "counts": {
+    "owned_objects": 134,
+    "unowned_objects": 3,
+    "unowned_names": [
+      "Camera",
+      "Cube",
+      "Light"
+    ],
+    "base_triangles": 589282,
+    "evaluated_triangles": 589282,
+    "base_vertices": 1180044,
+    "materials": 42,
+    "owned_materials": 41,
+    "cameras": 8,
+    "lights": 2,
+    "image_datablocks": 15
+  },
+  "issues": [],
+  "render": {
+    "engine": "BLENDER_EEVEE",
+    "resolution": [
+      1600,
+      1000
+    ],
+    "eevee_taa_render_samples": 64,
+    "raytracing": true,
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.15000000596046448,
+    "active_camera": "CAM_DISTRICT_OVERVIEW"
+  },
+  "cameras": {
+    "Camera": {
+      "lens_mm": 50.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        7.4,
+        -6.9,
+        5.0
+      ],
+      "purpose": null,
+      "basis": null
+    },
+    "CAM_DISTRICT_OVERVIEW": {
+      "lens_mm": 42.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        -455.0,
+        -545.0,
+        390.0
+      ],
+      "purpose": "Whole reconstructed district: readable river corridor, the core crossing and the street network.",
+      "basis": "authored review viewpoint"
+    },
+    "CAM_PLAN_CHECK": {
+      "lens_mm": 50.0,
+      "type": "ORTHO",
+      "ortho_scale": 1650.0,
+      "location": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "purpose": "Near-orthographic plan comparison against the M001 map underlay.",
+      "basis": "authored review viewpoint"
+    },
+    "CAM_BRIDGE": {
+      "lens_mm": 32.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        -58.0,
+        0.0,
+        3.4
+      ],
+      "purpose": "Deck, railings and both banks of Jembatan Merah from the west approach.",
+      "basis": "close to the L006 riverfront relationship; exact photographer position unknown"
+    },
+    "CAM_INTERNATIO_REFERENCE": {
+      "lens_mm": 34.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        -152.0,
+        138.0,
+        27.0
+      ],
+      "purpose": "Internatio facade rhythm, parapets and stepped end towers, raised to clear the near foreground massing.",
+      "basis": "approximate L004 viewpoint; the raised position differs from the source photograph and the foreground occlusion is acknowledged"
+    },
+    "CAM_SINGA_REFERENCE": {
+      "lens_mm": 45.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        -6.0,
+        110.0,
+        2.6
+      ],
+      "purpose": "Singa riverfront arcades, central gabled pavilion and roof sign frame.",
+      "basis": "approximate L007 viewpoint from across the river; exact position unknown"
+    },
+    "CAM_KEMBANG_STREET": {
+      "lens_mm": 28.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        56.8,
+        -11.1,
+        2.0
+      ],
+      "purpose": null,
+      "basis": null
+    },
+    "CAM_FABRIC_OVERVIEW": {
+      "lens_mm": 52.0,
+      "type": "PERSP",
+      "ortho_scale": null,
+      "location": [
+        -245.0,
+        -265.0,
+        155.0
+      ],
+      "purpose": null,
+      "basis": null
+    }
+  }
+}

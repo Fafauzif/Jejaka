@@ -1,0 +1,23 @@
+{
+  "cycles_devices": [
+    [
+      "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "OPTIX",
+      true
+    ],
+    [
+      "13th Gen Intel Core i7-13700HX",
+      "CPU",
+      false
+    ],
+    [
+      "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "CUDA",
+      false
+    ]
+  ],
+  "ok": true,
+  "seconds": 7.79,
+  "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\_device_test.png",
+  "bytes": 292083
+}

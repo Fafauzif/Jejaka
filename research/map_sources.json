@@ -1,0 +1,47 @@
+[
+  {
+    "source_id": "M001",
+    "title": "Java: Soerabaja, HIND1072 firstedition; revised from air photographs March1943",
+    "url": "https://commons.wikimedia.org/wiki/File:Java_Soerabaja.jpg",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Java_Soerabaja.jpg?download=1",
+    "creator": "Survey Production Centre SEA;110MapProductionCoyRE (imprint)",
+    "date": "Commons metadata1943; photo revision March1943; analogous BL record firstedition[1944]",
+    "status": "full_image_downloaded_and_visually_inspected",
+    "local_file": "references/maps/Soerabaja_1943_original.jpg",
+    "rights": "Commons source page marks UKGovernment artisticwork PublicDomain; retain attribution and source record",
+    "notes": "Original7452x10970; graphic scale used; printed denominator suspect; handtracesapproximate; no worldgeoreferencing."
+  },
+  {
+    "source_id": "M002",
+    "title": "BritishLibrary IOR/X/14499/SOERABAJA(1), HIND1072",
+    "url": "https://searcharchives.bl.uk/catalog/040-002247525",
+    "creator": "BritishLibrary catalogue",
+    "date": "[1944]",
+    "status": "catalogue_inspected_not_scan",
+    "local_file": null,
+    "rights": "External catalogue reference only",
+    "notes": "Describes actually1:15000 vsprinted1:1390 and aerialphotosMarch1943. Same mapseries not proof exactsameobject asM001."
+  },
+  {
+    "source_id": "M003",
+    "title": "NEFIS SoerabajaTown1945, AWM LIB100041895",
+    "url": "https://www.awm.gov.au/collection/LIB100041895",
+    "creator": "NEFIS / AustralianArmyTopographicalSurvey",
+    "date": "1945; information through15April1945",
+    "status": "catalogue_inspected_not_scan",
+    "local_file": null,
+    "rights": "External reference; scan not acquired",
+    "notes": "Approx1:12000, desirable crosscheck; not needed to pretend complete map acquisition."
+  },
+  {
+    "source_id": "M004",
+    "title": "USArmyMapService Soerabaja1945, AWM LIB100041881",
+    "url": "https://www.awm.gov.au/collection/LIB100041881",
+    "creator": "USArmyMapService",
+    "date": "1945 copiedfromDutch1941map",
+    "status": "catalogue_inspected_not_scan",
+    "local_file": null,
+    "rights": "External reference; scan not acquired",
+    "notes": "1:50000 contours/spotheights; no localDEM orterrainheights extracted."
+  }
+]

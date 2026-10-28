@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "operation_id": "bridge-01",
+  "stage": "lm_bridge",
+  "created_at": "2026-10-23T18:14:54+00:00",
+  "verification": "Saved bridge-01 checkpoint and inventory (63 scene objects, 60 owned, 9 bridge meshes). Re-rendered CAM_BRIDGE at 1400x900 after correcting the rail material from bright oxide red to dark iron; inspected the image against L006. Deck, camber, approach ramps, two river piers, abutments, open railings with diagonal braces, lamps and quay steps are present and readable. L006 supports a low bridge and open railings but not exact span, railing rhythm or 1945 paint; these remain recorded as reconstructed. District fabric around the bridge is intentionally still absent at this stage.",
+  "outputs": [
+    {
+      "path": "output/working/bridge-01.blend",
+      "bytes": 399930,
+      "sha256": "8c1d0d47889ae40976e97f7872f4b1f71d56a3a7773567c39d467081cc26dd0b"
+    },
+    {
+      "path": "output/working/bridge-01.inventory.json",
+      "bytes": 31331,
+      "sha256": "219837b00d507a72ae2bb6645c142318f46dfd322a4306a587e45988c72ff7ef"
+    },
+    {
+      "path": "output/renders/bridge_01.png",
+      "bytes": 1298567,
+      "sha256": "4a50adc5b56f365c8a7e30c785d78639d8a50ad4c436adb50f564f30fefbae71"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/bridge-01.blend",
+    "snapshot_path": "progress/checkpoints/bridge-01/scene.blend",
+    "sha256": "8c1d0d47889ae40976e97f7872f4b1f71d56a3a7773567c39d467081cc26dd0b"
+  },
+  "state_snapshot": "progress/checkpoints/bridge-01/state.json",
+  "state_sha256": "74a3bfb424d0170a2188fb1aba576c78ec3b4d6140d93206231db32df5b620d5"
+}

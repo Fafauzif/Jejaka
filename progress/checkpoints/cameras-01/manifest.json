@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "operation_id": "cameras-01",
+  "stage": "presentation",
+  "created_at": "2026-10-24T03:49:55+00:00",
+  "verification": "Placed the required review cameras from output/camera_setup.json with explicit position, target, lens and purpose stored on each camera object, using a look-at quaternion so the aim is unambiguous. CAM_BRIDGE was moved from the position that the new street fabric had engulfed to stand on the bridge deck at (-58,0,3.4) aimed at (16,0,1); it now shows the deck, kerbs, open railings, lamp standards and both banks. CAM_INTERNATIO_REFERENCE needed three attempts: the first two framings were blocked by background massing and then cropped the building, and it now stands at (-152,138,27) with a 34 mm lens showing the full 12-bay facade, stepped end towers and cornices with foreground blocks acknowledged as occlusion. CAM_SINGA_REFERENCE reads the arcades, central gabled pavilion and blank roof-sign frame from across the river. CAM_DISTRICT_OVERVIEW, CAM_PLAN_CHECK (orthographic, 1650 m) and CAM_KEMBANG_STREET were re-aimed and rendered. All six required views from docs/ART_DIRECTION.md were rendered at 1400x900 and inspected. Remaining issues recorded rather than hidden: the river surface reads too pale in low grazing views because the fresnel sheen mix is too strong, and the plan view shows background blocks as isolated scatter rather than continuous urban frontage.",
+  "outputs": [
+    {
+      "path": "output/working/cameras-01.blend",
+      "bytes": 11687957,
+      "sha256": "f1c8a0f3b9e5273d67b0ad6b35c4ec8e8cfa2da7fae6eed82d922de3e9bc4c07"
+    },
+    {
+      "path": "output/working/cameras-01.inventory.json",
+      "bytes": 72081,
+      "sha256": "ad995168b9317aa02d0d45fa83f17231aa3b8da3a2a77ed881c61caab0a3c1a0"
+    },
+    {
+      "path": "output/camera_setup.json",
+      "bytes": 3118,
+      "sha256": "943ae07b2f13dde4e039219edc1c4555191ead821b54c73611125965a43f6c82"
+    },
+    {
+      "path": "output/renders/cam_district_overview.png",
+      "bytes": 1890384,
+      "sha256": "cb1beac6c5679dc1a0433c352ba2acdc8f153963def7f21ee3d030acbd51893a"
+    },
+    {
+      "path": "output/renders/cam_plan_check.png",
+      "bytes": 1674502,
+      "sha256": "21479b4660d959bf312aa430905360cb27e3514b173e43a56f2f414e3d3a4113"
+    },
+    {
+      "path": "output/renders/cam_bridge.png",
+      "bytes": 1561269,
+      "sha256": "711a0d0352773bc579984a272c55561be2fdba61eb52f448bdd52f5111ee8213"
+    },
+    {
+      "path": "output/renders/cam_internatio.png",
+      "bytes": 1612783,
+      "sha256": "b26456374a468ccf859a7f9a0c71cce41b59c4325e081bc0839108b86d3424ab"
+    },
+    {
+      "path": "output/renders/cam_singa.png",
+      "bytes": 1494498,
+      "sha256": "3dcff6b84763b5287da58baedd8330819d1f84a1ed6b5f6f6486a7441af99e1a"
+    },
+    {
+      "path": "output/renders/cam_kembang.png",
+      "bytes": 1512084,
+      "sha256": "1fd8e9c74999516cfe74864140950b124d75b456f5c72347dd352a4d310c2927"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/cameras-01.blend",
+    "snapshot_path": "progress/checkpoints/cameras-01/scene.blend",
+    "sha256": "f1c8a0f3b9e5273d67b0ad6b35c4ec8e8cfa2da7fae6eed82d922de3e9bc4c07"
+  },
+  "state_snapshot": "progress/checkpoints/cameras-01/state.json",
+  "state_sha256": "6674a3057ee25c9fb24eadcb5d68b43adeb474283e0f2d60dde409f1906656e7"
+}

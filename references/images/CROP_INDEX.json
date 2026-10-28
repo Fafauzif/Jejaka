@@ -1,0 +1,54 @@
+[
+  {
+    "source_id": "L004",
+    "file": "references/images/L004_internatio_facade_crop.jpg",
+    "normalized_crop_box_ltrb": [
+      0.06,
+      0.1,
+      0.86,
+      0.68
+    ],
+    "source_file": "references/images/L004.jpg",
+    "modification": "Rectangular crop only; perspective and historical tone retained",
+    "use": "Visual proportions only, not a metric drawing"
+  },
+  {
+    "source_id": "L006",
+    "file": "references/images/L006_bridge_railings_crop.jpg",
+    "normalized_crop_box_ltrb": [
+      0.0,
+      0.43,
+      1.0,
+      1.0
+    ],
+    "source_file": "references/images/L006.jpg",
+    "modification": "Rectangular crop only; perspective and historical tone retained",
+    "use": "Visual proportions only, not a metric drawing"
+  },
+  {
+    "source_id": "L007",
+    "file": "references/images/L007_algemeene_front_crop.jpg",
+    "normalized_crop_box_ltrb": [
+      0.44,
+      0.13,
+      0.95,
+      0.84
+    ],
+    "source_file": "references/images/L007.jpg",
+    "modification": "Rectangular crop only; perspective and historical tone retained",
+    "use": "Visual proportions only, not a metric drawing"
+  },
+  {
+    "source_id": "L008",
+    "file": "references/images/L008_kembang_shophouses_crop.jpg",
+    "normalized_crop_box_ltrb": [
+      0.35,
+      0.02,
+      1.0,
+      0.78
+    ],
+    "source_file": "references/images/L008.jpg",
+    "modification": "Rectangular crop only; perspective and historical tone retained",
+    "use": "Visual proportions only, not a metric drawing"
+  }
+]

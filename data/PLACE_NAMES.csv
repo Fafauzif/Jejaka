@@ -1,0 +1,18 @@
+feature_id,feature_label,modern_alias,alias_status,source_id
+W_KALIMAS,Kali Mas,,not assigned unless independently verified,M001
+W_PEGIRIAN,"Kali Pegirian / Semampir canal, mapped segment",,not assigned unless independently verified,M001
+R_HEEREN,Heerenstraat,,not assigned unless independently verified,M001
+R_KEMBANG,Kembang Djepoen,,not assigned unless independently verified,M001
+R_WILLEMS,Willemskade,,not assigned unless independently verified,M001
+R_OOSTER,Ooster Kade Kalimas,,not assigned unless independently verified,M001
+R_CHINEESCHE,Chineesche Voorstraat,,not assigned unless independently verified,M001
+R_PARADE,Paradestraat,,not assigned unless independently verified,M001
+R_BOOM,Boomstraat,,not assigned unless independently verified,M001
+R_KALISOSOK,Kalisosok / Werfstraat segment,,not assigned unless independently verified,M001
+R_TJANTIAN,Tjantian approach,,not assigned unless independently verified,M001
+R_SASAK,Sassak approach,,not assigned unless independently verified,M001
+B_RED_CROSSING,Candidate Jembatan Merah crossing,,not assigned unless independently verified,M001
+F_PWD_1,Map index 1: P.W.D. Offices / Burg Genesk Dienst,,not assigned unless independently verified,M001
+F_PHONE,Telephone Office (map label),,not assigned unless independently verified,M001
+F_POST_7,Map index 7: Post Office,,not assigned unless independently verified,M001
+F_TRADING_62,Map index 62: Trading Company / Handels Vereeniging,,not assigned unless independently verified,M001

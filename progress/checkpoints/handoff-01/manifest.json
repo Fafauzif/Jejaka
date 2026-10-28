@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "operation_id": "handoff-01",
+  "stage": "handoff",
+  "created_at": "2026-10-24T04:02:18+00:00",
+  "verification": "Verified the final scene with verify_12_final.py: 134 owned objects plus 3 preserved baseline objects, 589,282 base and evaluated triangles, 1,180,044 vertices, 42 materials (41 owned), 8 cameras, 2 lights, 11 file-backed images with zero missing files, no NaN or infinite transforms, no zero-scale objects, no mesh objects beyond 2000 m and no material-less owned meshes. Saved output/PALAGAN_Surabaya_Master.blend with operation id handoff-01 and reopened it in Blender 5.2.2 LTS, confirming the same counts and palagan_last_operation=handoff-01. Rendered and inspected the six required views at 1600x1000 with 64 TAA samples (district overview, plan check, bridge, Internatio, Singa, Kembang). Wrote output/DELIVERY_REPORT.md with measured counts, sources per landmark and an explicit list of checks not performed: no interactive GUI inspection in this batch, no Cycles test, no whole-district grazing-angle ground-contact sweep. Noted remaining defects in the report rather than claiming a pass: the F_* bridgehead massings are windowless boxes, water still reads flat at grazing angles, and the outer corners of the district radius are open ground.",
+  "outputs": [
+    {
+      "path": "output/PALAGAN_Surabaya_Master.blend",
+      "bytes": 14707759,
+      "sha256": "7ab43b9c7292d5e808edcdb252f41d4943be427892f43d4044a9421794d08040"
+    },
+    {
+      "path": "output/PALAGAN_Surabaya_Master.inventory.json",
+      "bytes": 72087,
+      "sha256": "a14ca23ad317ce1240657d19a6a4bd26077fe4562b05ff67f2f72f2e9c15f1c2"
+    },
+    {
+      "path": "output/verification_report.json",
+      "bytes": 3723,
+      "sha256": "a2464bd7f650da1a13b90e9c944a121f9479fa9d358e681c87f6a13a4f68e5ac"
+    },
+    {
+      "path": "output/DELIVERY_REPORT.md",
+      "bytes": 8968,
+      "sha256": "9913dd85b38c9eaab9be12e247a3686f4fd5c91ea5c22fca1d530713c9a122b1"
+    },
+    {
+      "path": "output/renders/final_district_overview.png",
+      "bytes": 2553611,
+      "sha256": "57937365922882a6943eaa3036784cd0ff2bf065c18c7a6b804103d873b73eaf"
+    },
+    {
+      "path": "output/renders/final_plan_check.png",
+      "bytes": 2186781,
+      "sha256": "812a32ee6d2c0a48cc88a3a3fd6a8924bd656d8f4ade9076d5cfb64da8e52acc"
+    },
+    {
+      "path": "output/renders/final_bridge.png",
+      "bytes": 1991054,
+      "sha256": "79e8bb6f20eade9452b095be2828f1cf66e4fc57a9b1dcffbb58da2b8550c5b7"
+    },
+    {
+      "path": "output/renders/final_internatio.png",
+      "bytes": 2053102,
+      "sha256": "874c76a0871177125120785f99fff92119120989a5e78045da6359696cea6bf5"
+    },
+    {
+      "path": "output/renders/final_singa.png",
+      "bytes": 1919661,
+      "sha256": "1d35a3cf0b5877480e2fa4357281db879e93dbb8ea5d4247a9d4ea371c7f8be0"
+    },
+    {
+      "path": "output/renders/final_kembang.png",
+      "bytes": 1898292,
+      "sha256": "419622128110d875de6fdfa540ac659e5a290a46a95f8ce0f3a10e39c02372d6"
+    }
+  ],
+  "scene": {
+    "working_path": "output/PALAGAN_Surabaya_Master.blend",
+    "snapshot_path": "progress/checkpoints/handoff-01/scene.blend",
+    "sha256": "7ab43b9c7292d5e808edcdb252f41d4943be427892f43d4044a9421794d08040"
+  },
+  "state_snapshot": "progress/checkpoints/handoff-01/state.json",
+  "state_sha256": "b9e577ba7da416e4ae67f99141a8432c2b0438bbe716c38c40e6fc2b9f51eb1b"
+}

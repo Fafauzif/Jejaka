@@ -1,0 +1,189 @@
+{
+  "changed": [
+    {
+      "material": "MAT_WINDOW_DARK",
+      "family": "glass",
+      "nodes": 10
+    },
+    {
+      "material": "MAT_INTERNATIO_GLASS",
+      "family": "glass",
+      "nodes": 10
+    },
+    {
+      "material": "MAT_SINGA_GLASS",
+      "family": "glass",
+      "nodes": 10
+    },
+    {
+      "material": "MAT_STREET_INTERIOR",
+      "family": "plain",
+      "nodes": 2
+    },
+    {
+      "material": "MAT_SINGA_INTERIOR",
+      "family": "plain",
+      "nodes": 2
+    },
+    {
+      "material": "MAT_FACADE_CREAM",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_FACADE_OCHRE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_FACADE_ROSE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_FACADE_SAGE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_FACADE_PALE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_PLASTER_WHITE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_PLASTER_OCHRE",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_PLASTER_GREY",
+      "family": "facade",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_BRICK_WEATHERED",
+      "family": "brick",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_STONE",
+      "family": "stone",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_STONE_DARK",
+      "family": "stone",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_STREET_ROOF_A",
+      "family": "roof",
+      "nodes": 15
+    },
+    {
+      "material": "MAT_STREET_ROOF_B",
+      "family": "roof",
+      "nodes": 15
+    },
+    {
+      "material": "MAT_ROOF_DARK",
+      "family": "roof",
+      "nodes": 15
+    },
+    {
+      "material": "MAT_SINGA_TILE",
+      "family": "roof",
+      "nodes": 15
+    },
+    {
+      "material": "MAT_ROAD_ASPHALT",
+      "family": "asphalt",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_ROAD_SETTS",
+      "family": "setts",
+      "nodes": 15
+    },
+    {
+      "material": "MAT_GROUND_EARTH",
+      "family": "earth",
+      "nodes": 10
+    },
+    {
+      "material": "MAT_WOOD_DARK",
+      "family": "wood",
+      "nodes": 11
+    },
+    {
+      "material": "MAT_AWNING_CANVAS",
+      "family": "canvas",
+      "nodes": 8
+    },
+    {
+      "material": "MAT_AWNING_DARK",
+      "family": "canvas",
+      "nodes": 8
+    },
+    {
+      "material": "MAT_KALIMAS_WATER",
+      "family": "water",
+      "nodes": 10
+    },
+    {
+      "material": "MAT_STREET_TRIM",
+      "family": "plain",
+      "nodes": 2
+    },
+    {
+      "material": "MAT_STREET_PARTY",
+      "family": "plain",
+      "nodes": 2
+    },
+    {
+      "material": "MAT_STREET_METAL",
+      "family": "plain",
+      "nodes": 2
+    }
+  ],
+  "skipped": [
+    {
+      "material": "MAT_PLASTER_CREAM",
+      "reason": "not in scene"
+    },
+    {
+      "material": "MAT_PLASTER_SAGE",
+      "reason": "not in scene"
+    },
+    {
+      "material": "MAT_BRICK_DARK",
+      "reason": "not in scene"
+    },
+    {
+      "material": "MAT_WOOD_PALE",
+      "reason": "not in scene"
+    }
+  ],
+  "missing_images": [],
+  "eevee": {
+    "taa_render_samples": 64,
+    "use_raytracing": true,
+    "ray_tracing_method": "SCREEN",
+    "use_fast_gi": true,
+    "shadow_ray_count": 2,
+    "shadow_step_count": 8,
+    "shadow_resolution_scale": 1.0,
+    "rt.screen_trace_quality": 0.5,
+    "rt.screen_trace_thickness": 0.12,
+    "rt.trace_max_roughness": 0.55,
+    "rt.resolution_scale": "2"
+  },
+  "warnings": [],
+  "material_count": 42,
+  "image_count": 15
+}

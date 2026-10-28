@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "generated_by": "output/build_scripts/build_05_streets.py",
+  "dry_run": false,
+  "core_roads": {
+    "R_HEEREN": 380.0,
+    "R_KEMBANG": 380.0,
+    "R_WILLEMS": 330.0,
+    "R_OOSTER": 330.0,
+    "R_CHINEESCHE": 330.0,
+    "R_PARADE": 470.0,
+    "R_BOOM": 270.0,
+    "R_KALISOSOK": 560.0
+  },
+  "sidewalk_m": 3.8,
+  "module_family": [
+    "A_simple",
+    "B_balcony",
+    "C_tall_corner",
+    "D_plain"
+  ],
+  "roof_styles": [
+    "parallel",
+    "front_gable",
+    "hip",
+    "flat"
+  ],
+  "row_summaries": [
+    {
+      "road": "R_HEEREN",
+      "side": "left",
+      "run": 0,
+      "s0": 417.0,
+      "s1": 741.8,
+      "modules": 16,
+      "rear_modules": 10,
+      "skipped": {
+        "intersection": 38,
+        "back_intersection": 1,
+        "landmark": 28,
+        "bank": 2,
+        "water": 6
+      }
+    },
+    {
+      "road": "R_HEEREN",
+      "side": "right",
+      "run": 0,
+      "s0": 417.0,
+      "s1": 741.8,
+      "modules": 12,
+      "rear_modules": 9,
+      "skipped": {
+        "intersection": 19,
+        "overlap": 1,
+        "landmark": 40,
+        "bridge": 24
+      }
+    },
+    {
+      "road": "R_KEMBANG",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 371.0,
+      "modules": 36,
+      "rear_modules": 28,
+      "skipped": {
+        "bridge": 10,
+        "back_intersection": 1,
+        "overlap": 1,
+        "back_overlap": 1
+      }
+    },
+    {
+      "road": "R_KEMBANG",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 371.0,
+      "modules": 30,
+      "rear_modules": 22,
+      "skipped": {
+        "bank": 1,
+        "bridge": 12,
+        "intersection": 15,
+        "back_intersection": 1
+      }
+    },
+    {
+      "road": "R_WILLEMS",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 27,
+      "rear_modules": 18,
+      "skipped": {
+        "bridge": 9,
+        "back_bridge": 1,
+        "back_intersection": 1,
+        "intersection": 12,
+        "overlap": 4
+      }
+    },
+    {
+      "road": "R_OOSTER",
+      "side": "left",
+      "run": 0,
+      "s0": 433.0,
+      "s1": 748.9,
+      "modules": 27,
+      "rear_modules": 22,
+      "skipped": {
+        "overlap": 4,
+        "bridge": 9
+      }
+    },
+    {
+      "road": "R_CHINEESCHE",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 23,
+      "rear_modules": 14,
+      "skipped": {
+        "bridge": 5,
+        "intersection": 23,
+        "overlap": 14,
+        "back_overlap": 1,
+        "back_intersection": 1
+      }
+    },
+    {
+      "road": "R_CHINEESCHE",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 30,
+      "rear_modules": 21,
+      "skipped": {
+        "bridge": 1,
+        "overlap": 12
+      }
+    },
+    {
+      "road": "R_PARADE",
+      "side": "left",
+      "run": 0,
+      "s0": 229.0,
+      "s1": 599.8,
+      "modules": 23,
+      "rear_modules": 19,
+      "skipped": {
+        "intersection": 20,
+        "overlap": 14,
+        "bank": 1,
+        "water": 7
+      }
+    },
+    {
+      "road": "R_PARADE",
+      "side": "right",
+      "run": 0,
+      "s0": 229.0,
+      "s1": 599.8,
+      "modules": 24,
+      "rear_modules": 17,
+      "skipped": {
+        "back_intersection": 2,
+        "overlap": 14,
+        "back_overlap": 1,
+        "intersection": 20,
+        "bank": 4
+      }
+    },
+    {
+      "road": "R_BOOM",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 227.0,
+      "modules": 18,
+      "rear_modules": 14,
+      "skipped": {
+        "landmark": 22,
+        "overlap": 2,
+        "back_overlap": 1
+      }
+    },
+    {
+      "road": "R_BOOM",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 227.0,
+      "modules": 18,
+      "rear_modules": 15,
+      "skipped": {
+        "intersection": 8,
+        "overlap": 14
+      }
+    },
+    {
+      "road": "R_KALISOSOK",
+      "side": "left",
+      "run": 0,
+      "s0": 369.0,
+      "s1": 672.3,
+      "modules": 23,
+      "rear_modules": 21,
+      "skipped": {
+        "overlap": 6,
+        "back_overlap": 2
+      }
+    },
+    {
+      "road": "R_KALISOSOK",
+      "side": "right",
+      "run": 0,
+      "s0": 369.0,
+      "s1": 672.3,
+      "modules": 20,
+      "rear_modules": 16,
+      "skipped": {
+        "intersection": 12,
+        "back_intersection": 1
+      }
+    }
+  ],
+  "total_modules": 327,
+  "total_rear_modules": 246,
+  "background_blocks": 883,
+  "background_units": 1563,
+  "background_skip_reasons": {
+    "intersection": 355,
+    "overlap": 427,
+    "rear_overlap": 148,
+    "landmark": 41,
+    "rear_landmark": 4,
+    "bridge": 3,
+    "water": 146,
+    "bank": 5,
+    "rear_water": 4,
+    "rear_bank": 1,
+    "rear_intersection": 2
+  },
+  "removed_owned_objects": [],
+  "cameras": {
+    "CAM_KEMBANG_STREET": {
+      "location": [
+        56.82,
+        -11.13,
+        2.05
+      ],
+      "target": [
+        169.82874509503253,
+        -45.207929681388286,
+        5.3
+      ]
+    },
+    "CAM_FABRIC_OVERVIEW": {
+      "location": [
+        -245.0,
+        -265.0,
+        155.0
+      ],
+      "target": [
+        -40.0,
+        15.0,
+        8.0
+      ]
+    }
+  },
+  "assumption": "Rows are typological reconstructions from M001 alignments and the L008 family. Rear ranges and background blocks are authored massing for urban depth and are not a building-by-building 1945 inventory; colours and details are authored."
+}

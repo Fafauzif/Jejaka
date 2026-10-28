@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "project": "PALAGAN Surabaya Reconstruction",
+  "created_at": "2026-10-23T13:50:34+00:00",
+  "updated_at": "2026-10-23T14:26:13+00:00",
+  "current_stage": "blockout",
+  "active_operation": null,
+  "last_checkpoint": "progress/checkpoints/blockout-01/manifest.json",
+  "scene_file": "output/working/blockout-01.blend",
+  "operations": {
+    "env-01": {
+      "id": "env-01",
+      "stage": "environment",
+      "description": "Verify Blender/MCP environment, preserve baseline scene, initialise owned project scene",
+      "status": "failed",
+      "started_at": "2026-10-23T14:02:34+00:00",
+      "expected_outputs": [
+        "output/environment.json",
+        "output/backups/baseline_default_scene.blend",
+        "output/renders/environment_test.png"
+      ],
+      "before_sha256": {
+        "output/environment.json": null,
+        "output/backups/baseline_default_scene.blend": null,
+        "output/renders/environment_test.png": null
+      },
+      "failed_at": "2026-10-23T14:15:04+00:00",
+      "failure": "Environment work succeeded but the operation's expected_outputs omitted the saved scene path required by complete --scene; superseded by env-02 checkpoint, no scene damage."
+    },
+    "env-02": {
+      "id": "env-02",
+      "stage": "environment",
+      "description": "Record verified environment baseline checkpoint with declared scene output",
+      "status": "complete",
+      "started_at": "2026-10-23T14:15:04+00:00",
+      "expected_outputs": [
+        "output/environment.json",
+        "output/backups/baseline_default_scene.blend",
+        "output/renders/environment_test.png",
+        "output/working/env-02.blend",
+        "output/working/env-02.inventory.json"
+      ],
+      "before_sha256": {
+        "output/environment.json": "190e69ed95c749d8de0cc5982801c707ee7f390d09d0c6ce04fe0cc323ac6d0b",
+        "output/backups/baseline_default_scene.blend": "433ab665a4e620008cb37bcffd73b2976f062cd1e2280471827aafaffe98dcf5",
+        "output/renders/environment_test.png": "1d48dd75d5e6eecb8d414f65964e31ff60068a6450bc9a814f5feabc3232a22d",
+        "output/working/env-02.blend": null,
+        "output/working/env-02.inventory.json": null
+      },
+      "completed_at": "2026-10-23T14:16:32+00:00",
+      "verification": "Verified Blender 5.2.2 LTS, RTX 4060 OptiX device, 31.7GB RAM, 8GB VRAM via live MCP/host queries; baseline default .blend copy exists; Cube/Light/Camera preserved hidden in BASELINE_PRESERVED_DEFAULT; PALAGAN owned collection tree created; viewport OpenGL capture written and read back as an image; saved env-02 scene and inventory.",
+      "checkpoint": "progress/checkpoints/env-02/manifest.json"
+    },
+    "blockout-01": {
+      "id": "blockout-01",
+      "stage": "blockout",
+      "description": "Build M001-derived river, streets, quays, bridge massing, landmark massing and map underlay",
+      "status": "complete",
+      "started_at": "2026-10-23T14:26:13+00:00",
+      "expected_outputs": [
+        "output/working/blockout-01.blend",
+        "output/working/blockout-01.inventory.json",
+        "output/renders/blockout_overview.png",
+        "output/renders/blockout_plan_overlay.png",
+        "output/row_plan.json"
+      ],
+      "before_sha256": {
+        "output/working/blockout-01.blend": null,
+        "output/working/blockout-01.inventory.json": null,
+        "output/renders/blockout_overview.png": null,
+        "output/renders/blockout_plan_overlay.png": null,
+        "output/row_plan.json": null
+      },
+      "completed_at": "2026-10-23T17:51:54+00:00",
+      "verification": "Reopened saved scene (55 objects, 52 owned) after host restart. Compared map-only and model-only plan renders side by side; Kali Mas, bridge crossing, Heerenstraat and Kembang Djepoen are broadly aligned with M001 and not mirrored. Inspected overview: blockout intentionally sparse, landmark masses only. Corrected road contrast and replaced the unusable single-pass map overlay with a separate map/model comparison. Remaining: detailed architecture, street fabric, materials and final cameras.",
+      "checkpoint": "progress/checkpoints/blockout-01/manifest.json"
+    }
+  }
+}

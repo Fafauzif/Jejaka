@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "env-02",
+  "stage": "environment",
+  "created_at": "2026-10-23T14:16:32+00:00",
+  "verification": "Verified Blender 5.2.2 LTS, RTX 4060 OptiX device, 31.7GB RAM, 8GB VRAM via live MCP/host queries; baseline default .blend copy exists; Cube/Light/Camera preserved hidden in BASELINE_PRESERVED_DEFAULT; PALAGAN owned collection tree created; viewport OpenGL capture written and read back as an image; saved env-02 scene and inventory.",
+  "outputs": [
+    {
+      "path": "output/environment.json",
+      "bytes": 3112,
+      "sha256": "190e69ed95c749d8de0cc5982801c707ee7f390d09d0c6ce04fe0cc323ac6d0b"
+    },
+    {
+      "path": "output/backups/baseline_default_scene.blend",
+      "bytes": 97557,
+      "sha256": "433ab665a4e620008cb37bcffd73b2976f062cd1e2280471827aafaffe98dcf5"
+    },
+    {
+      "path": "output/renders/environment_test.png",
+      "bytes": 1502577,
+      "sha256": "1d48dd75d5e6eecb8d414f65964e31ff60068a6450bc9a814f5feabc3232a22d"
+    },
+    {
+      "path": "output/working/env-02.blend",
+      "bytes": 98433,
+      "sha256": "dab6bf1df9fc245220f3598862ca751f3ea044840646c4102d57651efdc07f8c"
+    },
+    {
+      "path": "output/working/env-02.inventory.json",
+      "bytes": 599,
+      "sha256": "bdaa247f008bed594e67522be20610f404cbb95dc2ad91a12049e465608fa59d"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/env-02.blend",
+    "snapshot_path": "progress/checkpoints/env-02/scene.blend",
+    "sha256": "dab6bf1df9fc245220f3598862ca751f3ea044840646c4102d57651efdc07f8c"
+  },
+  "state_snapshot": "progress/checkpoints/env-02/state.json",
+  "state_sha256": "4faa9caaec4c48d085316d87bb73ceef116cd2ea4d6d2b77cfc2c8f362beb67e"
+}

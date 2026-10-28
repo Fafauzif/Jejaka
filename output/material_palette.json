@@ -1,0 +1,463 @@
+{
+  "schema": "palagan.material_palette.v1",
+  "operation": "materials-01",
+  "notes": "Authored appearance choices for review under neutral daylight. B&W 1945 photographs establish tonal relationships, not exact paint hues. Every colour here is a reconstruction assumption, not a documented paint sample. Texture sets are CC0 production resources (A001-A004) and are not historical evidence.",
+  "evidence_status": "reconstructed",
+  "texture_sets": {
+    "plaster": {
+      "asset_id": "MAT_GREY_PLASTER",
+      "diffuse": "assets/materials/grey_plaster/grey_plaster_diff_1k.jpg",
+      "rough": "assets/materials/grey_plaster/grey_plaster_rough_1k.jpg",
+      "normal": "assets/materials/grey_plaster/grey_plaster_nor_gl_1k.jpg"
+    },
+    "brick": {
+      "asset_id": "MAT_BRICK_WALL_001",
+      "diffuse": "assets/materials/brick_wall_001/brick_wall_001_diffuse_1k.jpg",
+      "rough": "assets/materials/brick_wall_001/brick_wall_001_rough_1k.jpg",
+      "normal": "assets/materials/brick_wall_001/brick_wall_001_nor_gl_1k.jpg"
+    },
+    "roof_tiles": {
+      "asset_id": "MAT_CLAY_ROOF_TILES",
+      "diffuse": "assets/materials/clay_roof_tiles/clay_roof_tiles_diff_1k.jpg",
+      "rough": "assets/materials/clay_roof_tiles/clay_roof_tiles_rough_1k.jpg",
+      "normal": "assets/materials/clay_roof_tiles/clay_roof_tiles_nor_gl_1k.jpg"
+    },
+    "wood": {
+      "asset_id": "MAT_DARK_WOODEN_PLANKS",
+      "diffuse": "assets/materials/dark_wooden_planks/dark_wooden_planks_diff_1k.jpg",
+      "rough": "assets/materials/dark_wooden_planks/dark_wooden_planks_rough_1k.jpg",
+      "normal": "assets/materials/dark_wooden_planks/dark_wooden_planks_nor_gl_1k.jpg"
+    }
+  },
+  "uv_metres": {
+    "comment": "uv_repeat is repeats per metre, so one texture tile spans 1/uv_repeat metres. Set from a defensible feature where possible, otherwise recorded as an artistic approximation.",
+    "plaster_wall": {
+      "uv_repeat": 0.3,
+      "basis": "artistic approximation; the plaster texture has no asserted physical scale in the catalogue"
+    },
+    "brick_wall": {
+      "uv_repeat": 0.42,
+      "basis": "approximation for a brick bond of roughly 0.2 x 0.06 m"
+    },
+    "clay_roof": {
+      "uv_repeat": 0.18,
+      "basis": "artistic approximation chosen so a terrace roof shows few whole repeats; courses then read near 0.3 m"
+    },
+    "timber": {
+      "uv_repeat": 0.5,
+      "basis": "approximation; board direction follows geometry UVs"
+    },
+    "setts_paving": {
+      "uv_repeat": 0.85,
+      "basis": "approximation: ~1.2 m per texture tile so setts read at roughly 7-10 cm, not as rubble"
+    }
+  },
+  "materials": {
+    "MAT_WINDOW_DARK": {
+      "family": "glass",
+      "base": [
+        0.048,
+        0.055,
+        0.06
+      ],
+      "sheen": [
+        0.44,
+        0.49,
+        0.54
+      ],
+      "roughness": 0.06,
+      "fresnel_edge": 0.32,
+      "variation": 0.3,
+      "note": "Period shopfront glazing: reflective sheen instead of a flat black void. Opaque, so the interior box reads as depth rather than a hole."
+    },
+    "MAT_INTERNATIO_GLASS": {
+      "family": "glass",
+      "base": [
+        0.085,
+        0.095,
+        0.1
+      ],
+      "sheen": [
+        0.46,
+        0.51,
+        0.56
+      ],
+      "roughness": 0.1,
+      "fresnel_edge": 0.3,
+      "variation": 0.18
+    },
+    "MAT_SINGA_GLASS": {
+      "family": "glass",
+      "base": [
+        0.07,
+        0.078,
+        0.082
+      ],
+      "sheen": [
+        0.42,
+        0.47,
+        0.52
+      ],
+      "roughness": 0.09,
+      "fresnel_edge": 0.3,
+      "variation": 0.22
+    },
+    "MAT_STREET_INTERIOR": {
+      "family": "plain",
+      "base": [
+        0.105,
+        0.095,
+        0.082
+      ],
+      "roughness": 0.92,
+      "note": "Lit shop interior plane behind the glazing."
+    },
+    "MAT_SINGA_INTERIOR": {
+      "family": "plain",
+      "base": [
+        0.09,
+        0.085,
+        0.075
+      ],
+      "roughness": 0.93
+    },
+    "MAT_FACADE_CREAM": {
+      "family": "facade",
+      "tint": [
+        1.02,
+        0.94,
+        0.75
+      ],
+      "roughness": 0.9,
+      "saturation": 0.45,
+      "normal_strength": 0.2
+    },
+    "MAT_FACADE_OCHRE": {
+      "family": "facade",
+      "tint": [
+        0.96,
+        0.8,
+        0.55
+      ],
+      "roughness": 0.91,
+      "saturation": 0.45,
+      "normal_strength": 0.22
+    },
+    "MAT_FACADE_ROSE": {
+      "family": "facade",
+      "tint": [
+        0.94,
+        0.79,
+        0.74
+      ],
+      "roughness": 0.91,
+      "saturation": 0.45,
+      "normal_strength": 0.2
+    },
+    "MAT_FACADE_SAGE": {
+      "family": "facade",
+      "tint": [
+        0.79,
+        0.85,
+        0.72
+      ],
+      "roughness": 0.91,
+      "saturation": 0.45,
+      "normal_strength": 0.2
+    },
+    "MAT_FACADE_PALE": {
+      "family": "facade",
+      "tint": [
+        0.92,
+        0.93,
+        0.89
+      ],
+      "roughness": 0.9,
+      "saturation": 0.4,
+      "normal_strength": 0.2
+    },
+    "MAT_PLASTER_CREAM": {
+      "family": "facade",
+      "tint": [
+        1.02,
+        0.94,
+        0.75
+      ],
+      "roughness": 0.9,
+      "saturation": 0.45,
+      "normal_strength": 0.2
+    },
+    "MAT_PLASTER_WHITE": {
+      "family": "facade",
+      "tint": [
+        1.02,
+        1.0,
+        0.95
+      ],
+      "roughness": 0.88,
+      "saturation": 0.3,
+      "normal_strength": 0.18
+    },
+    "MAT_PLASTER_OCHRE": {
+      "family": "facade",
+      "tint": [
+        0.96,
+        0.8,
+        0.55
+      ],
+      "roughness": 0.91,
+      "saturation": 0.45,
+      "normal_strength": 0.22
+    },
+    "MAT_PLASTER_GREY": {
+      "family": "facade",
+      "tint": [
+        0.86,
+        0.86,
+        0.83
+      ],
+      "roughness": 0.91,
+      "saturation": 0.35,
+      "normal_strength": 0.22
+    },
+    "MAT_PLASTER_SAGE": {
+      "family": "facade",
+      "tint": [
+        0.79,
+        0.85,
+        0.72
+      ],
+      "roughness": 0.91,
+      "saturation": 0.45,
+      "normal_strength": 0.2
+    },
+    "MAT_BRICK_WEATHERED": {
+      "family": "brick",
+      "tint": [
+        0.98,
+        0.84,
+        0.74
+      ],
+      "roughness": 0.89,
+      "saturation": 0.7,
+      "normal_strength": 0.35
+    },
+    "MAT_BRICK_DARK": {
+      "family": "brick",
+      "tint": [
+        0.72,
+        0.64,
+        0.58
+      ],
+      "roughness": 0.91,
+      "saturation": 0.65,
+      "normal_strength": 0.35
+    },
+    "MAT_STONE": {
+      "family": "stone",
+      "tint": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "roughness": 0.88,
+      "saturation": 0.25,
+      "normal_strength": 0.28
+    },
+    "MAT_STONE_DARK": {
+      "family": "stone",
+      "tint": [
+        0.64,
+        0.64,
+        0.6
+      ],
+      "roughness": 0.92,
+      "saturation": 0.22,
+      "normal_strength": 0.26
+    },
+    "MAT_STREET_ROOF_A": {
+      "family": "roof",
+      "tint": [
+        1.02,
+        0.86,
+        0.74
+      ],
+      "roughness": 0.88,
+      "saturation": 0.9,
+      "normal_strength": 0.3,
+      "mottle": 0.2
+    },
+    "MAT_STREET_ROOF_B": {
+      "family": "roof",
+      "tint": [
+        0.78,
+        0.74,
+        0.69
+      ],
+      "roughness": 0.92,
+      "saturation": 0.7,
+      "normal_strength": 0.26,
+      "mottle": 0.24
+    },
+    "MAT_ROOF_DARK": {
+      "family": "roof",
+      "tint": [
+        0.74,
+        0.7,
+        0.64
+      ],
+      "roughness": 0.9,
+      "saturation": 0.7,
+      "normal_strength": 0.28,
+      "mottle": 0.22
+    },
+    "MAT_SINGA_TILE": {
+      "family": "roof",
+      "tint": [
+        0.9,
+        0.78,
+        0.68
+      ],
+      "roughness": 0.9,
+      "saturation": 0.85,
+      "normal_strength": 0.28,
+      "mottle": 0.18
+    },
+    "MAT_ROAD_ASPHALT": {
+      "family": "asphalt",
+      "base": [
+        0.115,
+        0.11,
+        0.101
+      ],
+      "roughness": 0.9,
+      "aggregate": 0.3
+    },
+    "MAT_ROAD_SETTS": {
+      "family": "setts",
+      "tint": [
+        0.95,
+        0.93,
+        0.88
+      ],
+      "roughness": 0.88,
+      "saturation": 0.1
+    },
+    "MAT_GROUND_EARTH": {
+      "family": "earth",
+      "base": [
+        0.3,
+        0.285,
+        0.245
+      ],
+      "green": [
+        0.235,
+        0.262,
+        0.185
+      ],
+      "roughness": 0.95
+    },
+    "MAT_WOOD_DARK": {
+      "family": "wood",
+      "tint": [
+        0.74,
+        0.6,
+        0.47
+      ],
+      "roughness": 0.78,
+      "saturation": 0.8,
+      "normal_strength": 0.28
+    },
+    "MAT_WOOD_PALE": {
+      "family": "wood",
+      "tint": [
+        1.3,
+        1.12,
+        0.88
+      ],
+      "roughness": 0.82,
+      "saturation": 0.85,
+      "normal_strength": 0.28
+    },
+    "MAT_AWNING_CANVAS": {
+      "family": "canvas",
+      "base": [
+        0.545,
+        0.49,
+        0.375
+      ],
+      "roughness": 0.94
+    },
+    "MAT_AWNING_DARK": {
+      "family": "canvas",
+      "base": [
+        0.24,
+        0.22,
+        0.185
+      ],
+      "roughness": 0.95
+    },
+    "MAT_KALIMAS_WATER": {
+      "family": "water",
+      "base": [
+        0.04,
+        0.062,
+        0.057
+      ],
+      "sheen": [
+        0.2,
+        0.23,
+        0.235
+      ],
+      "roughness": 0.2,
+      "note": "Silty Kali Mas water: grey-green, not tropical blue.",
+      "fresnel_edge": 0.8,
+      "ripple_strength": 0.45,
+      "ripple_distance": 0.55
+    },
+    "MAT_STREET_TRIM": {
+      "family": "plain",
+      "base": [
+        0.7,
+        0.675,
+        0.6
+      ],
+      "roughness": 0.88
+    },
+    "MAT_STREET_PARTY": {
+      "family": "plain",
+      "base": [
+        0.43,
+        0.4,
+        0.345
+      ],
+      "roughness": 0.94
+    },
+    "MAT_STREET_METAL": {
+      "family": "plain",
+      "base": [
+        0.07,
+        0.068,
+        0.062
+      ],
+      "roughness": 0.52,
+      "metallic": 0.6
+    }
+  },
+  "eevee": {
+    "taa_render_samples": 64,
+    "use_raytracing": true,
+    "ray_tracing_method": "SCREEN",
+    "use_fast_gi": true,
+    "shadow_ray_count": 2,
+    "shadow_step_count": 8,
+    "shadow_resolution_scale": 1.0,
+    "comment": "Raytracing is enabled for glazing sheen and contact shading. Resource behaviour must be measured on the actual laptop, not assumed."
+  },
+  "eevee_ray_tracing_options": {
+    "screen_trace_quality": 0.5,
+    "screen_trace_thickness": 0.12,
+    "trace_max_roughness": 0.55,
+    "resolution_scale": "2"
+  }
+}

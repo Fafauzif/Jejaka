@@ -1,0 +1,1204 @@
+{
+  "schema_version": "1.0",
+  "title": "PALAGAN local cartographic blockout seed",
+  "target_period": "Surabaya, November 1945; architectural base uses earlier cartography",
+  "status": "usable coarse local tracing; NOT world-georeferenced; NOT finished building footprints",
+  "source_map": {
+    "source_id": "M001",
+    "path": "references/maps/Soerabaja_1943_original.jpg",
+    "width_px": 7452,
+    "height_px": 10970,
+    "sha256": "3cc62f945bac6e82772fdd3b0bd52df256d1fdc61d4004e27f9a2cab9ae1e36a",
+    "crop_box_original_pixels": [
+      2460,
+      3700,
+      3720,
+      4960
+    ],
+    "source_pixel_origin": "top-left; u right, v down"
+  },
+  "coordinate_system": {
+    "type": "LOCAL_CARTOGRAPHIC_METRIC_APPROXIMATION",
+    "epsg": null,
+    "origin_original_pixel": [
+      3090,
+      4330
+    ],
+    "meters_per_pixel": 1.19,
+    "x_axis": "image right / approximate east",
+    "y_axis": "image up / approximate north",
+    "z_axis": "up",
+    "formula": "X=(u-3090)*1.19; Y=(4330-v)*1.19; Z independently authored",
+    "scale_basis": "graphical 0\u20131000 metre scale visually measured near u=5358..6198 in original image; rounded to1.19m/px",
+    "limitations": "Photographed paper map has skew and local distortion. Approximate printed denominator1:1390 conflicts with BritishLibrary catalogue1:15000. No EPSG or survey accuracy claimed. Graphic scale is the working basis."
+  },
+  "extent": {
+    "width_m": 1499.4,
+    "height_m": 1499.4,
+    "original_pixel_box": [
+      2460,
+      3700,
+      3720,
+      4960
+    ]
+  },
+  "height_policy": {
+    "ground_z_m": 0,
+    "datum": "arbitrary scene datum",
+    "terrain": "flat base first; no period terrain heights established",
+    "building_heights": "null means unsupported. Authored visual estimate permitted only with palagan_assumption metadata and asset brief."
+  },
+  "features": [
+    {
+      "feature_id": "W_KALIMAS",
+      "kind": "water_polygon",
+      "label": "Kali Mas",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3074,
+          3700
+        ],
+        [
+          3076,
+          3850
+        ],
+        [
+          3080,
+          4000
+        ],
+        [
+          3085,
+          4130
+        ],
+        [
+          3074,
+          4225
+        ],
+        [
+          3050,
+          4330
+        ],
+        [
+          3038,
+          4430
+        ],
+        [
+          3030,
+          4510
+        ],
+        [
+          3042,
+          4570
+        ],
+        [
+          3052,
+          4670
+        ],
+        [
+          3070,
+          4790
+        ],
+        [
+          3100,
+          4865
+        ],
+        [
+          3210,
+          4920
+        ],
+        [
+          3350,
+          4950
+        ],
+        [
+          3400,
+          4960
+        ],
+        [
+          3450,
+          4960
+        ],
+        [
+          3410,
+          4900
+        ],
+        [
+          3310,
+          4880
+        ],
+        [
+          3190,
+          4840
+        ],
+        [
+          3160,
+          4770
+        ],
+        [
+          3130,
+          4650
+        ],
+        [
+          3090,
+          4540
+        ],
+        [
+          3085,
+          4430
+        ],
+        [
+          3095,
+          4330
+        ],
+        [
+          3125,
+          4240
+        ],
+        [
+          3140,
+          4140
+        ],
+        [
+          3133,
+          4010
+        ],
+        [
+          3130,
+          3860
+        ],
+        [
+          3125,
+          3700
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -19.04,
+          749.7
+        ],
+        [
+          -16.66,
+          571.2
+        ],
+        [
+          -11.9,
+          392.7
+        ],
+        [
+          -5.95,
+          238.0
+        ],
+        [
+          -19.04,
+          124.95
+        ],
+        [
+          -47.6,
+          0.0
+        ],
+        [
+          -61.88,
+          -119.0
+        ],
+        [
+          -71.4,
+          -214.2
+        ],
+        [
+          -57.12,
+          -285.6
+        ],
+        [
+          -45.22,
+          -404.6
+        ],
+        [
+          -23.8,
+          -547.4
+        ],
+        [
+          11.9,
+          -636.65
+        ],
+        [
+          142.8,
+          -702.1
+        ],
+        [
+          309.4,
+          -737.8
+        ],
+        [
+          368.9,
+          -749.7
+        ],
+        [
+          428.4,
+          -749.7
+        ],
+        [
+          380.8,
+          -678.3
+        ],
+        [
+          261.8,
+          -654.5
+        ],
+        [
+          119.0,
+          -606.9
+        ],
+        [
+          83.3,
+          -523.6
+        ],
+        [
+          47.6,
+          -380.8
+        ],
+        [
+          0.0,
+          -249.9
+        ],
+        [
+          -5.95,
+          -119.0
+        ],
+        [
+          5.95,
+          0.0
+        ],
+        [
+          41.65,
+          107.1
+        ],
+        [
+          59.5,
+          226.1
+        ],
+        [
+          51.17,
+          380.8
+        ],
+        [
+          47.6,
+          559.3
+        ],
+        [
+          41.65,
+          749.7
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "notes": "Water continuity under bridge is inferred. Banks simplified around text occlusion. Level is an authored scene datum, not known historical stage."
+    },
+    {
+      "feature_id": "W_PEGIRIAN",
+      "kind": "water_polygon",
+      "label": "Kali Pegirian / Semampir canal, mapped segment",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3675,
+          3700
+        ],
+        [
+          3650,
+          3775
+        ],
+        [
+          3600,
+          3860
+        ],
+        [
+          3550,
+          3960
+        ],
+        [
+          3520,
+          4050
+        ],
+        [
+          3510,
+          4130
+        ],
+        [
+          3520,
+          4230
+        ],
+        [
+          3560,
+          4340
+        ],
+        [
+          3620,
+          4460
+        ],
+        [
+          3635,
+          4450
+        ],
+        [
+          3580,
+          4330
+        ],
+        [
+          3540,
+          4225
+        ],
+        [
+          3532,
+          4130
+        ],
+        [
+          3540,
+          4050
+        ],
+        [
+          3570,
+          3960
+        ],
+        [
+          3620,
+          3860
+        ],
+        [
+          3670,
+          3780
+        ],
+        [
+          3700,
+          3700
+        ]
+      ],
+      "local_xy_m": [
+        [
+          696.15,
+          749.7
+        ],
+        [
+          666.4,
+          660.45
+        ],
+        [
+          606.9,
+          559.3
+        ],
+        [
+          547.4,
+          440.3
+        ],
+        [
+          511.7,
+          333.2
+        ],
+        [
+          499.8,
+          238.0
+        ],
+        [
+          511.7,
+          119.0
+        ],
+        [
+          559.3,
+          -11.9
+        ],
+        [
+          630.7,
+          -154.7
+        ],
+        [
+          648.55,
+          -142.8
+        ],
+        [
+          583.1,
+          0.0
+        ],
+        [
+          535.5,
+          124.95
+        ],
+        [
+          525.98,
+          238.0
+        ],
+        [
+          535.5,
+          333.2
+        ],
+        [
+          571.2,
+          440.3
+        ],
+        [
+          630.7,
+          559.3
+        ],
+        [
+          690.2,
+          654.5
+        ],
+        [
+          725.9,
+          749.7
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "notes": "Only mapped segment included. Do not connect to Kali Mas with invented water geometry."
+    },
+    {
+      "feature_id": "R_HEEREN",
+      "kind": "road_centerline",
+      "label": "Heerenstraat",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2460,
+          4125
+        ],
+        [
+          2700,
+          4210
+        ],
+        [
+          2915,
+          4270
+        ],
+        [
+          3020,
+          4305
+        ],
+        [
+          3050,
+          4330
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -749.7,
+          243.95
+        ],
+        [
+          -464.1,
+          142.8
+        ],
+        [
+          -208.25,
+          71.4
+        ],
+        [
+          -83.3,
+          29.75
+        ],
+        [
+          -47.6,
+          0.0
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_KEMBANG",
+      "kind": "road_centerline",
+      "label": "Kembang Djepoen",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3095,
+          4330
+        ],
+        [
+          3240,
+          4370
+        ],
+        [
+          3400,
+          4400
+        ],
+        [
+          3540,
+          4440
+        ]
+      ],
+      "local_xy_m": [
+        [
+          5.95,
+          0.0
+        ],
+        [
+          178.5,
+          -47.6
+        ],
+        [
+          368.9,
+          -83.3
+        ],
+        [
+          535.5,
+          -130.9
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_WILLEMS",
+      "kind": "road_centerline",
+      "label": "Willemskade",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3050,
+          4330
+        ],
+        [
+          3010,
+          4510
+        ],
+        [
+          3030,
+          4555
+        ],
+        [
+          3050,
+          4700
+        ],
+        [
+          3090,
+          4880
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -47.6,
+          0.0
+        ],
+        [
+          -95.2,
+          -214.2
+        ],
+        [
+          -71.4,
+          -267.75
+        ],
+        [
+          -47.6,
+          -440.3
+        ],
+        [
+          0.0,
+          -654.5
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_OOSTER",
+      "kind": "road_centerline",
+      "label": "Ooster Kade Kalimas",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3142,
+          3700
+        ],
+        [
+          3145,
+          3900
+        ],
+        [
+          3150,
+          4100
+        ],
+        [
+          3138,
+          4260
+        ]
+      ],
+      "local_xy_m": [
+        [
+          61.88,
+          749.7
+        ],
+        [
+          65.45,
+          511.7
+        ],
+        [
+          71.4,
+          273.7
+        ],
+        [
+          57.12,
+          83.3
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_CHINEESCHE",
+      "kind": "road_centerline",
+      "label": "Chineesche Voorstraat",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3138,
+          4360
+        ],
+        [
+          3144,
+          4500
+        ],
+        [
+          3160,
+          4650
+        ],
+        [
+          3190,
+          4780
+        ]
+      ],
+      "local_xy_m": [
+        [
+          57.12,
+          -35.7
+        ],
+        [
+          64.26,
+          -202.3
+        ],
+        [
+          83.3,
+          -380.8
+        ],
+        [
+          119.0,
+          -535.5
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_PARADE",
+      "kind": "road_centerline",
+      "label": "Paradestraat",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2820,
+          4500
+        ],
+        [
+          2910,
+          4535
+        ],
+        [
+          3010,
+          4545
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -321.3,
+          -202.3
+        ],
+        [
+          -214.2,
+          -243.95
+        ],
+        [
+          -95.2,
+          -255.85
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_BOOM",
+      "kind": "road_centerline",
+      "label": "Boomstraat",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2945,
+          4280
+        ],
+        [
+          2910,
+          4400
+        ],
+        [
+          2895,
+          4525
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -172.55,
+          59.5
+        ],
+        [
+          -214.2,
+          -83.3
+        ],
+        [
+          -232.05,
+          -232.05
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_KALISOSOK",
+      "kind": "road_centerline",
+      "label": "Kalisosok / Werfstraat segment",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2760,
+          3960
+        ],
+        [
+          2890,
+          3990
+        ],
+        [
+          3000,
+          3995
+        ],
+        [
+          3050,
+          3980
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -392.7,
+          440.3
+        ],
+        [
+          -238.0,
+          404.6
+        ],
+        [
+          -107.1,
+          398.65
+        ],
+        [
+          -47.6,
+          416.5
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_TJANTIAN",
+      "kind": "road_centerline",
+      "label": "Tjantian approach",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3400,
+          4400
+        ],
+        [
+          3510,
+          4420
+        ],
+        [
+          3540,
+          4440
+        ],
+        [
+          3600,
+          4455
+        ]
+      ],
+      "local_xy_m": [
+        [
+          368.9,
+          -83.3
+        ],
+        [
+          499.8,
+          -107.1
+        ],
+        [
+          535.5,
+          -130.9
+        ],
+        [
+          606.9,
+          -148.75
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "R_SASAK",
+      "kind": "road_centerline",
+      "label": "Sassak approach",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3340,
+          4010
+        ],
+        [
+          3440,
+          3970
+        ],
+        [
+          3525,
+          3940
+        ]
+      ],
+      "local_xy_m": [
+        [
+          297.5,
+          380.8
+        ],
+        [
+          416.5,
+          428.4
+        ],
+        [
+          517.65,
+          464.1
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "width_m": null,
+      "notes": "Street corridor interpretation. Width must be measured/estimated separately; black lines with cross ticks are tram/rail symbols, not pavement edges."
+    },
+    {
+      "feature_id": "B_RED_CROSSING",
+      "kind": "bridge_axis",
+      "label": "Candidate Jembatan Merah crossing",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3050,
+          4330
+        ],
+        [
+          3095,
+          4330
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -47.6,
+          0.0
+        ],
+        [
+          5.95,
+          0.0
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "asset_id": "LM_BRIDGE",
+      "identification_status": "crossing visible; name association corroborate against L006 and municipal history",
+      "notes": "Deck endpoints approximate; cartographic width is not an engineering span or parapet design."
+    },
+    {
+      "feature_id": "F_PWD_1",
+      "kind": "mapped_footprint",
+      "label": "Map index 1: P.W.D. Offices / Burg Genesk Dienst",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          3008,
+          4276
+        ],
+        [
+          3033,
+          4282
+        ],
+        [
+          3027,
+          4305
+        ],
+        [
+          3002,
+          4300
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -97.58,
+          64.26
+        ],
+        [
+          -67.83,
+          57.12
+        ],
+        [
+          -74.97,
+          29.75
+        ],
+        [
+          -104.72,
+          35.7
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "height_m": null,
+      "notes": "Identity comes from map index. MUST NOT rename this polygon Internatio solely because nearby."
+    },
+    {
+      "feature_id": "F_PHONE",
+      "kind": "mapped_footprint",
+      "label": "Telephone Office (map label)",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2972,
+          4162
+        ],
+        [
+          3003,
+          4170
+        ],
+        [
+          2995,
+          4200
+        ],
+        [
+          2965,
+          4191
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -140.42,
+          199.92
+        ],
+        [
+          -103.53,
+          190.4
+        ],
+        [
+          -113.05,
+          154.7
+        ],
+        [
+          -148.75,
+          165.41
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "height_m": null,
+      "notes": "Simplified black silhouette; no height or exact facade established."
+    },
+    {
+      "feature_id": "F_POST_7",
+      "kind": "mapped_footprint",
+      "label": "Map index 7: Post Office",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2980,
+          4820
+        ],
+        [
+          3064,
+          4810
+        ],
+        [
+          3073,
+          4880
+        ],
+        [
+          3057,
+          4881
+        ],
+        [
+          3055,
+          4860
+        ],
+        [
+          3004,
+          4868
+        ],
+        [
+          3005,
+          4887
+        ],
+        [
+          2980,
+          4885
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -130.9,
+          -583.1
+        ],
+        [
+          -30.94,
+          -571.2
+        ],
+        [
+          -20.23,
+          -654.5
+        ],
+        [
+          -39.27,
+          -655.69
+        ],
+        [
+          -41.65,
+          -630.7
+        ],
+        [
+          -102.34,
+          -640.22
+        ],
+        [
+          -101.15,
+          -662.83
+        ],
+        [
+          -130.9,
+          -660.45
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "height_m": null,
+      "notes": "Selected cartographic outline, not full measured construction plan."
+    },
+    {
+      "feature_id": "F_TRADING_62",
+      "kind": "mapped_footprint",
+      "label": "Map index 62: Trading Company / Handels Vereeniging",
+      "source_ids": [
+        "M001"
+      ],
+      "source_pixels": [
+        [
+          2938,
+          4684
+        ],
+        [
+          2994,
+          4687
+        ],
+        [
+          3000,
+          4706
+        ],
+        [
+          2988,
+          4728
+        ],
+        [
+          2948,
+          4723
+        ]
+      ],
+      "local_xy_m": [
+        [
+          -180.88,
+          -421.26
+        ],
+        [
+          -114.24,
+          -424.83
+        ],
+        [
+          -107.1,
+          -447.44
+        ],
+        [
+          -121.38,
+          -473.62
+        ],
+        [
+          -168.98,
+          -467.67
+        ]
+      ],
+      "evidence_status": "reconstructed_from_period_cartography",
+      "accuracy": "coarse manual trace; not a survey; no georeferencing residual measured",
+      "height_m": null,
+      "notes": "No assumption that this is Internatio; retain map identity."
+    }
+  ],
+  "landmark_placement_policy": "LM_INTERNATIO and LM_SINGA need independent visual placement review. Modern route pins are locator leads, not historical centroids. Do not give guessed polygons documented status.",
+  "outside_scope": [
+    "fullbattle simulation",
+    "exact unit positions",
+    "modern skyline",
+    "date-specific damage without evidence",
+    "bridge engineering load/section design"
+  ]
+}

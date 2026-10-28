@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "operation_id": "internatio-01",
+  "stage": "lm_internatio",
+  "created_at": "2026-10-23T19:59:42+00:00",
+  "verification": "Saved and reopened-facing checkpoint with 8 Internatio objects. Corrected the provisional massing that crossed Heerenstraat, moving the front to about 4 m behind the south curb. Rebuilt 12-bay facade with tall upper windows, projecting piers, mezzanine band, cornices, small top lights, stepped end towers, reconstructed rear and roof. Facade length compressed to ~84 m (towers included) to better match L004 proportions. Signage is deliberately blank; no lettering copied or invented. Compared side-by-side with L004 crop: silhouette, 12-bay rhythm, tower caps and horizontal banding read correctly. The comparison render temporarily hid the PWD massing and coarse background to inspect the facade; both were restored in the saved .blend. Remaining limitations: flat daylight, blank ground-plane foreground, approximate dimensions and 1945 condition.",
+  "outputs": [
+    {
+      "path": "output/working/internatio-01.blend",
+      "bytes": 483231,
+      "sha256": "47381d6b37bfb4b70200978a2766aa17921599e19954ab5159311318105520c8"
+    },
+    {
+      "path": "output/working/internatio-01.inventory.json",
+      "bytes": 35597,
+      "sha256": "5e9bb43541176ac0b43a81aa426c52acd00fc26555ce809b4009983b89480618"
+    },
+    {
+      "path": "output/renders/internatio_01.png",
+      "bytes": 1418555,
+      "sha256": "bb73ad900edf74cd6ae85110a65561e5ac24ed891332bf6f8fe8104eb76d09fd"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/internatio-01.blend",
+    "snapshot_path": "progress/checkpoints/internatio-01/scene.blend",
+    "sha256": "47381d6b37bfb4b70200978a2766aa17921599e19954ab5159311318105520c8"
+  },
+  "state_snapshot": "progress/checkpoints/internatio-01/state.json",
+  "state_sha256": "471452be26a85cadc194d09e65f854885957a289836c045532ec8e3cc8e6d7b3"
+}

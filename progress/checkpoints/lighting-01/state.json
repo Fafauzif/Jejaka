@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "project": "PALAGAN Surabaya Reconstruction",
+  "created_at": "2026-10-23T13:50:34+00:00",
+  "updated_at": "2026-10-24T03:36:27+00:00",
+  "current_stage": "lighting",
+  "active_operation": null,
+  "last_checkpoint": "progress/checkpoints/lighting-01/manifest.json",
+  "scene_file": "output/working/lighting-01.blend",
+  "operations": {
+    "env-01": {
+      "id": "env-01",
+      "stage": "environment",
+      "description": "Verify Blender/MCP environment, preserve baseline scene, initialise owned project scene",
+      "status": "failed",
+      "started_at": "2026-10-23T14:02:34+00:00",
+      "expected_outputs": [
+        "output/environment.json",
+        "output/backups/baseline_default_scene.blend",
+        "output/renders/environment_test.png"
+      ],
+      "before_sha256": {
+        "output/environment.json": null,
+        "output/backups/baseline_default_scene.blend": null,
+        "output/renders/environment_test.png": null
+      },
+      "failed_at": "2026-10-23T14:15:04+00:00",
+      "failure": "Environment work succeeded but the operation's expected_outputs omitted the saved scene path required by complete --scene; superseded by env-02 checkpoint, no scene damage."
+    },
+    "env-02": {
+      "id": "env-02",
+      "stage": "environment",
+      "description": "Record verified environment baseline checkpoint with declared scene output",
+      "status": "complete",
+      "started_at": "2026-10-23T14:15:04+00:00",
+      "expected_outputs": [
+        "output/environment.json",
+        "output/backups/baseline_default_scene.blend",
+        "output/renders/environment_test.png",
+        "output/working/env-02.blend",
+        "output/working/env-02.inventory.json"
+      ],
+      "before_sha256": {
+        "output/environment.json": "190e69ed95c749d8de0cc5982801c707ee7f390d09d0c6ce04fe0cc323ac6d0b",
+        "output/backups/baseline_default_scene.blend": "433ab665a4e620008cb37bcffd73b2976f062cd1e2280471827aafaffe98dcf5",
+        "output/renders/environment_test.png": "1d48dd75d5e6eecb8d414f65964e31ff60068a6450bc9a814f5feabc3232a22d",
+        "output/working/env-02.blend": null,
+        "output/working/env-02.inventory.json": null
+      },
+      "completed_at": "2026-10-23T14:16:32+00:00",
+      "verification": "Verified Blender 5.2.2 LTS, RTX 4060 OptiX device, 31.7GB RAM, 8GB VRAM via live MCP/host queries; baseline default .blend copy exists; Cube/Light/Camera preserved hidden in BASELINE_PRESERVED_DEFAULT; PALAGAN owned collection tree created; viewport OpenGL capture written and read back as an image; saved env-02 scene and inventory.",
+      "checkpoint": "progress/checkpoints/env-02/manifest.json"
+    },
+    "blockout-01": {
+      "id": "blockout-01",
+      "stage": "blockout",
+      "description": "Build M001-derived river, streets, quays, bridge massing, landmark massing and map underlay",
+      "status": "complete",
+      "started_at": "2026-10-23T14:26:13+00:00",
+      "expected_outputs": [
+        "output/working/blockout-01.blend",
+        "output/working/blockout-01.inventory.json",
+        "output/renders/blockout_overview.png",
+        "output/renders/blockout_plan_overlay.png",
+        "output/row_plan.json"
+      ],
+      "before_sha256": {
+        "output/working/blockout-01.blend": null,
+        "output/working/blockout-01.inventory.json": null,
+        "output/renders/blockout_overview.png": null,
+        "output/renders/blockout_plan_overlay.png": null,
+        "output/row_plan.json": null
+      },
+      "completed_at": "2026-10-23T17:51:54+00:00",
+      "verification": "Reopened saved scene (55 objects, 52 owned) after host restart. Compared map-only and model-only plan renders side by side; Kali Mas, bridge crossing, Heerenstraat and Kembang Djepoen are broadly aligned with M001 and not mirrored. Inspected overview: blockout intentionally sparse, landmark masses only. Corrected road contrast and replaced the unusable single-pass map overlay with a separate map/model comparison. Remaining: detailed architecture, street fabric, materials and final cameras.",
+      "checkpoint": "progress/checkpoints/blockout-01/manifest.json"
+    },
+    "bridge-01": {
+      "id": "bridge-01",
+      "stage": "lm_bridge",
+      "description": "Replace bridge massing with detailed low three-span deck, railings, lamps, abutments and steps",
+      "status": "complete",
+      "started_at": "2026-10-23T18:03:28+00:00",
+      "expected_outputs": [
+        "output/working/bridge-01.blend",
+        "output/working/bridge-01.inventory.json",
+        "output/renders/bridge_01.png"
+      ],
+      "before_sha256": {
+        "output/working/bridge-01.blend": null,
+        "output/working/bridge-01.inventory.json": null,
+        "output/renders/bridge_01.png": null
+      },
+      "completed_at": "2026-10-23T18:14:54+00:00",
+      "verification": "Saved bridge-01 checkpoint and inventory (63 scene objects, 60 owned, 9 bridge meshes). Re-rendered CAM_BRIDGE at 1400x900 after correcting the rail material from bright oxide red to dark iron; inspected the image against L006. Deck, camber, approach ramps, two river piers, abutments, open railings with diagonal braces, lamps and quay steps are present and readable. L006 supports a low bridge and open railings but not exact span, railing rhythm or 1945 paint; these remain recorded as reconstructed. District fabric around the bridge is intentionally still absent at this stage.",
+      "checkpoint": "progress/checkpoints/bridge-01/manifest.json"
+    },
+    "internatio-01": {
+      "id": "internatio-01",
+      "stage": "lm_internatio",
+      "description": "Replace Internatio massing with detailed 12-bay facade, stepped towers, blank signage band and reconstructed roof",
+      "status": "complete",
+      "started_at": "2026-10-23T18:40:40+00:00",
+      "expected_outputs": [
+        "output/working/internatio-01.blend",
+        "output/working/internatio-01.inventory.json",
+        "output/renders/internatio_01.png"
+      ],
+      "before_sha256": {
+        "output/working/internatio-01.blend": null,
+        "output/working/internatio-01.inventory.json": null,
+        "output/renders/internatio_01.png": null
+      },
+      "completed_at": "2026-10-23T19:59:42+00:00",
+      "verification": "Saved and reopened-facing checkpoint with 8 Internatio objects. Corrected the provisional massing that crossed Heerenstraat, moving the front to about 4 m behind the south curb. Rebuilt 12-bay facade with tall upper windows, projecting piers, mezzanine band, cornices, small top lights, stepped end towers, reconstructed rear and roof. Facade length compressed to ~84 m (towers included) to better match L004 proportions. Signage is deliberately blank; no lettering copied or invented. Compared side-by-side with L004 crop: silhouette, 12-bay rhythm, tower caps and horizontal banding read correctly. The comparison render temporarily hid the PWD massing and coarse background to inspect the facade; both were restored in the saved .blend. Remaining limitations: flat daylight, blank ground-plane foreground, approximate dimensions and 1945 condition.",
+      "checkpoint": "progress/checkpoints/internatio-01/manifest.json"
+    },
+    "singa-01": {
+      "id": "singa-01",
+      "stage": "lm_singa",
+      "description": "Replace Singa massing with detailed arcaded riverfront, central gabled pavilion, veranda colonnades, tiled roofs, proxy lions and separate blank roof-sign frame",
+      "status": "complete",
+      "started_at": "2026-10-23T20:10:21+00:00",
+      "expected_outputs": [
+        "output/working/singa-01.blend",
+        "output/working/singa-01.inventory.json",
+        "output/renders/singa_01.png"
+      ],
+      "before_sha256": {
+        "output/working/singa-01.blend": null,
+        "output/working/singa-01.inventory.json": null,
+        "output/renders/singa_01.png": null
+      },
+      "completed_at": "2026-10-23T20:43:17+00:00",
+      "verification": "Saved and reopened checkpoint. 79 scene objects, 76 owned, 28178 base triangles; 8 Singa meshes. Inspected singa_01.png against L007: central gabled pavilion with 3-bay arcade, 7-bay flanking arcaded wings, upper veranda arches, hipped tiled roofs, blank roof-sign frame and proxy lions read correctly. Fixed inverted ridge-axis-y gable roof winding in palagan_build_lib.py; softened global daylight to sun 1.55, world 1.0, exposure -0.15. Temporary review exclusions of map underlay, BG coarse fabric and F_* massings were restored in the saved scene. Blank signage, proxy lions, exact dimensions and 1945 condition remain reconstructed, not documented.",
+      "checkpoint": "progress/checkpoints/singa-01/manifest.json"
+    },
+    "streets-01": {
+      "id": "streets-01",
+      "stage": "street_fabric",
+      "description": "Build core typological shophouse rows and sidewalks along eight mapped roads, add Kembang street and fabric overview cameras",
+      "status": "complete",
+      "started_at": "2026-10-23T21:02:12+00:00",
+      "expected_outputs": [
+        "output/working/streets-01.blend",
+        "output/working/streets-01.inventory.json",
+        "output/renders/kembang_street_01.png",
+        "output/renders/streets_01_overview.png",
+        "output/street_fabric_plan.json"
+      ],
+      "before_sha256": {
+        "output/working/streets-01.blend": null,
+        "output/working/streets-01.inventory.json": null,
+        "output/renders/kembang_street_01.png": null,
+        "output/renders/streets_01_overview.png": null,
+        "output/street_fabric_plan.json": null
+      },
+      "completed_at": "2026-10-23T22:36:36+00:00",
+      "verification": "Recovered the pending operation by deterministic headless rerun of the on-disk build script from the singa-01 checkpoint (GUI MCP socket had stopped executing code; singa-01.blend untouched). Reopened output/working/streets-01.blend: 137 objects (134 owned, 3 preserved baseline), 42 materials, 431258 base triangles, palagan_last_operation=streets-01. Independent footprint validation over 573 front module records found 0 river, 0 road and 0 bridge-keepout violations against the W_KALIMAS polygon, the eight mapped road ribbons and the bridge keepout; 246 rear ranges were validated at build time by the same test. Inspected EEVEE renders of CAM_KEMBANG_STREET, CAM_FABRIC_OVERVIEW, the plan camera with the M001 underlay, and bridgehead/east-approach review cameras: rows follow the mapped roads, the river corridor and bridge crossing align with the underlay, Kembang Djepoen reads as a continuous shophouse street with kerbed sidewalks, and the east bridgehead sits correctly against the Singa arcade and Internatio. Remaining approximations: authored module widths/storeys/colours, blank signboards, authored rear ranges and 414 background terraces, terrace roofs reading continuous along a row, flat daylight and black shopfront glass (materials/lighting deferred to Task 5).",
+      "checkpoint": "progress/checkpoints/streets-01/manifest.json"
+    },
+    "materials-01": {
+      "id": "materials-01",
+      "stage": "materials",
+      "description": "Rebuild owned material node trees: reflective period glazing, textured clay roofs, asphalt and sett surfaces, muted earth, water sheen; record palette; enable EEVEE raytracing quality",
+      "status": "complete",
+      "started_at": "2026-10-24T03:26:43+00:00",
+      "expected_outputs": [
+        "output/working/materials-01.blend",
+        "output/working/materials-01.inventory.json",
+        "output/material_palette.json",
+        "output/renders/materials_kembang.png",
+        "output/renders/materials_overview.png"
+      ],
+      "before_sha256": {
+        "output/working/materials-01.blend": null,
+        "output/working/materials-01.inventory.json": null,
+        "output/material_palette.json": "2d89b08a9ec6f25fbae0d7b2d9ac083f9f149d28c8a15559e1c3ea90c4d6215c",
+        "output/renders/materials_kembang.png": null,
+        "output/renders/materials_overview.png": null
+      },
+      "completed_at": "2026-10-24T03:36:13+00:00",
+      "verification": "Rebuilt 30 PALAGAN-owned material node trees from output/material_palette.json and re-rendered CAM_KEMBANG_STREET and CAM_FABRIC_OVERVIEW (1400x900, EEVEE, map underlay hidden). Inspected before/after crops of the shopfront band: glazing changed from a flat black void to a graduated blue-grey sheen (sampled RGB about 44,51,55 rising with grazing angle) and the interior plane behind it is now a lit warm grey instead of near-black. Facades were rebuilt from the shared plaster texture set with a multiply tint that keeps the texture's tonal detail; the earlier luminance-ramp version had flattened the walls to flat colour. Terrace and landmark roofs now use the clay tile diffuse/rough/normal set at a 5.5 m repeat with a low-frequency weathering multiply so the tile grid does not read as an obvious repeated pattern. Footway setts were desaturated from red brick to grey paving and rescaled from about 0.7 m to about 1.2 m per texture tile. Open ground changed from pale sand to a muted earth-green so empty land no longer reads as desert, and road aggregate/track roughness was added. EEVEE raytracing options raised (screen_trace_quality 0.5, resolution_scale 2, trace_max_roughness 0.55) and taa_render_samples 64. Defects still visible and deferred: shopfront bays remain one unbroken pane per bay because bay mullion geometry is a construction change, and daylight is still flat with no sky gradient. Four materials were skipped because they do not exist in this scene (MAT_ROOF_CLAY, MAT_SINGA_*, etc. resolved where present).",
+      "checkpoint": "progress/checkpoints/materials-01/manifest.json"
+    },
+    "lighting-01": {
+      "id": "lighting-01",
+      "stage": "lighting",
+      "description": "Replace flat world with gradient daylight sky, tighten sun disc for readable shadows, set exposure and EEVEE ambient occlusion; render three review views",
+      "status": "complete",
+      "started_at": "2026-10-24T03:36:27+00:00",
+      "expected_outputs": [
+        "output/working/lighting-01.blend",
+        "output/working/lighting-01.inventory.json",
+        "output/renders/lighting_kembang.png",
+        "output/renders/lighting_overview.png",
+        "output/renders/lighting_bridge.png"
+      ],
+      "before_sha256": {
+        "output/working/lighting-01.blend": null,
+        "output/working/lighting-01.inventory.json": null,
+        "output/renders/lighting_kembang.png": null,
+        "output/renders/lighting_overview.png": null,
+        "output/renders/lighting_bridge.png": null
+      },
+      "completed_at": "2026-10-24T03:39:04+00:00",
+      "verification": "Replaced the flat single-colour world with a four-stop vertical sky gradient (warm dust-hazed horizon to cool zenith, strength 1.25) driven by the world direction vector, and tightened the sun disc from 9.17 degrees to 2.2 degrees at 3.2 energy, 41 degrees elevation and -132 degrees azimuth, keeping the previous lighting direction. Exposure set to 0.15 with AgX Medium High Contrast and EEVEE fast GI at 6 m for ambient occlusion. Re-rendered CAM_KEMBANG_STREET, CAM_FABRIC_OVERVIEW and CAM_BRIDGE at 1400x900. Inspection: street and eave shadows are now readable instead of washed out, roof tiles catch raking light, the sky reads as a gradient rather than flat grey, and shopfront recesses stay open rather than crushing to black. One real regression found: CAM_BRIDGE no longer sees the bridge because the streets-01 shopfront rows now occupy that camera position, so the render shows a roof; camera positions are therefore deferred to the cameras task and were not silently moved inside a lighting operation. No weather, smoke, fire or battle atmosphere was added.",
+      "checkpoint": "progress/checkpoints/lighting-01/manifest.json"
+    }
+  }
+}

@@ -1,0 +1,2964 @@
+{
+  "schema_version": 1,
+  "reported_at": "2026-10-24T03:49:06+00:00",
+  "blender_version": "5.2.2 LTS",
+  "scene": "Scene",
+  "blend_filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\cameras-01.blend",
+  "project_owner": "PALAGAN_SURABAYA_V1",
+  "owned_objects": [
+    {
+      "name": "CAM_BRIDGE",
+      "type": "CAMERA",
+      "asset_id": "CAM_BRIDGE",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L006\", \"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -58.0,
+        0.0,
+        3.4
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_DISTRICT_OVERVIEW",
+      "type": "CAMERA",
+      "asset_id": "CAM_DISTRICT_OVERVIEW",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -455.0,
+        -545.0,
+        390.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_FABRIC_OVERVIEW",
+      "type": "CAMERA",
+      "asset_id": "CAM_FABRIC_OVERVIEW",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -245.0,
+        -265.0,
+        155.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_INTERNATIO_REFERENCE",
+      "type": "CAMERA",
+      "asset_id": "CAM_INTERNATIO_REFERENCE",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -152.0,
+        138.0,
+        27.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_KEMBANG_STREET",
+      "type": "CAMERA",
+      "asset_id": "CAM_KEMBANG_STREET",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        56.82222,
+        -11.12913,
+        2.05
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_PLAN_CHECK",
+      "type": "CAMERA",
+      "asset_id": "CAM_PLAN_CHECK",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_SINGA_REFERENCE",
+      "type": "CAMERA",
+      "asset_id": "CAM_SINGA_REFERENCE",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -6.0,
+        110.0,
+        2.6
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_BG_COARSE_MASSING",
+      "type": "MESH",
+      "asset_id": "BG_COARSE_FABRIC",
+      "layer": "BACKGROUND",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1382.65137,
+        1393.6687,
+        15.69361
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2850,
+      "base_faces": 750,
+      "base_triangle_estimate": 1350,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_BG_CORE_BLOCKS",
+      "type": "MESH",
+      "asset_id": "BG_CORE_BLOCKS",
+      "layer": "BACKGROUND_CORE",
+      "evidence_status": "hypothetical",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1330.04004,
+        1279.6394,
+        7.8
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 369900,
+      "base_faces": 92682,
+      "base_triangle_estimate": 184536,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_BRIDGEHEAD_APRONS",
+      "type": "MESH",
+      "asset_id": "RD_BRIDGEHEAD_APRONS",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        80.0,
+        26.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_PHONE_MASSING",
+      "type": "MESH",
+      "asset_id": "F_PHONE_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        45.22,
+        45.22,
+        12.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 22,
+      "base_faces": 6,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_POST_7_MASSING",
+      "type": "MESH",
+      "asset_id": "F_POST_7_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        110.67,
+        91.63,
+        13.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 50,
+      "base_faces": 14,
+      "base_triangle_estimate": 22,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_PWD_1_MASSING",
+      "type": "MESH",
+      "asset_id": "F_PWD_1_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.89,
+        34.51,
+        14.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 22,
+      "base_faces": 6,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_TRADING_62_MASSING",
+      "type": "MESH",
+      "asset_id": "F_TRADING_62_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        73.78001,
+        52.35999,
+        10.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 29,
+      "base_faces": 8,
+      "base_triangle_estimate": 13,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_KALIMAS_BED",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_BED",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 81,
+      "base_faces": 27,
+      "base_triangle_estimate": 27,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_KALIMAS_WATER",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_WATER",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 81,
+      "base_faces": 27,
+      "base_triangle_estimate": 27,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LAND_EAST",
+      "type": "MESH",
+      "asset_id": "GND_LAND_EAST",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        755.65002,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 42,
+      "base_faces": 14,
+      "base_triangle_estimate": 14,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LAND_WEST",
+      "type": "MESH",
+      "asset_id": "GND_LAND_WEST",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1118.59998,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 45,
+      "base_faces": 15,
+      "base_triangle_estimate": 15,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_DECK",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_DECK",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        78.0,
+        13.2,
+        0.22
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 768,
+      "base_faces": 192,
+      "base_triangle_estimate": 384,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_FASCIA",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_FASCIA",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        78.0,
+        13.3,
+        1.07
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 768,
+      "base_faces": 192,
+      "base_triangle_estimate": 384,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_KERBS",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_KERBS",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        78.02,
+        13.2,
+        0.33257
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2304,
+      "base_faces": 576,
+      "base_triangle_estimate": 1152,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_LAMPS",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_LAMPS",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L006\"]",
+      "dimensions_m": [
+        52.48,
+        12.58,
+        3.61758
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 834,
+      "base_faces": 414,
+      "base_triangle_estimate": 1062,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_RAILINGS",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_RAILINGS",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L006\"]",
+      "dimensions_m": [
+        78.26,
+        12.98,
+        1.41984
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 11904,
+      "base_faces": 2976,
+      "base_triangle_estimate": 5952,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_RAMPS",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_RAMPS",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        128.0,
+        13.9,
+        0.42
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 80,
+      "base_faces": 20,
+      "base_triangle_estimate": 40,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_STEPS",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_STEPS",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L006\"]",
+      "dimensions_m": [
+        66.0,
+        33.4,
+        1.36
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 240,
+      "base_faces": 60,
+      "base_triangle_estimate": 120,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_STRUCTURE",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_STRUCTURE",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        101.0,
+        26.0,
+        3.95
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 248,
+      "base_faces": 64,
+      "base_triangle_estimate": 120,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_TRAM",
+      "type": "MESH",
+      "asset_id": "TRAM_RAILS_BRIDGE",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\", \"L006\"]",
+      "dimensions_m": [
+        78.0,
+        1.53,
+        0.22
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 384,
+      "base_faces": 96,
+      "base_triangle_estimate": 192,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_BODY",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_BODY",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L002\", \"L004\"]",
+      "dimensions_m": [
+        84.0,
+        25.0,
+        24.2
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 72,
+      "base_faces": 18,
+      "base_triangle_estimate": 36,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_FACADE",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_FACADE",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        84.0875,
+        3.15,
+        21.75
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 3912,
+      "base_faces": 978,
+      "base_triangle_estimate": 1956,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_GROUND",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_GROUND",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        77.35,
+        2.75,
+        6.6
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 3840,
+      "base_faces": 960,
+      "base_triangle_estimate": 1920,
+      "material_slots": 6
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_PARAPETS",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_PARAPETS",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        84.35,
+        20.2,
+        6.5
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 240,
+      "base_faces": 60,
+      "base_triangle_estimate": 120,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_REAR",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_REAR",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\", \"L005\"]",
+      "dimensions_m": [
+        59.71,
+        0.275,
+        21.2
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 2768,
+      "base_faces": 722,
+      "base_triangle_estimate": 1484,
+      "material_slots": 4
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_ROOF",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_ROOF",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        62.3875,
+        21.9,
+        1.6
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 112,
+      "base_faces": 28,
+      "base_triangle_estimate": 56,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_SIGNAGE_BAND",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_SIGNAGE_BAND",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        63.0,
+        0.44,
+        1.3
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 192,
+      "base_faces": 48,
+      "base_triangle_estimate": 96,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_WINDOWS",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_WINDOWS",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\"]",
+      "dimensions_m": [
+        84.21,
+        15.72,
+        18.55
+      ],
+      "location_scene_units": [
+        -135.0,
+        22.0,
+        0.0
+      ],
+      "base_vertices": 3384,
+      "base_faces": 846,
+      "base_triangle_estimate": 1692,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_ARCADES",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_ARCADES",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        78.5,
+        2.89,
+        10.2
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 8864,
+      "base_faces": 2216,
+      "base_triangle_estimate": 4432,
+      "material_slots": 4
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_CENTRAL",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_CENTRAL",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        13.2,
+        21.5,
+        14.05
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 2088,
+      "base_faces": 522,
+      "base_triangle_estimate": 1044,
+      "material_slots": 4
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_JOINERY",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_JOINERY",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        75.95715,
+        4.47,
+        19.04476
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 2160,
+      "base_faces": 540,
+      "base_triangle_estimate": 1080,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_LIONS",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_LIONS",
+      "layer": "LM_SINGA",
+      "evidence_status": "hypothetical",
+      "source_ids_json": "[\"L003\"]",
+      "dimensions_m": [
+        11.1,
+        1.68,
+        2.25
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 504,
+      "base_faces": 128,
+      "base_triangle_estimate": 248,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_REAR",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_REAR",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        78.94,
+        12.97,
+        8.69
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 4800,
+      "base_faces": 1200,
+      "base_triangle_estimate": 2400,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_ROOFS",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_ROOFS",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        80.9,
+        22.15,
+        9.55
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 118,
+      "base_faces": 30,
+      "base_triangle_estimate": 58,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_ROOF_SIGN",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_ROOF_SIGN",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L007\"]",
+      "dimensions_m": [
+        13.86,
+        0.36,
+        7.2
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 304,
+      "base_faces": 88,
+      "base_triangle_estimate": 192,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_WINGS",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_WINGS",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L003\", \"L007\"]",
+      "dimensions_m": [
+        78.7,
+        18.15,
+        10.65
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 192,
+      "base_faces": 48,
+      "base_triangle_estimate": 96,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_MAP_UNDERLAY",
+      "type": "MESH",
+      "asset_id": "REF_MAP_UNDERLAY",
+      "layer": "MAP_REFERENCE",
+      "evidence_status": "documented",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1499.40002,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 4,
+      "base_faces": 1,
+      "base_triangle_estimate": 2,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_ORIGIN_BRIDGE",
+      "type": "EMPTY",
+      "asset_id": "REF_ORIGIN_BRIDGE",
+      "layer": "MAP_REFERENCE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_QUAY_COPING",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_COPING",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        500.71542,
+        1499.90601,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 108,
+      "base_faces": 27,
+      "base_triangle_estimate": 54,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_QUAY_WALLS",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_QUAY",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        2.26
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 216,
+      "base_faces": 54,
+      "base_triangle_estimate": 108,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_R_BOENGGERAN",
+      "type": "MESH",
+      "asset_id": "R_BOENGGERAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        46.9682,
+        420.66516,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_BONGKARAN",
+      "type": "MESH",
+      "asset_id": "R_BONGKARAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        37.48276,
+        450.50507,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_BOOM",
+      "type": "MESH",
+      "asset_id": "R_BOOM",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        80.45322,
+        333.2511,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_CHINEESCHE",
+      "type": "MESH",
+      "asset_id": "R_CHINEESCHE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        130.65965,
+        686.0943,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_LANE1",
+      "type": "MESH",
+      "asset_id": "R_EAST_LANE1",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        250.51917,
+        26.47919,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_LANE2",
+      "type": "MESH",
+      "asset_id": "R_EAST_LANE2",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        250.51917,
+        26.47919,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_NORTH",
+      "type": "MESH",
+      "asset_id": "R_EAST_NORTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        340.35355,
+        25.9895,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_SOUTH",
+      "type": "MESH",
+      "asset_id": "R_EAST_SOUTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        300.43237,
+        26.4856,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_HEEREN",
+      "type": "MESH",
+      "asset_id": "R_HEEREN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        709.89227,
+        257.63678,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KALISOSOK",
+      "type": "MESH",
+      "asset_id": "R_KALISOSOK",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        669.52362,
+        96.26483,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KALONGAN",
+      "type": "MESH",
+      "asset_id": "R_KALONGAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        32.48688,
+        420.4411,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KEMBANG",
+      "type": "MESH",
+      "asset_id": "R_KEMBANG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        746.76019,
+        199.09894,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_NIEUW_HOLLAND",
+      "type": "MESH",
+      "asset_id": "R_NIEUW_HOLLAND",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        14.49745,
+        330.27191,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_OOSTER",
+      "type": "MESH",
+      "asset_id": "R_OOSTER",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        65.50728,
+        743.13,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PANGGGOENG",
+      "type": "MESH",
+      "asset_id": "R_PANGGGOENG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.47542,
+        345.56415,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PARADE",
+      "type": "MESH",
+      "asset_id": "R_PARADE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        595.83453,
+        93.96075,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PROFETEN",
+      "type": "MESH",
+      "asset_id": "R_PROFETEN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        460.4386,
+        22.99039,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_RUSTENBURG",
+      "type": "MESH",
+      "asset_id": "R_RUSTENBURG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        372.36603,
+        141.56717,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SASAK",
+      "type": "MESH",
+      "asset_id": "R_SASAK",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        433.21143,
+        172.29709,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SLOMPRETAN",
+      "type": "MESH",
+      "asset_id": "R_SLOMPRETAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        32.48317,
+        400.48172,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SONGOYUDAN",
+      "type": "MESH",
+      "asset_id": "R_SONGOYUDAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        40.9651,
+        325.64102,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SOUTH_LANE",
+      "type": "MESH",
+      "asset_id": "R_SOUTH_LANE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        400.32785,
+        16.49661,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_TJANTIAN",
+      "type": "MESH",
+      "asset_id": "R_TJANTIAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        412.43079,
+        138.03915,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_TJINASTRAAT",
+      "type": "MESH",
+      "asset_id": "R_TJINASTRAAT",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.47458,
+        340.57324,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WERF",
+      "type": "MESH",
+      "asset_id": "R_WERF",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.96762,
+        401.04779,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_LANE1",
+      "type": "MESH",
+      "asset_id": "R_WEST_LANE1",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        391.04095,
+        66.41492,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_LANE2",
+      "type": "MESH",
+      "asset_id": "R_WEST_LANE2",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        390.48535,
+        35.98006,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_NORTH",
+      "type": "MESH",
+      "asset_id": "R_WEST_NORTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        610.69281,
+        45.95251,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_SOUTH",
+      "type": "MESH",
+      "asset_id": "R_WEST_SOUTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        590.83026,
+        56.46021,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WILLEMS",
+      "type": "MESH",
+      "asset_id": "R_WILLEMS",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        135.43115,
+        752.41681,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_BOOM_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_BOOM_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        54.06976,
+        166.96992,
+        11.69
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 26298,
+      "base_faces": 6582,
+      "base_triangle_estimate": 13134,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_BOOM_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_BOOM_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        46.55466,
+        154.49062,
+        6.65984
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2308,
+      "base_faces": 584,
+      "base_triangle_estimate": 1140,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_BOOM_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_BOOM_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        54.80453,
+        174.67261,
+        11.69
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 27152,
+      "base_faces": 6795,
+      "base_triangle_estimate": 13562,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_BOOM_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_BOOM_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        47.83836,
+        175.29123,
+        6.67499
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2346,
+      "base_faces": 594,
+      "base_triangle_estimate": 1158,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_CHINEESCHE_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_CHINEESCHE_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        33.73502,
+        257.27805,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 35360,
+      "base_faces": 8848,
+      "base_triangle_estimate": 17664,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_CHINEESCHE_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_CHINEESCHE_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        27.96935,
+        234.2632,
+        6.51517
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2140,
+      "base_faces": 542,
+      "base_triangle_estimate": 1056,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_CHINEESCHE_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_CHINEESCHE_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        59.24761,
+        299.05286,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 45890,
+      "base_faces": 11484,
+      "base_triangle_estimate": 22922,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_CHINEESCHE_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_CHINEESCHE_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        43.46992,
+        278.69006,
+        6.77267
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 3390,
+      "base_faces": 858,
+      "base_triangle_estimate": 1674,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_HEEREN_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_HEEREN_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        236.92804,
+        84.71562,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 28298,
+      "base_faces": 7081,
+      "base_triangle_estimate": 14136,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_HEEREN_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_HEEREN_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        206.63824,
+        73.4692,
+        6.6408
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 1532,
+      "base_faces": 388,
+      "base_triangle_estimate": 756,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_HEEREN_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_HEEREN_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        136.82237,
+        53.18677,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 21234,
+      "base_faces": 5313,
+      "base_triangle_estimate": 10608,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_HEEREN_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_HEEREN_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        134.21173,
+        51.39855,
+        6.67654
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 1590,
+      "base_faces": 402,
+      "base_triangle_estimate": 786,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_KALISOSOK_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_KALISOSOK_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        293.62292,
+        45.8114,
+        8.29
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 27432,
+      "base_faces": 6868,
+      "base_triangle_estimate": 13696,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_KALISOSOK_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_KALISOSOK_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        284.33923,
+        39.97229,
+        4.55
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 3366,
+      "base_faces": 852,
+      "base_triangle_estimate": 1662,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_KALISOSOK_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_KALISOSOK_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        294.85333,
+        49.35776,
+        8.29
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 24318,
+      "base_faces": 6089,
+      "base_triangle_estimate": 12140,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_KALISOSOK_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_KALISOSOK_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        286.61981,
+        46.18243,
+        4.55
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2696,
+      "base_faces": 682,
+      "base_triangle_estimate": 1332,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_OOSTER_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_OOSTER_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        51.85043,
+        290.73395,
+        11.69
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 43478,
+      "base_faces": 10881,
+      "base_triangle_estimate": 21716,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_OOSTER_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_OOSTER_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        47.10419,
+        294.46048,
+        6.75023
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 3548,
+      "base_faces": 898,
+      "base_triangle_estimate": 1752,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_PARADE_L_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_PARADE_L_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        294.3761,
+        76.17522,
+        8.29
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 30732,
+      "base_faces": 7693,
+      "base_triangle_estimate": 15346,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_PARADE_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_PARADE_L_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        284.33575,
+        67.86858,
+        6.72575
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 3098,
+      "base_faces": 784,
+      "base_triangle_estimate": 1530,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_PARADE_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_PARADE_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        310.44217,
+        78.42842,
+        8.29
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 29412,
+      "base_faces": 7364,
+      "base_triangle_estimate": 14684,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_PARADE_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_PARADE_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        308.42453,
+        75.24004,
+        5.85627
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2710,
+      "base_faces": 686,
+      "base_triangle_estimate": 1338,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_WILLEMS_R_00",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_WILLEMS_R_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        59.94624,
+        302.18185,
+        11.69
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 40948,
+      "base_faces": 10248,
+      "base_triangle_estimate": 20452,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SHOP_ROW_WILLEMS_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "SHOP_ROW_WILLEMS_R_00_BACK",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        46.49074,
+        288.79376,
+        6.74514
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2916,
+      "base_faces": 738,
+      "base_triangle_estimate": 1440,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_BOOM_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_BOOM_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        34.15152,
+        106.79594,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 180,
+      "base_faces": 45,
+      "base_triangle_estimate": 90,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_BOOM_L_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_BOOM_L_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        10.34378,
+        55.20973,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 92,
+      "base_faces": 23,
+      "base_triangle_estimate": 46,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_BOOM_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_BOOM_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        41.94794,
+        170.43118,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 280,
+      "base_faces": 70,
+      "base_triangle_estimate": 140,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_CHINEESCHE_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_CHINEESCHE_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        13.65865,
+        177.26976,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 288,
+      "base_faces": 72,
+      "base_triangle_estimate": 144,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_CHINEESCHE_L_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_CHINEESCHE_L_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        9.9367,
+        58.13556,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 96,
+      "base_faces": 24,
+      "base_triangle_estimate": 48,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_CHINEESCHE_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_CHINEESCHE_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        33.85482,
+        24.77171,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 72,
+      "base_faces": 18,
+      "base_triangle_estimate": 36,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_CHINEESCHE_R_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_CHINEESCHE_R_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        21.68637,
+        250.65906,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 404,
+      "base_faces": 101,
+      "base_triangle_estimate": 202,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_HEEREN_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_HEEREN_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        66.63434,
+        21.97072,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 112,
+      "base_faces": 28,
+      "base_triangle_estimate": 56,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_HEEREN_L_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_HEEREN_L_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        86.48831,
+        32.03388,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 144,
+      "base_faces": 36,
+      "base_triangle_estimate": 72,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_HEEREN_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_HEEREN_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        134.10007,
+        42.00562,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 224,
+      "base_faces": 56,
+      "base_triangle_estimate": 112,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_KALISOSOK_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_KALISOSOK_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        110.19096,
+        28.93417,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 180,
+      "base_faces": 45,
+      "base_triangle_estimate": 90,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_KALISOSOK_L_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_KALISOSOK_L_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        132.30206,
+        9.60147,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 216,
+      "base_faces": 54,
+      "base_triangle_estimate": 108,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_KALISOSOK_L_00_02",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_KALISOSOK_L_00_02",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        42.7916,
+        16.14963,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 72,
+      "base_faces": 18,
+      "base_triangle_estimate": 36,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_KALISOSOK_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_KALISOSOK_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        135.05099,
+        30.77069,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 220,
+      "base_faces": 55,
+      "base_triangle_estimate": 110,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_KALISOSOK_R_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_KALISOSOK_R_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        137.33862,
+        15.92673,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 220,
+      "base_faces": 55,
+      "base_triangle_estimate": 110,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_OOSTER_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_OOSTER_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.73413,
+        284.10361,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 456,
+      "base_faces": 114,
+      "base_triangle_estimate": 228,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_L_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        179.31979,
+        42.05606,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 296,
+      "base_faces": 74,
+      "base_triangle_estimate": 148,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_L_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_L_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        15.30164,
+        9.04132,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 28,
+      "base_faces": 7,
+      "base_triangle_estimate": 14,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_L_00_02",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_L_00_02",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        78.19995,
+        11.56334,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 128,
+      "base_faces": 32,
+      "base_triangle_estimate": 64,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        101.28857,
+        12.37598,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 164,
+      "base_faces": 41,
+      "base_triangle_estimate": 82,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_R_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_R_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        68.62144,
+        29.69212,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 116,
+      "base_faces": 29,
+      "base_triangle_estimate": 58,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_PARADE_R_00_02",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_PARADE_R_00_02",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        109.90717,
+        16.44868,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 176,
+      "base_faces": 44,
+      "base_triangle_estimate": 88,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_WILLEMS_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_WILLEMS_R_00_00",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        45.89717,
+        217.56523,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 352,
+      "base_faces": 88,
+      "base_triangle_estimate": 176,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_WILLEMS_R_00_01",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_WILLEMS_R_00_01",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        6.77297,
+        9.37402,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_SHOP_ROW_WILLEMS_R_00_02",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_SHOP_ROW_WILLEMS_R_00_02",
+      "layer": "STREET_FABRIC",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        9.10551,
+        39.24255,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 64,
+      "base_faces": 16,
+      "base_triangle_estimate": 32,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_ST_KEMBANG_ROW_KEMBANG_L_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_ST_KEMBANG_ROW_KEMBANG_L_00_00",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        335.46924,
+        79.35882,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 552,
+      "base_faces": 138,
+      "base_triangle_estimate": 276,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SIDEWALK_ST_KEMBANG_ROW_KEMBANG_R_00_00",
+      "type": "MESH",
+      "asset_id": "SIDEWALK_ST_KEMBANG_ROW_KEMBANG_R_00_00",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        298.54428,
+        69.11689,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 488,
+      "base_faces": 122,
+      "base_triangle_estimate": 244,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_ST_KEMBANG_ROW_KEMBANG_L_00",
+      "type": "MESH",
+      "asset_id": "ST_KEMBANG_ROW_KEMBANG_L_00",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        337.49979,
+        92.71677,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 66096,
+      "base_faces": 16537,
+      "base_triangle_estimate": 33022,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_ST_KEMBANG_ROW_KEMBANG_L_00_BACK",
+      "type": "MESH",
+      "asset_id": "ST_KEMBANG_ROW_KEMBANG_L_00_BACK",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        326.41614,
+        85.80679,
+        6.80091
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 4664,
+      "base_faces": 1180,
+      "base_triangle_estimate": 2304,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_ST_KEMBANG_ROW_KEMBANG_R_00",
+      "type": "MESH",
+      "asset_id": "ST_KEMBANG_ROW_KEMBANG_R_00",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        302.1232,
+        79.95753,
+        13.25
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 52696,
+      "base_faces": 13185,
+      "base_triangle_estimate": 26326,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_ST_KEMBANG_ROW_KEMBANG_R_00_BACK",
+      "type": "MESH",
+      "asset_id": "ST_KEMBANG_ROW_KEMBANG_R_00_BACK",
+      "layer": "ST_KEMBANG",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L008\"]",
+      "dimensions_m": [
+        293.41504,
+        69.43864,
+        6.79872
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 3692,
+      "base_faces": 934,
+      "base_triangle_estimate": 1824,
+      "material_slots": 17
+    },
+    {
+      "name": "PALAGAN_SUN",
+      "type": "LIGHT",
+      "asset_id": "LGT_SUN_NEUTRAL",
+      "layer": "LIGHTING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_TRAM_RAILS",
+      "type": "MESH",
+      "asset_id": "TRAM_RAILS_PREWAR",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\", \"L006\"]",
+      "dimensions_m": [
+        1285.66553,
+        376.30667,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 56,
+      "base_faces": 14,
+      "base_triangle_estimate": 28,
+      "material_slots": 1
+    }
+  ],
+  "owned_object_count": 134,
+  "unowned_scene_object_count": 3,
+  "base_triangle_estimate": 484694,
+  "counts_are_evaluated": false,
+  "note": "Base geometry counts exclude modifier expansion and instances; measure evaluated counts separately before performance claims.",
+  "operation_id": "cameras-01"
+}

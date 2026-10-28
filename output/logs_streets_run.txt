@@ -1,0 +1,243 @@
+Addon, ERROR, MainThread, 05:30:49, toolbox_settings.py/_get_settings_section_user:187: Couldn't set user 'None':
+Traceback (most recent call last):
+  File "C:\Users\fauzi\AppData\Roaming\Blender Foundation\Blender\5.2\scripts\addons\poliigon-addon-blender\toolbox_settings.py", line 185, in _get_settings_section_user
+    user.user_id = int(user_id_config)
+                   ~~~^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'None'
+ℹ️  blendkit: Verbose is enabled [05:30:50.099, addon_updater.py:150]
+ℹ️  blendkit: Read in JSON settings from file [05:30:50.101, addon_updater.py:150]
+ℹ️  blendkit: Ports reordered so first port is now 62485 (previous index was 0) [05:30:50.106, client_lib.py:163]
+Created history step e893ca8e-4fe7-40b2-8bb4-56b7e6e1497d
+ℹ️  blendkit: Created new search history step [05:30:50.121, search.py:2741]
+ℹ️  blendkit: No temporarily enabled addons to clean up [05:30:50.121, download.py:431]
+00:03.203  blend            | Read blend: "C:\Users\fauzi\OneDrive\Desktop\Budayago\output\working\singa-01.blend"
+ℹ️  blendkit: No temporarily enabled addons to clean up [05:30:50.149, download.py:431]
+00:20.875  render           | Saved: 'C:\Users\fauzi\OneDrive\Desktop\Budayago\output\renders\kembang_street_01.png'
+00:21.891  render           | Saved: 'C:\Users\fauzi\OneDrive\Desktop\Budayago\output\renders\streets_01_overview.png'
+RUN_START C:\Users\fauzi\OneDrive\Desktop\Budayago\output\working\singa-01.blend objects 79
+BUILD_SUMMARY {
+  "schema_version": 1,
+  "generated_by": "output/build_scripts/build_05_streets.py",
+  "dry_run": false,
+  "core_roads": {
+    "R_HEEREN": 380.0,
+    "R_KEMBANG": 380.0,
+    "R_WILLEMS": 330.0,
+    "R_OOSTER": 330.0,
+    "R_CHINEESCHE": 330.0,
+    "R_PARADE": 470.0,
+    "R_BOOM": 270.0,
+    "R_KALISOSOK": 560.0
+  },
+  "sidewalk_m": 3.8,
+  "module_family": [
+    "A_simple",
+    "B_balcony",
+    "C_tall_corner",
+    "D_plain"
+  ],
+  "roof_styles": [
+    "parallel",
+    "front_gable",
+    "hip",
+    "flat"
+  ],
+  "row_summaries": [
+    {
+      "road": "R_HEEREN",
+      "side": "left",
+      "run": 0,
+      "s0": 417.0,
+      "s1": 741.8,
+      "modules": 16,
+      "rear_modules": 10,
+      "skipped": {
+        "intersection": 38,
+        "back_intersection": 1,
+        "landmark": 28,
+        "bank": 2,
+        "water": 6
+      }
+    },
+    {
+      "road": "R_HEEREN",
+      "side": "right",
+      "run": 0,
+      "s0": 417.0,
+      "s1": 741.8,
+      "modules": 12,
+      "rear_modules": 9,
+      "skipped": {
+        "intersection": 19,
+        "overlap": 1,
+        "landmark": 40,
+        "bridge": 24
+      }
+    },
+    {
+      "road": "R_KEMBANG",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 371.0,
+      "modules": 36,
+      "rear_modules": 28,
+      "skipped": {
+        "bridge": 10,
+        "back_intersection": 1,
+        "overlap": 1,
+        "back_overlap": 1
+      }
+    },
+    {
+      "road": "R_KEMBANG",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 371.0,
+      "modules": 30,
+      "rear_modules": 22,
+      "skipped": {
+        "bank": 1,
+        "bridge": 12,
+        "intersection": 15,
+        "back_intersection": 1
+      }
+    },
+    {
+      "road": "R_WILLEMS",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 27,
+      "rear_modules": 18,
+      "skipped": {
+        "bridge": 9,
+        "back_bridge": 1,
+        "back_intersection": 1,
+        "intersection": 12,
+        "overlap": 4
+      }
+    },
+    {
+      "road": "R_OOSTER",
+      "side": "left",
+      "run": 0,
+      "s0": 433.0,
+      "s1": 748.9,
+      "modules": 27,
+      "rear_modules": 22,
+      "skipped": {
+        "overlap": 4,
+        "bridge": 9
+      }
+    },
+    {
+      "road": "R_CHINEESCHE",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 23,
+      "rear_modules": 14,
+      "skipped": {
+        "bridge": 5,
+        "intersection": 23,
+        "overlap": 14,
+        "back_overlap": 1,
+        "back_intersection": 1
+      }
+    },
+    {
+      "road": "R_CHINEESCHE",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 331.0,
+      "modules": 30,
+      "rear_modules": 21,
+      "skipped": {
+        "bridge": 1,
+        "overlap": 12
+      }
+    },
+    {
+      "road": "R_PARADE",
+      "side": "left",
+      "run": 0,
+      "s0": 229.0,
+      "s1": 599.8,
+      "modules": 23,
+      "rear_modules": 19,
+      "skipped": {
+        "intersection": 20,
+        "overlap": 14,
+        "bank": 1,
+        "water": 7
+      }
+    },
+    {
+      "road": "R_PARADE",
+      "side": "right",
+      "run": 0,
+      "s0": 229.0,
+      "s1": 599.8,
+      "modules": 24,
+      "rear_modules": 17,
+      "skipped": {
+        "back_intersection": 2,
+        "overlap": 14,
+        "back_overlap": 1,
+        "intersection": 20,
+        "bank": 4
+      }
+    },
+    {
+      "road": "R_BOOM",
+      "side": "left",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 227.0,
+      "modules": 18,
+      "rear_modules": 14,
+      "skipped": {
+        "landmark": 22,
+        "overlap": 2,
+        "back_overlap": 1
+      }
+    },
+    {
+      "road": "R_BOOM",
+      "side": "right",
+      "run": 0,
+      "s0": 5.0,
+      "s1": 227.0,
+      "modules": 18,
+      "rear_modules": 15,
+      "skipped": {
+        "intersection": 8,
+        "overlap": 14
+      }
+    },
+    {
+      "road": "R_KALISOSOK",
+      "side": "left",
+      "run": 0,
+      "s0": 369.0,
+     
+Info: Saved as "streets-01.blend"
+SAVED {
+  "saved": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\streets-01.blend",
+  "bytes": 10231834,
+  "inventory": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\streets-01.inventory.json",
+  "operation_id": "streets-01"
+}
+RENDER {"written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\kembang_street_01.png", "bytes": 1771282, "camera": "CAM_KEMBANG_STREET", "resolution": [1600, 1000], "show_map": false, "engine": "BLENDER_EEVEE"}
+RENDER {"written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\streets_01_overview.png", "bytes": 2120785, "camera": "CAM_FABRIC_OVERVIEW", "resolution": [1600, 1000], "show_map": false, "engine": "BLENDER_EEVEE"}
+RUN_DONE objects 137
+ℹ️  blendkit: Unregistering Blendkit add-on [05:31:08.817, __init__.py:3030]
+ℹ️  blendkit: No temporarily enabled addons to clean up [05:31:08.818, download.py:431]
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

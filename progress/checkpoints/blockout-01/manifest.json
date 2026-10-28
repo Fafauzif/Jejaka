@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "blockout-01",
+  "stage": "blockout",
+  "created_at": "2026-10-23T17:51:54+00:00",
+  "verification": "Reopened saved scene (55 objects, 52 owned) after host restart. Compared map-only and model-only plan renders side by side; Kali Mas, bridge crossing, Heerenstraat and Kembang Djepoen are broadly aligned with M001 and not mirrored. Inspected overview: blockout intentionally sparse, landmark masses only. Corrected road contrast and replaced the unusable single-pass map overlay with a separate map/model comparison. Remaining: detailed architecture, street fabric, materials and final cameras.",
+  "outputs": [
+    {
+      "path": "output/working/blockout-01.blend",
+      "bytes": 211586,
+      "sha256": "1e601101ac5c785e0a5bcbb89eb5ca4c8f066b12e2f63eb3ceb281ac5c5b029f"
+    },
+    {
+      "path": "output/working/blockout-01.inventory.json",
+      "bytes": 27190,
+      "sha256": "01d546b6fe4083029b983eb8410975bd1c2882290b8dd176cddad6b893008cc8"
+    },
+    {
+      "path": "output/renders/blockout_overview.png",
+      "bytes": 1670994,
+      "sha256": "dec2bc745bb7600bf5967b73684f8a06cd066be379f761f83e740d047f451dfb"
+    },
+    {
+      "path": "output/renders/blockout_plan_overlay.png",
+      "bytes": 1912282,
+      "sha256": "68a3bd7b5e53233e79b8f2059dbe39177624b19a2a4ca016b05cbeb25f3dd477"
+    },
+    {
+      "path": "output/row_plan.json",
+      "bytes": 12653,
+      "sha256": "c0189b307260ca9b2e5d668bf6c402da0fdf4b9dde519036a6e6924fb604db4e"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/blockout-01.blend",
+    "snapshot_path": "progress/checkpoints/blockout-01/scene.blend",
+    "sha256": "1e601101ac5c785e0a5bcbb89eb5ca4c8f066b12e2f63eb3ceb281ac5c5b029f"
+  },
+  "state_snapshot": "progress/checkpoints/blockout-01/state.json",
+  "state_sha256": "ddb4a0f7c7ee498075c948c08ead98b832ec61d1b99a800f544838f4014226cd"
+}

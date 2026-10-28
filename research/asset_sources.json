@@ -1,0 +1,108 @@
+[
+  {
+    "source_id": "A001",
+    "title": "Grey Plaster \u2014 Poly Haven downloadable 1K material",
+    "url": "https://polyhaven.com/a/grey_plaster",
+    "creator": "Rob Tuytel",
+    "date": "2018-06-18",
+    "retrieved_at": "2026-10-23",
+    "status": "asset_files_downloaded_upstream_md5_checked_and_jpeg_decoded",
+    "local_file": "assets/materials/grey_plaster",
+    "rights": "CC0-1.0; Poly Haven primary asset licence inspected; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Rough plaster on background walls where the reference supports plaster. Adjust colour from the evidence brief. Licence and modern creation date do not establish historical fit."
+  },
+  {
+    "source_id": "A002",
+    "title": "Brick Wall 001 \u2014 Poly Haven downloadable 1K material",
+    "url": "https://polyhaven.com/a/brick_wall_001",
+    "creator": "Rob Tuytel, Dimitrios Savva",
+    "date": "2021-03-13",
+    "retrieved_at": "2026-10-23",
+    "status": "asset_files_downloaded_upstream_md5_checked_and_jpeg_decoded",
+    "local_file": "assets/materials/brick_wall_001",
+    "rights": "CC0-1.0; Poly Haven primary asset licence inspected; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Brick substrate or background masonry. Match bond and brick size to reference rather than copying the photographed surface everywhere. Licence and modern creation date do not establish historical fit."
+  },
+  {
+    "source_id": "A003",
+    "title": "Clay Roof Tiles \u2014 Poly Haven downloadable 1K material",
+    "url": "https://polyhaven.com/a/clay_roof_tiles",
+    "creator": "Amal Kumar",
+    "date": "2024-06-20",
+    "retrieved_at": "2026-10-23",
+    "status": "asset_files_downloaded_upstream_md5_checked_and_jpeg_decoded",
+    "local_file": "assets/materials/clay_roof_tiles",
+    "rights": "CC0-1.0; Poly Haven primary asset licence inspected; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Distant clay roof surfaces. Use source-backed tile geometry for close landmarks; this sample does not prove a Javanese tile profile. Licence and modern creation date do not establish historical fit."
+  },
+  {
+    "source_id": "A004",
+    "title": "Dark Wooden Planks \u2014 Poly Haven downloadable 1K material",
+    "url": "https://polyhaven.com/a/dark_wooden_planks",
+    "creator": "Amal Kumar",
+    "date": "2023-04-04",
+    "retrieved_at": "2026-10-23",
+    "status": "asset_files_downloaded_upstream_md5_checked_and_jpeg_decoded",
+    "local_file": "assets/materials/dark_wooden_planks",
+    "rights": "CC0-1.0; Poly Haven primary asset licence inspected; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Background timber doors, shutters or planks. Match board direction and reference-backed construction. Licence and modern creation date do not establish historical fit."
+  },
+  {
+    "source_id": "A005",
+    "title": "Wooden Crate 01 \u2014 Poly Haven downloadable 1K model",
+    "url": "https://polyhaven.com/a/wooden_crate_01",
+    "creator": "James Ray Cock",
+    "date": "2022-02-25",
+    "retrieved_at": "2026-10-23",
+    "status": "gltf_bin_and_all_declared_external_textures_downloaded_md5_checked_gltf_json_and_dependency_structure_inspected",
+    "local_file": "assets/models/polyhaven/wooden_crate_01/wooden_crate_01_1k.gltf",
+    "rights": "CC0-1.0; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Optional storage-prop shape. This specific chest/crate design is not established at the selected site. Not rendered or imported in Blender during kit preparation."
+  },
+  {
+    "source_id": "A006",
+    "title": "Wine Barrel 01 \u2014 Poly Haven downloadable 1K model",
+    "url": "https://polyhaven.com/a/wine_barrel_01",
+    "creator": "James Ray Cock",
+    "date": "2021-06-15",
+    "retrieved_at": "2026-10-23",
+    "status": "gltf_bin_and_all_declared_external_textures_downloaded_md5_checked_gltf_json_and_dependency_structure_inspected",
+    "local_file": "assets/models/polyhaven/wine_barrel_01/wine_barrel_01_1k.gltf",
+    "rights": "CC0-1.0; see A008 and assets/licenses/CC0-1.0.txt",
+    "notes": "Optional generic coopered storage barrel. Wine origin/design and placement are not historical evidence for Surabaya. Not rendered or imported in Blender during kit preparation."
+  },
+  {
+    "source_id": "A007",
+    "title": "Kenney Survival Kit 2.0 \u2014 selected timber props",
+    "url": "https://kenney.nl/assets/survival-kit",
+    "creator": "Kenney",
+    "date": "2024-04-03 (archive licence creation date)",
+    "retrieved_at": "2026-10-23",
+    "status": "official_zip_downloaded_license_read_selected_GLBS_and_atlas_extracted_gltf_dependencies_inspected",
+    "local_file": "assets/models/kenney",
+    "rights": "CC0-1.0 as declared in original included assets/licenses/Kenney_Survival_Kit_License.txt",
+    "notes": "Only resource-planks.glb, resource-wood.glb and their colour atlas are bundled. Low-poly alternatives, not period-authentic street furniture."
+  },
+  {
+    "source_id": "A008",
+    "title": "Poly Haven Asset License",
+    "url": "https://polyhaven.com/license",
+    "creator": "Poly Haven",
+    "date": "Inspected 2026-10-23",
+    "status": "primary_licence_page_inspected",
+    "local_file": "assets/licenses/POLY_HAVEN_CC0_NOTICE.md",
+    "rights": "CC0 applies to downloadable assets, not automatically to website preview renders, logos or page text",
+    "notes": "Primary page permits redistribution of the CC0 assets. API use separately governed by https://github.com/Poly-Haven/Public-API/blob/master/ToS.md; requests used a unique project User-Agent."
+  },
+  {
+    "source_id": "A009",
+    "title": "Creative Commons CC0 1.0 Universal Legal Code",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
+    "creator": "Creative Commons",
+    "date": "Retrieved 2026-10-23",
+    "status": "legal_text_downloaded",
+    "local_file": "assets/licenses/CC0-1.0.txt",
+    "rights": "CC0 legal instrument, supplied for the CC0 asset declarations",
+    "notes": "Actual asset licence declarations remain the creator pages/archive licence; this legal text alone does not license an unrelated asset."
+  }
+]

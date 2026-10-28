@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "background-02",
+  "stage": "background",
+  "created_at": "2026-10-24T03:57:17+00:00",
+  "verification": "Replaced the scattered background parcels with a coherent parcel grid: frontage pitch 25 m along X and 34 m along Y, widths 23.2-24.8 m so neighbours form a continuous street wall, depths 14-16 m, orientation quantised to 15 degree steps, plus a rear range across a 3.5-5.5 m courtyard on each parcel. Result: 883 background blocks / 1563 authored units, up from 414 / 1443, with skip reasons recorded (overlap 427, intersection 355, rear_overlap 148, water 146, rear_water 4, landmark 41, rear_landmark 4, bridge 3, bank 5). Scene is 134 owned objects and 589,282 base triangles. Also calmed the Kali Mas water: sheen reduced to 0.20-0.235, Fresnel threshold raised to 0.80 so only truly grazing angles reflect, base darkened to a silty green, and ripple strength raised to 0.45 with 0.55 m distance. Re-rendered and inspected CAM_PLAN_CHECK, CAM_DISTRICT_OVERVIEW and CAM_BRIDGE: the plan now reads as blocks fronting lanes rather than isolated scatter, the oblique overview reads as a dense low-rise district with a legible river corridor and crossing, and the pale flat water that previously read as concrete is gone from the bridge view. Remaining limitations: buildings flanking the bridgehead are still the documented F_* approximate massing boxes with no facade detail, and the outer corners of the 650 m radius remain open ground.",
+  "outputs": [
+    {
+      "path": "output/working/background-02.blend",
+      "bytes": 14708223,
+      "sha256": "d4a4505b4f5b60654b97014a263cdfd3df31ad2df606b5b8fa27d77bbcb29d5a"
+    },
+    {
+      "path": "output/working/background-02.inventory.json",
+      "bytes": 72089,
+      "sha256": "6a7f2e149fcc51f946dd481e0bb42c8a3d615c87f29efda164240a50469571e8"
+    },
+    {
+      "path": "output/renders/bg_plan.png",
+      "bytes": 1744739,
+      "sha256": "6debc2fde92847ae94b53382c24496502df72ed1900bd6be7a9f9ecc1a2298e6"
+    },
+    {
+      "path": "output/renders/bg_overview.png",
+      "bytes": 1982565,
+      "sha256": "82978bf43f7ebcd417fa59ae932abd172e7aed49142d2c1313dc635be9ee6f98"
+    },
+    {
+      "path": "output/renders/bg_bridge.png",
+      "bytes": 1583981,
+      "sha256": "cd6d9dc1da41b3094964f4a46672d25b84d8bf8b451854713c5c55cdef9d3270"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/background-02.blend",
+    "snapshot_path": "progress/checkpoints/background-02/scene.blend",
+    "sha256": "d4a4505b4f5b60654b97014a263cdfd3df31ad2df606b5b8fa27d77bbcb29d5a"
+  },
+  "state_snapshot": "progress/checkpoints/background-02/state.json",
+  "state_sha256": "65af060ca21f4917e9ce5ae83b6aa9257ed417abf01b8b7d3a225efefc732037"
+}

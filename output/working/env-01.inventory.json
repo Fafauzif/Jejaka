@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "reported_at": "2026-10-23T14:12:47+00:00",
+  "blender_version": "5.2.2 LTS",
+  "scene": "Scene",
+  "blend_filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\env-01.blend",
+  "project_owner": "PALAGAN_SURABAYA_V1",
+  "owned_objects": [],
+  "owned_object_count": 0,
+  "unowned_scene_object_count": 3,
+  "base_triangle_estimate": 0,
+  "counts_are_evaluated": false,
+  "note": "Base geometry counts exclude modifier expansion and instances; measure evaluated counts separately before performance claims.",
+  "operation_id": "env-01"
+}

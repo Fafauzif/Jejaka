@@ -1,0 +1,41 @@
+{
+  "schema": "palagan.lighting.v1",
+  "operation": "lighting-01",
+  "evidence_status": "reconstructed",
+  "note": "Neutral daylight used for architectural review, not a claim about the weather or hour on any particular November 1945 day. No rainfall, smoke, fire or battle atmosphere is added; the brief forbids unsourced drama used to hide modelling weakness.",
+  "sky": {
+    "note": "Vertical gradient from a warm dust-hazed horizon to a cool zenith, in linear scene-referred colour.",
+    "strength": 1.25,
+    "stops": [
+      {"position": 0.00, "colour": [0.62, 0.60, 0.55]},
+      {"position": 0.10, "colour": [0.72, 0.74, 0.75]},
+      {"position": 0.34, "colour": [0.52, 0.60, 0.70]},
+      {"position": 1.00, "colour": [0.34, 0.45, 0.62]}
+    ]
+  },
+  "sun": {
+    "note": "Late-morning tropical sun used to model the architecture; azimuth and elevation are chosen for readable shadows along the mapped streets, not derived from a dated ephemeris.",
+    "energy": 3.2,
+    "angle_deg": 2.2,
+    "elevation_deg": 41.0,
+    "azimuth_deg": -132.0,
+    "colour": [1.0, 0.952, 0.875]
+  },
+  "view": {
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.15
+  },
+  "eevee": {
+    "taa_render_samples": 64,
+    "use_raytracing": true,
+    "use_fast_gi": true,
+    "fast_gi_method": "GLOBAL_ILLUMINATION",
+    "fast_gi_distance": 6.0,
+    "fast_gi_quality": 0.5,
+    "shadow_ray_count": 2,
+    "shadow_step_count": 8,
+    "use_shadows": true,
+    "comment": "Ambient occlusion via fast GI keeps shopfront recesses and eaves from reading flat without crushing shadows."
+  }
+}

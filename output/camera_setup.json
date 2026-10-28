@@ -1,0 +1,130 @@
+{
+  "schema": "palagan.cameras.v1",
+  "operation": "hero-renders-01",
+  "note": "Camera positions are authored review viewpoints chosen for readable architecture, not reconstructions of the exact photographer's position. Where a view imitates a source photograph the match is approximate and recorded as such. CAM_HERO_BRIDGE was added during hero-renders-01 for a river-level view of the crossing; CAM_DISTRICT_OVERVIEW and CAM_KEMBANG_STREET were reframed in the same operation and their recorded targets updated to match the live scene.",
+  "cameras": {
+    "CAM_DISTRICT_OVERVIEW": {
+      "purpose": "Whole reconstructed district: readable river corridor, the core crossing and the street network.",
+      "position": [
+        -260.0,
+        -380.0,
+        420.0
+      ],
+      "target": [
+        40.0,
+        30.0,
+        0.0
+      ],
+      "lens_mm": 40.0,
+      "basis": "authored review viewpoint; reframed for hero use so the finite ground plane leaves the frame"
+    },
+    "CAM_PLAN_CHECK": {
+      "purpose": "Near-orthographic plan comparison against the M001 map underlay.",
+      "position": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lens_mm": 50.0,
+      "ortho_scale": 1650.0,
+      "basis": "authored review viewpoint"
+    },
+    "CAM_BRIDGE": {
+      "purpose": "Deck, railings and both banks of Jembatan Merah from the west approach.",
+      "position": [
+        -58.0,
+        0.0,
+        3.4
+      ],
+      "target": [
+        16.0,
+        0.0,
+        1.0
+      ],
+      "lens_mm": 32.0,
+      "basis": "close to the L006 riverfront relationship; exact photographer position unknown"
+    },
+    "CAM_INTERNATIO_REFERENCE": {
+      "purpose": "Internatio facade rhythm, parapets and stepped end towers, raised to clear the near foreground massing.",
+      "position": [
+        -152.0,
+        138.0,
+        27.0
+      ],
+      "target": [
+        -136.0,
+        32.0,
+        13.0
+      ],
+      "lens_mm": 34.0,
+      "basis": "approximate L004 viewpoint; the raised position differs from the source photograph and the foreground occlusion is acknowledged"
+    },
+    "CAM_SINGA_REFERENCE": {
+      "purpose": "Singa riverfront arcades, central gabled pavilion and roof sign frame.",
+      "position": [
+        -6.0,
+        110.0,
+        2.6
+      ],
+      "target": [
+        -58.0,
+        46.0,
+        10.0
+      ],
+      "lens_mm": 45.0,
+      "basis": "approximate L007 viewpoint from across the river; exact position unknown"
+    },
+    "CAM_KEMBANG_STREET": {
+      "purpose": "Kembang Djepoen corridor proportions and shophouse rhythm informed by L008.",
+      "position": [
+        44.07,
+        -4.71,
+        1.75
+      ],
+      "target": [
+        169.83,
+        -45.21,
+        5.3
+      ],
+      "lens_mm": 32.0,
+      "basis": "approximate L008 street-level viewpoint, stood close to the west footway",
+      "keep_existing": true
+    },
+    "CAM_FABRIC_OVERVIEW": {
+      "purpose": "Elevated read of the street fabric, block depth and roofscape.",
+      "position": [
+        -245.0,
+        -265.0,
+        155.0
+      ],
+      "target": [
+        60.0,
+        40.0,
+        0.0
+      ],
+      "lens_mm": 52.0,
+      "basis": "authored review viewpoint",
+      "keep_existing": true
+    },
+    "CAM_HERO_BRIDGE": {
+      "purpose": "Jembatan Merah from downstream on Kali Mas, showing the deck span, open railings and both banks.",
+      "position": [
+        -26.0,
+        -68.0,
+        4.6
+      ],
+      "target": [
+        -17.12,
+        -18.82,
+        2.96
+      ],
+      "lens_mm": 38.0,
+      "basis": "authored hero viewpoint, not a historical photograph position"
+    }
+  }
+}

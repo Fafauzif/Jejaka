@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "asset_id": "LM_BRIDGE",
+      "brief": "landmarks/LM_BRIDGE.md",
+      "source_ids": [
+        "M001",
+        "L001",
+        "L006"
+      ],
+      "construction_status": "not_generated",
+      "placement_status": "requires_source_comparison",
+      "dimensions_status": "not_surveyed",
+      "scene_objects": [],
+      "assumptions": []
+    },
+    {
+      "asset_id": "LM_INTERNATIO",
+      "brief": "landmarks/LM_INTERNATIO.md",
+      "source_ids": [
+        "M001",
+        "L002",
+        "L004",
+        "L005",
+        "L009"
+      ],
+      "construction_status": "not_generated",
+      "placement_status": "requires_source_comparison",
+      "dimensions_status": "not_surveyed",
+      "scene_objects": [],
+      "assumptions": []
+    },
+    {
+      "asset_id": "LM_SINGA",
+      "brief": "landmarks/LM_SINGA.md",
+      "source_ids": [
+        "M001",
+        "L003",
+        "L007"
+      ],
+      "construction_status": "not_generated",
+      "placement_status": "requires_source_comparison",
+      "dimensions_status": "not_surveyed",
+      "scene_objects": [],
+      "assumptions": []
+    },
+    {
+      "asset_id": "ST_KEMBANG",
+      "brief": "landmarks/ST_KEMBANG.md",
+      "source_ids": [
+        "M001",
+        "L008"
+      ],
+      "construction_status": "not_generated",
+      "placement_status": "requires_source_comparison",
+      "dimensions_status": "not_surveyed",
+      "scene_objects": [],
+      "assumptions": []
+    }
+  ]
+}

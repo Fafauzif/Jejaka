@@ -1,0 +1,13 @@
+Read AGENTS.md and NEXT_STEPS.md in this project, then build PALAGAN's Surabaya reconstruction in my installed Blender 5.2 using my existing Blender MCP connection.
+
+The approved specification is docs/APPROVED_SPEC.md. Follow docs/BUILD_PLAN.md task by task. The finished deliverable is an editable Blender scene with realistic proportions, detailed historical landmarks, surrounding streets and architecture, useful saved cameras and packed assets. I will inspect it in Blender; do not build a website.
+
+Begin by discovering the actual MCP tool schemas, confirming the Blender version/current scene, detecting available hardware and locating this project directory. Preserve unrelated scene data. Read research/RESEARCH_OVERVIEW.md and docs/SPATIAL_METHOD.md; inspect the included map and reference board. Do not replace this researched layout with a generic city or invent historical precision. Load individual landmark briefs and sources only when needed.
+
+I want you to continue autonomously through small build-and-review cycles. Create reproducible scripts, inspect screenshots, correct visible problems and save intermediate scene checkpoints. The supplied scripts/blender_map_blockout.py is an optional coarse starting point, not the finished model. Detailed buildings need actual interpretation of their source images. If a detail is not documented, keep it adjustable and record the reconstruction assumption.
+
+Use runtime/STATE_PROTOCOL.md and scripts/palagan_state.py for progress. Before meaningful changes, begin an operation; after saving and actual inspection, complete it with the scene file and precise verification notes. Keep NEXT_STEPS.md, DECISIONS.md and the asset metadata current. After compaction or interruption, reread the recovery files, reconcile state with the live scene, and resume the next unfinished operation without duplicating geometry. Do not rely on the chat summary or an assumed token count.
+
+Use the Blender5.2 skill collection if installed, with blender-core first. If it is absent, follow the included documentation and actual Blender API rather than stopping. Do not install paid services or change global configuration. The optional compaction plugin may be enabled only after checking the installed OpenCode contract.
+
+Finish only after applying docs/QUALITY_GATES.md: reopen the final file, inspect the overview and landmark comparison views, check asset references and missing textures, report measured scene counts, and write output/DELIVERY_REPORT.md with remaining uncertainty. Do not report checks that were not actually performed. Leave Blender open on the overview. Keep all work inside the project directory except the existing Blender installation and MCP connection.

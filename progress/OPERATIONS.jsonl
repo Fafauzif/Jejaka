@@ -1,0 +1,32 @@
+{"at": "2026-10-23T13:50:34+00:00", "event": "initialized"}
+{"at": "2026-10-23T14:02:34+00:00", "event": "began", "operation_id": "env-01", "stage": "environment"}
+{"at": "2026-10-23T14:15:04+00:00", "event": "failed", "operation_id": "env-01", "reason": "Environment work succeeded but the operation's expected_outputs omitted the saved scene path required by complete --scene; superseded by env-02 checkpoint, no scene damage."}
+{"at": "2026-10-23T14:15:04+00:00", "event": "began", "operation_id": "env-02", "stage": "environment"}
+{"at": "2026-10-23T14:16:32+00:00", "event": "completed", "operation_id": "env-02", "checkpoint": "progress/checkpoints/env-02/manifest.json"}
+{"at": "2026-10-23T14:26:13+00:00", "event": "began", "operation_id": "blockout-01", "stage": "blockout"}
+{"at": "2026-10-23T17:51:54+00:00", "event": "completed", "operation_id": "blockout-01", "checkpoint": "progress/checkpoints/blockout-01/manifest.json"}
+{"at": "2026-10-23T18:03:28+00:00", "event": "began", "operation_id": "bridge-01", "stage": "lm_bridge"}
+{"at": "2026-10-23T18:14:54+00:00", "event": "completed", "operation_id": "bridge-01", "checkpoint": "progress/checkpoints/bridge-01/manifest.json"}
+{"at": "2026-10-23T18:40:40+00:00", "event": "began", "operation_id": "internatio-01", "stage": "lm_internatio"}
+{"at": "2026-10-23T19:59:42+00:00", "event": "completed", "operation_id": "internatio-01", "checkpoint": "progress/checkpoints/internatio-01/manifest.json"}
+{"at": "2026-10-23T20:10:21+00:00", "event": "began", "operation_id": "singa-01", "stage": "lm_singa"}
+{"at": "2026-10-23T20:43:17+00:00", "event": "completed", "operation_id": "singa-01", "checkpoint": "progress/checkpoints/singa-01/manifest.json"}
+{"at": "2026-10-23T21:02:12+00:00", "event": "began", "operation_id": "streets-01", "stage": "street_fabric"}
+{"at": "2026-10-23T22:36:36+00:00", "event": "completed", "operation_id": "streets-01", "checkpoint": "progress/checkpoints/streets-01/manifest.json"}
+{"at": "2026-10-24T03:26:43+00:00", "event": "began", "operation_id": "materials-01", "stage": "materials"}
+{"at": "2026-10-24T03:36:13+00:00", "event": "completed", "operation_id": "materials-01", "checkpoint": "progress/checkpoints/materials-01/manifest.json"}
+{"at": "2026-10-24T03:36:27+00:00", "event": "began", "operation_id": "lighting-01", "stage": "lighting"}
+{"at": "2026-10-24T03:39:04+00:00", "event": "completed", "operation_id": "lighting-01", "checkpoint": "progress/checkpoints/lighting-01/manifest.json"}
+{"at": "2026-10-24T03:39:12+00:00", "event": "began", "operation_id": "streets-02", "stage": "street_fabric"}
+{"at": "2026-10-24T03:42:38+00:00", "event": "completed", "operation_id": "streets-02", "checkpoint": "progress/checkpoints/streets-02/manifest.json"}
+{"at": "2026-10-24T03:45:17+00:00", "event": "began", "operation_id": "cameras-01", "stage": "presentation"}
+{"at": "2026-10-24T03:49:55+00:00", "event": "completed", "operation_id": "cameras-01", "checkpoint": "progress/checkpoints/cameras-01/manifest.json"}
+{"at": "2026-10-24T03:50:16+00:00", "event": "began", "operation_id": "background-02", "stage": "background"}
+{"at": "2026-10-24T03:57:17+00:00", "event": "completed", "operation_id": "background-02", "checkpoint": "progress/checkpoints/background-02/manifest.json"}
+{"at": "2026-10-24T03:57:37+00:00", "event": "began", "operation_id": "handoff-01", "stage": "handoff"}
+{"at": "2026-10-24T04:02:18+00:00", "event": "completed", "operation_id": "handoff-01", "checkpoint": "progress/checkpoints/handoff-01/manifest.json"}
+{"at": "2026-10-24T04:13:50+00:00", "event": "began", "operation_id": "hero-renders-01", "stage": "presentation"}
+{"at": "2026-10-24T04:34:03+00:00", "event": "failed", "operation_id": "hero-renders-01", "reason": "Operation touched the master scene (new camera, reframed cameras, re-applied materials) but its expected_outputs declared only the five PNGs and the render log. complete --scene therefore rejected the master path. The renders and the saved master are good; re-recorded under hero-renders-02 with the scene declared."}
+{"at": "2026-10-24T04:34:03+00:00", "event": "began", "operation_id": "hero-renders-02", "stage": "presentation"}
+{"at": "2026-10-24T04:35:00+00:00", "event": "completed", "operation_id": "hero-renders-02", "checkpoint": "progress/checkpoints/hero-renders-02/manifest.json"}
+{"at": "2026-10-24T12:13:14+00:00", "event": "began", "operation_id": "web-viewer-01", "stage": "presentation"}

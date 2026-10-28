@@ -1,0 +1,64 @@
+{
+  "renders": [
+    {
+      "camera": "CAM_HERO_BRIDGE",
+      "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\hero_02_bridge.png",
+      "bytes": 2819654,
+      "resolution": [
+        1920,
+        1200
+      ],
+      "engine": "CYCLES",
+      "samples": 128,
+      "seconds": 30.0
+    },
+    {
+      "camera": "CAM_SINGA_REFERENCE",
+      "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\hero_03_singa.png",
+      "bytes": 2784494,
+      "resolution": [
+        1920,
+        1200
+      ],
+      "engine": "CYCLES",
+      "samples": 128,
+      "seconds": 32.0
+    },
+    {
+      "camera": "CAM_INTERNATIO_REFERENCE",
+      "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\hero_04_internatio.png",
+      "bytes": 3104920,
+      "resolution": [
+        1920,
+        1200
+      ],
+      "engine": "CYCLES",
+      "samples": 128,
+      "seconds": 33.7
+    },
+    {
+      "camera": "CAM_KEMBANG_STREET",
+      "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\hero_05_kembang.png",
+      "bytes": 2886023,
+      "resolution": [
+        1920,
+        1200
+      ],
+      "engine": "CYCLES",
+      "samples": 128,
+      "seconds": 36.0
+    },
+    {
+      "camera": "CAM_DISTRICT_OVERVIEW",
+      "written": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\hero_01_district.png",
+      "bytes": 3833404,
+      "resolution": [
+        1920,
+        1200
+      ],
+      "engine": "CYCLES",
+      "samples": 128,
+      "seconds": 32.7
+    }
+  ]
+}

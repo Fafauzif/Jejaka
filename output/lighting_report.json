@@ -1,0 +1,70 @@
+{
+  "world": {
+    "stops": [
+      {
+        "position": 0.0,
+        "colour": [
+          0.62,
+          0.6,
+          0.55
+        ]
+      },
+      {
+        "position": 0.1,
+        "colour": [
+          0.72,
+          0.74,
+          0.75
+        ]
+      },
+      {
+        "position": 0.34,
+        "colour": [
+          0.52,
+          0.6,
+          0.7
+        ]
+      },
+      {
+        "position": 1.0,
+        "colour": [
+          0.34,
+          0.45,
+          0.62
+        ]
+      }
+    ],
+    "strength": 1.25,
+    "note": "Vertical gradient from a warm dust-hazed horizon to a cool zenith, in linear scene-referred colour."
+  },
+  "sun": {
+    "name": "PALAGAN_SUN",
+    "note": "Late-morning tropical sun used to model the architecture; azimuth and elevation are chosen for readable shadows along the mapped streets, not derived from a dated ephemeris.",
+    "energy": 3.2,
+    "angle_deg": 2.2,
+    "elevation_deg": 41.0,
+    "azimuth_deg": -132.0,
+    "colour": [
+      1.0,
+      0.952,
+      0.875
+    ]
+  },
+  "view": {
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.15
+  },
+  "eevee": {
+    "taa_render_samples": 64,
+    "use_raytracing": true,
+    "use_fast_gi": true,
+    "fast_gi_method": "GLOBAL_ILLUMINATION",
+    "fast_gi_distance": 6.0,
+    "fast_gi_quality": 0.5,
+    "shadow_ray_count": 2,
+    "shadow_step_count": 8,
+    "use_shadows": true
+  },
+  "warnings": []
+}

@@ -1,0 +1,105 @@
+{
+  "placed": [
+    {
+      "name": "CAM_DISTRICT_OVERVIEW",
+      "purpose": "Whole reconstructed district: readable river corridor, the core crossing and the street network.",
+      "lens_mm": 42.0,
+      "basis": "authored review viewpoint",
+      "position": [
+        -455.0,
+        -545.0,
+        390.0
+      ],
+      "target": [
+        -40.0,
+        20.0,
+        0.0
+      ],
+      "mode": "PERSP"
+    },
+    {
+      "name": "CAM_PLAN_CHECK",
+      "purpose": "Near-orthographic plan comparison against the M001 map underlay.",
+      "lens_mm": 50.0,
+      "basis": "authored review viewpoint",
+      "position": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "ORTHO"
+    },
+    {
+      "name": "CAM_BRIDGE",
+      "purpose": "Deck, railings and both banks of Jembatan Merah from the west approach.",
+      "lens_mm": 32.0,
+      "basis": "close to the L006 riverfront relationship; exact photographer position unknown",
+      "position": [
+        -58.0,
+        0.0,
+        3.4000000953674316
+      ],
+      "target": [
+        16.0,
+        0.0,
+        1.0
+      ],
+      "mode": "PERSP"
+    },
+    {
+      "name": "CAM_INTERNATIO_REFERENCE",
+      "purpose": "Internatio facade rhythm, parapets and stepped end towers, raised to clear the near foreground massing.",
+      "lens_mm": 34.0,
+      "basis": "approximate L004 viewpoint; the raised position differs from the source photograph and the foreground occlusion is acknowledged",
+      "position": [
+        -152.0,
+        138.0,
+        27.0
+      ],
+      "target": [
+        -136.0,
+        32.0,
+        13.0
+      ],
+      "mode": "PERSP"
+    },
+    {
+      "name": "CAM_SINGA_REFERENCE",
+      "purpose": "Singa riverfront arcades, central gabled pavilion and roof sign frame.",
+      "lens_mm": 45.0,
+      "basis": "approximate L007 viewpoint from across the river; exact position unknown",
+      "position": [
+        -6.0,
+        110.0,
+        2.5999999046325684
+      ],
+      "target": [
+        -58.0,
+        46.0,
+        10.0
+      ],
+      "mode": "PERSP"
+    }
+  ],
+  "kept": [
+    {
+      "name": "CAM_KEMBANG_STREET",
+      "purpose": "Kembang Djepoen corridor proportions and shophouse rhythm informed by L008.",
+      "lens_mm": 28.0,
+      "basis": "approximate L008 street-level viewpoint"
+    },
+    {
+      "name": "CAM_FABRIC_OVERVIEW",
+      "purpose": "Elevated read of the street fabric, block depth and roofscape.",
+      "lens_mm": 52.0,
+      "basis": "authored review viewpoint"
+    }
+  ],
+  "missing": [],
+  "warnings": []
+}

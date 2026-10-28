@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "reported_at": "2026-10-23T14:11:18+00:00",
+  "project_root": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago",
+  "blender_version": "5.2.2 LTS",
+  "blender_binary": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+  "blender_python": "3.13.13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "opencode_version": null,
+  "opencode_version_note": "opencode executable not on PATH; version not queryable from this shell. Session model: DeepSeek V4.1 Flash Free via OpenCode.",
+  "mcp": {
+    "read_only_scene_query": true,
+    "viewport_metadata_tool": true,
+    "viewport_image_via_opengl": true,
+    "code_execution": true,
+    "viewport_capture": {
+      "ok": true,
+      "path": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\renders\\environment_test.png",
+      "bytes": 1502577,
+      "operator": [
+        "FINISHED"
+      ]
+    }
+  },
+  "scene": {
+    "name": "Scene",
+    "pre_existing_filepath": "",
+    "baseline_copy": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\backups\\baseline_default_scene.blend",
+    "baseline_bytes": 97557,
+    "preserved_default_objects": [
+      "Cube",
+      "Light",
+      "Camera"
+    ],
+    "archive_collection": "BASELINE_PRESERVED_DEFAULT",
+    "unit_system": "METRIC",
+    "scale_length": 1.0,
+    "engine": "BLENDER_EEVEE",
+    "working_objects": 3
+  },
+  "project_collections_created": [],
+  "project_root_collection": "PALAGAN_SURABAYA",
+  "hardware": {
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "system_ram_gb": 31.73,
+    "gpu": {
+      "gpu_backend": "OPENGL",
+      "gpu_vendor": "NVIDIA Corporation",
+      "gpu_renderer": "NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2",
+      "cycles_devices": [
+        {
+          "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+          "type": "OPTIX",
+          "enabled": true
+        },
+        {
+          "name": "13th Gen Intel Core i7-13700HX",
+          "type": "CPU",
+          "enabled": false
+        },
+        {
+          "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+          "type": "CUDA",
+          "enabled": true
+        }
+      ],
+      "cycles_compute_device_type": "OPTIX"
+    },
+    "vram_mib_reported_by_nvidia_smi": 8188,
+    "driver_version_reported": "32.0.15.8180 (NVIDIA 581.80)",
+    "detection_note": "RAM/VRAM reported by host OS commands captured alongside this report; not assumed from model names."
+  },
+  "render_capabilities": {
+    "eevee": true,
+    "cycles_available": true,
+    "cycles_device_type": "OPTIX",
+    "optix_device_present": true
+  },
+  "mcp_capability_note": "Viewport image inspection is confirmed by the PNG capture then read back as an image; the JSON screenshot tool alone returns metadata, not pixels.",
+  "limitations": [
+    "Current scene was the factory default and unsaved; a byte copy was preserved before mutation.",
+    "No unrelated user project data was present in the live scene.",
+    "No world georeferencing, terrain survey or historical metric survey is claimed."
+  ]
+}

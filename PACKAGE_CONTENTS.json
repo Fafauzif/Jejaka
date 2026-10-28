@@ -1,0 +1,659 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-10-23",
+  "purpose": "OpenCode Blender5.2 historical reconstruction preparationkit",
+  "file_count_excluding_manifest": 130,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "size_bytes": 4833,
+      "sha256": "f2d863379034d55e5ecccd75af855a5a1da53f877caec2762f2f340eec8504df"
+    },
+    {
+      "path": "DECISIONS.md",
+      "size_bytes": 1530,
+      "sha256": "1f5f8efaa34d4b0ba45f5a2f95f0152ab29d621159e12ad51e2ce35c2f0532f0"
+    },
+    {
+      "path": "NEXT_STEPS.md",
+      "size_bytes": 1034,
+      "sha256": "c937b611435420f5f21b4cb963f5c4a4699a11e667a48b8166770c1b0c483d88"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 3695,
+      "sha256": "a1763de6a36d689f75aeaf6f8e068f2913b44518a38bf1b0adc0a90bac0bbf5b"
+    },
+    {
+      "path": "RIGHTS_AND_ATTRIBUTION.md",
+      "size_bytes": 2889,
+      "sha256": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0"
+    },
+    {
+      "path": "START_PROMPT.txt",
+      "size_bytes": 2726,
+      "sha256": "5128175cebf55435546f31254e10c5f71749c512f6707935f42e9659d401ee9d"
+    },
+    {
+      "path": "assets/ASSET_CATALOG.json",
+      "size_bytes": 24191,
+      "sha256": "2dd47f02e0129565d933cb3fc28839c7b987436565108355291d2309ce530ffe"
+    },
+    {
+      "path": "assets/ASSET_CHECKS.json",
+      "size_bytes": 8904,
+      "sha256": "c8ba1a802a90ab6390d64006c9c0630645f36194a82953a94bb348069778ea28"
+    },
+    {
+      "path": "assets/ASSET_VERIFICATION.md",
+      "size_bytes": 2108,
+      "sha256": "13acf939477fadac543448ff415c3e02fe75b9b747020bbd6796a1813b2ca8ed"
+    },
+    {
+      "path": "assets/EXTERNAL_OPTIONS.md",
+      "size_bytes": 1201,
+      "sha256": "a618af3b1387fc986108b986f49359a48efec005f1b2df59e16406b11b56f306"
+    },
+    {
+      "path": "assets/MATERIAL_CONTACT_SHEET.jpg",
+      "size_bytes": 147237,
+      "sha256": "e5dda33b45ec7baae1d9d67e0cee4aaafeb337975d24ebfbbd10e0ea95aca1b9"
+    },
+    {
+      "path": "assets/README.md",
+      "size_bytes": 1583,
+      "sha256": "b2076b73bd5b6e55273499567cbdd95f994b46cba7cc62edf8e5cc4e36f3e1dc"
+    },
+    {
+      "path": "assets/licenses/CC0-1.0.txt",
+      "size_bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "assets/licenses/Kenney_Survival_Kit_License.txt",
+      "size_bytes": 715,
+      "sha256": "62c8356876481204fa4d40dc59183dfed777adf987d7f2a1390fffe8a699f3ff"
+    },
+    {
+      "path": "assets/licenses/POLY_HAVEN_CC0_NOTICE.md",
+      "size_bytes": 1508,
+      "sha256": "adf045519e5ef0d9bd8c3702402351c79a038dd3bdbaf9fd9066f20f9cab40c8"
+    },
+    {
+      "path": "assets/material_downloads.json",
+      "size_bytes": 4962,
+      "sha256": "e24124d2f56cb591e82ddaa5ec8075774759aacc28db829b0b349169ac7f49d5"
+    },
+    {
+      "path": "assets/materials/brick_wall_001/brick_wall_001_diffuse_1k.jpg",
+      "size_bytes": 574381,
+      "sha256": "6a1233ec0186703de830354d89f122991e61e67fb67e0846c7eaf6c5aefea902"
+    },
+    {
+      "path": "assets/materials/brick_wall_001/brick_wall_001_nor_gl_1k.jpg",
+      "size_bytes": 295279,
+      "sha256": "8afbe3919308b168a6b7235fe7b930f670cfffa1a34de39ee790d55c9d7bda09"
+    },
+    {
+      "path": "assets/materials/brick_wall_001/brick_wall_001_rough_1k.jpg",
+      "size_bytes": 211093,
+      "sha256": "a23342b02e6c5af106aaece16130aa9153a801cb1a84d5f3e0d06ce248677f38"
+    },
+    {
+      "path": "assets/materials/clay_roof_tiles/clay_roof_tiles_diff_1k.jpg",
+      "size_bytes": 878367,
+      "sha256": "aac0f4e742a2cce21afb5dfb523b47c720c6a8e2782a312b823608fe3f80eae6"
+    },
+    {
+      "path": "assets/materials/clay_roof_tiles/clay_roof_tiles_nor_gl_1k.jpg",
+      "size_bytes": 1101177,
+      "sha256": "e6b364661f6c3045bf5268f684047968fc6550e5fa9b22b4b1266df47b495faa"
+    },
+    {
+      "path": "assets/materials/clay_roof_tiles/clay_roof_tiles_rough_1k.jpg",
+      "size_bytes": 306665,
+      "sha256": "9dbddfda928ea582e520d5e6fe7fadcfb886a169df9aa8ecaefa689363679b58"
+    },
+    {
+      "path": "assets/materials/dark_wooden_planks/dark_wooden_planks_diff_1k.jpg",
+      "size_bytes": 701221,
+      "sha256": "e8216baa6b2d701b5523fcb904d45570acf7b96d160ef815e96e2dbfa82bdd9b"
+    },
+    {
+      "path": "assets/materials/dark_wooden_planks/dark_wooden_planks_nor_gl_1k.jpg",
+      "size_bytes": 658444,
+      "sha256": "87a7b26bc674477865d4589c6589200bfa649a6461422bf56f5600c05a470206"
+    },
+    {
+      "path": "assets/materials/dark_wooden_planks/dark_wooden_planks_rough_1k.jpg",
+      "size_bytes": 673968,
+      "sha256": "a10ea0b52fe395a7ad205cacfd28bd1aea48ef8545d171209f528dcf58d0a8d3"
+    },
+    {
+      "path": "assets/materials/grey_plaster/grey_plaster_diff_1k.jpg",
+      "size_bytes": 704079,
+      "sha256": "dcf34c5f3801cc43189f0edae3c430b602c827956e9d6ce4b89a85e53e952da9"
+    },
+    {
+      "path": "assets/materials/grey_plaster/grey_plaster_nor_gl_1k.jpg",
+      "size_bytes": 355288,
+      "sha256": "85fe18209cb354b582003892898ee0cd6fe6b853644e01983718fc011140c0c2"
+    },
+    {
+      "path": "assets/materials/grey_plaster/grey_plaster_rough_1k.jpg",
+      "size_bytes": 635335,
+      "sha256": "67566b1b5ee25502596916303c246b08d47725b8a697283cfdc1494e6f659aa2"
+    },
+    {
+      "path": "assets/model_downloads.json",
+      "size_bytes": 3907,
+      "sha256": "f802270a6716168a4aba6bac2cdbd41a9a8242801fc58d1d7b2e4c1aa8474205"
+    },
+    {
+      "path": "assets/models/kenney/Textures/colormap.png",
+      "size_bytes": 7440,
+      "sha256": "6ca023be9f12e8c2358fcf94320c8a894b4c05a3dd0bad1f5c268312053caca1"
+    },
+    {
+      "path": "assets/models/kenney/resource-planks.glb",
+      "size_bytes": 8884,
+      "sha256": "d3804257474a3baab7ac067be91de5c3d6d18d5803775dc876cb6d9442c30873"
+    },
+    {
+      "path": "assets/models/kenney/resource-wood.glb",
+      "size_bytes": 7272,
+      "sha256": "1d5f559da9432f89bd323731ef76b60372e0deb261a96d0da8d5af570c485d80"
+    },
+    {
+      "path": "assets/models/polyhaven/wine_barrel_01/textures/wine_barrel_01_arm_1k.jpg",
+      "size_bytes": 172531,
+      "sha256": "be658e1389dbe8669e847b8fc7df8affdce46d6582f01ac701555b6446a40b9d"
+    },
+    {
+      "path": "assets/models/polyhaven/wine_barrel_01/textures/wine_barrel_01_diff_1k.jpg",
+      "size_bytes": 195980,
+      "sha256": "6bea25b4fadda0636b6b7e46e0cc15153eda21ef62c823d5ee2e06a5a7589214"
+    },
+    {
+      "path": "assets/models/polyhaven/wine_barrel_01/textures/wine_barrel_01_nor_gl_1k.jpg",
+      "size_bytes": 163587,
+      "sha256": "86cdb0729b44d1687c75d895e6d0ef650f7580d70f3bcb52bce6fedc5fd79b6f"
+    },
+    {
+      "path": "assets/models/polyhaven/wine_barrel_01/wine_barrel_01.bin",
+      "size_bytes": 385912,
+      "sha256": "d827c31afed824b923ea9168462c93ab3ad3a88c4a68b155bd35efb1a02cbf00"
+    },
+    {
+      "path": "assets/models/polyhaven/wine_barrel_01/wine_barrel_01_1k.gltf",
+      "size_bytes": 6673,
+      "sha256": "503d3339677217c3241a3cdbc1c803ed1eb82d1a48f51436d1545ec5745ae8d8"
+    },
+    {
+      "path": "assets/models/polyhaven/wooden_crate_01/textures/wooden_crate_01_arm_1k.jpg",
+      "size_bytes": 776699,
+      "sha256": "cd0b031c3924905e16ffd78ead062c2cc274148c4104d09635310097738b4679"
+    },
+    {
+      "path": "assets/models/polyhaven/wooden_crate_01/textures/wooden_crate_01_diff_1k.jpg",
+      "size_bytes": 711292,
+      "sha256": "16653f4abaf4c1d9bca94bde3bd8c54d0ea9a5298d1648abcf57de1f7ecc34cc"
+    },
+    {
+      "path": "assets/models/polyhaven/wooden_crate_01/textures/wooden_crate_01_nor_gl_1k.jpg",
+      "size_bytes": 594076,
+      "sha256": "f4ea44c7dc1686123d337039cb713d74e8a2dbc6d1bd2beeac276d06f5df3fab"
+    },
+    {
+      "path": "assets/models/polyhaven/wooden_crate_01/wooden_crate_01.bin",
+      "size_bytes": 189408,
+      "sha256": "85f381f8035f7a6f2f3b848640894c6d3333b261946dd8a338c0fe19e0bea21e"
+    },
+    {
+      "path": "assets/models/polyhaven/wooden_crate_01/wooden_crate_01_1k.gltf",
+      "size_bytes": 5612,
+      "sha256": "fd9c6073acfc671e12b64666053f2805ae33aff5d3dbbcfe5c97c08c06644927"
+    },
+    {
+      "path": "assets/source_metadata/brick_wall_001_files.json",
+      "size_bytes": 35036,
+      "sha256": "cff64a9eedc1f7ab28bee730bd34946ba29df564af6a839ebc0181ee42f107e3"
+    },
+    {
+      "path": "assets/source_metadata/brick_wall_001_info.json",
+      "size_bytes": 1240,
+      "sha256": "ced792d3ac88544d3fff66ccad03eebd910d597d76af9274f089ce21dd301442"
+    },
+    {
+      "path": "assets/source_metadata/clay_roof_tiles_files.json",
+      "size_bytes": 35046,
+      "sha256": "aef0eb3ce711a5fab1106542ed62a7ffabfac1652a30c55fb8025015011a153e"
+    },
+    {
+      "path": "assets/source_metadata/clay_roof_tiles_info.json",
+      "size_bytes": 1109,
+      "sha256": "d37e89f7a17e46a0dd1ad727e3c5f75caf2b7b7054fa35aaf867ae62d5463c76"
+    },
+    {
+      "path": "assets/source_metadata/dark_wooden_planks_files.json",
+      "size_bytes": 36065,
+      "sha256": "624029bf9b49d65e4fc50eecabf8d58cc7f9c2be50c5dc199c44d52b0c649e6c"
+    },
+    {
+      "path": "assets/source_metadata/dark_wooden_planks_info.json",
+      "size_bytes": 1286,
+      "sha256": "abe985b8abbb0d363dba0c6f9e0d97e2760a6d0c3dbb4a887d76b71ba34fccff"
+    },
+    {
+      "path": "assets/source_metadata/grey_plaster_files.json",
+      "size_bytes": 39296,
+      "sha256": "0c392f954d1c3dcc8b1006bfb8f8cce4fb6c2bb8026ce93bb31fefe71b4d268e"
+    },
+    {
+      "path": "assets/source_metadata/grey_plaster_info.json",
+      "size_bytes": 1094,
+      "sha256": "baa64b55101113d174d4ee931c8215aa8bf71b3f1f101c23b2be395c5769a042"
+    },
+    {
+      "path": "assets/source_metadata/wine_barrel_01_files.json",
+      "size_bytes": 39666,
+      "sha256": "94bde60a36c091b211ac45cb370167274d6ee476cdaa9d35c6470ad0538ffcae"
+    },
+    {
+      "path": "assets/source_metadata/wine_barrel_01_info.json",
+      "size_bytes": 1191,
+      "sha256": "353e113a7fe7a8ca8a6dbdf05e5112cb0b09d6b5985e703a2cc8ec97d8eb048c"
+    },
+    {
+      "path": "assets/source_metadata/wooden_crate_01_files.json",
+      "size_bytes": 42790,
+      "sha256": "3f3ad868b0154009ee4b63b80aa41c8baae3c0d578426b7ab5716dcbf3ac7189"
+    },
+    {
+      "path": "assets/source_metadata/wooden_crate_01_info.json",
+      "size_bytes": 1383,
+      "sha256": "65f2376d4a516f90fdd82c6bc704526ca6d02ddd46594f348d8d0a71e7ebe1d7"
+    },
+    {
+      "path": "data/ASSET_MANIFEST.json",
+      "size_bytes": 1503,
+      "sha256": "2d6e33c48de501b87bcab99fe45d1b96d7f87bb083e1f6186f3ad82d9f3a40c5"
+    },
+    {
+      "path": "data/HISTORICAL_LAYOUT.json",
+      "size_bytes": 23392,
+      "sha256": "86a170922522e4accc82edcbe7f0f4d9169c140d5ee05b14357ade521d38353d"
+    },
+    {
+      "path": "data/PLACE_NAMES.csv",
+      "size_bytes": 1503,
+      "sha256": "fcb1c9ba70922aacd8275f297983d6e7a11ac0130c4402a1058eaf1181613a20"
+    },
+    {
+      "path": "data/SCENE_PARAMETERS.json",
+      "size_bytes": 804,
+      "sha256": "a0e154327824485e1e8e2f67010907f785819096a0cf0414f67574901de6f78b"
+    },
+    {
+      "path": "docs/APPROVED_SPEC.md",
+      "size_bytes": 2907,
+      "sha256": "dcf305b28aed43b4185ff3b2b326369f239a4d1db5c1a88aaaa96f46a6c9e9ae"
+    },
+    {
+      "path": "docs/ART_DIRECTION.md",
+      "size_bytes": 4025,
+      "sha256": "27ed771494f7c6aa3a0ea11e3eb01c2668a1815e1819000cb2eee4af316dd71e"
+    },
+    {
+      "path": "docs/ASSET_USAGE.md",
+      "size_bytes": 8106,
+      "sha256": "c7dc82f13593858d611d7cb5d59bb87d66ba8b098e136df6ef9aff816e83a7f7"
+    },
+    {
+      "path": "docs/BUILD_PLAN.md",
+      "size_bytes": 8866,
+      "sha256": "4bf6add2771c4b2e5b80578c877a63134818598eb035881e5f644171fbc212e6"
+    },
+    {
+      "path": "docs/PACKAGE_IMPLEMENTATION_PLAN.md",
+      "size_bytes": 2253,
+      "sha256": "8951c07ff630d3e112c6e93511279dce48e021b3197d20bf5d9eefb9ff8150d2"
+    },
+    {
+      "path": "docs/QUALITY_GATES.md",
+      "size_bytes": 3581,
+      "sha256": "b1d9f5df56882429b1a3804f4c773d6211de24530ddc8893e89b9a59f5c1cfaf"
+    },
+    {
+      "path": "docs/SPATIAL_METHOD.md",
+      "size_bytes": 5112,
+      "sha256": "c0c6ef72cac83c316e4f69da3509833918fc2d926181b8fa14973de4b5e43552"
+    },
+    {
+      "path": "docs/UNCERTAINTIES.md",
+      "size_bytes": 1886,
+      "sha256": "98f6fa817f285b8e1a090c43c4e2c8c8c3e07a122ba0adbed25800ea402e459e"
+    },
+    {
+      "path": "landmarks/LM_BRIDGE.md",
+      "size_bytes": 5008,
+      "sha256": "1ecc2a25579029ecd1c6ce5d9fb06e6e0a7b92306157e4de1fd08f33cb2b3d6f"
+    },
+    {
+      "path": "landmarks/LM_INTERNATIO.md",
+      "size_bytes": 5405,
+      "sha256": "f6bbad742d3967e365c3792a84dab2361c8225e7ae2fb203ca390aa0869572f2"
+    },
+    {
+      "path": "landmarks/LM_SINGA.md",
+      "size_bytes": 4954,
+      "sha256": "2353b0bb63d6fb280effa2b8a57555ffe3aa912354c4da274c8e6b6e2a4b4cce"
+    },
+    {
+      "path": "landmarks/README.md",
+      "size_bytes": 1547,
+      "sha256": "130258901d997684cbe3a451d4110b9fc8740e2f14109fc200fa9480a5b2d6ba"
+    },
+    {
+      "path": "landmarks/ST_KEMBANG.md",
+      "size_bytes": 5196,
+      "sha256": "b19157742fc0e6541f6c6052e6bf507656f2d2798aea8ed95432a5b9aa2ab1ca"
+    },
+    {
+      "path": "references/images/CROP_INDEX.json",
+      "size_bytes": 1522,
+      "sha256": "56de4c20242a4b91b65778b9ee3e18b54a7ba139ce9d214c7000bd046b4d2d7f"
+    },
+    {
+      "path": "references/images/IMAGE_CREDITS.md",
+      "size_bytes": 5855,
+      "sha256": "8ced2f093fa10065eef8e89b43c278fff9631a94cf2e733cf47d555c961ea2e9"
+    },
+    {
+      "path": "references/images/IMAGE_INDEX.json",
+      "size_bytes": 7925,
+      "sha256": "787d79557ce7f4d69717c114c0de70c6bb701a1db9c1f44c9f86de84d8dbce5b"
+    },
+    {
+      "path": "references/images/L004.jpg",
+      "size_bytes": 725950,
+      "sha256": "b63ccc309bebace450a0003c8ffcf1fc833a5be05199785754607963a7bd07e3"
+    },
+    {
+      "path": "references/images/L004_internatio_facade_crop.jpg",
+      "size_bytes": 455078,
+      "sha256": "19522bda21d464d3adf5fe6cd107270832dd870620eba2f5f46e5e59c4a667af"
+    },
+    {
+      "path": "references/images/L004_metadata.json",
+      "size_bytes": 1789,
+      "sha256": "4a3abd45ca811c9050888004e107689619a3b65f6e9073827e6eb0474da77cc8"
+    },
+    {
+      "path": "references/images/L005.jpg",
+      "size_bytes": 71019,
+      "sha256": "d258f61dfc2288a3d6c63aa9d572154d262a0b48db6c0d5eedca68c32d7fa709"
+    },
+    {
+      "path": "references/images/L005_metadata.json",
+      "size_bytes": 1539,
+      "sha256": "81c215115d9e0eb72d383e4af83235dc80cad82ee4164df9fa04b31e496dce12"
+    },
+    {
+      "path": "references/images/L006.jpg",
+      "size_bytes": 389375,
+      "sha256": "fa2391ca8ad1593e6f479d9d88a57c5f8c93267fd17946a1c624af3b401cb170"
+    },
+    {
+      "path": "references/images/L006_bridge_railings_crop.jpg",
+      "size_bytes": 322166,
+      "sha256": "07862a627115c26d79b453ef11e9fdf4bfb93889baca0c42702ebb43cd683b01"
+    },
+    {
+      "path": "references/images/L006_metadata.json",
+      "size_bytes": 1300,
+      "sha256": "87c41f64007b317e4263b5c91e434d0d6f85bae5aeb145912f617bc10d13c5b4"
+    },
+    {
+      "path": "references/images/L007.jpg",
+      "size_bytes": 395124,
+      "sha256": "31c1d5d9f4f46dcea7c6c40582616eeaa2ba4e0be813e093525d281d90c04f02"
+    },
+    {
+      "path": "references/images/L007_algemeene_front_crop.jpg",
+      "size_bytes": 211774,
+      "sha256": "c83a9f27aea2e0aa3b3ecad207f2dc35a31cc107abfd8a3c6f32aa4fc7097a50"
+    },
+    {
+      "path": "references/images/L007_metadata.json",
+      "size_bytes": 1786,
+      "sha256": "65fcc4f1bf1ceb2ae7d4a8c23442aaa67745c86624bac9684e9d64c96037e57e"
+    },
+    {
+      "path": "references/images/L008.jpg",
+      "size_bytes": 69108,
+      "sha256": "515b4040521d9fc2b1dbcb7efdd7fca8b5e0cde724a51447f117e38cee7372f5"
+    },
+    {
+      "path": "references/images/L008_kembang_shophouses_crop.jpg",
+      "size_bytes": 55971,
+      "sha256": "29ff44655e6745349d94c862eee47b2c329853ae8f129798966c5b0912d7b801"
+    },
+    {
+      "path": "references/images/L008_metadata.json",
+      "size_bytes": 1319,
+      "sha256": "f2e8469bd7b573e228a4423c6c83a976e47be8984826c0be4f8bc9ce80ff1df9"
+    },
+    {
+      "path": "references/images/REFERENCE_BOARD.jpg",
+      "size_bytes": 503268,
+      "sha256": "4caabcb3d697abc667928996e5c70bcfae9697cf9923c32cd1801eb002fa32c2"
+    },
+    {
+      "path": "references/images/acquire_landmark_images.py",
+      "size_bytes": 1706,
+      "sha256": "79bc9dd6462a59c2bcbba5742035ec4758a0ef938789b52b0203b1614f0ce9e0"
+    },
+    {
+      "path": "references/maps/MAP_DERIVATIVES.json",
+      "size_bytes": 2670,
+      "sha256": "a58ae9f760b29bff5c1ce552b4f9a76d18533df7c36738c75801c4c118ef6464"
+    },
+    {
+      "path": "references/maps/Soerabaja_1943_original.jpg",
+      "size_bytes": 18534373,
+      "sha256": "3cc62f945bac6e82772fdd3b0bd52df256d1fdc61d4004e27f9a2cab9ae1e36a"
+    },
+    {
+      "path": "references/maps/Soerabaja_1943_overview.jpg",
+      "size_bytes": 888844,
+      "sha256": "9fa89f42a20c18ae013f51328b492d881256bf7cfb994737f1de28c7eb4e7aa1"
+    },
+    {
+      "path": "references/maps/building_index.png",
+      "size_bytes": 9283663,
+      "sha256": "f0b930b4a74b79a1fc2d76c15106c9524e9703c5ffb42afa92ffa04d2345c6ff"
+    },
+    {
+      "path": "references/maps/core_district.png",
+      "size_bytes": 3192025,
+      "sha256": "7e067c1c5423e81dac79c4f1fa01a21297c75d51cf73e92c999f3178a06b1959"
+    },
+    {
+      "path": "references/maps/core_district_pixel_grid.png",
+      "size_bytes": 3163593,
+      "sha256": "61c15db981df0ca8b1e73ae10d9f5a8f27340bf54cf54630b456099dd3404f20"
+    },
+    {
+      "path": "references/maps/district_base_reference.jpg",
+      "size_bytes": 800985,
+      "sha256": "46c8cc9bf795edf234f839aecca5a8fb0e73781f0d71fd8c2ce173118d65cba8"
+    },
+    {
+      "path": "references/maps/district_trace_overlay.png",
+      "size_bytes": 2626834,
+      "sha256": "8c6036e1c89e0acbdba7743b4e70c8e2b77c9b13f72ad5457fad8b864d37a9ce"
+    },
+    {
+      "path": "references/maps/legend_scale.png",
+      "size_bytes": 3203723,
+      "sha256": "c82dd695ec053ef1e75ffed4d01bcee11710b04ce1b648b25db21513c678aca2"
+    },
+    {
+      "path": "references/maps/map_imprint.png",
+      "size_bytes": 1281029,
+      "sha256": "9544d26703e04a965c74b2f562cf6052c80b4bd6056a840263d1f90163ba98ba"
+    },
+    {
+      "path": "research/REFERENCE_INDEX.json",
+      "size_bytes": 1472,
+      "sha256": "f486dfb8a675d1aef5213b464549fecdf49579b9cb36385c3b5552798de25014"
+    },
+    {
+      "path": "research/RESEARCH_LOG.md",
+      "size_bytes": 3922,
+      "sha256": "ac1d964eb1cd619aabb846b184f79b970d2c161f594af39b0945a7da2b398560"
+    },
+    {
+      "path": "research/RESEARCH_OVERVIEW.md",
+      "size_bytes": 7015,
+      "sha256": "3b3491d33e2c2e24031e1ba2ed4a3624e4c51d8049fd766936810117d3efed94"
+    },
+    {
+      "path": "research/SOURCE_REGISTER.csv",
+      "size_bytes": 22228,
+      "sha256": "51640c261ec463f348b0ab17d8f3f8b0afd2c23451d3ba986f1dd3622cd40b84"
+    },
+    {
+      "path": "research/asset_sources.json",
+      "size_bytes": 6107,
+      "sha256": "98a4d7f88c1eb31c65a0b62d76f6522d01483c22e50534f6b33f49d37d35c981"
+    },
+    {
+      "path": "research/history_chronology.md",
+      "size_bytes": 3433,
+      "sha256": "70d94e38615476726b983b1ec09c5c665722cfe0ebb3d13458aaf356d5dd3bf1"
+    },
+    {
+      "path": "research/history_claims.json",
+      "size_bytes": 6785,
+      "sha256": "793d893e8e0a342a0824224a38b8638f1389d3a1a76cbe3deddef72f76e91a43"
+    },
+    {
+      "path": "research/history_material_culture.md",
+      "size_bytes": 5260,
+      "sha256": "190621cc19e5e498c0af0cef1dff2f4bc3d459995143db73d187453208f7734d"
+    },
+    {
+      "path": "research/history_overview.md",
+      "size_bytes": 5773,
+      "sha256": "fabc73bbe520698e05828c4cfd5169fe2edfe1beb5fdb9d0e5b1a8b3a830d933"
+    },
+    {
+      "path": "research/history_reading_guide.md",
+      "size_bytes": 2997,
+      "sha256": "59276dd39f372160d49fba0eb0df8546417bfbe3d8287f927f6e79528af79b99"
+    },
+    {
+      "path": "research/history_source_criticism.md",
+      "size_bytes": 5013,
+      "sha256": "555f71aff88d28eafd0f67fbba6b85f171b13987fd50d4ee966608b69e47c568"
+    },
+    {
+      "path": "research/history_sources.json",
+      "size_bytes": 9946,
+      "sha256": "a5814bc6548d0325f7c071fd9a56d0595cc53e76628a55187edcdfb892a8e5e4"
+    },
+    {
+      "path": "research/landmark_sources.json",
+      "size_bytes": 9729,
+      "sha256": "bc66dcc8ed0ede551d9e53d133c8a4f0e7ac2bdbbfdac3c28a62773aa9ab96d2"
+    },
+    {
+      "path": "research/map_sources.json",
+      "size_bytes": 2290,
+      "sha256": "e36e5fbf0a11a5d293c5bda8edd314a13648ba12bed0f23635d4af55838bf301"
+    },
+    {
+      "path": "review/VALIDATION_REPORT.md",
+      "size_bytes": 3094,
+      "sha256": "8e9ac0c15eff6318f5d90082d41145ff780543335f6e02d1cc7b8644bbdf23c9"
+    },
+    {
+      "path": "runtime/AGENT_RULES_FRAGMENT.md",
+      "size_bytes": 1681,
+      "sha256": "121c35e1691b835757829e4cb318f5eeea6e996093fc094aaf9b7f01752dfd8d"
+    },
+    {
+      "path": "runtime/BLENDER_WORKFLOW.md",
+      "size_bytes": 6197,
+      "sha256": "22090ff3bd62e2bc3a8f61057f09cfb20b775aaa084a5210cf9742836f45eb48"
+    },
+    {
+      "path": "runtime/SETUP_OPENCODE_BLENDER.md",
+      "size_bytes": 6100,
+      "sha256": "4cf02ddcb94d4daa8fb66cad8f044eb76fdc689d3bf9cfa12123b7860bf9614f"
+    },
+    {
+      "path": "runtime/STATE_PROTOCOL.md",
+      "size_bytes": 8677,
+      "sha256": "72ca88db9c310408c2c1133684b9f4b13fa79ce667b2ed4801ab1b04d5c4a89b"
+    },
+    {
+      "path": "runtime/TEST_REPORT.md",
+      "size_bytes": 1672,
+      "sha256": "c0b68cd63795bc1282f33aa36cc4c83e2e028707f2933e494a6e989482f13d29"
+    },
+    {
+      "path": "runtime/palagan-compaction.mjs",
+      "size_bytes": 2197,
+      "sha256": "470d7a388e230e6419ad49f1ba9689a60cf3727e34682d67b3b0964d66b6136f"
+    },
+    {
+      "path": "runtime/tech_sources.json",
+      "size_bytes": 4350,
+      "sha256": "e3c73dedef46139d8cf4bbd43ccc61404bb8bd9a96b69be63f1ca1f759b6a365"
+    },
+    {
+      "path": "scripts/blender_layer_helpers.py",
+      "size_bytes": 4303,
+      "sha256": "c10153f5fa38d36ec7c97e8ba570f42c622d585b087e539b774a5a81ae920bdc"
+    },
+    {
+      "path": "scripts/blender_map_blockout.py",
+      "size_bytes": 5388,
+      "sha256": "78501565d636a2dbd6b5a00830cb579bd81b3ec917c91ec0156577bbeb59228f"
+    },
+    {
+      "path": "scripts/blender_session.py",
+      "size_bytes": 9855,
+      "sha256": "3b3bf0ab91d31fa5b4dc24639fad7c058e919671933b92d3c434857a7c55a895"
+    },
+    {
+      "path": "scripts/palagan_state.py",
+      "size_bytes": 16933,
+      "sha256": "b4d3725d4927ecdfe6db36c9fbe7a7d024dd581f43f43b7b2bd1c21b7c74a70f"
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "size_bytes": 6301,
+      "sha256": "309b31075bb800de9002990c99e47aedba8fd6bee1ac986c15e0d3e80c69197f"
+    },
+    {
+      "path": "tests/test_compaction.mjs",
+      "size_bytes": 2060,
+      "sha256": "5be6017c851eb87ed59193df08926b637c727bf3864142924dfeab765147bf20"
+    },
+    {
+      "path": "tests/test_map_geometry.py",
+      "size_bytes": 1366,
+      "sha256": "e31b49f02a0f937d9f1e251c50ebbe9d990030d230ecbe94ee1806f2809868b3"
+    },
+    {
+      "path": "tests/test_state.py",
+      "size_bytes": 6134,
+      "sha256": "87b382a7c86a2630287d4f9e32c851473c1d8fd830e7e46b3702c073f5c791ea"
+    }
+  ],
+  "not_included": "Finished Blender model; must be generated locally using supplied workflow"
+}

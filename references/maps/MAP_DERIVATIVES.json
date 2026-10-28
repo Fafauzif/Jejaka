@@ -1,0 +1,107 @@
+[
+  {
+    "operation": "unaltered downloaded original",
+    "source_id": "M001",
+    "path": "references/maps/Soerabaja_1943_original.jpg",
+    "sha256": "3cc62f945bac6e82772fdd3b0bd52df256d1fdc61d4004e27f9a2cab9ae1e36a",
+    "size_bytes": 18534373
+  },
+  {
+    "operation": "resized overview",
+    "source_id": "M001",
+    "path": "references/maps/Soerabaja_1943_overview.jpg",
+    "sha256": "9fa89f42a20c18ae013f51328b492d881256bf7cfb994737f1de28c7eb4e7aa1",
+    "size_bytes": 888844
+  },
+  {
+    "operation": "crop",
+    "original_pixel_box": [
+      2450,
+      3700,
+      3850,
+      5100
+    ],
+    "source_id": "M001",
+    "path": "references/maps/core_district.png",
+    "sha256": "7e067c1c5423e81dac79c4f1fa01a21297c75d51cf73e92c999f3178a06b1959",
+    "size_bytes": 3192025
+  },
+  {
+    "operation": "crop plus coordinate grid annotations",
+    "original_pixel_box": [
+      2450,
+      3700,
+      3850,
+      5100
+    ],
+    "source_id": "M001",
+    "path": "references/maps/core_district_pixel_grid.png",
+    "sha256": "61c15db981df0ca8b1e73ae10d9f5a8f27340bf54cf54630b456099dd3404f20",
+    "size_bytes": 3163593
+  },
+  {
+    "operation": "crop",
+    "original_pixel_box": [
+      2460,
+      3700,
+      3720,
+      4960
+    ],
+    "source_id": "M001",
+    "path": "references/maps/district_base_reference.jpg",
+    "sha256": "46c8cc9bf795edf234f839aecca5a8fb0e73781f0d71fd8c2ce173118d65cba8",
+    "size_bytes": 800985
+  },
+  {
+    "operation": "crop plus project trace annotations",
+    "original_pixel_box": [
+      2460,
+      3700,
+      3720,
+      4960
+    ],
+    "source_id": "M001",
+    "path": "references/maps/district_trace_overlay.png",
+    "sha256": "8c6036e1c89e0acbdba7743b4e70c8e2b77c9b13f72ad5457fad8b864d37a9ce",
+    "size_bytes": 2626834
+  },
+  {
+    "operation": "crop",
+    "original_pixel_box": [
+      4900,
+      200,
+      6700,
+      1600
+    ],
+    "source_id": "M001",
+    "path": "references/maps/legend_scale.png",
+    "sha256": "c82dd695ec053ef1e75ffed4d01bcee11710b04ce1b648b25db21513c678aca2",
+    "size_bytes": 3203723
+  },
+  {
+    "operation": "crop",
+    "original_pixel_box": [
+      5100,
+      6700,
+      6900,
+      10300
+    ],
+    "source_id": "M001",
+    "path": "references/maps/building_index.png",
+    "sha256": "f0b930b4a74b79a1fc2d76c15106c9524e9703c5ffb42afa92ffa04d2345c6ff",
+    "size_bytes": 9283663
+  },
+  {
+    "operation": "crop",
+    "original_pixel_box": [
+      4900,
+      10300,
+      6600,
+      10900
+    ],
+    "source_id": "M001",
+    "path": "references/maps/map_imprint.png",
+    "sha256": "9544d26703e04a965c74b2f562cf6052c80b4bd6056a840263d1f90163ba98ba",
+    "size_bytes": 1281029
+  }
+]

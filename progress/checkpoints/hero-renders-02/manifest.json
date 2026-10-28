@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "operation_id": "hero-renders-02",
+  "stage": "presentation",
+  "created_at": "2026-10-24T04:35:00+00:00",
+  "verification": "Five presentation stills rendered in Cycles on the OptiX device after a device test (480x300, 24 samples, 7.8 s, RTX 4060). All five are 1920x1200, 128 samples with denoising and adaptive sampling, 30-36 s each, and each was opened and inspected: hero_01_district, hero_02_bridge, hero_03_singa, hero_04_internatio, hero_05_kembang. Compositions were changed because the review cameras were not suitable as stills: CAM_HERO_BRIDGE was added at (-26,-68,4.6) aimed at the crossing from downstream, because the on-deck CAM_BRIDGE framed a blank massing box instead of the bridge; CAM_DISTRICT_OVERVIEW was moved to (-260,-380,420) with a 40 mm lens after two prior framings revealed the finite edge of the ground plane; CAM_KEMBANG_STREET was moved to the west footway at 1.75 m with a 32 mm lens so shopfronts rather than roadway fill the frame. output/camera_setup.json was updated to the live values including palagan_target_xyz, which had drifted from the true aim on two cameras. Water roughness was raised 0.085 to 0.20 and re-applied so the far river stops reading as a flat white band at grazing angles. The master was re-saved and reopens with operation id hero-renders-02, 138 objects and 9 cameras. Not corrected and left visible: the neutral review sky reads overcast rather than sunny, the right bank in hero_02 and the bridgehead massings are blank approximate volumes, and no Cycles quality pass was attempted beyond these settings.",
+  "outputs": [
+    {
+      "path": "output/renders/hero_01_district.png",
+      "bytes": 3833404,
+      "sha256": "2bcfcb8459a1f63f3c3862fa5513ecd73e9b68bb9403a1296d06c9e84c996a2d"
+    },
+    {
+      "path": "output/renders/hero_02_bridge.png",
+      "bytes": 2819654,
+      "sha256": "f38173329669fe9c46ada07ad3b809fac69ecccee84d077618631a76cdc7541e"
+    },
+    {
+      "path": "output/renders/hero_03_singa.png",
+      "bytes": 2784494,
+      "sha256": "9cfccbe709b51c72e749857354901d131a8bef44da0997de644a1cfa995bc1d6"
+    },
+    {
+      "path": "output/renders/hero_04_internatio.png",
+      "bytes": 3104920,
+      "sha256": "a73e1950d5587813deca11c7ae036c6dfb645958640b79fb21c5a25dd627340e"
+    },
+    {
+      "path": "output/renders/hero_05_kembang.png",
+      "bytes": 2886023,
+      "sha256": "09212fcb2d7caf020b05eaa050106ce8aa90fb498d932ad482711690530b6388"
+    },
+    {
+      "path": "output/hero_render_log.json",
+      "bytes": 1629,
+      "sha256": "dec56b288b01d5669d4ef5eb4c7915f1c98c77700bca116aa28c232581a2da13"
+    },
+    {
+      "path": "output/PALAGAN_Surabaya_Master.blend",
+      "bytes": 14737336,
+      "sha256": "389718f83ed23594bf69de17b264f39793f6cd78abb00c38dec10e0e4ba1a2f0"
+    },
+    {
+      "path": "output/PALAGAN_Surabaya_Master.inventory.json",
+      "bytes": 72570,
+      "sha256": "62c535a06cba4282b6982c8e1f651e92943e65e220c864aa7e3656ae858e9bae"
+    }
+  ],
+  "scene": {
+    "working_path": "output/PALAGAN_Surabaya_Master.blend",
+    "snapshot_path": "progress/checkpoints/hero-renders-02/scene.blend",
+    "sha256": "389718f83ed23594bf69de17b264f39793f6cd78abb00c38dec10e0e4ba1a2f0"
+  },
+  "state_snapshot": "progress/checkpoints/hero-renders-02/state.json",
+  "state_sha256": "f57160369464ac0dcffa8196893d74e708dfda690d1ddbac8d1fa1a26d6a97c6"
+}

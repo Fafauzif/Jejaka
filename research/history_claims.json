@@ -1,0 +1,172 @@
+[
+  {
+    "claim_id": "HC001",
+    "claim": "The Hotel Yamato flag incident belongs to 19 September 1945.",
+    "source_ids": [
+      "H008"
+    ],
+    "locator": "Article main text; archive-photo leads NIGIS 511/512",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Institutional retrospective account; original images not inspected."
+  },
+  {
+    "claim_id": "HC002",
+    "claim": "Mani reports arrival of Indian troops at Surabaya on 25 October.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF p12, dispatch headed soerabaja october 25",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Attributed contemporary dispatch, not evidence of every unit arrival."
+  },
+  {
+    "claim_id": "HC003",
+    "claim": "His 26 October report describes road barricades, open shops and flagged motorcars.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF p13, dispatch headed soerabaja oct 26",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Specific observer/date; not district-wide November conditions."
+  },
+  {
+    "claim_id": "HC004",
+    "claim": "His diary records leaflets on 27 October and fighting on 28 October.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF pp10\u201311, diary entries 27 and 28 October",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Diary is a positioned observer account, not complete operational chronology."
+  },
+  {
+    "claim_id": "HC005",
+    "claim": "NAM dates Mallaby\u2019s death to 30 October and calls the exact circumstances contested.",
+    "source_ids": [
+      "H006"
+    ],
+    "locator": "Section The death of Brigadier Mallaby",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Do not stage an identified killer or mechanism as settled fact."
+  },
+  {
+    "claim_id": "HC006",
+    "claim": "The named museum object is a replica of a 9 November ultimatum.",
+    "source_ids": [
+      "H004"
+    ],
+    "locator": "Municipal catalogue title and fullpage objectdescription inspected byroot",
+    "evidence_type": "catalogue_title",
+    "limitations": "Museum exhibit is a replica and modern interpretation. Distinguish leaflet distribution from other orders/correspondence; no original document provenance claimed."
+  },
+  {
+    "claim_id": "HC007",
+    "claim": "NAM dates a disarmament order to 8 November and the major attack to 10 November.",
+    "source_ids": [
+      "H007"
+    ],
+    "locator": "Sections Growing crisis in Indonesia and Battle of Surabaya",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Distinguish order, correspondence, leaflet distribution and deadline; do not resolve discrepancy by guessing."
+  },
+  {
+    "claim_id": "HC008",
+    "claim": "The JFU 437 record gives 16 November production, black-and-white image and silent sound.",
+    "source_ids": [
+      "H003"
+    ],
+    "locator": "Catalogue metadata Colour; Sound; Production Date",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Production metadata does not date every shot. Film frames not inspected in this history task."
+  },
+  {
+    "claim_id": "HC009",
+    "claim": "JFU 437 has uncertain locations and a sequence described as probably posed.",
+    "source_ids": [
+      "H003"
+    ],
+    "locator": "Catalogue description, artillery and location paragraphs",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Do not convert catalogue conjecture into coordinates or live-combat proof."
+  },
+  {
+    "claim_id": "HC010",
+    "claim": "Mani reports occupation of a government building in his 13 November dispatch.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF p49, dispatch headed november thirteenth",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Building is unnamed here; no identification with old residency or governor building is established."
+  },
+  {
+    "claim_id": "HC011",
+    "claim": "His 16 November dispatch describes advances across Kali Semampir.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF p46, dispatch headed november sixteenth",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Attributed operational account; not precise tactical coordinates in our map."
+  },
+  {
+    "claim_id": "HC012",
+    "claim": "His 28 November dispatch describes bridgeheads over Wonokromo canal.",
+    "source_ids": [
+      "H002"
+    ],
+    "locator": "PDF p36, dispatch dated 28.11.45",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Outside the proposed northern district. Shows why later southern operations must not be moved into the core."
+  },
+  {
+    "claim_id": "HC013",
+    "claim": "ANRI\u2019s Tugu Pahlawan construction archive spans 1951\u20131997.",
+    "source_ids": [
+      "H005"
+    ],
+    "locator": "Record title; construction correspondence and 1952 speech entries",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Exclude monument from 1945 world; later memorial is interpretation, not original scene."
+  },
+  {
+    "claim_id": "HC014",
+    "claim": "The city described new museum/replica-car works at Taman Sejarah in 2024.",
+    "source_ids": [
+      "H010"
+    ],
+    "locator": "Main text, paragraphs on revitalisation and replica",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Modern park furniture and memorial-car installation cannot be traced as 1945 geometry."
+  },
+  {
+    "claim_id": "HC015",
+    "claim": "The municipal book includes a photograph caption assigning Mallaby\u2019s death to 31 October.",
+    "source_ids": [
+      "H011"
+    ],
+    "locator": "PDF p179 (zero-based P178), caption near printed p168",
+    "evidence_type": "conflicting_caption",
+    "limitations": "Conflicts with H006; likely event/photo-date conflation, not resolved here. Do not propagate caption date."
+  },
+  {
+    "claim_id": "HC016",
+    "claim": "KRONIK distinguishes direct visual description from contextual interpretation and uses photo/document comparison.",
+    "source_ids": [
+      "H012"
+    ],
+    "locator": "PDF pp5\u20138, photo-analysis method and example",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Methodological scholarship; inferred photo locations remain inferred, not surveyed geometry."
+  },
+  {
+    "claim_id": "HC017",
+    "claim": "British and Indian forces are distinguished in the museum\u2019s Surabaya account.",
+    "source_ids": [
+      "H007"
+    ],
+    "locator": "Sections Growing crisis in Indonesia and By land, sea and air",
+    "evidence_type": "documented_source_statement",
+    "limitations": "Do not model every Allied soldier as Dutch or every Indian soldier as Gurkha."
+  }
+]

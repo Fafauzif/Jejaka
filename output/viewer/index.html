@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PALAGAN — Surabaya 1945 · District Explorer</title>
+<style>
+  :root{
+    --panel:rgba(16,18,22,.82);
+    --panel-brd:rgba(255,255,255,.10);
+    --ink:#e9eaec;
+    --ink-dim:#9aa0a8;
+    --accent:#e0a45c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;background:#0a0b0d;font-family:system-ui,Arial,sans-serif; color:#e9eaec}
+  #info{
+    position:absolute; top:1rem; left:1rem; background:var(--panel);
+    border:1px solid var(--panel-brd); padding:0.75rem 1rem;
+    border-radius:6px; line-height:1.4; max-width:calc(100% - 2rem)}
+  #info h1{margin:0 0 0.25rem 0; font-size:1.1rem; color:#f5f0e5}
+  #info p{margin:0; font-size:0.85rem; color:#9aa0a8}
+  #title-bar{
+    position:absolute; top:0; left:0; right:0; height:44px;
+    background:linear-gradient(180deg, #1a1d24 0%, #0f1117 100%);
+    border-bottom:1px solid #30363d; padding:0 1rem; display:flex;
+    align-items:center; justify-content:space-between; font-size:1rem}
+  #title-bar h1{margin:0; font-weight:600; letter-spacing:0.5px}
+  #controls{
+    position:absolute; bottom:1rem; left:1rem; right:1rem;
+    display:flex; gap:0.5rem; justify-content:center}
+  .ctrl-btn{
+    background:var(--panel); border:1px solid var(--panel-brd);
+    color:#e9eaec; padding:0.5rem 1rem; border-radius:6px;
+    font-size:0.8rem; cursor:pointer; transition:background .2s}
+  .ctrl-btn:hover{background:#242a32}
+  #credit{
+    position:absolute; bottom:1rem; right:1rem; font-size:0.7rem; color:#575f67;
+    opacity:0.7}
+</style>
+</head>
+<body>
+<div id="title-bar"><h1>PALAGAN — Surabaya 1945</h1></div>
+<div id="info">
+  <h1>Jembatan Merah District</h1>
+  <p>Interactive 3D exploration of the reconstructed November 1945 Surabaya district</p>
+  <p id="status">Loading 3D model...</p>
+</div>
+<div id="controls">
+  <button class="ctrl-btn" onclick="window.resetView()">Reset View</button>
+  <button class="ctrl-btn" onclick="window.toggleGround()">Toggle Ground</button>
+</div>
+<div id="credit">GLB model · three.js · AgX tone mapping</div>
+
+<script>
+// PALAGAN 3D Viewer
+// Loads three.js and the district GLB model with interactive controls
+
+let THREE = window.THREE;
+let scene, camera, renderer, controls;
+let glbModel, groundMesh;
+let loadingDone = false;
+
+// Attempt to load three.js with GLTFLoader support
+// Tries multiple CDN strategies, then provides fallback message
+
+// Check if already loaded from a previous session
+if (typeof THREE !== 'undefined' && THREE.GLTFLoader) {
+  // three.js already available, proceed
+} else {
+  // three.js not loaded yet - try to load it
+  attemptLoadThreeJS();
+}
+
+function attemptLoadThreeJS() {
+  // Remove any previous script attempts
+  var existing = document.querySelectorAll('script[src*="three"]');
+  existing.forEach(function(s) { s.parentNode.removeChild(s); });
+
+  // Strategy 1: jsdelivr CDN with examples bundle
+  var promise = loadFromJsdelivr();
+
+  promise.then(function() {
+    if (THREE && THREE.GLTFLoader) {
+      startViewer();
+    } else {
+      document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">three.js loaded but GLTFLoader not available</span>';
+      showFallbackMessage('GLTFLoader not available - loading basic viewer');
+    }
+  }).catch(function(err) {
+    // Strategy 2: Try unpkg CDN
+    return tryUnpkg();
+  }).then(function() {
+    if (THREE && THREE.GLTFLoader) {
+      startViewer();
+    } else {
+      showFallbackMessage('CDN unavailable - open this file in your own browser for full 3D');
+    }
+  }).catch(function(err) {
+    // All CDN strategies failed
+    showFallbackMessage('CDN unavailable - open this file in your own browser for full 3D');
+  });
+}
+
+function loadFromJsdelivr() {
+  return new Promise(function(resolve, reject) {
+    var threeScript = document.createElement('script');
+    threeScript.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/three.min.js';
+    threeScript.crossOrigin = "anonymous";
+    threeScript.onload = function() {
+      // three.js loaded, now load GLTFLoader from examples
+      var loaderScript = document.createElement('script');
+      loaderScript.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+      loaderScript.crossOrigin = "anonymous";
+      loaderScript.onload = resolve;
+      loaderScript.onerror = reject;
+      document.head.appendChild(loaderScript);
+    };
+    threeScript.onerror = reject;
+    document.head.appendChild(threeScript);
+  });
+}
+
+function tryUnpkg() {
+  return new Promise(function(resolve, reject) {
+    var threeScript = document.createElement('script');
+    threeScript.src = 'https://unpkg.com/three@0.160.0/build/three.min.js';
+    threeScript.crossOrigin = "anonymous";
+    threeScript.onload = function() {
+      var loaderScript = document.createElement('script');
+      loaderScript.src = 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+      loaderScript.crossOrigin = "anonymous";
+      loaderScript.onload = resolve;
+      loaderScript.onerror = function() { reject(new Error('unpkg GLTFLoader failed')); };
+      document.head.appendChild(loaderScript);
+    };
+    threeScript.onerror = function() { reject(new Error('unpkg three.js failed')); };
+    document.head.appendChild(threeScript);
+  });
+}
+
+function showFallbackMessage(text) {
+  var infoDiv = document.getElementById('info');
+  var statusDiv = document.getElementById('status');
+  infoDiv.style.paddingBottom = '3rem';
+  statusDiv.innerHTML = '<span style="color:#ff6b6b">' + text + '</span>';
+  // Still show the UI buttons even without 3D
+  document.getElementById('controls').style.display = 'block';
+}
+
+function startViewer() {
+  try {
+    // Renderer
+    renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+    // Scene
+    scene = new THREE.Scene();
+
+    // Ground plane
+    const groundGeo = new THREE.PlaneGeometry(1500, 1500);
+    const groundMat = new THREE.MeshStandardMaterial({color:0x8a9a7a, roughness:0.6, metalness:0.0});
+    groundMesh = new THREE.Mesh(groundGeo, groundMat);
+    groundMesh.rotation.x = -Math.PI / 2;
+    groundMesh.position.y = 0;
+    scene.add(groundMesh);
+
+    // Camera
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000);
+    camera.position.set(44.07, -4.71, 1.75);
+
+    // Controls
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.maxPolarAngle = Math.PI / 2.01;
+    controls.minPolarAngle = 0.1;
+    controls.target.set(40, 30, 0);
+
+    // Light
+    const light = new THREE.DirectionalLight(0xfff5e8, 3.2);
+    light.position.set(-0.5, 0.8, 0.8);
+    scene.add(light);
+
+    // Load GLB model
+    if (THREE.GLTFLoader) {
+      const loader = new THREE.GLTFLoader();
+      loader.load('/palagan_district.glb', function(glb) {
+        glbModel = glb.scene;
+        scene.add(glbModel);
+        document.getElementById('status').innerHTML = 'Model: 124 meshes · 42 materials · 51 textures embedded';
+      }, undefined, function(error) {
+        document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">Error loading GLB: ' + error.message + '</span>';
+      });
+    } else {
+      document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">GLTFLoader not available</span>';
+    }
+
+    // Reset view button
+    document.getElementById('reset-view').addEventListener('click', function() {
+      if (camera && controls) {
+        camera.position.set(-26.0, -68.0, 4.6);
+        camera.target.set(-17.12, -18.82, 2.96);
+        controls.target.set(-17.12, -18.82, 2.96);
+        controls.update();
+      }
+    });
+
+    // Toggle ground button
+    document.getElementById('toggle-ground').addEventListener('click', function() {
+      if (groundMesh) {
+        groundMesh.visible = !groundMesh.visible;
+        document.getElementById('toggle-ground').textContent = groundMesh.visible ? 'Toggle Ground' : 'Show Ground';
+      }
+    });
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+  } catch(e) {
+    console.error('Viewer error:', e);
+    document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">Viewer error: ' + e.message + '</span>';
+  }
+}
+</script>
+</body>
+</html>

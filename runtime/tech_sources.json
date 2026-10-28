@@ -1,0 +1,79 @@
+[
+  {
+    "source_id": "T001",
+    "title": "OpenCode plugin documentation: local files and compaction hooks",
+    "url": "https://opencode.ai/docs/plugins/",
+    "creator": "OpenCode / Anomaly",
+    "date": "Page inspected 2026-10-23",
+    "status": "official_documentation_inspected",
+    "local_file": null,
+    "rights": "Link and original implementation notes; no full documentation copy bundled",
+    "notes": "Supports project-local .opencode/plugins files and experimental.session.compacting output.context. This API is experimental; the user's installed version remains unverified. The included plugin is a PALAGAN implementation, not upstream code."
+  },
+  {
+    "source_id": "T002",
+    "title": "OpenCode V2 compaction documentation",
+    "url": "https://opencode.ai/v2/docs/compaction",
+    "creator": "OpenCode / Anomaly",
+    "date": "Page inspected 2026-10-23",
+    "status": "official_documentation_inspected",
+    "local_file": null,
+    "rights": "Link and brief paraphrase only",
+    "notes": "Documents lossy summaries, recent context retention, configurable automatic compaction, and V1/V2 differences. This kit intentionally sets no universal threshold or config block. File checkpoints are independent of conversation summaries."
+  },
+  {
+    "source_id": "T003",
+    "title": "OpenCode Agent Skills documentation",
+    "url": "https://opencode.ai/docs/skills/",
+    "creator": "OpenCode / Anomaly",
+    "date": "Page inspected 2026-10-23",
+    "status": "official_documentation_inspected",
+    "local_file": null,
+    "rights": "Link and brief paraphrase only",
+    "notes": "Documents project-local .opencode/skills/<name>/SKILL.md discovery and on-demand skill loading."
+  },
+  {
+    "source_id": "T004",
+    "title": "EL4CTEO Blender Agent Skills",
+    "url": "https://github.com/EL4CTEO/blender-skills",
+    "creator": "EL4CTEO / repository maintainers",
+    "date": "Inspected 2026-10-23; pinned revision 71d031dab8bc6729504d11a78cbe91945401045f",
+    "status": "maintainer_repository_and_core_instructions_inspected_not_executed",
+    "local_file": null,
+    "rights": "Repository identifies MIT licence; obtain licence with any local clone",
+    "notes": "Repository targets Blender 5.2+ and lists OpenCode. Reviewed core instructions cover ownership, saving, introspection and visual verification. Its performance and compatibility claims were not independently executed in Blender here."
+  },
+  {
+    "source_id": "T005",
+    "title": "Pinned Blender Agent Skills Windows installer",
+    "url": "https://raw.githubusercontent.com/EL4CTEO/blender-skills/71d031dab8bc6729504d11a78cbe91945401045f/install/install.ps1",
+    "creator": "EL4CTEO / repository maintainers",
+    "date": "Fetched and read 2026-10-23",
+    "status": "source_text_inspected_not_executed",
+    "local_file": null,
+    "rights": "Upstream repository licence applies; installer is not bundled",
+    "notes": "Verified parameters -Agent, -Scope, -Project, -Link and -Skills. Project installation targets .opencode/skills. Existing matching destination skills are removed/replaced by the installer; setup guide explicitly calls for inspection."
+  },
+  {
+    "source_id": "T006",
+    "title": "Blender 5.2 Python API: window-manager operators",
+    "url": "https://docs.blender.org/api/5.2/bpy.ops.wm.html",
+    "creator": "Blender Foundation / Blender contributors",
+    "date": "Access attempted 2026-10-23",
+    "status": "unavailable_in_research_fetch",
+    "local_file": null,
+    "rights": "External documentation link only",
+    "notes": "Research fetch returned HTTP 402. Exact-version runtime behaviour was not verified from this page. The helper introspects save operator properties in the installed Blender and must be exercised locally. Do not treat syntax checks as bpy execution."
+  },
+  {
+    "source_id": "T007",
+    "title": "Blender 5.2 release notes: Python API",
+    "url": "https://developer.blender.org/docs/release_notes/5.2/python_api/",
+    "creator": "Blender Foundation / Blender contributors",
+    "date": "Access attempted 2026-10-23",
+    "status": "unavailable_in_research_fetch",
+    "local_file": null,
+    "rights": "External documentation link only",
+    "notes": "Research fetch returned HTTP 402. Listed for local exact-version follow-up, not used to claim that the provided bpy helpers passed execution."
+  }
+]

@@ -1,0 +1,1160 @@
+{
+  "schema_version": 1,
+  "reported_at": "2026-10-23T17:40:24+00:00",
+  "blender_version": "5.2.2 LTS",
+  "scene": "Scene",
+  "blend_filepath": "C:\\Users\\fauzi\\OneDrive\\Desktop\\Budayago\\output\\working\\blockout-01.blend",
+  "project_owner": "PALAGAN_SURABAYA_V1",
+  "owned_objects": [
+    {
+      "name": "CAM_DISTRICT_OVERVIEW",
+      "type": "CAMERA",
+      "asset_id": "CAM_DISTRICT_OVERVIEW",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        -455.0,
+        -545.0,
+        390.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "CAM_PLAN_CHECK",
+      "type": "CAMERA",
+      "asset_id": "CAM_PLAN_CHECK",
+      "layer": "CAMERAS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        1200.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_BG_COARSE_MASSING",
+      "type": "MESH",
+      "asset_id": "BG_COARSE_FABRIC",
+      "layer": "BACKGROUND",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1382.65137,
+        1393.6687,
+        15.69361
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 2850,
+      "base_faces": 750,
+      "base_triangle_estimate": 1350,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_BRIDGEHEAD_APRONS",
+      "type": "MESH",
+      "asset_id": "RD_BRIDGEHEAD_APRONS",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        80.0,
+        26.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_PHONE_MASSING",
+      "type": "MESH",
+      "asset_id": "F_PHONE_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        45.22,
+        45.22,
+        12.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 22,
+      "base_faces": 6,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_POST_7_MASSING",
+      "type": "MESH",
+      "asset_id": "F_POST_7_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        110.67,
+        91.63,
+        13.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 50,
+      "base_faces": 14,
+      "base_triangle_estimate": 22,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_PWD_1_MASSING",
+      "type": "MESH",
+      "asset_id": "F_PWD_1_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.89,
+        34.51,
+        14.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 22,
+      "base_faces": 6,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_F_TRADING_62_MASSING",
+      "type": "MESH",
+      "asset_id": "F_TRADING_62_MASSING",
+      "layer": "MASSING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        73.78001,
+        52.35999,
+        10.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 29,
+      "base_faces": 8,
+      "base_triangle_estimate": 13,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_KALIMAS_BED",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_BED",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 81,
+      "base_faces": 27,
+      "base_triangle_estimate": 27,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_KALIMAS_WATER",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_WATER",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 81,
+      "base_faces": 27,
+      "base_triangle_estimate": 27,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LAND_EAST",
+      "type": "MESH",
+      "asset_id": "GND_LAND_EAST",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        755.65002,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 42,
+      "base_faces": 14,
+      "base_triangle_estimate": 14,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LAND_WEST",
+      "type": "MESH",
+      "asset_id": "GND_LAND_WEST",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1118.59998,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 45,
+      "base_faces": 15,
+      "base_triangle_estimate": 15,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_APPROACHES",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_APPROACHES_MASSING",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        124.0,
+        13.0,
+        0.9
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 56,
+      "base_faces": 14,
+      "base_triangle_estimate": 28,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_BRIDGE_MASSING",
+      "type": "MESH",
+      "asset_id": "LM_BRIDGE_MASSING",
+      "layer": "LM_BRIDGE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L006\"]",
+      "dimensions_m": [
+        79.8,
+        15.0,
+        3.095
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 360,
+      "base_faces": 90,
+      "base_triangle_estimate": 180,
+      "material_slots": 3
+    },
+    {
+      "name": "PALAGAN_LM_INTERNATIO_MASSING",
+      "type": "MESH",
+      "asset_id": "LM_INTERNATIO_MASSING",
+      "layer": "LM_INTERNATIO",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L002\", \"L004\", \"L005\"]",
+      "dimensions_m": [
+        107.5,
+        24.0,
+        22.0
+      ],
+      "location_scene_units": [
+        -135.0,
+        30.0,
+        0.0
+      ],
+      "base_vertices": 72,
+      "base_faces": 18,
+      "base_triangle_estimate": 36,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_LM_SINGA_MASSING",
+      "type": "MESH",
+      "asset_id": "LM_SINGA_MASSING",
+      "layer": "LM_SINGA",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\", \"L003\", \"L007\"]",
+      "dimensions_m": [
+        79.4,
+        19.4,
+        17.0
+      ],
+      "location_scene_units": [
+        -53.0,
+        47.0,
+        0.0
+      ],
+      "base_vertices": 40,
+      "base_faces": 10,
+      "base_triangle_estimate": 20,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_MAP_UNDERLAY",
+      "type": "MESH",
+      "asset_id": "REF_MAP_UNDERLAY",
+      "layer": "MAP_REFERENCE",
+      "evidence_status": "documented",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        1499.40002,
+        1499.40002,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 4,
+      "base_faces": 1,
+      "base_triangle_estimate": 2,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_ORIGIN_BRIDGE",
+      "type": "EMPTY",
+      "asset_id": "REF_ORIGIN_BRIDGE",
+      "layer": "MAP_REFERENCE",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_QUAY_COPING",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_COPING",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        500.71542,
+        1499.90601,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 108,
+      "base_faces": 27,
+      "base_triangle_estimate": 54,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_QUAY_WALLS",
+      "type": "MESH",
+      "asset_id": "W_KALIMAS_QUAY",
+      "layer": "GROUND_WATER",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        499.79999,
+        1499.40002,
+        2.26
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 216,
+      "base_faces": 54,
+      "base_triangle_estimate": 108,
+      "material_slots": 2
+    },
+    {
+      "name": "PALAGAN_R_BOENGGERAN",
+      "type": "MESH",
+      "asset_id": "R_BOENGGERAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        46.9682,
+        420.66516,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_BONGKARAN",
+      "type": "MESH",
+      "asset_id": "R_BONGKARAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        37.48276,
+        450.50507,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_BOOM",
+      "type": "MESH",
+      "asset_id": "R_BOOM",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        80.45322,
+        333.2511,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_CHINEESCHE",
+      "type": "MESH",
+      "asset_id": "R_CHINEESCHE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        130.65965,
+        686.0943,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_LANE1",
+      "type": "MESH",
+      "asset_id": "R_EAST_LANE1",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        250.51917,
+        26.47919,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_LANE2",
+      "type": "MESH",
+      "asset_id": "R_EAST_LANE2",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        250.51917,
+        26.47919,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_NORTH",
+      "type": "MESH",
+      "asset_id": "R_EAST_NORTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        340.35355,
+        25.9895,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_EAST_SOUTH",
+      "type": "MESH",
+      "asset_id": "R_EAST_SOUTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        300.43237,
+        26.4856,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_HEEREN",
+      "type": "MESH",
+      "asset_id": "R_HEEREN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        709.89227,
+        257.63678,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KALISOSOK",
+      "type": "MESH",
+      "asset_id": "R_KALISOSOK",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        669.52362,
+        96.26483,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KALONGAN",
+      "type": "MESH",
+      "asset_id": "R_KALONGAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        32.48688,
+        420.4411,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_KEMBANG",
+      "type": "MESH",
+      "asset_id": "R_KEMBANG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        746.76019,
+        199.09894,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_NIEUW_HOLLAND",
+      "type": "MESH",
+      "asset_id": "R_NIEUW_HOLLAND",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        14.49745,
+        330.27191,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_OOSTER",
+      "type": "MESH",
+      "asset_id": "R_OOSTER",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        65.50728,
+        743.13,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PANGGGOENG",
+      "type": "MESH",
+      "asset_id": "R_PANGGGOENG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.47542,
+        345.56415,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PARADE",
+      "type": "MESH",
+      "asset_id": "R_PARADE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        595.83453,
+        93.96075,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_PROFETEN",
+      "type": "MESH",
+      "asset_id": "R_PROFETEN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        460.4386,
+        22.99039,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_RUSTENBURG",
+      "type": "MESH",
+      "asset_id": "R_RUSTENBURG",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        372.36603,
+        141.56717,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SASAK",
+      "type": "MESH",
+      "asset_id": "R_SASAK",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        433.21143,
+        172.29709,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 16,
+      "base_faces": 4,
+      "base_triangle_estimate": 8,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SLOMPRETAN",
+      "type": "MESH",
+      "asset_id": "R_SLOMPRETAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        32.48317,
+        400.48172,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SONGOYUDAN",
+      "type": "MESH",
+      "asset_id": "R_SONGOYUDAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        40.9651,
+        325.64102,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_SOUTH_LANE",
+      "type": "MESH",
+      "asset_id": "R_SOUTH_LANE",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        400.32785,
+        16.49661,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_TJANTIAN",
+      "type": "MESH",
+      "asset_id": "R_TJANTIAN",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        412.43079,
+        138.03915,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_TJINASTRAAT",
+      "type": "MESH",
+      "asset_id": "R_TJINASTRAAT",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.47458,
+        340.57324,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 8,
+      "base_faces": 2,
+      "base_triangle_estimate": 4,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WERF",
+      "type": "MESH",
+      "asset_id": "R_WERF",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        36.96762,
+        401.04779,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_LANE1",
+      "type": "MESH",
+      "asset_id": "R_WEST_LANE1",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        391.04095,
+        66.41492,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_LANE2",
+      "type": "MESH",
+      "asset_id": "R_WEST_LANE2",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        390.48535,
+        35.98006,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_NORTH",
+      "type": "MESH",
+      "asset_id": "R_WEST_NORTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        610.69281,
+        45.95251,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WEST_SOUTH",
+      "type": "MESH",
+      "asset_id": "R_WEST_SOUTH",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        590.83026,
+        56.46021,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 12,
+      "base_faces": 3,
+      "base_triangle_estimate": 6,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_R_WILLEMS",
+      "type": "MESH",
+      "asset_id": "R_WILLEMS",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        135.43115,
+        752.41681,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 20,
+      "base_faces": 5,
+      "base_triangle_estimate": 10,
+      "material_slots": 1
+    },
+    {
+      "name": "PALAGAN_SUN",
+      "type": "LIGHT",
+      "asset_id": "LGT_SUN_NEUTRAL",
+      "layer": "LIGHTING",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"M001\"]",
+      "dimensions_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 0,
+      "base_faces": 0,
+      "base_triangle_estimate": 0,
+      "material_slots": 0
+    },
+    {
+      "name": "PALAGAN_TRAM_RAILS",
+      "type": "MESH",
+      "asset_id": "TRAM_RAILS_PREWAR",
+      "layer": "STREETS",
+      "evidence_status": "reconstructed",
+      "source_ids_json": "[\"L004\", \"L006\"]",
+      "dimensions_m": [
+        1285.66553,
+        376.30667,
+        0.0
+      ],
+      "location_scene_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_vertices": 56,
+      "base_faces": 14,
+      "base_triangle_estimate": 28,
+      "material_slots": 1
+    }
+  ],
+  "owned_object_count": 52,
+  "unowned_scene_object_count": 3,
+  "base_triangle_estimate": 2126,
+  "counts_are_evaluated": false,
+  "note": "Base geometry counts exclude modifier expansion and instances; measure evaluated counts separately before performance claims.",
+  "operation_id": "blockout-01"
+}

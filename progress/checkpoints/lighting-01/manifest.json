@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "lighting-01",
+  "stage": "lighting",
+  "created_at": "2026-10-24T03:39:04+00:00",
+  "verification": "Replaced the flat single-colour world with a four-stop vertical sky gradient (warm dust-hazed horizon to cool zenith, strength 1.25) driven by the world direction vector, and tightened the sun disc from 9.17 degrees to 2.2 degrees at 3.2 energy, 41 degrees elevation and -132 degrees azimuth, keeping the previous lighting direction. Exposure set to 0.15 with AgX Medium High Contrast and EEVEE fast GI at 6 m for ambient occlusion. Re-rendered CAM_KEMBANG_STREET, CAM_FABRIC_OVERVIEW and CAM_BRIDGE at 1400x900. Inspection: street and eave shadows are now readable instead of washed out, roof tiles catch raking light, the sky reads as a gradient rather than flat grey, and shopfront recesses stay open rather than crushing to black. One real regression found: CAM_BRIDGE no longer sees the bridge because the streets-01 shopfront rows now occupy that camera position, so the render shows a roof; camera positions are therefore deferred to the cameras task and were not silently moved inside a lighting operation. No weather, smoke, fire or battle atmosphere was added.",
+  "outputs": [
+    {
+      "path": "output/working/lighting-01.blend",
+      "bytes": 10265628,
+      "sha256": "808f232f60c320798f5623366f4aa70b8830e5ba7a797a938b8b10224ce06869"
+    },
+    {
+      "path": "output/working/lighting-01.inventory.json",
+      "bytes": 72084,
+      "sha256": "74816da6c779b744141dcd1926a3b729049f932f23d118c25dd203fe2a250fdd"
+    },
+    {
+      "path": "output/renders/lighting_kembang.png",
+      "bytes": 1503632,
+      "sha256": "70acf50cadd59e322861d02f44a4a6bf1b9f6e285dcae99843ac6f87b3cacf5c"
+    },
+    {
+      "path": "output/renders/lighting_overview.png",
+      "bytes": 1819164,
+      "sha256": "fe3bf2d102354cbf15445caf47e2cbd0b91973ec9d7cd1c555919410ecb9f763"
+    },
+    {
+      "path": "output/renders/lighting_bridge.png",
+      "bytes": 1510622,
+      "sha256": "21f11bd56202e6e3bb8fc806d12101a29d69e70cb179465b62a384ce8e680fd3"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/lighting-01.blend",
+    "snapshot_path": "progress/checkpoints/lighting-01/scene.blend",
+    "sha256": "808f232f60c320798f5623366f4aa70b8830e5ba7a797a938b8b10224ce06869"
+  },
+  "state_snapshot": "progress/checkpoints/lighting-01/state.json",
+  "state_sha256": "fe1bbf3aa87d091be43e3bbfabb57847f7811969068ec22ae4bf1930e0ac3e8d"
+}

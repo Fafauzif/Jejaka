@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "operation_id": "materials-01",
+  "stage": "materials",
+  "created_at": "2026-10-24T03:36:13+00:00",
+  "verification": "Rebuilt 30 PALAGAN-owned material node trees from output/material_palette.json and re-rendered CAM_KEMBANG_STREET and CAM_FABRIC_OVERVIEW (1400x900, EEVEE, map underlay hidden). Inspected before/after crops of the shopfront band: glazing changed from a flat black void to a graduated blue-grey sheen (sampled RGB about 44,51,55 rising with grazing angle) and the interior plane behind it is now a lit warm grey instead of near-black. Facades were rebuilt from the shared plaster texture set with a multiply tint that keeps the texture's tonal detail; the earlier luminance-ramp version had flattened the walls to flat colour. Terrace and landmark roofs now use the clay tile diffuse/rough/normal set at a 5.5 m repeat with a low-frequency weathering multiply so the tile grid does not read as an obvious repeated pattern. Footway setts were desaturated from red brick to grey paving and rescaled from about 0.7 m to about 1.2 m per texture tile. Open ground changed from pale sand to a muted earth-green so empty land no longer reads as desert, and road aggregate/track roughness was added. EEVEE raytracing options raised (screen_trace_quality 0.5, resolution_scale 2, trace_max_roughness 0.55) and taa_render_samples 64. Defects still visible and deferred: shopfront bays remain one unbroken pane per bay because bay mullion geometry is a construction change, and daylight is still flat with no sky gradient. Four materials were skipped because they do not exist in this scene (MAT_ROOF_CLAY, MAT_SINGA_*, etc. resolved where present).",
+  "outputs": [
+    {
+      "path": "output/working/materials-01.blend",
+      "bytes": 10265055,
+      "sha256": "dc3beaf7ec06065ee9b762359666ede3a3fd2404f93723a7ac664ac8c8052fb5"
+    },
+    {
+      "path": "output/working/materials-01.inventory.json",
+      "bytes": 72086,
+      "sha256": "71db346525212e35e501342253427bd9f0091fe67fe60e2fa99a5c7d09c2b728"
+    },
+    {
+      "path": "output/material_palette.json",
+      "bytes": 7786,
+      "sha256": "b88bbfb8e69a54fac97b9997f9b946079e04aee50f649499bd5080e3415cc05f"
+    },
+    {
+      "path": "output/renders/materials_kembang.png",
+      "bytes": 1453389,
+      "sha256": "9dc47891152bb7cd397f35e7d2ba451e804e95de8943260a641f4c90d08b1bb5"
+    },
+    {
+      "path": "output/renders/materials_overview.png",
+      "bytes": 1779805,
+      "sha256": "d576984da4878f762d292aa7c1f952d0b1d0709c0ec79e69ad288df038d79313"
+    }
+  ],
+  "scene": {
+    "working_path": "output/working/materials-01.blend",
+    "snapshot_path": "progress/checkpoints/materials-01/scene.blend",
+    "sha256": "dc3beaf7ec06065ee9b762359666ede3a3fd2404f93723a7ac664ac8c8052fb5"
+  },
+  "state_snapshot": "progress/checkpoints/materials-01/state.json",
+  "state_sha256": "030303ca8b213c8898554b8dcab9cb367b6c6857034a72ffd5a53eb4cd9504da"
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "source_id": "L001",
+    "title": "Jembatan Merah — municipal cultural heritage record",
+    "url": "https://disbudporapar.surabaya.go.id/adinda/portaldata/cagarbudaya/detail/jembatan-merah",
+    "creator": "Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kota Surabaya",
+    "date": "Undated web record; inspected 2026-10-23",
+    "status": "inspected_text",
+    "local_file": "",
+    "rights": "External source; text paraphrased, municipal photographs not redistributed",
+    "notes": "Establishes site identity and association with 1945 fighting. Does not specify dimensions or bridge railing appearance in November1945.",
+    "modern_routing_pin": {
+      "latitude": -7.236742,
+      "longitude": 112.738301,
+      "type": "present-day visiting point from institutional Lihat Rute link",
+      "historical_accuracy": "not a1945survey or centroid",
+      "source_url": "https://www.google.com/maps?daddr=-7.236742,112.738301&dirflg=d&f=d&saddr=My+Location"
+    }
+  },
+  {
+    "source_id": "L002",
+    "title": "Gedung Internatio — municipal cultural heritage record",
+    "url": "https://disbudporapar.surabaya.go.id/adinda/portaldata/cagarbudaya/detail/gedung-internatio",
+    "creator": "Disbudporapar Kota Surabaya",
+    "date": "Undated web record; inspected 2026-10-23",
+    "status": "inspected_text",
+    "local_file": "",
+    "rights": "External source; brief paraphrase only",
+    "notes": "Lists current address Jl.Taman Jayengrono and historic corner Heerenstraat/Willemsplein, construction1927–1931 and Ghijsels/AIA attribution. Another municipal tourism page says1929; preserve discrepancy. Long narrative of Mallaby death is not accepted as settled event reconstruction.",
+    "modern_routing_pin": {
+      "latitude": -7.235912,
+      "longitude": 112.737278,
+      "type": "present-day visiting point from institutional Lihat Rute link",
+      "historical_accuracy": "not a1945survey or centroid",
+      "source_url": "https://www.google.com/maps?daddr=-7.235912,112.737278&dirflg=d&f=d&saddr=My+Location"
+    }
+  },
+  {
+    "source_id": "L003",
+    "title": "Aperdi Djawa Maluku / Gedung Singa — municipal cultural heritage record",
+    "url": "https://disbudporapar.surabaya.go.id/adinda/portaldata/cagarbudaya/detail/aperdi-djawa-maluku",
+    "creator": "Disbudporapar Kota Surabaya",
+    "date": "Undated web record; inspected 2026-10-23",
+    "status": "inspected_text",
+    "local_file": "",
+    "rights": "External source; brief paraphrase only",
+    "notes": "Current address Jl.Jembatan Merah19–23; construction1901–1903 and Berlage design. Institutional text identifies paired winged lion sculptures. No complete dimensional survey supplied.",
+    "modern_routing_pin": {
+      "latitude": -7.23715,
+      "longitude": 112.7378,
+      "type": "present-day visiting point from institutional Lihat Rute link",
+      "historical_accuracy": "not a1945survey or centroid",
+      "source_url": "https://www.google.com/maps?daddr=-7.237150,112.737800&dirflg=d&f=d&saddr=My+Location"
+    }
+  },
+  {
+    "source_id": "L004",
+    "title": "KITLV A1319 - Tram voor het kantoor van de Internationale Crediet- en Handelsvereeniging Rotterdam (Internatio) te Soerabaja.tiff",
+    "url": "https://commons.wikimedia.org/wiki/File:KITLV_A1319_-_Tram_voor_het_kantoor_van_de_Internationale_Crediet-_en_Handelsvereeniging_Rotterdam_(Internatio)_te_Soerabaja.tiff",
+    "creator": "AnonymousUnknown author",
+    "date": "Circa1936 (Published field); exact capture date unknown",
+    "status": "downloaded_and_visually_inspected",
+    "local_file": "references/images/L004.jpg",
+    "rights": "CC BY 4.0; https://creativecommons.org/licenses/by/4.0; attribution retained in image metadata and IMAGE_CREDITS.md",
+    "notes": "Primary prewar architectural reference for Internatio; c1936 from catalogue description, not Commons Unknown-date field. View physically inspected. Does not prove wartime colour, signage or damage.",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/KITLV_A1319_-_Tram_voor_het_kantoor_van_de_Internationale_Crediet-_en_Handelsvereeniging_Rotterdam_%28Internatio%29_te_Soerabaja.tiff?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+  },
+  {
+    "source_id": "L005",
+    "title": "COLLECTIE TROPENMUSEUM Het gebouw van het handelskantoor Internatio aan het Willemsplein Soerabaja Oost-Java TMnr 10014840.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Het_gebouw_van_het_handelskantoor_Internatio_aan_het_Willemsplein_Soerabaja_Oost-Java_TMnr_10014840.jpg",
+    "creator": "Unknown authorUnknown author",
+    "date": "1948 (catalogue date; postdates target)",
+    "status": "downloaded_and_visually_inspected",
+    "local_file": "references/images/L005.jpg",
+    "rights": "CC BY-SA 3.0; https://creativecommons.org/licenses/by-sa/3.0; attribution retained in image metadata and IMAGE_CREDITS.md",
+    "notes": "Postwar comparison only. View physically inspected; never transplant1948 people/vehicles/condition into1945 as documented.",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/COLLECTIE_TROPENMUSEUM_Het_gebouw_van_het_handelskantoor_Internatio_aan_het_Willemsplein_Soerabaja_Oost-Java_TMnr_10014840.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+  },
+  {
+    "source_id": "L006",
+    "title": "Roode Brug, Soerabaja, KITLV 118477.tiff",
+    "url": "https://commons.wikimedia.org/wiki/File:Roode_Brug,_Soerabaja,_KITLV_118477.tiff",
+    "creator": "AnonymousUnknown author",
+    "date": "Circa1929 (Published/created field); postcard stamp12September1929",
+    "status": "downloaded_and_visually_inspected",
+    "local_file": "references/images/L006.jpg",
+    "rights": "CC BY 4.0; https://creativecommons.org/licenses/by/4.0; attribution retained in image metadata and IMAGE_CREDITS.md",
+    "notes": "Bridge and approaches prewar reference physically inspected. Catalogue points to KITLV118477 and hdl1887.1/item:825805. Does not prove railings unchanged to1945.",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Roode_Brug%2C_Soerabaja%2C_KITLV_118477.tiff?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+  },
+  {
+    "source_id": "L007",
+    "title": "KITLV A1061 - Het door Berlage ontworpen kantoor van de Algemeene (met dakreclame) aan de Kali Mas te Soerabaja, KITLV 117755.tiff",
+    "url": "https://commons.wikimedia.org/wiki/File:KITLV_A1061_-_Het_door_Berlage_ontworpen_kantoor_van_de_Algemeene_(met_dakreclame)_aan_de_Kali_Mas_te_Soerabaja,_KITLV_117755.tiff",
+    "creator": "AnonymousUnknown author",
+    "date": "Circa1910 (Published field); exact capture date unknown",
+    "status": "downloaded_and_visually_inspected",
+    "local_file": "references/images/L007.jpg",
+    "rights": "CC BY 4.0; https://creativecommons.org/licenses/by/4.0; attribution retained in image metadata and IMAGE_CREDITS.md",
+    "notes": "Algemeene/Singa prewar architectural reference physically inspected. Catalogue hdl1887.1/item:888033. Circa1910 roof advertising is not confirmed for1945.",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/KITLV_A1061_-_Het_door_Berlage_ontworpen_kantoor_van_de_Algemeene_%28met_dakreclame%29_aan_de_Kali_Mas_te_Soerabaja%2C_KITLV_117755.tiff?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+  },
+  {
+    "source_id": "L008",
+    "title": "COLLECTIE TROPENMUSEUM Kembang Djepoen Soerabaja TMnr 60037910.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Kembang_Djepoen_Soerabaja_TMnr_60037910.jpg",
+    "creator": "Unknown authorUnknown author",
+    "date": "1927-01-20 (catalogue date)",
+    "status": "downloaded_and_visually_inspected",
+    "local_file": "references/images/L008.jpg",
+    "rights": "CC BY-SA 3.0; https://creativecommons.org/licenses/by-sa/3.0; attribution retained in image metadata and IMAGE_CREDITS.md",
+    "notes": "Kembang Djepoen prewar streetscape reference physically inspected. Use as typology, not an exact1945 shop inventory.",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/COLLECTIE_TROPENMUSEUM_Kembang_Djepoen_Soerabaja_TMnr_60037910.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+  },
+  {
+    "source_id": "L009",
+    "title": "Gedung Internatio pada tahun1933 — Petra University library",
+    "url": "https://perpus.petra.ac.id/catalog/digital/detail?id=39657",
+    "creator": "Unknown creator; institutional record credits Perpustakaan Kota Surabaya as source",
+    "date": "1933 (catalogue description)",
+    "status": "catalogue_and_web_image_inspected_external_only",
+    "local_file": "",
+    "rights": "No clear reuse licence on inspected page; image not redistributed",
+    "notes": "Additional prewar form check. Direct image link is discoverable from record. Do not treat publisher field Universitas Kristen Petra;1933 as camera authorship or institution founding date."
+  },
+  {
+    "source_id": "L010",
+    "title": "Kantor Gubernur Prop Jatim — municipal cultural heritage record",
+    "url": "https://disbudporapar.surabaya.go.id/adinda/portaldata/cagarbudaya/detail/kantor-gubernur-prop-jatim",
+    "creator": "Disbudporapar Kota Surabaya",
+    "date": "Undated web record; inspected2026-10-23",
+    "status": "inspected_text",
+    "local_file": "",
+    "rights": "External source; brief paraphrase only",
+    "notes": "Distinguishes former office near bridge until1930 from new office built1929–1931 atJl.Pahlawan110. Avoid conflating sites. Claims on precise dates/events require chronological corroboration."
+  }
+]
