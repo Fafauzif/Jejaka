@@ -1,0 +1,86 @@
+[
+  {
+    "id": "intro-id",
+    "file": "intro-id.mp3",
+    "transcript": "Surabaya, November seribu sembilan ratus empat puluh lima. Namaku Raka Pradana. Aku datang untuk menulis tentang orang-orang di sekitar Jembatan Merah.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "arrival",
+    "file": "arrival.mp3",
+    "transcript": "Tugas dari redaksi: nama orang, tempat tinggal, apa yang mereka alami. Aku mulai dari jalan menuju jembatan.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "sari",
+    "file": "sari.mp3",
+    "transcript": "Sari. Tulis Sari saja. Kalau toko tutup, orang sering mengira kami sudah pergi. Kadang kami hanya menunggu kabar keluarga.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "delicate"
+  },
+  {
+    "id": "bridge",
+    "file": "bridge.mp3",
+    "transcript": "Kali Mas di bawahku. Orang menyeberang sambil membawa barang. Aku tidak tahu mereka hendak ke mana.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "damar",
+    "file": "damar.mp3",
+    "transcript": "Aku menunggu orang dari ujung jalan. Kalau suara itu dekat lagi, kita masuk dulu. Jangan tunggu aku kalau jalanmu masih terbuka.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "deep"
+  },
+  {
+    "id": "street",
+    "file": "street.mp3",
+    "transcript": "Aku belum mendapat cerita lengkap. Di halaman ini kutulis yang ada di depan mata: barang yang ditinggal, pintu yang ditutup, orang yang masih menunggu.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "impact",
+    "file": "impact.mp3",
+    "transcript": "Tunduk! Jangan berhenti di tengah jalan!",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "deep"
+  },
+  {
+    "id": "shelter",
+    "file": "shelter.mp3",
+    "transcript": "Bantu geser ini, kalau bisa. Atau lihat jalan ke jembatan. Aku tidak bisa melihat dari sini.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "deep"
+  },
+  {
+    "id": "return",
+    "file": "return.mp3",
+    "transcript": "Aku mengenali jalan ini. Tadi aku masih bisa melihat sampai ujung. Sekarang aku mencari tepi bangunannya.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "wounded",
+    "file": "wounded.mp3",
+    "transcript": "Damar, buku ini. Namanya ada di halaman depan. Jangan biarkan halaman-halamannya tercecer.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "normal"
+  },
+  {
+    "id": "lastview",
+    "file": "lastview.mp3",
+    "transcript": "Aku di sini.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "deep"
+  },
+  {
+    "id": "afterword",
+    "file": "afterword.mp3",
+    "transcript": "Serangan besar dimulai pada 10 November 1945. Pertempuran berlanjut selama November. Kisah Raka tidak menetapkan tanggal, sasaran serangan, atau keadaan bangunan tertentu sebagai fakta.",
+    "performance": "Synthetic fictional voice performance",
+    "voiceStyle": "clear"
+  }
+]

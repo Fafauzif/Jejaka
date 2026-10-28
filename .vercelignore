@@ -1,0 +1,13 @@
+# The deployed frontend is self-contained in experience/.
+/output/
+/progress/
+/references/
+/research/
+/assets/
+/review/
+/runtime/
+/landmarks/
+/scripts/
+/docs/
+*.zip
+**/__pycache__/

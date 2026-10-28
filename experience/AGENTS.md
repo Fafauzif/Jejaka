@@ -1,0 +1,4 @@
+# Playable experience
+Read root AGENTS.md and current docs/context before changes. This folder is the active browser product. Legacy Blender-only/no-web directions refer to the earlier reconstruction phase and do not override the user's approved guided experience.
+Preserve vendored Three.js r169 unless upgrading deliberately. All runtime assets must load locally with relative URLs, at root or a subpath. The packed city requires DecompressionStream('gzip'); do not set Content-Encoding:gzip for the stored asset unless changing the loader too.
+Keep source modules readable and focused. Do not insert critique scores or assistant commentary into the player UI. Verify on actual rendered output after camera, lighting, geometry, UI or animation edits. Recordable beats and authored voice transcripts must remain synchronized with state and media.

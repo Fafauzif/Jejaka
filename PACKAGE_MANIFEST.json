@@ -1,0 +1,340 @@
+{
+  "product": "Jejaka",
+  "edition": "Guided browser prototype 1.0.0",
+  "date": "2026-10-28",
+  "base_repository": "https://github.com/Fafauzif/Jejaka",
+  "base_commit": "57a70e82e1b791866a9cb4efb728176c1f90d02e",
+  "integration": "Merge archive contents into repository root; preserve existing reconstruction files.",
+  "files": [
+    {
+      "path": ".vercelignore",
+      "bytes": 181,
+      "sha256": "993b0377691ce00873244ca6f826ebff003322676432d6259999c23bda99a55e"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4961,
+      "sha256": "06e3d1c46344226fa2048e5dd6c5224a7760071108bbff1566a11225490280ef"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "bytes": 1938,
+      "sha256": "356c3576a2dcf1a5faaa984ca6ac5cbe11314a277c4a4ae41e00b588826c3541"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3572,
+      "sha256": "b314ed8b927afc2302699b33edb95aec0bf93f4f3adda34cb61f77dd53b1e377"
+    },
+    {
+      "path": "docs/context/COMPETITION.md",
+      "bytes": 6342,
+      "sha256": "7a0c7ace7558b4b4d928d341a100b2836db1582b83ed18a2e842ee5c41878adc"
+    },
+    {
+      "path": "docs/context/CURRENT_DECISIONS.md",
+      "bytes": 7364,
+      "sha256": "8f9b40d45053961e180ad2a04017fb5894a68a2888998142c544030474e9803e"
+    },
+    {
+      "path": "docs/context/ORIGINAL_CONTEXT_PACK_2026-10-28.md",
+      "bytes": 106562,
+      "sha256": "1364206ecb061132295d0aef457cd1e69b868e89bed78a27b53a9c141612c92d"
+    },
+    {
+      "path": "docs/context/PROJECT_HANDOFF.md",
+      "bytes": 12423,
+      "sha256": "0a427ab0dbd0331d4a9867b12b44f2bb8f09c1d3f7a67ce5643013eb945b5bab"
+    },
+    {
+      "path": "docs/reconstruction/BLENDER_RULES_LEGACY.md",
+      "bytes": 4833,
+      "sha256": "f2d863379034d55e5ecccd75af855a5a1da53f877caec2762f2f340eec8504df"
+    },
+    {
+      "path": "docs/reconstruction/README_ARCHIVE.md",
+      "bytes": 3695,
+      "sha256": "a1763de6a36d689f75aeaf6f8e068f2913b44518a38bf1b0adc0a90bac0bbf5b"
+    },
+    {
+      "path": "experience/AGENTS.md",
+      "bytes": 848,
+      "sha256": "dacf0630fbf2c52b77e659a58d02f46a3deda55ca655d9c51655d4121a1df465"
+    },
+    {
+      "path": "experience/app.js",
+      "bytes": 30904,
+      "sha256": "92390ca14ac4f1a0635ef5fba11ffcf8396bae8476680fe50b4d8659900b5f68"
+    },
+    {
+      "path": "experience/assets/audio/afterword.mp3",
+      "bytes": 203136,
+      "sha256": "327b65fc5b15720055d9d527014f70893fa6707c539343e33d048b98e27a9f3c"
+    },
+    {
+      "path": "experience/assets/audio/arrival.mp3",
+      "bytes": 105216,
+      "sha256": "c408fc5c581ae6343df732d468c0ff4a34c6fee3ec4593138dd62b22a46b4fcc"
+    },
+    {
+      "path": "experience/assets/audio/bridge.mp3",
+      "bytes": 99456,
+      "sha256": "683304d8e21209d6d1ba3313e18841cd460e890dad493941995ee600122739da"
+    },
+    {
+      "path": "experience/assets/audio/damar.mp3",
+      "bytes": 125184,
+      "sha256": "704d719acb7881bbfef08cc55572ba0678b3700ce68c9513e401d6ca0f51949b"
+    },
+    {
+      "path": "experience/assets/audio/impact.mp3",
+      "bytes": 39552,
+      "sha256": "2d1e22257c532a626016334b0152c790dfa8af1c340ece53929d593ac38c7494"
+    },
+    {
+      "path": "experience/assets/audio/intro-id.mp3",
+      "bytes": 147840,
+      "sha256": "609b5706dbade7efd290b1f085b09cd2c1dcf39d5953c9c7785efac787afe50d"
+    },
+    {
+      "path": "experience/assets/audio/lastview.mp3",
+      "bytes": 12288,
+      "sha256": "8c0c05586a566d7d4fe5089e10341c340ce707e26c59077cae1adca199daf6b2"
+    },
+    {
+      "path": "experience/assets/audio/return.mp3",
+      "bytes": 104448,
+      "sha256": "4680801251bda53d188a2132415f095418dd3eec649179fb4b3bb76d773c9e68"
+    },
+    {
+      "path": "experience/assets/audio/sari.mp3",
+      "bytes": 120576,
+      "sha256": "8781b61836dc51d0e52557ec256f4178d8103010957536c316cd549e3841bae5"
+    },
+    {
+      "path": "experience/assets/audio/shelter.mp3",
+      "bytes": 86784,
+      "sha256": "7ea7a7b3c9a48eea4ecd86575085409764694ea0504c1fd542ea9b0b6b4d1ce2"
+    },
+    {
+      "path": "experience/assets/audio/street.mp3",
+      "bytes": 149376,
+      "sha256": "a63cbf20827bf5299065b8e1defa3d6a537e77075fe1728047f4bc2a25e4443b"
+    },
+    {
+      "path": "experience/assets/audio/voice-manifest.json",
+      "bytes": 3261,
+      "sha256": "d6c2ed1a98af81c0784dfb42bd9bdc909870cd40211ceae7e6a2d9f176205642"
+    },
+    {
+      "path": "experience/assets/audio/wounded.mp3",
+      "bytes": 85632,
+      "sha256": "f5a2aeb2975f0ad3539a024ff1693fb8f667dc3fde7671990b5a776a9c8f75fd"
+    },
+    {
+      "path": "experience/assets/characters.glb",
+      "bytes": 1815540,
+      "sha256": "ec0feee7faa199ac9160fbc314846807a0071ca8077ad94cc0eef44c2b701bd1"
+    },
+    {
+      "path": "experience/assets/characters.json",
+      "bytes": 483,
+      "sha256": "9def6edc1d2f1f852704e9b885a6b8e9588a5b77174e00ff34840a7e0ac9aff6"
+    },
+    {
+      "path": "experience/assets/district.glb.gz",
+      "bytes": 15981642,
+      "sha256": "0ad1573af49cc9fb4e1b170dee4f84eca6a9f8d088ea48256e8aaf4e94f67852"
+    },
+    {
+      "path": "experience/assets/fonts/JejakaSans.woff",
+      "bytes": 379400,
+      "sha256": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605"
+    },
+    {
+      "path": "experience/assets/fonts/JejakaSerif.woff",
+      "bytes": 211260,
+      "sha256": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0"
+    },
+    {
+      "path": "experience/assets/sari.glb",
+      "bytes": 1368888,
+      "sha256": "af7a54d3c8ac3de4d124743a277d50b2d308af975e17e197d7177db30fc5961c"
+    },
+    {
+      "path": "experience/assets/sari.json",
+      "bytes": 477,
+      "sha256": "8fac1fefc19bfef60399e8054d804394e339e6f588f8428f2733711b90dc2999"
+    },
+    {
+      "path": "experience/audio.js",
+      "bytes": 14062,
+      "sha256": "957a38feb3756ee5578d8364f31cb4f7b3d125a24501805652210e3152d68b02"
+    },
+    {
+      "path": "experience/docs/AUDIO_PRODUCTION.md",
+      "bytes": 5338,
+      "sha256": "02d45376d48ba5db902d8b6c8e02155827dd358541a4221593ab311045efff9e"
+    },
+    {
+      "path": "experience/docs/CHARACTER_PRODUCTION.md",
+      "bytes": 5859,
+      "sha256": "15502b4c9358b848e80f32ddb493c4da1de1e18cc70d81a2c0333dfa6af7edfe"
+    },
+    {
+      "path": "experience/docs/EDITORIAL_STANDARD.md",
+      "bytes": 5583,
+      "sha256": "70325296b2fb1952d042295382835b09bcf0f12645aa70a2d040cf1833d5fd06"
+    },
+    {
+      "path": "experience/docs/HISTORICAL_NOTES.md",
+      "bytes": 6430,
+      "sha256": "b43042b6ebd15f1e887139bd255bfd5cc1bd1f74d389c84cb0531bf24705e19b"
+    },
+    {
+      "path": "experience/docs/STORY_ROUTE.md",
+      "bytes": 21767,
+      "sha256": "fd3bd2dbf5d74d70de1637bba0826c05c83c1078bc3998a3ade09f323e44b4d9"
+    },
+    {
+      "path": "experience/docs/TECHNICAL_REFERENCES.md",
+      "bytes": 1747,
+      "sha256": "23bc2836f9b1dd52aef10b55a2359b0cf5937d371d9acd5462de3828f77176de"
+    },
+    {
+      "path": "experience/docs/VERIFICATION.md",
+      "bytes": 5513,
+      "sha256": "39e951f9f7fc8ee70a627cca7351b498fccdc02d9ebc45a19a2890f1fc08d227"
+    },
+    {
+      "path": "experience/docs/WORLD_PRODUCTION.md",
+      "bytes": 2230,
+      "sha256": "a8d159e900b04997e92ed6a3e7fdc9875411e667e68ba1638cf5dd93a398527d"
+    },
+    {
+      "path": "experience/docs/credits/ASSET_CATALOG.json",
+      "bytes": 24191,
+      "sha256": "2dd47f02e0129565d933cb3fc28839c7b987436565108355291d2309ce530ffe"
+    },
+    {
+      "path": "experience/docs/credits/CC0-1.0.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "experience/docs/credits/DEJAVU_FONT_LICENSE.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    },
+    {
+      "path": "experience/docs/credits/IMAGE_CREDITS.md",
+      "bytes": 5855,
+      "sha256": "8ced2f093fa10065eef8e89b43c278fff9631a94cf2e733cf47d555c961ea2e9"
+    },
+    {
+      "path": "experience/docs/credits/POLY_HAVEN_CC0_NOTICE.md",
+      "bytes": 1508,
+      "sha256": "adf045519e5ef0d9bd8c3702402351c79a038dd3bdbaf9fd9066f20f9cab40c8"
+    },
+    {
+      "path": "experience/docs/credits/RECONSTRUCTION_RIGHTS.md",
+      "bytes": 2889,
+      "sha256": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0"
+    },
+    {
+      "path": "experience/index.html",
+      "bytes": 13956,
+      "sha256": "fa3ed9eaa54518aff3936785d8b40761cd099904b2e351238d1893cbec426738"
+    },
+    {
+      "path": "experience/lib/LICENSE",
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+    },
+    {
+      "path": "experience/lib/addons/loaders/GLTFLoader.js",
+      "bytes": 110029,
+      "sha256": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f"
+    },
+    {
+      "path": "experience/lib/addons/utils/BufferGeometryUtils.js",
+      "bytes": 31768,
+      "sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+    },
+    {
+      "path": "experience/lib/addons/utils/SkeletonUtils.js",
+      "bytes": 8802,
+      "sha256": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991"
+    },
+    {
+      "path": "experience/lib/three.module.js",
+      "bytes": 1304820,
+      "sha256": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416"
+    },
+    {
+      "path": "experience/package.json",
+      "bytes": 173,
+      "sha256": "4a30f65412322e45476cff6ae1cc2f23b3a46484353d2eee8699ed232f5c6c44"
+    },
+    {
+      "path": "experience/state.js",
+      "bytes": 3540,
+      "sha256": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec"
+    },
+    {
+      "path": "experience/story.js",
+      "bytes": 21682,
+      "sha256": "8a73ea7987ca3307ce55a8f15c755e00f3256297d4a770c5736a9db1e7278095"
+    },
+    {
+      "path": "experience/style.css",
+      "bytes": 19560,
+      "sha256": "ce97eefd3dfe0116b4b28d39d1f0ee1a7111c7e2529726955cc522a5db76ad26"
+    },
+    {
+      "path": "experience/tests/README.md",
+      "bytes": 1432,
+      "sha256": "9828993c41cfee45e6efc98379fafe473d4045df1618838e2e59d929305ce925"
+    },
+    {
+      "path": "experience/tests/browser-smoke.cjs",
+      "bytes": 6400,
+      "sha256": "430951975d0db60519d5a800f36085b99d5af2a21719a0c5dd710ef060b17c57"
+    },
+    {
+      "path": "experience/tests/state.test.mjs",
+      "bytes": 3456,
+      "sha256": "b6092c135a86a4f761ebe8419591218d8c41421ba89dcdd4fba363303f3adc02"
+    },
+    {
+      "path": "experience/tools/build_characters.py",
+      "bytes": 19953,
+      "sha256": "4f0cc89891b560819e4743f48887eea5e7dab9b2ef87311c8bd0ce7fdadb7267"
+    },
+    {
+      "path": "experience/tools/build_sari.py",
+      "bytes": 255,
+      "sha256": "02fd6e13c8f61da0dd90dd889d6a52e74736fc7f2747b08299fc7b300c69fb63"
+    },
+    {
+      "path": "experience/tools/pack_city.py",
+      "bytes": 584,
+      "sha256": "b0fd60cf85df2194b84069bd1ece3d6738b140bbbf5cb1b8b0f3f386dbcec761"
+    },
+    {
+      "path": "experience/world.js",
+      "bytes": 22770,
+      "sha256": "b2dc50cf54d674d053b57ddf7c3fe0f72481d4e61da5f69a9e7db955ea82cec0"
+    },
+    {
+      "path": "index.html",
+      "bytes": 476,
+      "sha256": "d6b6b9043f0b5d62cade885bb19c11949511904a889b99fa56c603881b8549e0"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 400,
+      "sha256": "dd5d03b86326548fec500a238e634b3116d065814a4ddf17797351404ef0e7ad"
+    }
+  ]
+}

@@ -1,39 +1,54 @@
-# PALAGAN: Surabaya reconstruction kit
+# JEJAKA
 
-A research and execution package for a Blender 5.2 reconstruction of the Jembatan Merah–Kali Mas district, targeting November 1945. The package contains a high-resolution wartime city map, historical photographs, architectural briefs, source-critical research, a coarse map-derived layout and recoverable OpenCode build instructions.
+A guided, first-person historical-fiction experience in reconstructed Surabaya, November 1945.
 
-**This is a preparation kit, not a finished `.blend`.** The supplied helpers are intended to run on the owner's computer through the existing Blender MCP connection. Geometry and final renders must be generated and reviewed there.
+Raka Pradana arrives with a camera and notebook to record civilian life around Jembatan Merah. The visitor meets residents, chooses what to write, witnesses a disruption, and returns toward Kali Mas. His notebook preserves the selected account after a fixed, non-graphic death ending.
 
-## Start
-1. Extract this complete folder to a normal writable directory. Keep its subdirectories together. A short path such as `C:\Projects\PALAGAN` is convenient, but spaces in the path are supported when properly quoted.
-2. Open Blender 5.2 and enable the existing MCP connection. Save any current work. The project agent must preserve unrelated objects.
-3. Open OpenCode in the extracted project directory. Use the selected DeepSeek model and the existing Blender MCP server.
-4. Give OpenCode the text in `START_PROMPT.txt`. The first task is to inspect the environment, source overview, map and current scene.
-5. Inspect the result directly in Blender. The agent should leave the finished scene in a useful overview and provide saved landmark views.
+## Run
 
-No browser viewer is required. No model weights or paid-service credentials are included. The kit does not modify global OpenCode settings.
+From the repository root:
 
-## Read by purpose
-| Need | File |
+```bash
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000/experience/`. No dependency installation or build is required. Use a current browser with WebGL2, ES modules, import maps and DecompressionStream support. Headphones improve the spatial sound cues. The nominal 10–12-minute duration is a planning target for self-paced use; waiting for every optional line takes longer.
+
+## Deploy on Vercel
+
+Import this GitHub repository. Keep **Root Directory** at the repository root. Select **Other** if Vercel asks for a framework. Root `vercel.json` disables installation/build and serves `experience/` as the output directory. No environment variables are needed. The deployed site opens the experience at `/`.
+
+The configuration is prepared; no live Vercel deployment was performed as part of this package. Check model loading, narration and restart in the deployed preview before presenting.
+
+## Play
+
+| Control | Action |
 |---|---|
-| Stable agent instructions | `AGENTS.md` |
-| Confirmed scope and acceptance | `docs/APPROVED_SPEC.md` |
-| Exact downstream tasks | `docs/BUILD_PLAN.md` |
-| Research summary and source access states | `research/RESEARCH_OVERVIEW.md`, `research/SOURCE_REGISTER.csv` |
-| Original cartographic evidence | `references/maps/Soerabaja_1943_original.jpg` |
-| Readable district tracing and uncertainty | `docs/SPATIAL_METHOD.md`, `data/HISTORICAL_LAYOUT.json` |
-| Main architectural references | `references/images/REFERENCE_BOARD.jpg`, `landmarks/README.md` |
-| Materials and appearance | `docs/ART_DIRECTION.md` |
-| Operation and compaction recovery | `runtime/STATE_PROTOCOL.md` |
-| Blender skill recommendation | `runtime/SETUP_OPENCODE_BLENDER.md` |
-| Recorded package verification | `review/VALIDATION_REPORT.md` |
+| On-screen action / E | Record an observation |
+| Choice buttons | Select the account or action |
+| Continue button | Walk along the next guided segment |
+| Hold W / ↑ | Walk while held |
+| Drag the scene / ← → | Look around |
+| N | Open/close notebook |
+| Esc | Pause or close an overlay |
 
-## Evidence limits
-The principal map is based on a March 1943 aerial revision. Most appearance photographs are prewar; one 1948 image is a later comparison. They are useful evidence of urban layout and architectural form, not a photographic record of every feature in November 1945. Unseen sides, precise heights, colours, ground elevation and date-specific damage are not established. The supplied trace is local cartographic geometry, not a world-georeferenced survey.
+On touchscreens, use the on-screen controls and drag to look. The notebook stores observations, selected choices and a rendered bridge photograph. Download the collected text from the notebook. Browser-local continuation works where storage is available. The final view and historical afterword do not create diary entries after Raka's death.
 
-The old residency beside the bridge is not the later governor's office. The map footprint marked `1` is P.W.D. Offices according to its index; it must not be renamed Internatio simply because it is nearby. Read the individual briefs before detailed modelling.
+## Repository guide
 
-## What is verified here
-The package's text/data consistency, image files, helper syntax and pure-Python recovery logic are checked. Live Blender MCP execution, Blender 5.2 visual output, laptop performance, and OpenCode plugin loading must be verified on the target machine. Read the validation report for the exact checks and limitations.
+- [Start here for another developer or agent](AGENTS.md)
+- [Current project handoff](docs/context/PROJECT_HANDOFF.md)
+- [Competition context and limits](docs/context/COMPETITION.md)
+- [Detailed story and route](experience/docs/STORY_ROUTE.md)
+- [Historical boundaries and references](experience/docs/HISTORICAL_NOTES.md)
+- [Verification and limits](experience/docs/VERIFICATION.md)
+- [Character sources and animation](experience/docs/CHARACTER_PRODUCTION.md)
+- [Audio production and voice provenance](experience/docs/AUDIO_PRODUCTION.md)
 
-Image rights and attributions are recorded in `references/images/IMAGE_CREDITS.md`, the map notes and `RIGHTS_AND_ATTRIBUTION.md`. External papers and archive films with unconfirmed redistribution terms remain linked sources with original research notes.
+The playable frontend lives in `experience/`. The existing `output/`, `research/`, `references/`, `assets/` and `progress/` folders preserve the architectural reconstruction and its evidence. PALAGAN names in those folders are historical asset identifiers. The original Blender-kit README is archived in `docs/reconstruction/README_ARCHIVE.md`.
+
+## Scope and rights
+
+Raka, Sari, Damar, dialogue, choices, sound and damage sequences are fictional. The district draws on wartime maps and architectural references, with reconstructed details. No exact day, attack target or building-damage state is established by the dramatization. The project includes source and licence notices; read `experience/docs/credits/` and the original attribution records before redistributing modified assets.
+
+This edition is a functional prototype. It uses restrained stylized characters, finite guided routes and staged effects. Museum deployment, hardware performance and learning outcomes require separate testing.

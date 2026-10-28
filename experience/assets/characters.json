@@ -1,0 +1,28 @@
+{
+  "file": "assets/characters.glb",
+  "bytes": 1815540,
+  "animations": [
+    "Crouch",
+    "Gesture",
+    "Idle",
+    "Run",
+    "Walk"
+  ],
+  "skins": 1,
+  "meshes": 1,
+  "vertices": 26305,
+  "polygons": 49774,
+  "height_m": 1.76,
+  "forward_three": "+Z",
+  "materials": [
+    "CIVILIAN_BELT",
+    "CIVILIAN_TROUSERS",
+    "CIVILIAN_SHIRT",
+    "CIVILIAN_COLLAR",
+    "CIVILIAN_SKIN",
+    "CIVILIAN_EYE",
+    "CIVILIAN_HAIR",
+    "CIVILIAN_FACE_DETAIL",
+    "CIVILIAN_SHOES"
+  ]
+}

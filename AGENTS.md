@@ -1,36 +1,35 @@
-# PALAGAN project rules
+# Jejaka: instructions for continuing this repository
 
-## Objective and environment
-Build an editable, visually convincing Surabaya district in Blender 5.2, centred on Jembatan Merah and Kali Mas and intended for a November 1945 historical learning experience. OpenCode and DeepSeek drive the user's existing Blender MCP connection. Target an RTX 4060 laptop; detect available RAM/VRAM. Inspect in Blender. Do not add a web app.
+## Current objective
+Jejaka is a guided, first-person historical-fiction experience for the browser. A fictional Indonesian journalist, Raka Pradana, documents civilian life around Jembatan Merah and Kali Mas in November 1945, witnesses fighting, attempts to leave, passes on his notebook, and dies from an unseen injury. Indonesian speech and text have English subtitle support. The visitor stays inside his physical viewpoint. The user approved a playable prototype, a detailed route/story package, restrained realistic characters, notebook-led choices, and autonomous implementation and review. The user will deploy through Vercel.
 
-## Read on initial launch and after compaction
-1. This file and `NEXT_STEPS.md`.
-2. `progress/PROJECT_STATE.json` if present, then run `python scripts/palagan_state.py status` and `reconcile` from this root.
-3. `DECISIONS.md`, `runtime/STATE_PROTOCOL.md` and the relevant task in `docs/BUILD_PLAN.md`.
-4. Only the asset brief, reference crop and source rows needed for the next task. Do not reread every source into the context window.
+This direction supersedes older requirements for an overhead strategy view, a Blender-only product, and no web application. Preserve the researched reconstruction as an asset and evidence base. Do not resurrect old product assumptions from the archived context pack.
 
-No progress directory means no local build has been recorded yet. Initialise it using the helper. Python examples refer to external Python except code explicitly marked to run inside Blender. Discover the actual MCP tool schemas before calling them. Detect the real project directory; never use example paths literally.
+## Read first
+1. `docs/context/PROJECT_HANDOFF.md` and `docs/context/CURRENT_DECISIONS.md`.
+2. `docs/context/COMPETITION.md` for the competition facts and their verification status.
+3. `experience/docs/VERIFICATION.md` for what actually passed and what remains unverified.
+4. `experience/docs/STORY_ROUTE.md` and `experience/docs/HISTORICAL_NOTES.md` before changing story or staging.
+5. The relevant source module and production document. Read more only as needed.
 
-## Evidence
-Use `research/RESEARCH_OVERVIEW.md` before construction. `data/HISTORICAL_LAYOUT.json` is a coarse local trace with original-image pixel provenance and an approximate graphical-scale conversion. It is NOT EPSG georeferenced. Do not invent absolute location accuracy or elevations. Inspect the original/crops while interpreting.
+The original discussion snapshot lives in `docs/context/ORIGINAL_CONTEXT_PACK_2026-10-28.md`; it includes superseded ideas and generic essay-workflow appendices. Current decisions take precedence. Legacy Blender construction rules live in `docs/reconstruction/BLENDER_RULES_LEGACY.md`.
 
-Every owned asset records source IDs, source dates, evidence status and assumptions. No source means an authored reconstruction assumption, not a documented fact. Prewar and postwar photographs do not automatically prove the target-day condition. Do not guess historical text, exact losses, weapon placements or facade colours.
+## Implementation
+The runnable app is `experience/`. It uses vendored Three.js r169, ES modules, relative URLs, local MP3s, procedural WebAudio, original animated civilian GLBs, and a gzip-packed copy of the district export. No build step, backend, login, API key, or live language model is required. Start a local HTTP server; file:// cannot reliably load modules/assets. Vercel serves `experience/` through root `vercel.json`.
 
-The source-map black footprint numbered1 is P.W.D. Offices, not established Internatio. Do not conflate the former residency at the bridge with the later governor's office elsewhere. Exclude Tugu Pahlawan, modern memorial parks, modern bridge paint/railings, modern traffic infrastructure and arbitrary smoke/combat damage from the historical base.
+`app.js` owns progression, camera, characters, notebook presentation and UI. `story.js` owns bilingual narrative data. `state.js` owns save decoding and notebook/branch state. `world.js` owns the reconstruction loader and separate presentation layer. `audio.js` owns sound and voice playback. Use the source scripts in `experience/tools/` to regenerate original characters. Test hooks exist only with `?test=1` and are not visitor controls.
 
-## Construction
-Preserve all unrelated user data. Create project-owned collections and stable asset IDs; scripts may update/remove only explicitly owned objects. Back up before destructive edits. Use small, rerunnable operations and one active Blender writer. Save source scripts to disk before executing them. Never rely on transient chat code as the sole construction record.
+## Boundaries
+- Preserve the master `.blend`, existing research, source cartography, source photos, unrelated files, and recovery checkpoints.
+- Blender 4.0.2 was verified for new asset generation in the authoring environment. Compatibility with the production scene reported as Blender 5.2.2 is NOT established. Do not overwrite a newer master with an older Blender.
+- The district frame is local and map-derived, not survey-accurate EPSG georeferencing. Runtime uses Three Y-up; historical Blender coordinates convert `(x,y,z)` to `(x,z,-y)`.
+- First-person staging is constrained by existing geometry. Do not move a route point without checking the whole connecting segment, body clearance, ground/bridge height, view and props. The west approach is authored staging; do not relabel it as a verified historical street alignment.
+- Keep static architectural evidence separate from fictional people, dialogue, damage, fire, sound and events. A physics simulation or plausible model does not prove historical truth.
+- Do not combine the September flag incident, October fighting/Mallaby's death, and November battle into one day. No exact date is locked for Raka's fictional episode.
+- Never invent partners, museum adoption, competition submission/eligibility, survey results, measured learning gains, historical quotations, source access or passed tests.
+- Nine beats create lifetime notebook entries. Final view and curatorial afterword are non-recordable. Three choices affect observations and the surviving account, not the historical battle outcome.
+- Keep player-facing prose free of process commentary, scores, generic filler and prompt/tool references. Production docs may explain technical methods and actual limits.
+- No pushing, publishing or competition submission is implied by permission to work locally. The current delivery is a ZIP for the user's GitHub/Vercel workflow.
 
-One unit equals one metre. Local +X is image-right/approximate east, +Y image-up/approximate north, +Z up. Use instances for repeated modules, controlled texture sizes and adjustable detail collections. Detect Blender5.2 enums/API capabilities; a third-party skill does not override actual runtime inspection.
-
-The optional `scripts/blender_map_blockout.py` is a starter for map-derived geometry only. It does not finish researched landmarks or validate architecture. Keep its water, road and placeholder heights classified as approximations where appropriate. Resolve landmark placement by comparing map, photos and official locator leads before detailed work; if no exact footprint can be justified, use a clearly labelled editable approximate massing and record the uncertainty, rather than silently blocking all progress.
-
-## Durable progress and compaction
-Before each meaningful batch: `begin` an operation with unique ID and expected outputs. After the batch: save the scene plus inventory, visually inspect, record actual verification, then `complete` with `--scene`. Update `NEXT_STEPS.md` and any changed decisions. Checkpoint before expensive work; never wait for a guessed token threshold.
-
-After interruption, reconcile saved state with the live Blender filepath, owned asset IDs and `palagan_last_operation`. Pending work may already exist. Inspect it before rerunning. Never auto-complete pending work, regenerate the whole city after compaction, silently overwrite a known-good checkpoint or delete objects merely because their names appeared in an old summary.
-
-The optional compaction plugin only injects compact recovery context. It neither saves Blender nor guarantees continuation. Validate compatibility with the installed OpenCode version; keep file-based recovery working without it.
-
-## Completion
-Follow `docs/QUALITY_GATES.md`. A nonempty file and successful script are necessary but not proof of visual/historical quality. Reopen the final `.blend`, inspect fixed reference views and source comparisons, report actual object/triangle/material counts, retain remaining assumptions, and provide exact output paths. Never describe unexecuted checks as passed. Work through the approved scope without repeated requests for ordinary reversible choices.
+## Verification after changes
+Run `node --test experience/tests/*.test.mjs`. Run the browser harness with Playwright installed and a Chromium executable; see `experience/tests/README.md`. Check notebook/choice persistence, all eleven beats, sound lifecycle, mobile caption/button separation, reset, reduced motion, root and subpath loading. Test narration changes against actual MP3 transcripts. Check asset licensing before adding external files. Record only checks actually executed.

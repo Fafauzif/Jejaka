@@ -1,0 +1,28 @@
+{
+  "file": "assets/sari.glb",
+  "bytes": 1368888,
+  "animations": [
+    "Crouch",
+    "Gesture",
+    "Idle",
+    "Run",
+    "Walk"
+  ],
+  "skins": 1,
+  "meshes": 1,
+  "vertices": 19342,
+  "polygons": 35983,
+  "height_m": 1.63,
+  "forward_three": "+Z",
+  "materials": [
+    "CIVILIAN_TROUSERS",
+    "CIVILIAN_SHIRT",
+    "CIVILIAN_SKIN",
+    "CIVILIAN_COLLAR",
+    "CIVILIAN_BELT",
+    "CIVILIAN_EYE",
+    "CIVILIAN_HAIR",
+    "CIVILIAN_FACE_DETAIL",
+    "CIVILIAN_SHOES"
+  ]
+}

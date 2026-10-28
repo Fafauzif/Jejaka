@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "experience",
+  "headers": [
+    {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600"}]},
+    {"source": "/assets/district.glb.gz", "headers": [{"key": "Content-Type", "value": "application/octet-stream"}]}
+  ]
+}
