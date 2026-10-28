@@ -4,7 +4,7 @@
 
 ## Read first
 
-Read the root `AGENTS.md`, this handoff, `docs/context/CURRENT_DECISIONS.md`, and `docs/context/COMPETITION.md`. Then inspect the files relevant to the current task. `experience/docs/STORY_ROUTE.md` describes the active route and separates shipped behavior from extended direction; `experience/docs/HISTORICAL_NOTES.md` defines the evidence boundary.
+Read the root `AGENTS.md`, `docs/context/EDITION_2.md`, this handoff, `docs/context/CURRENT_DECISIONS.md`, and `docs/context/COMPETITION.md`. Then inspect the files relevant to the current task. `experience/docs/STORY_ROUTE.md` describes the active route and separates shipped behavior from extended direction; `experience/docs/HISTORICAL_NOTES.md` defines the evidence boundary.
 
 An earlier master context pack describes a discovery stage and includes superseded aerial/strategy ideas. It is historical context, not the authority for the current camera, scope, or permission to implement. The user has approved the playable guided prototype and autonomous reversible implementation. Do not repeatedly ask for those approvals.
 
@@ -25,9 +25,12 @@ Jejaka is a first-person browser experience set in a researched but approximate 
 | `experience/world.js` | Compressed district loading, lighting, walking-surface height, original props, staged smoke/fire/dust/plaster, local choice response |
 | `experience/audio.js` | Original procedural ambience/foley and playback of packaged synthetic speech through visitor-controlled Web Audio |
 | `experience/lib/` | Vendored Three.js revision 169, required addons, and licence |
-| `experience/assets/district.glb.gz` | Gzip-compressed copy of the original exported district |
-| `experience/assets/characters.glb` | Original adult male civilian, skin, materials, and five skeletal clips |
-| `experience/assets/sari.glb` | Original adult woman variant for Sari, sharing the clip vocabulary |
+| `experience/assets/district-route.glb.gz` | Optimized delivery derivative with corrected roof plates, distant-detail LOD and batched geometry |
+| `experience/environment-detail.js` | World-scale materials, refined bridge fixtures, wall finishes and sky environment |
+| `experience/pacing.js` | Pause-aware story clock, bounded simulation and short transition envelope |
+| `experience/notebook-export.js` | Printable standalone notebook including selected photograph |
+| `experience/assets/characters.glb` | Adult male civilian with licensed CC0 anatomical components, licensed CC0 skin derivatives, authored clothes and five skeletal clips |
+| `experience/assets/sari.glb` | Adult woman variant for Sari using the same anatomical source and clip vocabulary |
 | `experience/assets/audio/` | Twelve packaged mono MP3 files, including optional introduction, principal beat speech, final line, and afterword |
 | `experience/tools/build_characters.py` | Reproducible Blender character, skeleton, and clip generation |
 | `experience/tools/build_sari.py` | Woman variant generation using the shared builder |
@@ -52,11 +55,11 @@ Three choice IDs are stable:
 | `shelter` | `help`, `check` |
 | `wounded` | `notebook`, `page` |
 
-All eight combinations produce distinct ending accounts. The visitor can read and download the collected notebook. The bridge interaction captures a small image from the current renderer; it is a fictional in-experience photograph, not archival evidence.
+All eight combinations produce distinct ending accounts. The visitor can read and download the collected notebook. The bridge interaction opens a viewfinder. The visitor drags to compose and presses the shutter to save the matching 960×540 crop from the current renderer; it is a fictional in-experience photograph, not archival evidence.
 
-The route is bounded. The visitor uses the guided continuation control or holds W/up to follow the path, can stop, and can look within the first-person view. There is no free-roaming open world, aerial camera, shooting, tactical simulation, or generative historical inference.
+The route is bounded. Default continuation uses a nominal 3.4-second first-person transition with a short approach and an opaque fade. Completion lets an already-playing principal line finish, with a bounded guard; explicit skip or mute bypasses that wait. Holding W/up or selecting walking follows the same path at an ordinary pace. Skip travel provides a short fade to the next scene. The visitor can stop and look around; there is no free-roaming open world, aerial camera, shooting, tactical simulation or generative historical inference.
 
-The nominal 10–12-minute duration is an unmeasured planning target. Optional stationary dialogue allowances total 660 seconds and movement adds time. A visitor who waits for all secondary captions can take longer; the runtime permits earlier progression. Do not present a target as a measured playtest result.
+The 387.5-metre staging route is retained, but its physical length no longer determines compulsory waiting. The final view closes after 18 seconds and has a skip control. Total chapter duration depends on listening, reading, composition and visitor choices; the earlier 10–12-minute target is not a measured playtest result. Do not invent a new measured duration from scene timers.
 
 ## Asset and historical source separation
 
@@ -64,7 +67,7 @@ The original reconstruction remains under `output/`, `assets/`, `data/`, `landma
 
 The old `output/viewer/index.html` is a preliminary reconstruction viewer with known loading/control defects identified before this implementation. It is not the active Jejaka application. Earlier reports saying that no browser runtime was verified describe that earlier stage.
 
-The district export was measured at 51,880,068 bytes, 124 meshes, 40 materials, 12 embedded images, and no animations. Its browser delivery copy is gzip-compressed; compression does not add historical accuracy or reduce the geometry automatically. Original characters, props, effects, sound, and fiction are layered separately.
+The district export was measured at 51,880,068 bytes, 124 meshes, 40 materials, 12 embedded images, and no animations. The field edition separately optimizes delivery geometry and embedded images; metadata in `experience/assets/district-route.glb.json` records exact counts and sizes. Gzip alone does not reduce GPU work. Character anatomical components carry their own CC0 notices; clothing, props, effects, sound and fiction are production layers.
 
 The reconstruction's base scene was reported as authored in Blender 5.2.2. A self-contained Blender 4.0.2 was installed and verified in the execution environment: cube creation, 128×128 Cycles CPU render, `.blend` save, and nonempty valid GLB export passed. New characters were built with that verified version. Compatibility of the newer production `.blend` with the older local Blender was not established; do not overwrite the master through an older version.
 
@@ -72,24 +75,11 @@ Use `RIGHTS_AND_ATTRIBUTION.md`, the image credits, and asset-specific notices. 
 
 ## Verification established during implementation
 
-The recorded browser check used Chromium 133.0.6943.141 with SwiftShader software WebGL. Its accelerated traversal confirmed:
+The current check record is `experience/docs/VERIFICATION.md`. It supersedes the first edition’s accelerated browser traversal and any earlier production report. Tests distinguish ordinary user actions, deliberately staged scene checks, software renderer workload and target-device performance.
 
-- The local district and both animated character assets loaded under an `/experience/` subpath.
-- Title, introduction, start, and reduced-motion flows were exercised.
-- N opened/closed the notebook and recorded observations appeared there.
-- Holding W moved along the guide and releasing it stopped movement.
-- A bridge photograph was captured from the first-person renderer.
-- The shelter choice was recorded.
-- All eleven beats were reachable, with nine notebook entries and a retained chosen branch in the ending.
-- The ending notebook and historical context remained accessible.
-- Reload/continue restored a completed account and choices.
-- That traversal recorded no browser JavaScript or HTTP errors.
+Run `node --test experience/tests/*.test.mjs` from repository root. Browser checks are `browser-smoke.cjs` (accelerated compatibility journey), `v2-browser.cjs` (current controls, actual short transitions, viewfinder and layouts) and `audio-browser.cjs` (Web Audio lifecycle and signal). Each accepts local Playwright/Chromium paths as documented in `experience/tests/README.md`.
 
-The traversal used accelerated test controls. It is not a full-duration natural visitor session, a hardware performance benchmark, or evidence of museum usability. Additional small-viewport and audio-state checks were part of the corrective verification work. Consult `experience/docs/VERIFICATION.md` for the last checked state rather than infer closure from an earlier report. That final record supersedes intermediate check outputs.
-
-State tests cover malformed saves, incompatible versions, invalid choices, duplicate entries, storage failure, full save round trips, non-recordable closing beats, and eight distinct choice combinations. Run them from `experience/` with `npm test` or `node --test tests/*.test.mjs`.
-
-Audio production notes record FFmpeg decoding of the twelve MP3 files and a headless Web Audio signal/playback check. These tests establish functional decoding and signal output, not pronunciation, acting quality, calibrated volume, or the quality of the complete mixed chapter. Character notes record Blender export/import and inspected pose renders, not film-quality facial acting.
+The supplied live URL is https://jejakaprototype.vercel.app/. The original deployed page and its asset responses were retrieved successfully. The cloud browser could not create WebGL, so this establishes hosted static serving, not successful hosted gameplay. The modified field edition has not been deployed by this source-preparation run.
 
 ## Remaining verification limits
 
@@ -97,7 +87,7 @@ Audio production notes record FFmpeg decoding of the twelve MP3 files and a head
 - No broad compatibility claim for Safari, Firefox, low-end mobile GPUs, kiosks, or touch-only visitors from Chromium software rendering alone.
 - No completed learning-impact study, audience study, institutional review, museum partnership, or real exhibit deployment.
 - No verified exact day/hour or building-specific damage record for the fictional episode.
-- No full facial rig, cloth simulation, motion capture, or synchronized hand-to-hand notebook transfer.
+- No full facial rig, cloth simulation or motion capture. Notebook transfer uses staged gestures and object visibility, not contact-solved two-person animation.
 - No service-worker offline guarantee and no live Vercel deployment verification in this source-preparation run.
 - The timing target still needs a natural, timed visitor session.
 

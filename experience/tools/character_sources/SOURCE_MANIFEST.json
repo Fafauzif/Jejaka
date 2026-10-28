@@ -1,0 +1,78 @@
+{
+  "retrieved": "2026-10-28",
+  "licence": "CC0 1.0 Universal for source graphical assets",
+  "downloaded": [
+    {
+      "name": "makehuman-base.obj",
+      "bytes": 1749303,
+      "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    {
+      "name": "makehuman-eyes.obj",
+      "bytes": 6604,
+      "sha256": "783fe1e6331162c876520b4c2bed7a8ca06354ca15497e8ebd68bb1b59f4d3de"
+    },
+    {
+      "name": "young_darkskinned_male_diffuse.png",
+      "bytes": 2976491,
+      "sha256": "e3f0dbb634e4c68561338f0087f7a122444e84ec56df102212f1222aa12e4d50"
+    },
+    {
+      "name": "middleage_darkskinned_female_diffuse.png",
+      "bytes": 4197671,
+      "sha256": "c3c9ab972ad46fbda64cedfd1d0a626c2a8e739fd345c4c349102eaacc947699"
+    },
+    {
+      "name": "brown_eye.png",
+      "bytes": 610817,
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b"
+    }
+  ],
+  "derived": [
+    {
+      "name": "assets/character-textures/brown-eye.jpg",
+      "bytes": 7428,
+      "sha256": "a6ae39fd960b6abc1e31b94b0fdf4c1685d3dbaa7d33a5b1877764a48e263e26"
+    },
+    {
+      "name": "assets/character-textures/female-shirt.jpg",
+      "bytes": 6779,
+      "sha256": "89859602ab5809ab4275ae562914dd0561cb233120c610649b9fe99004423f2c"
+    },
+    {
+      "name": "assets/character-textures/female-skin.jpg",
+      "bytes": 65646,
+      "sha256": "9b198114a9e78bc45e3f2fbef69ac99e0e4751d96330e8aa44d681ec351cf49c"
+    },
+    {
+      "name": "assets/character-textures/female-trouser.jpg",
+      "bytes": 4988,
+      "sha256": "fd55a140bc2805058103346304d6b0c0fc67d7ea4a771e385b7204d6d7ef5488"
+    },
+    {
+      "name": "assets/character-textures/linen-normal.png",
+      "bytes": 633,
+      "sha256": "98f544fa55f5acca0055ecbd87dd17c9c28a1d70f22b2136d506e343c7e66be7"
+    },
+    {
+      "name": "assets/character-textures/linen-weave.jpg",
+      "bytes": 7378,
+      "sha256": "412485a97434f674ce38720cfb69985dae0e1edfbe8a8c0c50f47b1e51ed53ba"
+    },
+    {
+      "name": "assets/character-textures/male-shirt.jpg",
+      "bytes": 7000,
+      "sha256": "8a9b5a7bce7c5808d9bb2840d897f8b9e60cb8e9a285c992efaab20d80c8be37"
+    },
+    {
+      "name": "assets/character-textures/male-skin.jpg",
+      "bytes": 64761,
+      "sha256": "89657ddb6d23cacb854816f7b75b91e42284fa4726e1c0882247ddac3dbfadea"
+    },
+    {
+      "name": "assets/character-textures/male-trouser.jpg",
+      "bytes": 5556,
+      "sha256": "1cbbfe409b4fc3d62cd708607de8f6d76f5e1838ad34f9bc18aefc91b7ba13e6"
+    }
+  ]
+}

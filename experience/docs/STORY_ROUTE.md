@@ -6,7 +6,7 @@ Raka Pradana, a fictional Indonesian journalist, enters the Jembatan Merah distr
 
 The visitor stays within Raka’s physical perspective. The story never reveals an attacker, a tactical map, a casualty total, or an aerial account of the city. Three choices change his observations and actions. They do not determine who wins a battle or offer a hidden survival ending.
 
-**Planning assumptions:** an adult protagonist; a fictional episode situated broadly within November 1945; a nominal 10–12-minute self-paced chapter. The duration has not been established by visitor testing. The optional stationary dialogue allowances below total 11 minutes; guided travel adds time. A visitor who waits for every secondary caption can therefore exceed the nominal duration. Visitors can record an observation and continue sooner, while the final resting view has its own timed close.
+**Planning assumptions:** an adult protagonist and a fictional episode situated broadly within November 1945. Total visit duration is self-paced and has not been established by visitor testing. Field edition continuation uses about 3.4 seconds per transition; ordinary walking remains optional. The table’s dialogue allowances are optional listening/reading space, not compulsory waits. The final view lasts 18 seconds and can be skipped.
 
 ## Narrative and visual rules
 
@@ -36,16 +36,16 @@ Coordinates below use the runtime’s Three.js frame: `[x,z]` in approximate met
 | Shelter | `[118,28]` | `[110,30]` | 70 s | Give the visitor a practical choice |
 | Return | `[66,15]` | `[20,0]` | 65 s | Revisit recognizable surroundings |
 | Wounded | `[29,3]` | `[-28,8]` | 65 s | Pass on the unfinished account |
-| Last view | `[24,2]` | `[-44,10]` | 55 s | End without leaving Raka’s perspective |
+| Last view | `[24,2]` | `[-44,10]` | 18 s | End without leaving Raka’s perspective |
 | Afterword | Same resting position | Same direction or fade | 60 s | Read surviving notes and historical boundary |
 
-The approximate planar distance between these staging positions is 387.5 metres. Guided movement connects the revised positions, with camera height sampled from the ground and bridge geometry. This is a checked production route, not a survey. The roadside shelter lies near `[118,28]`; its movable parcel starts at `[118,31]`. Sari stands at `[-88,8]` beside a reconstructed stall. The west-to-east crossing remains on the bridge; the final return stops on the east side.
+The approximate planar distance between these staging positions is 387.5 metres. Guided movement connects the revised positions, with camera height sampled from the ground and bridge geometry. This is a checked production route, not a survey. The roadside shelter lies near `[118,28]`; its movable parcel starts at `[114.8,29.3]` ahead of the visitor. Sari stands at `[-88,8]` beside a reconstructed stall. The west-to-east crossing remains on the bridge; the final return stops on the east side.
 
 ## Current interaction model
 
-The visitor follows a bounded guided path. A continuation button moves Raka to the next staging point; holding W or the up arrow also advances along that path. The visitor can stop and drag to look around, or use left/right arrows. There is no unrestricted walking, tactical navigation, or overhead camera.
+The visitor follows a bounded guided path. A continuation button makes a short first-person transition to the next staging point. Holding W or the up arrow chooses ordinary walking along that path; a pause-menu setting also makes walking the default. Skip travel ends either journey through a brief fade. The visitor can stop and drag to look around, or use left/right arrows. There is no unrestricted walking, tactical navigation, or overhead camera.
 
-The notebook appears as a first-person object and as a readable overlay. Recording adds one entry per recordable beat. The bridge interaction captures the current rendered view as a small image in the notebook; it is a fictional in-experience photograph, not an archive image. Three choice beats save their selected entry. The visitor can download the collected notes as plain text.
+The notebook appears as a first-person object and as a readable overlay. Recording adds one entry per recordable beat. The bridge interaction opens the camera. The visitor drags to compose, can cancel without recording, and presses the shutter to store the matching viewfinder crop in the notebook; it is a fictional in-experience photograph, not an archive image. Three choice beats save their selected entry. The visitor can save a standalone printable HTML notebook containing both text and the photograph.
 
 Pause, notebook, and historical-context overlays stop progression and pause the sound. Volume and English translation controls are available. Reduced motion suppresses head bob, sharp flashes, and writing jitter while retaining the route and information. A completed session can be restarted; a saved session can be continued when browser storage is available.
 
@@ -58,8 +58,8 @@ Pause, notebook, and historical-context overlays stop progression and pause the 
 | People | Separate woman/man models; idle, walk, run, crouch, and gesture clips; staged Damar and supporting cast | Individual facial performance, detailed parcel tying, synchronized receiving hands |
 | Shelter choice | A parcel moves after the help choice; checking changes the view and notebook account | A full two-person carrying animation |
 | Disruption | Authored sound, smoke/fire progression, dust, falling plaster, civilian movement | Building-specific collapse and evidence review for any named landmark damage |
-| Dialogue | Main Indonesian voice lines with matching English text; secondary timed captions | Complete voiced performance of every secondary line |
-| Ending | Lowered first-person resting view, timed close, separate afterword, saved notebook access | Subtle custom hand relaxation and fully synchronized companion performance |
+| Dialogue | Main Indonesian voice lines with matching English text and automatic ambience ducking; secondary timed captions | Complete voiced performance of every secondary line |
+| Ending | Ground-relative first-person resting view, 18-second close with skip, separate afterword, saved notebook access | Subtle custom hand relaxation and fully synchronized companion performance |
 
 The beat direction below records the narrative and staging plan. Where it describes a performance beyond the current-runtime column, it is extended direction rather than a claim that the animation has shipped.
 
@@ -155,7 +155,7 @@ The beat direction below records the narrative and staging plan. Where it descri
 
 **Action:** Choose to help Damar clear belongings or look toward the bridge. Both are useful under uncertainty.
 
-**Performance, help:** The runtime moves the parcel from `[118,31]` toward `[121,33]` and uses a gesture. A synchronized two-person carry is extended direction. The changed parcel position supplies a visible local consequence.
+**Performance, help:** The runtime moves the parcel from `[114.8,29.3]` toward `[113.3,30.5]` within the default view and uses a gesture. The nearby Damar gesture is staged with the movement; a contact-solved two-person carry is extended direction. The changed parcel position supplies a visible local consequence.
 
 **Performance, check:** Raka looks from the shelter edge toward the visible return path. Show only the portion the camera can see. Damar remains with the belongings.
 

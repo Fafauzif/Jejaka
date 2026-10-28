@@ -21,8 +21,8 @@ export const storyMeta = {
     "Temui warga di sekitar Jembatan Merah. Catat nama dan cerita mereka. Jangan menuliskan dugaan sebagai kesaksian.",
   assignmentEn:
     "Meet residents around Jembatan Merah. Record their names and accounts. Do not write an assumption as an eyewitness fact.",
-  plannedDuration: "10–12 menit · dapat dipercepat",
-  plannedDurationEn: "10–12 minutes · self-paced",
+  plannedDuration: "Alur cepat · sesuai ritmemu",
+  plannedDurationEn: "Brisk transitions · self-paced",
   notebookTitle: "Buku catatan Raka",
   notebookTitleEn: "Raka’s notebook",
   ending:
@@ -440,7 +440,7 @@ export const beats = [
     subtitle: "Kali Mas · pandangan terakhir",
     position: [24, 2],
     look: [-44, 10],
-    duration: 55,
+    duration: 18,
     target: "Tetap melihat dari tempat Raka berada",
     description:
       "Pandangan turun ke dekat permukaan jalan. Api dan asap terlihat di seberang. Napas Raka melemah, lalu berhenti. Kamera tidak meninggalkan tempatnya.",

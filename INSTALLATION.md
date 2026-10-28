@@ -1,6 +1,6 @@
 # Package integration
 
-This archive supplies the active Jejaka browser experience and current project context. It can run independently, or merge into the existing Jejaka reconstruction repository.
+This field-edition update supplies the complete active Jejaka browser experience and current project context. It can run independently, or merge into the existing Jejaka reconstruction repository.
 
 ## Contents to place at repository root
 
@@ -12,7 +12,7 @@ This archive supplies the active Jejaka browser experience and current project c
 - `vercel.json` — static Vercel output configuration.
 - `PACKAGE_MANIFEST.json` — included paths, sizes and SHA-256 hashes.
 
-Merge these paths into the existing repository. Preserve the existing `output/`, `progress/`, `research/`, `references/` and original `assets/` folders. The archive does not replace the city master or delete legacy work. Extract before uploading; storing only the ZIP file on GitHub does not expose its contained application.
+Merge these paths into the existing repository. Preserve the existing `output/`, `progress/`, `research/`, `references/` and original `assets/` folders. The archive does not replace the city master or delete legacy work. The app now loads `experience/assets/district-route.glb.gz`; the old delivery copy `district.glb.gz` is not included or loaded. An older copy can remain in the repository without affecting playback. Extract before uploading; storing only the ZIP file on GitHub does not expose its contained application.
 
 For Vercel, import the repository with Root Directory at the repository root. The supplied configuration serves `experience/` without a build or environment variables. A new deployment should be tested for city loading, voice playback, pause/restart and saved continuation before a presentation.
 

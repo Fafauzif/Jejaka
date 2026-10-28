@@ -19,7 +19,7 @@
 | Prototype delivery | A frontend-only playable browser prototype and a detailed route/story specification, delivered as a repository-ready ZIP |
 | Work style | Autonomous implementation, alternative approaches after failures, delegated work and independent review, repeated verification, no routine approval interruptions |
 | Writing and presentation | Specific natural prose, clean restrained design, genuine sources, no critique scores or process chatter in the player-facing deliverable |
-| Deployment | The user intends to deploy to Vercel; this run prepares the source/package and does not establish a live deployment |
+| Deployment | Existing live baseline: https://jejakaprototype.vercel.app/. The field edition is delivered as an update ZIP for the user’s GitHub/Vercel workflow |
 | Future use | Reuse across museums is an aspiration, not an existing partnership or rollout |
 
 The user has authorized reversible work needed to implement and verify this scope. Future agents should inspect the current files and continue useful work rather than ask the user to reconfirm the same settled decisions. Ask only where a new material choice changes scope, historical interpretation, external commitments, or a consequential action that the user has not authorized.
@@ -35,8 +35,8 @@ These are production choices, not claims that the user specified every name, coo
 - A bounded guided route: authored western bridge approach, crossing, Kembang Djepoen, return toward the eastern bridge approach, final resting view near the river.
 - The western starting positions were moved after inspection exposed conflicts with existing landmark geometry. They do not establish a newly researched historical street.
 - The runtime uses buildless JavaScript ES modules, local Three.js, HTML/CSS overlays, packaged assets, Web Audio, and local browser state. Earlier Vite/React/TypeScript recommendations were not implemented and are not prerequisites for maintaining this build.
-- The original district is compressed for browser delivery without changing its geometry. The source Blender scene remains separate.
-- Original scripted characters and five reusable skeletal clips per character support the cast. Detailed facial acting, fabric simulation, and synchronized handoff choreography are outside the present character assets.
+- The field edition loads an optimized district derivative with distant-detail reduction, static batching and corrected floating roof plates. It preserves the original district and Blender master. Read `EDITION_2.md` for current interfaces and navigation.
+- The cast uses licensed CC0 anatomical components with authored clothing, rigging and five reusable skeletal clips. Detailed facial acting and fabric simulation remain outside the asset capabilities. The runtime stages the notebook receiving gesture and carried object; it is not a contact-solved two-person animation.
 - Main Indonesian lines have synthetic voice performances; supplementary dialogue uses text captions. Original procedural effects support the soundscape. These are production audio, not historical recordings.
 - Fire, smoke, dust, props, and falling plaster belong to a separate fictional presentation layer. Named landmark geometry is not destroyed to manufacture a historical claim.
 
@@ -69,5 +69,5 @@ The journalist's notebook, the civilian dialogue, the route, and the local conse
 - Target presentation hardware and browser; hardware performance and sound comfort need real-device testing.
 - Timed visitor testing and any resulting duration revision.
 - A more precise historical day or incident, if the user later requests one; that would require new source work and a review of staged assets.
-- A live Vercel deployment and its actual asset-serving behavior after the user deploys.
+- GPU gameplay and updated asset-serving behavior on the live Vercel site after the field-edition files are deployed.
 - Further character performance and scene refinement beyond the current prototype's verified capabilities.

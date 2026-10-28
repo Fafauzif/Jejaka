@@ -4,6 +4,8 @@ import { clone as cloneActor } from "three/addons/utils/SkeletonUtils.js";
 import { createWorld } from "./world.js";
 import { Soundscape } from "./audio.js";
 import { beats, storyMeta } from "./story.js";
+import { frameDelta, briskTransition, travelSpeed } from "./pacing.js";
+import { buildNotebookHTML } from "./notebook-export.js";
 import {
   SAVE_KEY,
   newState,
@@ -40,7 +42,14 @@ let elapsed = 0,
   baseYaw = 0;
 let english = true,
   reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches,
-  volume = 0.55;
+  volume = 0.55,
+  pacing = "brisk",
+  quality = "auto",
+  framing = false,
+  transition = null,
+  dirty = true,
+  autoLow = false,
+  qualitySamples = [];
 let dragging = false,
   pointer = null,
   toastTimer,
@@ -54,15 +63,18 @@ const actors = [];
 let actorLibrary,
   sariLibrary,
   stepDistance = 0,
-  saveAvailable = true;
+  saveAvailable = true,
+  contactTexture;
 const testsEnabled = new URLSearchParams(location.search).has("test");
 const clamp = THREE.MathUtils.clamp,
   lerp = THREE.MathUtils.lerp;
 function show(id, yes = true) {
-  $(id).hidden = !yes;
+  if ($(id)) $(id).hidden = !yes;
+  dirty = true;
 }
 function text(id, value) {
-  $(id).textContent = value || "";
+  if ($(id)) $(id).textContent = value || "";
+  dirty = true;
 }
 function toast(message) {
   text("toast", message);
@@ -87,8 +99,28 @@ function layoutDialogue() {
   const choosing = !$("choices").hidden && $("choices").children.length > 0;
   document.body.classList.toggle("has-choices", choosing);
   const r = $("interaction").getBoundingClientRect();
-  $("dialogue").style.bottom =
-    innerWidth <= 700 ? `${Math.max(190, innerHeight - r.top + 18)}px` : "";
+  const occupied = !$("interaction").hidden && r.height > 0 ? innerHeight - r.top + 18 : 0;
+  $("dialogue").style.bottom = `${Math.max(innerWidth <= 700 ? 132 : 104, occupied)}px`;
+}
+function loadSettings() {
+  try {
+    const value = JSON.parse(localStorage.getItem("jejaka.settings.v2") || "null");
+    if (!value) return;
+    if (["brisk", "walk"].includes(value.pacing)) pacing = value.pacing;
+    if (["auto", "high", "low"].includes(value.quality)) quality = value.quality;
+    if (typeof value.english === "boolean") english = value.english;
+    if (typeof value.reducedMotion === "boolean") reducedMotion = value.reducedMotion;
+    if (Number.isFinite(value.volume)) volume = clamp(value.volume, 0, 1);
+  } catch {}
+}
+function applyQuality() {
+  if (!renderer) return;
+  const effective = quality === "auto" ? (autoLow ? "low" : "balanced") : quality;
+  const cap = effective === "high" ? 1.5 : effective === "low" ? 0.8 : 1;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, cap));
+  renderer.shadowMap.enabled = effective !== "low";
+  world?.setQuality?.(effective);
+  dirty = true;
 }
 function settings() {
   document.body.classList.toggle("no-english", !english);
@@ -103,12 +135,17 @@ function settings() {
     "aria-label",
     volume > 0 ? "Matikan suara" : "Aktifkan suara",
   );
+  if ($("quality-select")) $("quality-select").value = quality;
+  if ($("pacing-select")) $("pacing-select").value = pacing;
+  try { localStorage.setItem("jejaka.settings.v2", JSON.stringify({ english, reducedMotion, volume, pacing, quality })); } catch {}
+  dirty = true;
 }
 function setDialogue(speaker, id, en) {
   text("speaker", speaker);
   text("line", id);
   text("line-en", en);
   show("dialogue", !!id);
+  layoutDialogue();
 }
 function setLook(target) {
   const pos = camera.position;
@@ -117,6 +154,24 @@ function setLook(target) {
 function phaseFor(index) {
   return clamp((index - 3) / 6, 0, 1);
 }
+function retargetLegacyCrouch(data) {
+  const clip = data.animations.find(c => c.name === "Crouch");
+  const hips = clip?.tracks.find(t => t.name === "hips.position");
+  if (!hips) return;
+  const values = hips.values;
+  // Earlier source clips translated the pelvis on its local Z (backwards),
+  // leaving the torso high and the bent feet floating. Recognize only that
+  // legacy signature; newly rebuilt clips already use the corrected local Y.
+  const baseY = values[1];
+  for (let i = 0; i < values.length; i += 3) {
+    if (Math.abs(values[i + 1] - baseY) > .005 || values[i + 2] > -.2) return;
+  }
+  for (let i = 0; i < values.length; i += 3) {
+    values[i + 1] -= .17;
+    values[i + 2] = 0;
+  }
+  clip.userData = { ...clip.userData, legacyPelvisRetargeted: true };
+}
 function attachActor(data, x, z, rotation = 0, scale = 1, shirt) {
   const root = cloneActor(data.scene);
   root.position.set(x, world.groundHeight(x, z), z);
@@ -124,13 +179,29 @@ function attachActor(data, x, z, rotation = 0, scale = 1, shirt) {
   root.scale.setScalar(scale);
   root.traverse((o) => {
     if (o.isMesh) {
-      o.castShadow = true;
+      o.castShadow = false;
       o.receiveShadow = true;
       o.material = o.material.clone();
       if (shirt && o.material.name === "CIVILIAN_SHIRT")
         o.material.color.set(shirt);
     }
   });
+  if (!contactTexture) {
+    const canvas = document.createElement("canvas"); canvas.width = canvas.height = 64;
+    const context = canvas.getContext("2d"), gradient = context.createRadialGradient(32, 32, 2, 32, 32, 32);
+    gradient.addColorStop(0, "rgba(20,16,12,.65)"); gradient.addColorStop(1, "rgba(20,16,12,0)");
+    context.fillStyle = gradient; context.fillRect(0, 0, 64, 64);
+    contactTexture = new THREE.CanvasTexture(canvas);
+  }
+  const contact = new THREE.Mesh(new THREE.PlaneGeometry(.8, .6), new THREE.MeshBasicMaterial({
+    map: contactTexture, transparent: true, depthWrite: false, toneMapped: false, opacity: .52,
+  }));
+  contact.rotation.x = -Math.PI / 2;
+  contact.position.y = .018;
+  contact.renderOrder = 1;
+  contact.name = "CIVILIAN_CONTACT_SHADOW";
+  contact.userData.ownedGeometry = true;
+  root.add(contact);
   scene.add(root);
   const mixer = new THREE.AnimationMixer(root);
   const actions = Object.fromEntries(
@@ -156,6 +227,7 @@ function attachActor(data, x, z, rotation = 0, scale = 1, shirt) {
       }),
     );
     prop.position.set(0.015, -0.05, 0.025);
+    prop.userData.ownedGeometry = true;
     const hand = root.getObjectByName("hand.R");
     if (hand) hand.add(prop);
     prop.visible = actors.length >= 4;
@@ -166,12 +238,47 @@ function attachActor(data, x, z, rotation = 0, scale = 1, shirt) {
   return actor;
 }
 function animateActor(actor, name) {
+  if (!actor) return;
   if (actor.current === name) return;
   const next = actor.actions[name] || actor.actions.Idle;
   if (!next) return;
   next.reset().fadeIn(0.4).play();
   if (actor.current) actor.actions[actor.current]?.fadeOut(0.4);
   actor.current = name;
+}
+function gestureActor(actor, name = "Gesture", duration = 2.5) {
+  if (!actor) return;
+  actor.gestureUntil = elapsed + duration;
+  animateActor(actor, name);
+}
+// Named encounters are staged along the cleared visitor corridor. Brisk
+// transitions conceal repositioning; the optional walk uses the same corridor.
+const damarMarks = [
+  [51, 11], [51, 11], [10, 3], [51, 11], [104, 25],
+  [127, 29], [113.5, 28.5], [63, 16.5], [26.5, 4], [21.5, 3.5], [21.5, 3.5],
+];
+function stageCast(index = state.chapter) {
+  actors.forEach((actor, i) => { if (i >= 2) actor.root.visible = index < 8; });
+  // Let the street observation contain the civilians it describes. These marks
+  // sit beside the already checked route; the transition conceals staging.
+  if (index === 4) {
+    for (const [i, x, z] of [[2, 118.5, 27.5], [3, 126.5, 26.8]]) {
+      const actor = actors[i];
+      if (actor) {
+        actor.root.visible = true;
+        actor.root.position.set(x, world.groundHeight(x, z), z);
+        animateActor(actor, "Idle");
+      }
+    }
+  }
+  const damar = actors[1];
+  if (!damar) return;
+  const [x, z] = damarMarks[index];
+  damar.root.position.set(x, world.groundHeight(x, z), z);
+  damar.root.rotation.y = Math.atan2(camera.position.x - x, camera.position.z - z);
+  damar.gestureUntil = 0;
+  animateActor(damar, index >= 6 ? "Crouch" : "Idle");
+  if (damar.carried) damar.carried.visible = index >= 9 && !!state.choices.wounded;
 }
 function positionCast() {
   const data = actorLibrary;
@@ -183,38 +290,48 @@ function positionCast() {
   attachActor(data, -42, 3, 1.57, 0.96, "#b9ad87");
   attachActor(data, 3, 4, 1.57, 1.01, "#6e746b");
 }
-function updateCast(dt, t) {
+function updateCast(dt, t, movementDt = dt) {
+  const presentationIndex = travel?.kind === "brisk" && travel.jumped ? travel.index : state.chapter;
   actors.forEach((a, i) => {
-    a.mixer.update(dt);
-    if (i === 1 && a.carried) a.carried.visible = !!state.choices.wounded;
+    // The last encounter is held with Damar. Bridge passers must not walk
+    // through the receiving performance or obscure the final viewpoint.
+    if (i >= 2 && presentationIndex >= 8) { a.root.visible = false; return; }
+    // Do not update distant civilian skeletons every frame.
+    const near = a.root.position.distanceToSquared(camera.position) < 10000;
+    // Skeletal clips sample authored transforms; they must use elapsed time,
+    // rather than the small physics/visual-effects step. Otherwise low frame
+    // rates expire gestures before their poses or cross-fades have advanced.
+    if (near || i < 2) a.mixer.update(movementDt);
+    if (i === 0 && a.current === "Gesture" && (a.gestureUntil || 0) <= t) animateActor(a, "Idle");
+    if (i === 1 && a.carried) a.carried.visible = !!state.choices.wounded && elapsed >= (a.handoffAt || 0);
     if (i === 1) {
-      const targets =
-        state.chapter >= 8
-          ? [31, 5]
-          : state.chapter >= 6
-            ? [114, 28]
-            : state.chapter >= 5
-              ? [126, 30]
-              : [51, 11];
+      const stagedIndex = travel?.kind === "brisk" && travel.jumped ? travel.index : state.chapter;
+      const targets = damarMarks[stagedIndex].slice();
+      if (travel && state.chapter >= 3 && travel.kind === "walk") {
+        const direction = travel.to.clone().sub(travel.from).setY(0).normalize();
+        targets[0] = camera.position.x + direction.x * 1.8;
+        targets[1] = camera.position.z + direction.z * 1.8;
+      }
       const dx = targets[0] - a.root.position.x,
         dz = targets[1] - a.root.position.z,
         d = Math.hypot(dx, dz);
+      if ((a.gestureUntil || 0) > t) return;
       if (d > 0.5) {
-        const speed = state.chapter >= 5 ? 1.7 : 1.0;
-        a.root.position.x += (dx / d) * Math.min(d, speed * dt);
-        a.root.position.z += (dz / d) * Math.min(d, speed * dt);
+        const speed = travel ? travelSpeed(state.chapter) + 0.35 : 1.7;
+        a.root.position.x += (dx / d) * Math.min(d, speed * movementDt);
+        a.root.position.z += (dz / d) * Math.min(d, speed * movementDt);
         a.root.rotation.y = Math.atan2(dx, dz);
         a.root.position.y = world.groundHeight(
           a.root.position.x,
           a.root.position.z,
         );
-        animateActor(a, state.chapter >= 5 ? "Run" : "Walk");
+        animateActor(a, speed > 2.2 ? "Run" : "Walk");
       } else {
         animateActor(
           a,
-          state.chapter >= 8
+          stagedIndex >= 8
             ? "Crouch"
-            : state.chapter === 6
+            : stagedIndex === 6
               ? "Crouch"
               : "Idle",
         );
@@ -225,8 +342,9 @@ function updateCast(dt, t) {
       }
     } else if (i >= 2 && i <= 3 && phase > 0.25) {
       animateActor(a, "Run");
-      a.root.position.x += dt * (i === 2 ? 1.2 : -1.4);
-      a.root.position.z = a.root.position.x * 0.265 + 1.5;
+      const escapeStep = movementDt * (i === 2 ? 1.2 : -1.4);
+      a.root.position.x += escapeStep;
+      a.root.position.z += escapeStep * .32;
       a.root.rotation.y = i === 2 ? 1.3 : -1.6;
       a.root.position.y = world.groundHeight(
         a.root.position.x,
@@ -345,11 +463,26 @@ function resetCast() {
     scene.remove(a.root);
     a.mixer.stopAllAction();
     a.mixer.uncacheRoot(a.root);
+    const materials = new Set(), skeletons = new Set();
+    a.root.traverse(o => {
+      if (!o.isMesh) return;
+      // Imported geometry and maps belong to the shared GLTF library. Only the
+      // avatar's cloned materials and its authored small props are disposable.
+      for (const material of Array.isArray(o.material) ? o.material : [o.material]) if (material) materials.add(material);
+      if (o.isSkinnedMesh && o.skeleton) skeletons.add(o.skeleton);
+      if (o.userData.ownedGeometry) o.geometry.dispose();
+    });
+    for (const material of materials) material.dispose();
+    // SkeletonUtils.clone gives these meshes independent skeletons. Dispose
+    // their GPU bone textures; the source GLTF skeletons are never touched.
+    for (const skeleton of skeletons) skeleton.dispose();
   }
   actors.length = 0;
   positionCast();
 }
 function syncBeat({ resume = false } = {}) {
+  closeViewfinder();
+  setFade(0);
   const beat = beats[state.chapter];
   beatTime = 0;
   lastDialogue = -1;
@@ -357,14 +490,22 @@ function syncBeat({ resume = false } = {}) {
   walking = false;
   heldWalk = false;
   travel = null;
+  transition = null;
   lookYaw = 0;
   lookPitch = 0;
+  if ([1, 3, 6, 8].includes(state.chapter)) {
+    camera.fov = state.chapter === 8 ? 54 : 50;
+    camera.updateProjectionMatrix();
+    lookYaw = .2;
+    lookPitch = state.chapter === 6 ? -.22 : -.1;
+  }
   camera.position.set(
     beat.position[0],
     world.groundHeight(...beat.position) +
       (beat.id === "lastview" ? 0.52 : beat.id === "wounded" ? 1.03 : 1.68),
     beat.position[1],
   );
+  stageCast();
   setLook(beat.look);
   text(
     "chapter-count",
@@ -392,6 +533,8 @@ function syncBeat({ resume = false } = {}) {
   show("choices", !!beat.choices && !hasEntry());
   show("walk", hasEntry() && state.chapter < beats.length - 2);
   show("walking", false);
+  show("skip-travel", false);
+  show("skip-scene", beat.id === "lastview");
   text(
     "act-label",
     beat.id === "bridge" ? "Ambil foto dan catat" : beat.target,
@@ -410,7 +553,7 @@ function syncBeat({ resume = false } = {}) {
   }
   text(
     "pacing",
-    resume
+    beat.id === "lastview" ? "" : resume
       ? "Catatan dilanjutkan."
       : "Luangkan waktu untuk melihat. Buku catatan dapat dibuka kapan saja.",
   );
@@ -428,14 +571,15 @@ function syncBeat({ resume = false } = {}) {
     if (beat.id === "wounded") sound.cue("injury");
     if (beat.id === "lastview") {
       sound.cue("ending");
-      show("interaction", false);
-    } else show("interaction", true);
+    }
   }
+  show("interaction", true);
   $("hud").classList.toggle("final-view", beat.id === "lastview");
   world.setPhase(phase);
   for (const [id, choice] of Object.entries(state.choices))
     world.choose?.(id, choice, true);
   sound.setPhase(phase);
+  sound.setLocation?.({ x: beat.position[0], z: beat.position[1], chapter: state.chapter });
   if (beat.id !== "lastview" && beat.id !== "afterword") sound.voice?.(beat.id);
   else sound.stopVoice?.();
   updateNotebook();
@@ -446,25 +590,64 @@ function syncBeat({ resume = false } = {}) {
 function hasEntry() {
   return state.entries.some((e) => e.id === beats[state.chapter].id);
 }
-function observe(choiceId) {
+function closeViewfinder() {
+  framing = false;
+  show("viewfinder", false);
+  $("hud")?.classList.remove("photographing");
+  camera.fov = [1, 3, 6, 8].includes(state.chapter) ? (state.chapter === 8 ? 54 : 50) : 57;
+  camera.updateProjectionMatrix();
+  dirty = true;
+}
+function openViewfinder() {
+  if (!ready || modal || travel || hasEntry()) return;
+  framing = true;
+  show("viewfinder");
+  $("hud")?.classList.add("photographing");
+  notebook.visible = false;
+  camera.fov = 48;
+  camera.updateProjectionMatrix();
+  sound.cue("camera");
+  $("photo-capture")?.focus({ preventScroll: true });
+  dirty = true;
+}
+function capturePhoto() {
+  if (!framing || mode !== "play" || modal || travel || hasEntry()) return;
+  notebook.visible = false;
+  camera.rotation.order = "YXZ";
+  camera.rotation.y = baseYaw + lookYaw;
+  camera.rotation.x = lookPitch;
+  renderer.render(scene, camera);
+  const canvas = document.createElement("canvas");
+  canvas.width = 960;
+  canvas.height = 540;
+  const source = renderer.domElement;
+  const rect = source.getBoundingClientRect();
+  const frame = document.querySelector("#viewfinder .finder-frame")?.getBoundingClientRect();
+  const scaleX = source.width / rect.width, scaleY = source.height / rect.height;
+  let sx = frame ? (frame.left - rect.left) * scaleX : 0;
+  let sy = frame ? (frame.top - rect.top) * scaleY : 0;
+  let sw = frame ? frame.width * scaleX : source.width;
+  let sh = frame ? frame.height * scaleY : source.height;
+  // The frame is responsive; clamp its edges to the canvas and keep 16:9.
+  sx = clamp(sx, 0, source.width); sy = clamp(sy, 0, source.height);
+  sw = Math.min(sw, source.width - sx); sh = Math.min(sh, source.height - sy);
+  const cropH = Math.min(sh, sw * 9 / 16), cropW = cropH * 16 / 9;
+  canvas.getContext("2d").drawImage(source, sx + (sw - cropW) / 2, sy + (sh - cropH) / 2, cropW, cropH, 0, 0, 960, 540);
+  const photo = canvas.toDataURL("image/jpeg", 0.82);
+  closeViewfinder();
+  sound.cue("shutter");
+  if (!reducedMotion) {
+    $("flash").style.opacity = ".38";
+    setTimeout(() => ($("flash").style.opacity = 0), 80);
+  }
+  observe(undefined, photo);
+  toast("Foto tersimpan di buku catatan. Tekan N untuk melihatnya.");
+}
+function observe(choiceId, photo) {
   if (mode !== "play" || modal || travel || hasEntry()) return;
   const beat = beats[state.chapter];
-  let photo;
-  if (beat.id === "bridge") {
-    notebook.visible = false;
-    renderer.render(scene, camera);
-    const canvas = document.createElement("canvas");
-    canvas.width = 480;
-    canvas.height = 270;
-    canvas.getContext("2d").drawImage(renderer.domElement, 0, 0, 480, 270);
-    photo = canvas.toDataURL("image/jpeg", 0.7);
-    notebook.visible = true;
-    sound.cue("camera");
-    if (!reducedMotion) {
-      $("flash").style.opacity = ".5";
-      setTimeout(() => ($("flash").style.opacity = 0), 80);
-    }
-  } else sound.cue("write");
+  if (beat.id === "bridge" && !photo) return openViewfinder();
+  if (!photo) sound.cue("write");
   state = record(state, beat, choiceId, photo);
   world.choose?.(beat.id, choiceId);
   writing = 1.5;
@@ -474,17 +657,25 @@ function observe(choiceId) {
   toast("Pengamatan ditambahkan ke buku catatan.");
   if (choiceId === "help") {
     sound.cue("door");
-    animateActor(actors[1], "Gesture");
+    gestureActor(actors[1], "Gesture", 2.5);
+    lookYaw = 0;
+    lookPitch = -0.12;
+    toast("Damar menggeser barang. Satu orang lagi dapat masuk.");
+  }
+  if (beat.id === "sari") {
+    gestureActor(actors[0], "Gesture", 2.2);
+    toast(choiceId === "testimony" ? "Ucapan Sari tersimpan bersama namanya." : "Pertemuan dengan Sari tersimpan di catatanmu.");
   }
   if (choiceId === "check") {
     lookYaw = -0.35;
     toast("Dari sini, sebagian jalan menuju jembatan tampak terbuka.");
   }
   if (beat.id === "wounded") {
-    notebook.visible = false;
-    setTimeout(() => {
-      if (mode === "play" && !modal && state.chapter === 8) beginTravel();
-    }, 6500);
+    gestureActor(actors[1], "Gesture", 2.5);
+    actors[1].handoffAt = elapsed + 1.5;
+    // Pause-aware handoff allowance. The visitor may also continue immediately.
+    writing = 3;
+    toast(choiceId === "page" ? "Pesan terakhirmu ikut bersama buku yang dibawa Damar." : "Damar menerima buku. Catatanmu akan tetap bersamanya.");
   }
   updateNotebook();
   layoutDialogue();
@@ -504,24 +695,54 @@ function beginTravel(auto = true) {
     from: camera.position.clone(),
     to: new THREE.Vector3(next.position[0], 0, next.position[1]),
     index: state.chapter + 1,
+    kind: auto && (pacing === "brisk" || reducedMotion) ? "brisk" : "walk",
+    elapsed: 0,
+    jumped: false,
   };
   walking = auto;
   show("walk", false);
   show("act", false);
   show("choices", false);
   show("walking", true);
-  sound.stopVoice?.();
-  setDialogue("", "", "");
+  show("skip-travel");
+  // Existing speech keeps playing as the visitor starts to move.
   text(
     "objective",
     state.chapter >= 7 ? "Menuju tepian sungai" : "Ikuti jalan di depanmu",
   );
   text(
     "objective-en",
-    "Follow the route. Drag to look around; stop whenever you need.",
+    travel.kind === "brisk" ? "A short transition to the next encounter. You can still pause." : "Look around while walking. Skip ahead whenever you want.",
   );
-  text("pacing", "Kau dapat berhenti dan membuka buku catatan.");
+  text("pacing", travel.kind === "brisk" ? "Menuju perjumpaan berikutnya…" : "Berjalan · berhenti atau lanjut langsung kapan saja.");
   setLook(next.position);
+  sound.cue("transition");
+}
+function setFade(value) {
+  if ($("scene-fade")) $("scene-fade").style.opacity = clamp(value, 0, 1);
+}
+function arriveTravel() {
+  if (!travel) return;
+  const next = travel.index;
+  setFade(0);
+  state.chapter = next;
+  syncBeat();
+}
+function skipTravel() {
+  if (!travel || modal) return;
+  travel.kind = "brisk";
+  travel.skipVoice = true;
+  sound.stopVoice?.();
+  travel.elapsed = 0.9;
+  walking = true;
+  heldWalk = false;
+  show("walking");
+  show("walk", false);
+}
+function skipScene() {
+  if (mode !== "play" || modal || beats[state.chapter].id !== "lastview") return;
+  state.chapter++;
+  syncBeat();
 }
 function updateHeldPage() {
   if (!notebook?.userData.pageCanvas) return;
@@ -597,6 +818,7 @@ function openModal(name) {
   show(name);
   sound.pause();
   heldWalk = false;
+  setFade(0);
   const first = $(name).querySelector("button");
   first?.focus();
 }
@@ -604,6 +826,7 @@ function closeModal() {
   if (!modal) return;
   show(modal, false);
   modal = null;
+  lastFrame = performance.now();
   if (mode === "play" || mode === "ending") sound.resume();
   previousFocus?.focus();
 }
@@ -676,23 +899,11 @@ function restart() {
   syncBeat();
 }
 function downloadNotes() {
-  const lines = [
-    `JEJAKA — Buku catatan Raka Pradana`,
-    storyMeta.period,
-    "Tokoh dan kesaksian dalam catatan ini fiktif.",
-    "",
-    ...state.entries.flatMap((e) => [
-      e.title,
-      e.text,
-      english ? e.textEn : "",
-      "",
-    ]),
-  ];
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" }),
+    new Blob([buildNotebookHTML(state)], { type: "text/html;charset=utf-8" }),
   );
-  a.download = "Jejaka_Catatan_Raka.txt";
+  a.download = "Jejaka_Catatan_Raka.html";
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
@@ -720,6 +931,19 @@ function bind() {
   $("download-notes").onclick = downloadNotes;
   $("restart").onclick = $("ending-restart").onclick = restart;
   $("act").onclick = () => observe();
+  if ($("photo-capture")) $("photo-capture").onclick = capturePhoto;
+  if ($("photo-cancel")) $("photo-cancel").onclick = closeViewfinder;
+  if ($("skip-travel")) $("skip-travel").onclick = skipTravel;
+  if ($("skip-scene")) $("skip-scene").onclick = skipScene;
+  if ($("quality-select")) $("quality-select").onchange = e => {
+    quality = e.target.value;
+    applyQuality();
+    settings();
+  };
+  if ($("pacing-select")) $("pacing-select").onchange = e => {
+    pacing = e.target.value;
+    settings();
+  };
   $("walk").onclick = () => {
     if (travel) {
       walking = true;
@@ -728,7 +952,9 @@ function bind() {
     } else beginTravel();
   };
   $("stop-walk").onclick = () => {
+    if (travel?.kind === "brisk" && travel.jumped) { arriveTravel(); return; }
     walking = false;
+    setFade(0);
     show("walking", false);
     show("walk");
   };
@@ -752,7 +978,7 @@ function bind() {
     };
   document.addEventListener("keydown", (e) => {
     if (e.code === "Tab" && modal) {
-      const focusable = [...$(modal).querySelectorAll("button,a,input")].filter(
+      const focusable = [...$(modal).querySelectorAll("button,a,input,select")].filter(
         (x) => !x.hidden && !x.disabled,
       );
       const first = focusable[0],
@@ -766,14 +992,16 @@ function bind() {
       }
       return;
     }
-    if (e.target.matches("input")) return;
     if (e.code === "Escape") {
       if (modal) {
         if (modal === "about-modal") $("close-about").click();
         else closeModal();
-      } else if (mode === "play") openModal("pause");
+      } else if (framing) closeViewfinder();
+      else if (mode === "play") openModal("pause");
       e.preventDefault();
+      return;
     }
+    if (e.target.matches("input,select,textarea")) return;
     if (
       e.code === "KeyN" &&
       !e.repeat &&
@@ -787,6 +1015,23 @@ function bind() {
       e.preventDefault();
     }
     if (mode !== "play" || modal) return;
+    const shutterKey = e.code === "KeyE" ||
+      (["Space", "Enter"].includes(e.code) && (!e.target.closest("button,a,input,select,textarea") || e.target.closest("#photo-capture")));
+    if (framing && shutterKey && !e.repeat) {
+      e.preventDefault();
+      capturePhoto();
+      return;
+    }
+    if (framing && e.code === "KeyW") return;
+    if (framing && e.code.startsWith("Arrow")) {
+      e.preventDefault();
+      if (e.code === "ArrowLeft") lookYaw = clamp(lookYaw + .08, -1.4, 1.4);
+      if (e.code === "ArrowRight") lookYaw = clamp(lookYaw - .08, -1.4, 1.4);
+      if (e.code === "ArrowUp") lookPitch = clamp(lookPitch + .05, -.5, .45);
+      if (e.code === "ArrowDown") lookPitch = clamp(lookPitch - .05, -.5, .45);
+      dirty = true;
+      return;
+    }
     if (e.code === "KeyE" && !e.repeat) {
       if (!$("act").hidden) observe();
       else if (!$("walk").hidden) $("walk").click();
@@ -798,6 +1043,9 @@ function bind() {
     }
     if (e.code === "ArrowLeft") lookYaw += 0.08;
     if (e.code === "ArrowRight") lookYaw -= 0.08;
+    if (e.code === "ArrowDown") lookPitch = clamp(lookPitch - 0.05, -0.5, 0.45);
+    if (e.code === "ArrowUp" && framing) lookPitch = clamp(lookPitch + 0.05, -0.5, 0.45);
+    dirty = true;
   });
   document.addEventListener("keyup", (e) => {
     if (e.code === "KeyW" || e.code === "ArrowUp") {
@@ -827,6 +1075,7 @@ function bind() {
     lookYaw = clamp(lookYaw - (e.clientX - pointer.x) * 0.003, -1.4, 1.4);
     lookPitch = clamp(lookPitch - (e.clientY - pointer.y) * 0.002, -0.5, 0.45);
     pointer = { x: e.clientX, y: e.clientY };
+    dirty = true;
   });
   renderer.domElement.addEventListener("pointerup", () => (dragging = false));
   renderer.domElement.addEventListener(
@@ -838,6 +1087,7 @@ function bind() {
     camera.updateProjectionMatrix();
     renderer.setSize(innerWidth, innerHeight);
     layoutDialogue();
+    dirty = true;
   });
   renderer.domElement.addEventListener("webglcontextlost", (e) => {
     e.preventDefault();
@@ -852,109 +1102,130 @@ function error(message) {
   mode = "error";
   sound.pause();
 }
+function updateTravel(storyDt, movementDt) {
+  if (!travel || !(walking || heldWalk)) return;
+  travel.elapsed += storyDt;
+  const direction = travel.to.clone().sub(travel.from).setY(0).normalize();
+  if (travel.kind === "brisk") {
+    const stage = briskTransition(travel.elapsed);
+    if (stage.jump && !travel.jumped) {
+      // Reposition only under a fully opaque first-person transition. Even a
+      // slow frame that skips the fade boundary cannot reveal a flying camera.
+      setFade(1);
+      camera.position.copy(travel.to).addScaledVector(direction, reducedMotion ? 0 : -1);
+      camera.position.y = world.groundHeight(camera.position.x, camera.position.z) + (state.chapter >= 8 ? 0.8 : 1.68);
+      stageCast(travel.index);
+      travel.jumped = true;
+      travel.elapsed = Math.min(travel.elapsed, 1.75);
+      return;
+    }
+    setFade(stage.fade);
+    if (!reducedMotion && (travel.elapsed < .9 || travel.elapsed > 2.35)) {
+      const distance = camera.position.clone().setY(0).distanceTo(travel.to);
+      const step = Math.min(distance, 1.1 * movementDt);
+      camera.position.addScaledVector(direction, step);
+      camera.position.y = world.groundHeight(camera.position.x, camera.position.z) + (state.chapter >= 8 ? 0.8 : 1.68);
+    }
+    if (stage.complete && (travel.skipVoice || !sound.voiceSource || volume === 0 || travel.elapsed > 12)) arriveTravel();
+    return;
+  }
+  setFade(0);
+  const delta = travel.to.clone().sub(camera.position).setY(0);
+  const distance = delta.length();
+  const speed = travelSpeed(state.chapter);
+  const step = Math.min(distance, speed * movementDt);
+  if (distance > .08) {
+    camera.position.addScaledVector(delta.normalize(), step);
+    camera.position.y = world.groundHeight(camera.position.x, camera.position.z) +
+      (state.chapter >= 8 ? .8 : 1.68) + (reducedMotion ? 0 : Math.sin(elapsed * 7.5) * .01);
+    stepDistance += step;
+    if (stepDistance > .68) { sound.step(speed); stepDistance %= .68; }
+  } else arriveTravel();
+}
 function render(now) {
-  const dt = Math.min((now - lastFrame) / 1000, 0.12);
+  const active = mode === "play" && !modal && !document.hidden;
+  const delta = frameDelta(now, lastFrame, active);
   lastFrame = now;
-  const active = mode === "play" && !modal;
-  elapsed += active || mode === "cover" ? dt : 0;
-  if (world) {
-    world.update(active ? dt : 0, elapsed, phase);
-    if (active) updateCast(dt, elapsed);
-  }
-  if (mode === "cover") {
-    camera.position.set(-54, 2.25, 5);
-    camera.lookAt(25, 6, -3);
-  }
+  const dt = delta.animation;
   if (active) {
-    beatTime += dt;
-    writing = Math.max(0, writing - dt);
+    elapsed += delta.story;
+    beatTime += delta.story;
+    writing = Math.max(0, writing - delta.story);
+    world?.update(dt, elapsed, phase);
+    updateCast(dt, elapsed, delta.movement);
     const beat = beats[state.chapter];
-    if (!travel) {
+    if (!travel || travel.kind === "walk") {
       let idx = -1;
-      beat.dialogue?.forEach((d, i) => {
-        if (beatTime >= d.at) idx = i;
-      });
+      beat.dialogue?.forEach((d, i) => { if (beatTime >= d.at) idx = i; });
       if (idx !== lastDialogue && idx >= 0 && !sound.voiceSource) {
         const d = beat.dialogue[idx];
         setDialogue(d.speaker, d.id, d.en);
         lastDialogue = idx;
       }
       if (beat.id === "lastview") {
-        for (const t of [12, 27])
-          if (beatTime >= t && beatTime - dt < t) sound.cue("breath");
-        if (beatTime >= 9 && beatTime - dt < 9) sound.voice?.("lastview");
-        camera.position.y = lerp(camera.position.y, 0.34, dt * 0.07);
-        lookPitch = lerp(lookPitch, -0.1, dt * 0.1);
-        if (beatTime > beat.duration) {
-          state.chapter++;
-          syncBeat();
-        }
+        for (const at of [4, 12]) if (beatTime >= at && beatTime - delta.story < at) sound.cue("breath");
+        if (beatTime >= 9 && beatTime - delta.story < 9) sound.voice?.("lastview");
+        // The low viewpoint remains above the actual bridge surface and keeps
+        // the district visible. Never sink toward an absolute world Y value.
+        const floor = world.groundHeight(...beat.position);
+        camera.position.y = floor + lerp(.62, .48, clamp(beatTime / beat.duration, 0, 1));
+        lookPitch = lerp(lookPitch, .045, Math.min(1, dt * .35));
+        if (beatTime >= beat.duration) { state.chapter++; syncBeat(); }
       }
     }
-    if (travel && (walking || heldWalk)) {
-      const delta = travel.to.clone().sub(camera.position);
-      delta.y = 0;
-      const d = delta.length();
-      const speed =
-        state.chapter >= 8 ? 0.38 : state.chapter >= 5 ? 1.25 : 0.95;
-      const step = Math.min(d, speed * dt);
-      if (d > 0.08) {
-        camera.position.addScaledVector(delta.normalize(), step);
-        const height = state.chapter >= 8 ? 0.8 : 1.68;
-        camera.position.y =
-          world.groundHeight(camera.position.x, camera.position.z) +
-          height +
-          (reducedMotion ? 0 : Math.sin(elapsed * 7.5) * 0.014);
-        stepDistance += step;
-        if (stepDistance > 0.68) {
-          sound.step(speed);
-          stepDistance = 0;
-        }
-      } else {
-        state.chapter = travel.index;
-        syncBeat();
-      }
-    }
+    updateTravel(delta.story, delta.movement);
     camera.rotation.order = "YXZ";
     camera.rotation.y = baseYaw + lookYaw;
-    camera.rotation.x =
-      lookPitch + (reducedMotion ? 0 : Math.sin(elapsed * 1.6) * 0.0015);
-    camera.rotation.z = state.chapter === 9 ? -0.09 : 0;
+    camera.rotation.x = lookPitch + (reducedMotion || framing ? 0 : Math.sin(elapsed * 1.6) * .0015);
+    camera.rotation.z = state.chapter === 9 ? -.055 : 0;
     if (notebook) {
-      notebook.visible =
-        state.chapter < 9 && !(state.chapter === 8 && hasEntry());
-      notebook.position.y = lerp(
-        notebook.position.y,
-        (travel ? -0.53 : -0.34) +
-          (writing > 0 ? Math.sin(elapsed * 14) * 0.005 : 0),
-        dt * 4,
-      );
-      notebook.rotation.z =
-        -0.12 + (writing > 0 ? Math.sin(elapsed * 8) * 0.012 : 0);
+      notebook.visible = !framing && state.chapter < 9 && !(state.chapter === 8 && hasEntry() && writing < 1.5);
+      notebook.position.y = lerp(notebook.position.y,
+        (travel ? -.53 : -.34) + (writing > 0 ? Math.sin(elapsed * 14) * .005 : 0), Math.min(1, dt * 4));
+      notebook.rotation.z = -.12 + (writing > 0 ? Math.sin(elapsed * 8) * .012 : 0);
     }
+    // Auto may lower resolution once after a sustained expensive sample. It
+    // never silently changes a manually selected high/low setting.
+    if (quality === "auto" && !autoLow && delta.story > 0 && ready) {
+      qualitySamples.push(delta.story);
+      if (qualitySamples.length >= 45) {
+        const sorted = qualitySamples.slice().sort((a,b) => a-b);
+        if (sorted[Math.floor(sorted.length * .6)] > .045) { autoLow = true; applyQuality(); }
+        qualitySamples = [];
+      }
+    }
+  } else if (dirty && world) world.update(0, elapsed, phase);
+  if (mode === "cover") {
+    camera.position.set(-54, 2.25, 5);
+    camera.lookAt(25, 6, -3);
   }
-  if (renderer) renderer.render(scene, camera);
+  if (renderer && !document.hidden && (active || dirty)) {
+    renderer.render(scene, camera);
+    dirty = false;
+  }
   requestAnimationFrame(render);
 }
 async function init() {
   try {
+    loadSettings();
     renderer = new THREE.WebGLRenderer({
       antialias: true,
       powerPreference: "high-performance",
-      preserveDrawingBuffer: true,
+      preserveDrawingBuffer: false,
     });
     renderer.setSize(innerWidth, innerHeight);
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.95;
-    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.enabled = false;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     $("scene").append(renderer.domElement);
     bind();
+    applyQuality();
     settings();
     requestAnimationFrame(render);
-    world = await createWorld({
+    const loader = new GLTFLoader();
+    const loaded = await Promise.all([createWorld({
       scene,
       renderer,
       onProgress: (p) => {
@@ -964,12 +1235,14 @@ async function init() {
           `Membuka kawasan Kali Mas · ${Math.round(p * 90)}%`,
         );
       },
-    });
-    const loader = new GLTFLoader();
-    [actorLibrary, sariLibrary] = await Promise.all([
-      loader.loadAsync("./assets/characters.glb"),
-      loader.loadAsync("./assets/sari.glb"),
-    ]);
+    }), Promise.all([
+      loader.loadAsync("./assets/characters.glb?v=2"),
+      loader.loadAsync("./assets/sari.glb?v=2"),
+    ])]);
+    [world, [actorLibrary, sariLibrary]] = loaded;
+    retargetLegacyCrouch(actorLibrary);
+    retargetLegacyCrouch(sariLibrary);
+    applyQuality();
     positionCast();
     notebook = makeNotebook();
     notebook.visible = false;
@@ -978,6 +1251,7 @@ async function init() {
     } catch {}
     show("continue", !!saved);
     ready = true;
+    dirty = true;
     $("start").disabled = false;
     text("start-label", "Mulai pengalaman");
     text("load-status", "Kota siap. Buka catatan pertama.");
@@ -1022,9 +1296,16 @@ async function init() {
         },
         advanceTime(seconds) {
           beatTime += seconds;
+          dirty = true;
         },
         observe,
         beginTravel,
+        capturePhoto,
+        skipTravel,
+        skipScene,
+        get framing() { return framing; },
+        get timing() { return { elapsed, beatTime, writing }; },
+        get settings() { return { pacing, quality, autoLow, english, reducedMotion, volume }; },
         get phase() {
           return phase;
         },
@@ -1037,7 +1318,9 @@ async function init() {
       };
   } catch (e) {
     console.error(e);
-    error(e.message || "Model tidak dapat dimuat.");
+    error(/webgl|graphics context|gpu/i.test(e.message || "")
+      ? "Tampilan 3D belum dapat dibuka. Aktifkan akselerasi grafis di browser, lalu muat ulang. Coba Chrome atau Edge terbaru jika masih terkendala."
+      : "Kota belum berhasil dimuat. Periksa koneksi lalu muat ulang halaman.");
   }
 }
 init();

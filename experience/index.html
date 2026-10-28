@@ -34,6 +34,7 @@
     <div class="film-grain" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
     <div id="flash" aria-hidden="true"></div>
+    <div id="scene-fade" aria-hidden="true"></div>
     <main id="cover" class="screen cover">
       <header class="masthead">
         <span>ARSIP PENGALAMAN</span><span>SURABAYA · NOVEMBER 1945</span>
@@ -45,10 +46,10 @@
         <h1>JEJAKA<span class="title-period">.</span></h1>
         <p class="cover-subtitle">Sebuah catatan<br />dari Surabaya.</p>
         <p class="cover-description">
-          Datang untuk mencatat. Berjalan di antara orang-orang<br
+          Temui warga. Ambil foto. Tentukan cerita<br
             class="desktop-br"
           />
-          yang masih punya cerita untuk disampaikan.
+          yang tertinggal di buku catatanmu.
         </p>
         <div class="cover-actions">
           <button id="start" class="primary" disabled>
@@ -66,7 +67,7 @@
       <footer class="cover-footer">
         <span
           >PENGALAMAN CERITA TERPANDU<br /><b
-            >± 10–12 menit · Headphone disarankan</b
+            >Alur cepat · dapat dijeda kapan saja</b
           ></span
         ><button id="cover-about" class="text-button">
           Tentang rekonstruksi <span aria-hidden="true">↗</span>
@@ -89,7 +90,7 @@
           Kau seorang wartawan. Redaksi mengirimmu ke Surabaya untuk mencatat
           kehidupan warga di tengah ketegangan.
         </p>
-        <p>Di dalam tasmu: sebuah kamera, pensil, dan buku yang belum penuh.</p>
+        <p>Kamera untuk melihat. Pensil untuk mencatat. Kau memilih apa yang sempat diselamatkan.</p>
         <p class="translation">
           You are a journalist. Your editor has sent you to record civilian life
           in Surabaya. You carry a camera, a pencil, and an unfinished notebook.
@@ -98,6 +99,8 @@
           Memuat suara pertempuran, cedera, dan kematian tokoh secara tidak
           grafis. Tokoh serta perjumpaan dalam cerita ini fiktif.
         </div>
+        <p class="play-instructions">Geser layar untuk melihat. Pilih tindakan di depanmu. Perjalanan antaradegan berlangsung singkat; berjalan santai tersedia di menu jeda.</p>
+        <p class="translation">Drag to look. Choose how to act. Short transitions connect each scene; walking is available in the pause menu.</p>
         <div class="intro-options">
           <label
             ><input id="intro-motion" type="checkbox" /> Gerakan kamera
@@ -119,7 +122,7 @@
         </button>
         <div class="location">
           <span id="chapter-count">01 / 11</span
-          ><span id="chapter-title">HEERENSTRAAT</span>
+          ><span id="chapter-title">JEMBATAN MERAH</span>
         </div>
         <button
           id="pause-button"
@@ -154,7 +157,9 @@
           <span class="walking-dot"></span> Berjalan
           <button id="stop-walk" class="text-button">Berhenti</button>
         </div>
+        <button id="skip-travel" class="text-button" hidden>Langsung ke tujuan →</button>
         <p id="pacing"></p>
+        <button id="skip-scene" class="text-button" hidden>Lanjut ke catatan terakhir →</button>
       </div>
       <footer class="hud-bottom">
         <button id="notebook-button" class="notebook-button">
@@ -163,7 +168,7 @@
           ><kbd>N</kbd>
         </button>
         <div class="control-hint">
-          Tahan <kbd>W</kbd> untuk berjalan <span>·</span> Geser untuk melihat
+          Geser untuk melihat <span>·</span> <kbd>E</kbd> bertindak <span>·</span> <kbd>N</kbd> catatan
         </div>
         <button
           id="audio-toggle"
@@ -173,6 +178,15 @@
           Suara aktif
         </button>
       </footer>
+      <section id="viewfinder" class="viewfinder" hidden aria-label="Kamera Raka">
+        <div class="finder-top"><span>KAMERA RAKA</span><span>JEMBATAN MERAH / 01</span></div>
+        <div class="finder-frame" aria-hidden="true"><span></span><span></span><span></span><span></span><i>+</i></div>
+        <div class="viewfinder-controls">
+          <p>Geser untuk memilih bingkai. Simpan satu pandangan dari tempatmu berdiri.</p>
+          <p class="translation">Drag to compose. Keep one view from where you stand.</p>
+          <div><button id="photo-cancel" class="outline">Kembali</button><button id="photo-capture" class="primary">Ambil foto <kbd>Space</kbd></button></div>
+        </div>
+      </section>
       <div id="toast" class="toast" role="status"></div>
       <div class="chapter-progress"><div id="chapter-progress-bar"></div></div>
     </section>
@@ -217,7 +231,7 @@
         <footer class="journal-footer">
           <span>Kesaksian tokoh fiktif · Rekonstruksi naratif</span
           ><button id="download-notes" class="text-button">
-            Simpan catatan ↓
+            Simpan buku ↓
           </button>
         </footer>
       </div>
@@ -236,6 +250,8 @@
         <button id="resume" class="primary">
           Kembali ke jalan <span>→</span>
         </button>
+        <div class="setting-row"><label for="pacing-select">Perjalanan</label><select id="pacing-select"><option value="brisk">Alur cepat</option><option value="walk">Berjalan santai</option></select></div>
+        <div class="setting-row"><label for="quality-select">Kualitas gambar</label><select id="quality-select"><option value="auto">Otomatis</option><option value="high">Detail</option><option value="low">Ringan</option></select></div>
         <div class="setting-row">
           <label for="volume">Volume</label
           ><input
@@ -371,8 +387,8 @@
           Coba kembali ↻
         </button>
         <p>
-          Gunakan browser dengan WebGL aktif dan buka melalui server HTTP.
-          Petunjuk tersedia pada README.
+          Aktifkan akselerasi grafis pada pengaturan browser, lalu muat ulang.
+          Jika masih gagal, coba Chrome atau Edge terbaru dan tutup tab yang memakai banyak memori.
         </p>
       </div>
     </section>

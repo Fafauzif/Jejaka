@@ -1,0 +1,14 @@
+{
+  "sourceTriangles": 589280,
+  "deliveryTriangles": 298603,
+  "distantDetailTrianglesRemoved": 287495,
+  "sourceGzipBytes": 15981642,
+  "deliveryGzipBytes": 7175486,
+  "deliveryGLBBytes": 25986144,
+  "sourcePrimitives": 500,
+  "deliveryPrimitives": 380,
+  "roofFasciaEdgesAdded": 2820,
+  "legacyFloatingRoofPlatesRemoved": 1041,
+  "roofPlateTrianglesRemoved": 8822,
+  "policy": "Distant trim/joinery LOD; 14cm inferred roof fascias; original landmark geometry and archive/master retained."
+}

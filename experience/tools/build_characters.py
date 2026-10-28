@@ -1,5 +1,5 @@
-"""Original Jejaka civilian: rigid-weight biped with authored animation clips.
-Run with Blender 4.0+ in background. No external models or textures required.
+"""Jejaka civilians: CC0 anatomical head/hands, tailored clothing and authored clips.
+Run with Blender 4.0+ in background. Bundled CC0 mesh and texture derivatives are included; no network is required.
 """
 import sys, math, json, struct, os, tempfile
 from pathlib import Path
@@ -12,6 +12,8 @@ system_dynload = Path('/usr/lib') / ('python%d.%d' % sys.version_info[:2]) / 'li
 if system_dynload.is_dir(): sys.path.append(str(system_dynload))
 import bpy
 from mathutils import Vector
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from character_anatomy import add_anatomy, add_hands
 ROOT=Path(__file__).resolve().parents[1]
 FEMALE=os.environ.get('JEJAKA_CHARACTER_VARIANT')=='SARI'
 BASENAME='sari' if FEMALE else 'characters'
@@ -24,14 +26,26 @@ def mat(name,color,rough=0.85):
     m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
     p=m.node_tree.nodes.get('Principled BSDF');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Roughness'].default_value=rough
     return m
-skin=mat('CIVILIAN_SKIN',(.43,.255,.15)); shirt=mat('CIVILIAN_SHIRT',(.56,.51,.39)); trouser=mat('CIVILIAN_TROUSERS',(.205,.225,.19))
+skin=mat('CIVILIAN_SKIN',(.43,.255,.15),.62); shirt=mat('CIVILIAN_SHIRT',(.56,.51,.39)); trouser=mat('CIVILIAN_TROUSERS',(.205,.225,.19))
 if FEMALE:
     shirt.diffuse_color=(.47,.36,.23,1)
     shirt.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.47,.36,.23,1)
     trouser.diffuse_color=(.23,.19,.15,1)
     trouser.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.23,.19,.15,1)
-hair=mat('CIVILIAN_HAIR',(.035,.025,.018)); shoes=mat('CIVILIAN_SHOES',(.075,.052,.035)); dark=mat('CIVILIAN_FACE_DETAIL',(.105,.063,.04))
-collar=mat('CIVILIAN_COLLAR',(.62,.57,.45));belt=mat('CIVILIAN_BELT',(.15,.10,.055)); eye=mat('CIVILIAN_EYE',(.045,.033,.025),.6)
+hair=mat('CIVILIAN_HAIR',(.027,.019,.013),.74); shoes=mat('CIVILIAN_SHOES',(.07,.046,.027),.72)
+# Shared materials keep each skinned actor at five or six draw primitives.
+collar=shirt;belt=shoes;dark=hair;eye=mat('CIVILIAN_EYE',(.92,.92,.88),.30)
+def texture(material,filename,normal=False):
+    nt=material.node_tree;p=nt.nodes.get('Principled BSDF');node=nt.nodes.new('ShaderNodeTexImage');node.image=bpy.data.images.load(str(ASSETS/'character-textures'/filename),check_existing=True)
+    if normal:
+        node.image.colorspace_settings.name='Non-Color';nm=nt.nodes.new('ShaderNodeNormalMap');nm.inputs['Strength'].default_value=.28;nt.links.new(node.outputs['Color'],nm.inputs['Color']);nt.links.new(nm.outputs['Normal'],p.inputs['Normal'])
+    else:nt.links.new(node.outputs['Color'],p.inputs['Base Color'])
+texture(skin,('female' if FEMALE else 'male')+'-skin.jpg');texture(eye,'brown-eye.jpg')
+# Cloth colour remains adjustable by the runtime; this tile contributes fine weave.
+for material,garment in [(shirt,'shirt'),(trouser,'trouser')]:
+    base=material.diffuse_color[:];nt=material.node_tree;p=nt.nodes.get('Principled BSDF');node=nt.nodes.new('ShaderNodeTexImage');node.image=bpy.data.images.load(str(ASSETS/'character-textures'/((('female' if FEMALE else 'male')+'-'+garment)+'.jpg')),check_existing=True)
+    nt.links.new(node.outputs['Color'],p.inputs['Base Color']);p.inputs['Base Color'].default_value=base
+    texture(material,'linen-normal.png',True)
 parts=[]
 def finish(o,name,material,bone,smooth=True):
     o.name=name;o.data.materials.clear();o.data.materials.append(material)
@@ -84,74 +98,78 @@ box('actor_belt',(0,-.004,1.005),(.31,.214,.035 if FEMALE else .025),trouser if 
 
 if not FEMALE:box('actor_belt_buckle',(0,-.116,1.005),(.033,.012,.027),collar,'hips',.003)
 # Open collar pieces rather than a large painted neck opening.
-ell('actor_neck',(0,0,1.46),(.055,.054,.061),skin,'neck')
-left=box('actor_collar_L',(-.043,-.112,1.417),(.058,.018,.065),collar,'spine',.005);left.rotation_euler.y=-.26
-right=box('actor_collar_R',(.043,-.112,1.417),(.058,.018,.065),collar,'spine',.005);right.rotation_euler.y=.26
-box('actor_button_placket',(0,-.122,1.23),(.012,.007,.26),collar,'spine',.002)
-for z in [1.32,1.23,1.14]:ell('actor_shirt_button',(0,-.129,z),(.005,.004,.005),belt,'spine',8,6)
+# The imported head includes a continuous neck hidden naturally by the collar.
+# Folded pointed collar panels follow the chest, instead of raised boxes.
+for sign,suffix in [(-1,'L'),(1,'R')]:
+    verts=[(sign*.018,-.065,1.444),(sign*.060,-.080,1.425),(sign*.040,-.096,1.398),(sign*.015,-.087,1.422)]
+    faces=[(0,1,2,3)] if sign<0 else [(3,2,1,0)]
+    mesh=bpy.data.meshes.new('Folded collar');mesh.from_pydata(verts,[],faces);mesh.update()
+    collar_obj=bpy.data.objects.new('actor_collar_'+suffix,mesh);bpy.context.collection.objects.link(collar_obj);bpy.context.view_layer.objects.active=collar_obj
+    finish(collar_obj,collar_obj.name,shirt,'spine',False)
+    solid=collar_obj.modifiers.new('Collar thickness','SOLIDIFY');solid.thickness=.0015;bpy.ops.object.modifier_apply(modifier=solid.name)
+box('actor_button_placket',(0,-.116,1.23),(.010,.003,.25),collar,'spine',.002)
+for z in [1.32,1.23,1.14]:ell('actor_shirt_button',(0,-.120,z),(.004,.002,.004),belt,'spine',8,6)
 
-if not FEMALE:box('actor_chest_pocket',(-.105,-.118,1.29),(.075,.013,.078),shirt,'spine',.005)
-# Head shaped as an adult, with a small jaw and understated eyes.
-ell('actor_head',(0,-.005,1.627),(.091,.087,.125),skin,'head',24,16)
-ell('actor_jaw',(0,-.014,1.566),(.064 if FEMALE else .072,.071 if FEMALE else .076,.058 if FEMALE else .064),skin,'head',16,10)
-for x in [-.093,.093]:ell('actor_ear',(x,0,1.626),(.018,.025,.036),skin,'head',12,8)
-ell('actor_nose',(0,-.092,1.621),(.013 if FEMALE else .017,.019 if FEMALE else .027,.024 if FEMALE else .03),skin,'head',12,8)
-for x in [-.034,.034]:
-    ell('actor_eye',(x,-.085,1.648),(.010,.005,.0045),eye,'head',12,6)
-    brow=box('actor_brow',(x,-.084,1.668),(.027,.005,.004),hair,'head',.001)
-box('actor_mouth',(0,-.085,1.58),(.031,.004,.0028),dark,'head',.001)
-# Close-cropped hair cap built only over upper cranium; keeps forehead and ears visible.
-verts=[];faces=[];N=24
-for j in range(6):
-    theta=(math.pi*.54)*j/5
-    for k in range(N):
-        phi=2*math.pi*k/N
-        # Back hairline a little lower than forehead.
-        theta2=theta*(.88 if math.sin(phi)<0 else 1.0)
-        verts.append((.094*math.sin(theta2)*math.cos(phi),-.003+.090*math.sin(theta2)*math.sin(phi),1.638+.12*math.cos(theta2)))
-for j in range(5):
-    for k in range(N):faces.append((j*N+k,j*N+(k+1)%N,(j+1)*N+(k+1)%N,(j+1)*N+k))
-mesh=bpy.data.meshes.new('HairCap');mesh.from_pydata(verts,[],faces);mesh.update();obj=bpy.data.objects.new('actor_hair',mesh);bpy.context.collection.objects.link(obj);bpy.context.view_layer.objects.active=obj;finish(obj,'actor_hair',hair,'head')
+if not FEMALE:box('actor_chest_pocket',(-.105,-.118,1.29),(.075,.005,.078),shirt,'spine',.005)
+# Anatomical face/eyes/hands from explicit CC0 mesh data.
+# The shape is fitted to this original rig; it does not depict a real person.
+anatomy_source=add_anatomy(parts,skin,eye,FEMALE)
 
 if FEMALE:
-    ell('actor_hair_bun',(0,.113,1.655),(.069,.07,.064),hair,'head',20,12)
+    ell('actor_hair_bun',(0,.115,1.637),(.061,.059,.054),hair,'head',20,12)
     # A plain wrap skirt: an authored civilian garment, no invented historical print.
     skirt=taper('actor_sarong',(0,0,.98),(0,-.004,.17),.174,.19,trouser,'hips',20)
     # Flatten the wrap in depth while retaining hip width and a generous hem.
     for v in skirt.data.vertices:v.co.y*=.72
     # Vertical front overlap seam.
-    seam=box('actor_sarong_wrap',(.053,-.127,.576),(.008,.007,.77),belt,'hips',.002)
+    seam=box('actor_sarong_wrap',(.053,-.127,.576),(.004,.0015,.70),trouser,'hips',.001)
 
 for sign,suffix in [(-1,'L'),(1,'R')]:
     x=sign*.21
-    ell('actor_shoulder_'+suffix,(sign*.205,0,1.335),(.075,.077,.06),shirt,'upper_arm.'+suffix)
-    taper('actor_sleeve_'+suffix,(sign*.22,0,1.33),(sign*.25,.003,1.12),.069,.055,shirt,'upper_arm.'+suffix)
+    ell('actor_shoulder_'+suffix,(sign*.205,0,1.335),(.060,.065,.053),shirt,'upper_arm.'+suffix)
+    taper('actor_sleeve_'+suffix,(sign*.22,0,1.33),(sign*.25,.003,1.12),.060,.050,shirt,'upper_arm.'+suffix)
     # Rolled sleeve edge.
     
     if FEMALE:
         taper('actor_sleeve_cuff_'+suffix,(sign*.255,-.014,.90),(sign*.255,-.014,.87),.038,.037,collar,'forearm.'+suffix)
     else:
-        taper('actor_sleeve_cuff_'+suffix,(sign*.25,.003,1.145),(sign*.25,.003,1.11),.057,.056,collar,'upper_arm.'+suffix)
+        taper('actor_sleeve_cuff_'+suffix,(sign*.25,.003,1.145),(sign*.25,.003,1.11),.052,.051,collar,'upper_arm.'+suffix)
     ell('actor_elbow_'+suffix,(sign*.25,.001,1.095),(.045,.045,.045),shirt if FEMALE else skin,'forearm.'+suffix)
-    taper('actor_forearm_'+suffix,(sign*.25,0,1.10),(sign*.255,-.014,.87),.049,.035,shirt if FEMALE else skin,'forearm.'+suffix)
-    ell('actor_hand_'+suffix,(sign*.255,-.02,.832),(.04,.026,.055),skin,'hand.'+suffix)
-    for i in range(4):
-        fx=sign*.255+(i-1.5)*.015
-        ell('actor_finger_'+suffix+str(i),(fx,-.023,.782+(abs(i-1.5)*.004)),(.008,.012,.026),skin,'hand.'+suffix,8,6)
-    ell('actor_thumb_'+suffix,(sign*.255-sign*.034,-.034,.824),(.014,.015,.027),skin,'hand.'+suffix,8,6)
+    taper('actor_forearm_'+suffix,(sign*.25,0,1.10),(sign*.255,-.014,.87),.049,.026,shirt if FEMALE else skin,'forearm.'+suffix)
     hip=sign*.095
-    taper('actor_thigh_'+suffix,(hip,0,.955),(hip,.006,.54),.056 if FEMALE else .088,.046 if FEMALE else .066,trouser,'thigh.'+suffix)
-    # Matching trouser diameters keep the knee seam quiet.
-    taper('actor_trouser_lower_'+suffix,(hip,.006,.541),(hip,.004,.13),.045 if FEMALE else .066,.036 if FEMALE else .052,trouser,'shin.'+suffix)
-    
-    if not FEMALE:box('actor_trouser_hem_'+suffix,(hip,.004,.15),(.105,.108,.045),trouser,'shin.'+suffix,.008)
-    ell('actor_shoe_'+suffix,(hip,-.048,.065),(.064,.134,.055),shoes,'foot.'+suffix)
-    box('actor_sole_'+suffix,(hip,-.047,.029),(.128,.252,.023),shoes,'foot.'+suffix,.012)
+    if FEMALE:
+        # Skin at the ankle replaces the previously exposed trouser stubs.
+        taper('actor_ankle_'+suffix,(hip,.002,.19),(hip,.002,.078),.024,.023,skin,'foot.'+suffix)
+    else:
+        taper('actor_thigh_'+suffix,(hip,0,.955),(hip,.006,.54),.088,.066,trouser,'thigh.'+suffix)
+        taper('actor_trouser_lower_'+suffix,(hip,.006,.541),(hip,.004,.105),.066,.048,trouser,'shin.'+suffix)
+        box('actor_trouser_hem_'+suffix,(hip,.004,.12),(.099,.102,.04),trouser,'shin.'+suffix,.005)
+        taper('actor_sock_'+suffix,(hip,.003,.145),(hip,.003,.075),.026,.026,shoes,'foot.'+suffix)
+    # A sewn leather upper with a flattened lasting edge. Every ring meets the
+    # snug sole at the same height; no spherical upper floats above a platform.
+    rings=[(.065,.028,.090),(.046,.039,.095),(-.015,.050,.080),(-.085,.050,.065),(-.137,.042,.049),(-.168,.020,.037)]
+    verts=[];faces=[];N=12;base=.012
+    for y,width,height in rings:
+        for k in range(N):
+            a=k*math.tau/N;z=base+(height-base)*(math.sin(a)+1)*.5
+            if math.sin(a)<-.50:z=base
+            verts.append((hip+width*math.cos(a),y,z))
+    for j in range(len(rings)-1):
+        for k in range(N):faces.append((j*N+k,j*N+(k+1)%N,(j+1)*N+(k+1)%N,(j+1)*N+k))
+    faces.extend([tuple(range(N-1,-1,-1)),tuple(range((len(rings)-1)*N,len(rings)*N))])
+    mesh=bpy.data.meshes.new('Lasted shoe upper');mesh.from_pydata(verts,[],faces);mesh.update()
+    upper=bpy.data.objects.new('actor_shoe_'+suffix,mesh);bpy.context.collection.objects.link(upper);bpy.context.view_layer.objects.active=upper
+    finish(upper,upper.name,shoes,'foot.'+suffix)
+    # Same fitted outline, only fourteen millimetres thick, bottom on ground.
+    outline=[(-.028,.066),(-.042,.044),(-.052,-.015),(-.052,-.085),(-.044,-.138),(-.021,-.171),(.021,-.171),(.044,-.138),(.052,-.085),(.052,-.015),(.042,.044),(.028,.066)]
+    vs=[(hip+x,y,z) for z in [0,.014] for x,y in outline];M=len(outline)
+    fs=[tuple(range(M-1,-1,-1)),tuple(range(M,2*M))]
+    fs.extend((k,(k+1)%M,(k+1)%M+M,k+M) for k in range(M))
+    mesh=bpy.data.meshes.new('Fitted shoe sole');mesh.from_pydata(vs,[],fs);mesh.update()
+    sole=bpy.data.objects.new('actor_sole_'+suffix,mesh);bpy.context.collection.objects.link(sole);bpy.context.view_layer.objects.active=sole
+    finish(sole,sole.name,shoes,'foot.'+suffix,False)
 
-# Compress the exposed neck without changing the facial relationships.
-for o in parts:
-    if any(g.name=='head' for g in o.vertex_groups):
-        o.location.z-=.035
+add_hands(anatomy_source,parts,skin)
 
 # Union overlapping garments and facial volumes into continuous surfaces.
 # This prevents spherical shoulder joints and separate jaw/nose primitives from
@@ -172,7 +190,7 @@ def union_parts(name,chosen,material,weight_fn,voxel):
     bpy.ops.object.modifier_apply(modifier=rem.name)
     sm=o.modifiers.new('Soft fabric transitions','SMOOTH');sm.factor=.7;sm.iterations=8
     bpy.ops.object.modifier_apply(modifier=sm.name)
-    dec=o.modifiers.new('Efficient surface','DECIMATE');dec.ratio=.52
+    dec=o.modifiers.new('Efficient surface','DECIMATE');dec.ratio=.36
     bpy.ops.object.modifier_apply(modifier=dec.name)
     o.data.materials.clear();o.data.materials.append(material)
     groups={}
@@ -191,7 +209,7 @@ def garment_weights(v):
     fore=max(0,min(1,(1.18-z)/.105)) if FEMALE else 0
     return {'spine':1-arm,'upper_arm.'+side:arm*(1-fore),'forearm.'+side:arm*fore}
 shirt_names=lambda o:(o.name=='actor_shirt_body' or o.name.startswith('actor_shoulder_') or (o.name.startswith('actor_sleeve_') and not o.name.startswith('actor_sleeve_cuff_')) or (FEMALE and (o.name.startswith('actor_elbow_') or o.name.startswith('actor_forearm_'))))
-union_parts('actor_continuous_garment',[o for o in parts if shirt_names(o)],shirt,garment_weights,.007)
+union_parts('actor_continuous_garment',[o for o in parts if shirt_names(o)],shirt,garment_weights,.0095)
 if not FEMALE:
     def trouser_weights(v):
         side='L' if v.x<0 else 'R'
@@ -199,12 +217,41 @@ if not FEMALE:
         shin=max(0,min(1,(.61-v.z)/.15))
         return {'hips':1-thigh,'thigh.'+side:thigh*(1-shin),'shin.'+side:thigh*shin}
     trouser_names=lambda o:(o.name=='actor_pelvis' or o.name.startswith('actor_thigh_') or o.name.startswith('actor_trouser_lower_') or o.name.startswith('actor_trouser_hem_'))
-    union_parts('actor_continuous_trousers',[o for o in parts if trouser_names(o)],trouser,trouser_weights,.008)
-head_names=lambda o:(o.name in ['actor_head','actor_jaw','actor_neck','actor_nose'] or o.name.startswith('actor_ear'))
-def face_weights(v):
-    t=max(0,min(1,(v.z-1.475)/.045))
-    return {'neck':1-t,'head':t}
-union_parts('actor_continuous_face',[o for o in parts if head_names(o)],skin,face_weights,.0045)
+    union_parts('actor_continuous_trousers',[o for o in parts if trouser_names(o)],trouser,trouser_weights,.010)
+# Subtle garment folds follow real contact zones at waist, knee and elbow.
+for obj in parts:
+    if obj.name=='actor_continuous_garment':
+        for v in obj.data.vertices:
+            x,y,z=v.co
+            waist=math.exp(-((z-1.08)/.09)**2)
+            underarm=math.exp(-((abs(x)-.17)/.06)**2)*math.exp(-((z-1.24)/.10)**2)
+            fold=.0022*math.sin(z*90+x*23)*(waist+.6*underarm)
+            v.co.y+=fold*(1 if y>0 else -1)
+    if obj.name=='actor_continuous_trousers':
+        for v in obj.data.vertices:
+            x,y,z=v.co
+            amount=math.exp(-((z-.57)/.09)**2)+.7*math.exp(-((z-.19)/.07)**2)
+            v.co.y+=.0025*math.sin(z*99+x*29)*amount
+# Original forearm geometry samples a dedicated neutral skin tile, avoiding
+# unrelated body-atlas islands on the elbow or wrist. Head/hands retain real UVs.
+for obj in parts:
+    if not (obj.name.startswith('actor_forearm_') or obj.name.startswith('actor_elbow_') or obj.name.startswith('actor_ankle_')) or obj.data.materials[0]!=skin:continue
+    uv=obj.data.uv_layers.active or obj.data.uv_layers.new(name='UVMap')
+    for loop in obj.data.loops:
+        co=obj.matrix_world@obj.data.vertices[loop.vertex_index].co
+        angle=(math.atan2(co.y,co.x-(.25 if co.x>0 else -.25))/math.tau)%1
+        uv.data[loop.index].uv=(.2+angle*.17,.52+max(0,min(1,(co.z-.87)/.23))*.18)
+# Consistent cylindrical textile UVs; geometry keeps normals and colours separate.
+for obj in parts:
+    if not obj.data.materials or obj.data.materials[0] not in [shirt,trouser]:continue
+    uv=obj.data.uv_layers.active or obj.data.uv_layers.new(name='UVMap')
+    for poly in obj.data.polygons:
+        coords=[]
+        for li in poly.loop_indices:
+            co=obj.matrix_world@obj.data.vertices[obj.data.loops[li].vertex_index].co
+            coords.append((li,(math.atan2(co.y,co.x)/math.tau)%1,co.z*3))
+        wrap=max(p[1] for p in coords)-min(p[1] for p in coords)>.5
+        for li,u,v in coords:uv.data[li].uv=(u+(1 if wrap and u<.5 else 0),v)
 
 # A small deformation rig. Mesh parts use rigid bone weights; elbows and knees
 # overlap to avoid gaps. This is deliberately simpler than facial/cloth simulation.
@@ -258,8 +305,12 @@ def clip(name,frames,fn):
 
 def idle(t,f):
     s=math.sin(t*math.tau)
-    rig.pose.bones['spine'].rotation_euler.x=.008*s
-    rig.pose.bones['head'].rotation_euler.z=.025*math.sin(t*math.tau)
+    rig.pose.bones['hips'].location.x=.002*math.sin(t*math.tau)
+    rig.pose.bones['spine'].rotation_euler.x=.006*s
+    rig.pose.bones['head'].rotation_euler.z=.016*math.sin(t*math.tau)
+    rig.pose.bones['head'].rotation_euler.x=.008*math.sin(t*math.tau)
+    rig.pose.bones['forearm.L'].rotation_euler.x=-.08
+    rig.pose.bones['forearm.R'].rotation_euler.x=-.11
     rig.pose.bones['upper_arm.L'].rotation_euler.y=-.045
     rig.pose.bones['upper_arm.R'].rotation_euler.y=.045
 
@@ -278,7 +329,8 @@ def locomotion(t,f,run=False):
         rig.pose.bones['upper_arm.'+s].rotation_euler.y=sg*.055
 
 def crouch(t,f):
-    rig.pose.bones['hips'].location.z=-.25
+    # Pelvis bone local Y is vertical; preserve shoe contact while bending.
+    rig.pose.bones['hips'].location.y=-.17
     rig.pose.bones['spine'].rotation_euler.x=.25
     for s in ['L','R']:
         rig.pose.bones['thigh.'+s].rotation_euler.x=-.8
@@ -322,6 +374,6 @@ names=[a.get('name') for a in g.get('animations',[])]
 assert magic==b'glTF' and total==p.stat().st_size
 assert set(['Idle','Walk','Run','Crouch','Gesture']).issubset(names),names
 assert len(g.get('skins',[]))==1
-report={'file':'assets/'+BASENAME+'.glb','bytes':p.stat().st_size,'animations':names,'skins':len(g.get('skins',[])),'meshes':len(g.get('meshes',[])),'vertices':len(body.data.vertices),'polygons':len(body.data.polygons),'height_m':1.63 if FEMALE else 1.76,'forward_three':'+Z','materials':[m['name'] for m in g.get('materials',[])]}
+report={'file':'assets/'+BASENAME+'.glb','bytes':p.stat().st_size,'animations':names,'skins':len(g.get('skins',[])),'meshes':len(g.get('meshes',[])),'vertices':len(body.data.vertices),'polygons':len(body.data.polygons),'triangles':sum(g['accessors'][p['indices']]['count']//3 for m in g['meshes'] for p in m['primitives']),'primitives':sum(len(m['primitives']) for m in g['meshes']),'height_m':1.63 if FEMALE else 1.76,'forward_three':'+Z','materials':[m['name'] for m in g.get('materials',[])]}
 print('CHARACTER_EXPORT_VERIFIED',json.dumps(report))
 (ASSETS/(BASENAME+'.json')).write_text(json.dumps(report,indent=2))

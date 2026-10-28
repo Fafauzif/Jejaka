@@ -3,7 +3,9 @@ const http = require("http"),
   fs = require("fs"),
   path = require("path"),
   assert = require("assert/strict");
-const root = path.resolve(__dirname, "../..");
+const projectRoot = path.resolve(__dirname, "../..");
+const siteRoot = process.env.JEJAKA_SITE_ROOT === "1";
+const root = siteRoot ? path.join(projectRoot, "experience") : projectRoot;
 const out = fs.mkdtempSync(
   path.join(require("os").tmpdir(), "jejaka-browser-test-"),
 );
@@ -51,14 +53,14 @@ const server = http.createServer((req, res) => {
   page.on("response", (r) => {
     if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`);
   });
-  await page.goto("http://127.0.0.1:8765/experience/?test=1");
+  await page.goto(`http://127.0.0.1:8765/${siteRoot ? "" : "experience/"}?test=1`);
   await page.waitForFunction(
     () => window.__JEJAKA__?.ready,
     {},
     { timeout: 180000 },
   );
   results.push(
-    "Local model and both animated characters loaded under /experience/ subpath",
+    siteRoot ? "Extracted application loads at site root, matching Vercel output" : "Local model and both animated characters loaded under /experience/ subpath",
   );
   await page.evaluate(() => {
     __JEJAKA__.renderer.shadowMap.enabled = false;
@@ -107,12 +109,28 @@ const server = http.createServer((req, res) => {
     if (i === 6 || i === 8) await page.locator(".choice").first().click();
     else await page.click("#act");
     if (i === 2) {
+      await page.click("#photo-capture");
       assert(
         await page.evaluate(
           () => !!__JEJAKA__.state.entries.find((e) => e.id === "bridge").photo,
         ),
       );
       results.push("Bridge photograph recorded from first-person renderer");
+    }
+    if (i === 4) {
+      const civilians = await page.evaluate(async () => {
+        const { Vector3, Raycaster } = await import("three");
+        return [2, 3].map(i => {
+          const root = __JEJAKA__.actors[i].root, pos = root.position.clone();
+          const head = pos.clone().add(new Vector3(0, 1.55, 0)).project(__JEJAKA__.camera);
+          const origin = pos.clone().add(new Vector3(0, .9, 0));
+          const blocked = [[1,0,0],[-1,0,0],[0,0,1],[0,0,-1]].some(d => new Raycaster(origin, new Vector3(...d), 0, .38).intersectObject(__JEJAKA__.world.model, true).length > 0);
+          return {visible: Math.abs(head.x)<1 && Math.abs(head.y)<1 && head.z<1, blocked};
+        });
+      });
+      assert(civilians.every(x => x.visible && !x.blocked), JSON.stringify(civilians));
+      await page.screenshot({path:path.join(out,"street-civilians.png")});
+      results.push("Street civilians visible ahead and clear of nearby architecture");
     }
     if (i === 6) {
       const choice = await page.evaluate(
@@ -162,6 +180,12 @@ const server = http.createServer((req, res) => {
   await page.waitForFunction(() => __JEJAKA__.mode === "ending");
   assert.equal(await page.evaluate(() => __JEJAKA__.state.entries.length), 9);
   results.push("Reload/continue restores completed account and choices");
+  page.once("dialog", dialog => dialog.accept());
+  await page.click("#ending-restart");
+  await page.waitForFunction(() => __JEJAKA__.mode === "play" && __JEJAKA__.state.chapter === 0);
+  assert.equal(await page.evaluate(() => __JEJAKA__.state.entries.length), 0);
+  assert.equal(await page.evaluate(() => __JEJAKA__.state.completed), false);
+  results.push("Confirmed restart clears a completed nine-entry account and returns to arrival");
   assert.equal(errors.length, 0, errors.join("\n"));
   results.push("Zero browser JS errors or HTTP errors");
   fs.writeFileSync(

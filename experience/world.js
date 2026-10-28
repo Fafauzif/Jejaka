@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import { makeSurfaceKit, addBridgeDetails, makeSkyEnvironment, refineExposedWalls } from "./environment-detail.js";
 
 // The architecture remains intact. Props and effects belong to a separate,
 // authored dramatic layer; they are not evidence for damage at a real address.
@@ -14,8 +16,13 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       return s / 4294967296;
     };
   })();
+  const surfaces = makeSurfaceKit(renderer);
+  const oldEnvironment = scene.environment;
+  const environment = makeSkyEnvironment();
+  scene.environment = environment;
+  scene.environmentIntensity = .55;
   const oldFog = scene.fog;
-  scene.fog = new THREE.FogExp2(0xbab7a5, 0.00185);
+  scene.fog = new THREE.FogExp2(0xc0c9c6, 0.00185);
   const palette = {
     plaster: 0xc8b996,
     timber: 0x584839,
@@ -42,8 +49,8 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
   }
 
   const skyUniforms = {
-    top: { value: new THREE.Color(0x6d8491) },
-    bottom: { value: new THREE.Color(0xd7c4a0) },
+    top: { value: new THREE.Color(0x759bb4) },
+    bottom: { value: new THREE.Color(0xd2d7ce) },
   };
   const skyMat = new THREE.ShaderMaterial({
     side: THREE.BackSide,
@@ -60,9 +67,9 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
   sky.name = "JEJAKA_SKY_DOME";
   sky.frustumCulled = false;
   owned.add(sky);
-  const hemi = new THREE.HemisphereLight(0xd6e0df, 0x5c5145, 1.8);
+  const hemi = new THREE.HemisphereLight(0xcddfe9, 0x605c4d, 1.15);
   owned.add(hemi);
-  const sun = new THREE.DirectionalLight(0xffe4b2, 3.0);
+  const sun = new THREE.DirectionalLight(0xffedce, 2.65);
   sun.position.set(-170, 240, -140);
   sun.target.position.set(0, 0, 0);
   owned.add(sun, sun.target);
@@ -79,6 +86,20 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
   sun.shadow.bias = -0.0006;
   sun.shadow.normalBias = 0.12;
   sun.shadow.camera.updateProjectionMatrix();
+  renderer.shadowMap.autoUpdate = false;
+  renderer.shadowMap.needsUpdate = true;
+  let quality = "balanced";
+  function setQuality(value) {
+    const next = value === "low" ? "low" : value === "high" ? "high" : "balanced";
+    if (quality === next && sun.shadow.map) return;
+    quality = next;
+    renderer.shadowMap.enabled = next !== "low";
+    const size = next === "high" ? 2048 : 1024;
+    if (sun.shadow.mapSize.x !== size) {
+      sun.shadow.map?.dispose();sun.shadow.map=null;sun.shadow.mapSize.set(size,size);
+    }
+    renderer.shadowMap.needsUpdate = true;
+  }
 
   const loader = new GLTFLoader();
   onProgress(0.02);
@@ -87,11 +108,11 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       "Browser ini belum mendukung aset terkompresi. Gunakan Chrome, Edge, Firefox, atau Safari versi terbaru.",
     );
   const response = await fetch(
-    new URL("./assets/district.glb.gz", import.meta.url),
+    new URL("./assets/district-route.glb.gz", import.meta.url),
   );
   if (!response.ok)
     throw new Error("Aset kota tidak dapat dimuat (" + response.status + ").");
-  const total = Number(response.headers.get("Content-Length")) || 15981642;
+  const total = Number(response.headers.get("Content-Length")) || 7175486;
   const reader = response.body.getReader();
   const chunks = [];
   let received = 0;
@@ -111,51 +132,42 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
   const model = gltf.scene;
   model.name = "SURABAYA_RECONSTRUCTION";
   scene.add(model);
+  let plasterScan;
+  model.traverse(o=>{if(plasterScan||!o.isMesh)return;for(const m of Array.isArray(o.material)?o.material:[o.material])if(m.map&&/PLASTER|FACADE/.test(m.name)){plasterScan=m.map;break;}});
+  surfaces.setSource('plaster',plasterScan);
+  surfaces.apply(materials.timber,'wood',{scale:1.2,tint:0xc0b8a1,bump:.018});
+  surfaces.apply(materials.canvas,'canvas',{scale:.4,tint:0xe5deca,bump:.003});
+  surfaces.apply(materials.plaster,'plaster',{scale:3,tint:0xe9dfc6,bump:.015});
   const groundMeshes = [];
   const modelMats = new Set();
   // Several Blender procedural materials export as an untextured white PBR
   // material. Restore their intended material role instead of boosting exposure.
-  const roadColors = {
-    MAT_ROAD_ASPHALT: 0x777369,
-    MAT_GROUND_EARTH: 0x716b5c,
-    MAT_ROAD_SETTS: 0x827d70,
-  };
-  function matteGround(m) {
-    m.map = null;
-    m.normalMap = null;
-    m.roughnessMap = null;
-    m.metalnessMap = null;
-    m.metalness = 0;
-    m.roughness = 0.97;
-    m.polygonOffset = true;
-    m.polygonOffsetFactor =
-      m.name === "MAT_GROUND_EARTH"
-        ? 2
-        : m.name === "MAT_ROAD_ASPHALT"
-          ? -1
-          : -2;
-    m.polygonOffsetUnits = m.polygonOffsetFactor;
-    m.color.set(roadColors[m.name]);
-    m.onBeforeCompile = (shader) => {
-      shader.vertexShader =
-        "varying vec3 vJejakaWorld;\n" + shader.vertexShader;
-      shader.vertexShader = shader.vertexShader.replace(
-        "#include <worldpos_vertex>",
-        "#include <worldpos_vertex>\nvJejakaWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;",
-      );
-      shader.fragmentShader =
-        "varying vec3 vJejakaWorld;\nfloat jHash(vec2 p){vec3 p3=fract(vec3(p.xyx)*.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z); }\nfloat jNoise(vec2 p){vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f); return mix(mix(jHash(i),jHash(i+vec2(1,0)),f.x),mix(jHash(i+vec2(0,1)),jHash(i+vec2(1,1)),f.x),f.y); }\n" +
-        shader.fragmentShader;
-      shader.fragmentShader = shader.fragmentShader.replace(
-        "#include <color_fragment>",
-        "#include <color_fragment>\ndiffuseColor.rgb *= .88 + .16*jNoise(vJejakaWorld.xz*.7) + .04*jNoise(vJejakaWorld.xz*7.);",
-      );
+  const waterUniforms = { value: 0 };
+  function waterMaterial(m) {
+    m.map=null;m.normalMap=null;m.roughness=.46;m.metalness=0;m.envMapIntensity=.15;m.color.set(0x526b58);
+    m.onBeforeCompile=(shader)=>{
+      shader.uniforms.jWaterTime=waterUniforms;
+      shader.vertexShader='varying vec3 jWaterWorld;\n'+shader.vertexShader;
+      shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\njWaterWorld=(modelMatrix*vec4(transformed,1.)).xyz;');
+      shader.fragmentShader='varying vec3 jWaterWorld;uniform float jWaterTime;\n'+shader.fragmentShader;
+      shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
+        vec2 w=jWaterWorld.xz;
+        vec3 wn=normalize(vec3(sin(w.x*1.7+w.y*.42+jWaterTime*.7)*.055+cos(w.y*3.1-jWaterTime*.9)*.027,1.,cos(w.y*1.2-w.x*.3-jWaterTime*.6)*.07));
+        normal=normalize(mat3(viewMatrix)*wn);
+      `);
+      shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>',`
+        float wf=pow(1.-max(0.,dot(normal,normalize(vViewPosition))),3.);
+        float wp=sin(jWaterWorld.x*.19+jWaterWorld.z*.73+jWaterTime*.35)*sin(jWaterWorld.z*.43-jWaterTime*.28);
+        vec3 wb=vec3(.105,.155,.115)*(1.+wp*.045);
+        outgoingLight=mix(wb,vec3(.23,.30,.29),wf*.5)+min(vec3(.025),reflectedLight.directSpecular*.15);
+        #include <opaque_fragment>
+      `);
     };
-    m.customProgramCacheKey = () => "jejaka-matte-ground-v1";
-    m.needsUpdate = true;
+    m.customProgramCacheKey=()=>"jejaka-river-v3";m.needsUpdate=true;
   }
   model.traverse((o) => {
     if (!o.isMesh) return;
+    if (/BRIDGE_LAMPS/.test(o.name)) {o.visible=false;o.castShadow=false;}
     o.receiveShadow = true;
     const b = new THREE.Box3().setFromObject(o);
     o.castShadow =
@@ -171,22 +183,22 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     )
       groundMeshes.push(o);
     for (const m of Array.isArray(o.material) ? o.material : [o.material]) {
+      if (modelMats.has(m)) continue;
       modelMats.add(m);
-      if (roadColors[m.name] !== undefined) matteGround(m);
-      if (m.map)
-        m.map.anisotropy = Math.min(
-          4,
-          renderer.capabilities.getMaxAnisotropy(),
-        );
-      if (m.name?.includes("GLASS") || m.name?.includes("WINDOW")) {
-        m.roughness = 0.36;
-        m.metalness = 0.15;
+      if (/ROAD_SETTS/.test(m.name)) surfaces.apply(m,'setts',{scale:2.4,bump:.032});
+      else if (/ROAD_ASPHALT/.test(m.name)) surfaces.apply(m,'road',{scale:1.6,tint:0xf4f1e9,bump:.009});
+      else if (/GROUND_EARTH/.test(m.name)) surfaces.apply(m,'earth',{scale:3,tint:0xe0d9bd,bump:.02});
+      else if (/STREET_ROOF|ROOF_DARK|SINGA_TILE/.test(m.name)) surfaces.apply(m,'roof',{scale:2.7,tint:/ROOF_B|DARK/.test(m.name)?0xaab2b1:0xffffff,bump:.045});
+      else if (/PLASTER|FACADE|STREET_PARTY/.test(m.name)) {
+        const tint = /ROSE/.test(m.name)?0xe9c4ae:/SAGE/.test(m.name)?0xbdcfbc:/OCHRE/.test(m.name)?0xe3d4ad:/GREY/.test(m.name)?0xcbd0c7:0xf3ebd6;
+        surfaces.apply(m,'plaster',{scale:3.5,tint,bump:.014});
       }
-      if (m.name?.includes("WATER")) {
-        m.color.set(0x526760);
-        m.roughness = 0.4;
-        m.metalness = 0.18;
-      }
+      else if (/WOOD|TIMBER/.test(m.name)) surfaces.apply(m,'wood',{scale:1.8,tint:0xb3b5a7,bump:.012});
+      else if (/STONE/.test(m.name)) surfaces.apply(m,'stone',{scale:2.4,tint:0xd5d4c7,bump:.024});
+      if (m.map) m.map.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
+      if (/GLASS|WINDOW/.test(m.name)) {m.color.set(0x647675);m.roughness=.3;m.metalness=.22;m.envMapIntensity=.8;}
+      if (/METAL/.test(m.name)) {m.color.set(0x414b49);m.roughness=.47;m.metalness=.65;}
+      if (/WATER/.test(m.name)) waterMaterial(m);
     }
   });
   model.updateMatrixWorld(true);
@@ -343,6 +355,9 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     return height;
   }
 
+  addBridgeDetails(owned,groundHeight,surfaces);
+  refineExposedWalls(model,owned,surfaces);
+
   // Small lived-in details placed at the road margins, outside the guided path.
   function crate(x, z, angle = 0, scale = 1) {
     const g = new THREE.Group();
@@ -422,6 +437,9 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     box(0, 2.8, 1, 4.8, 0.45, 0.05, materials.canvas, g);
   }
 
+  // A small authored stone forecourt anchors the stall to the street surface.
+  materials.stallPaving=surfaces.apply(new THREE.MeshStandardMaterial(),'setts',{scale:2.4,tint:0xd6d3c5,bump:.026});
+  box(-88,groundHeight(-88,8)+.015,9,6,.03,6,materials.stallPaving).castShadow=false;
   // A plain reconstructed stall behind Sari, with wrapped bundles and produce.
   box(-88, 0.94, 11, 3.6, 0.12, 0.9, materials.timber);
   for (const x of [-89.5, -86.5])
@@ -434,30 +452,36 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     owned.add(bundle);
   }
 
+  // Cloth sacks and a low crate give the encounters tactile, human-scale detail.
+  // All stay outside the route's centre line and merge into static material bins.
+  function sack(x,z,y,lean=0) {
+    const geo=new THREE.SphereGeometry(1,16,12),pos=geo.attributes.position;
+    for(let i=0;i<pos.count;i++){const yy=pos.getY(i),a=Math.atan2(pos.getZ(i),pos.getX(i));const fold=1+Math.sin(a*7+yy*2)*.035;pos.setXYZ(i,pos.getX(i)*.31*fold,(yy+1)*.4,pos.getZ(i)*.24*fold);}
+    geo.computeVertexNormals();geometries.push(geo);const mesh=new THREE.Mesh(geo,materials.canvas);mesh.position.set(x,y,z);mesh.rotation.z=lean;mesh.castShadow=true;mesh.receiveShadow=true;owned.add(mesh);
+    const tie=new THREE.Mesh(new THREE.CylinderGeometry(.072,.065,.035,10),materials.timber);tie.position.set(x-Math.sin(lean)*.72,y+.75,z);tie.rotation.z=lean;owned.add(tie);geometries.push(tie.geometry);
+  }
+  crate(-86.4,10.3,-.08,.7);
+  sack(-86.4,10.3,groundHeight(-86.4,10.3)+.49,.08);
+  sack(-85.85,10.35,groundHeight(-85.85,10.35),-.12);
+
   function spriteTexture(kind) {
     const c = document.createElement("canvas");
     c.width = c.height = 128;
     const ctx = c.getContext("2d");
     if (kind === "smoke") {
-      for (let i = 0; i < 32; i++) {
-        const x = 36 + rng() * 56,
-          y = 36 + rng() * 56,
-          r = 18 + rng() * 32;
-        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-        g.addColorStop(0, "rgba(255,255,255,.10)");
-        g.addColorStop(0.5, "rgba(255,255,255,.07)");
-        g.addColorStop(1, "rgba(255,255,255,0)");
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, 128, 128);
+      const image=ctx.createImageData(128,128),noise=Array.from({length:1024},rng);
+      const sample=(x,y)=>{const xx=Math.floor(x),yy=Math.floor(y),fx=x-xx,fy=y-yy,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);const at=(a,b)=>noise[((b%32+32)%32)*32+((a%32+32)%32)];return (at(xx,yy)*(1-u)+at(xx+1,yy)*u)*(1-v)+(at(xx,yy+1)*(1-u)+at(xx+1,yy+1)*u)*v;};
+      for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+        const nx=(x-64)/58,ny=(y-64)/58,rad=Math.sqrt(nx*nx+ny*ny);
+        const n=sample(x/22,y/22)*.52+sample(x/9,y/9)*.31+sample(x/3.5,y/3.5)*.17;
+        const edge=THREE.MathUtils.clamp((1.07-rad+(n-.5)*.55)*3.2,0,1),alpha=edge*(.35+n*.65);
+        const i=(y*128+x)*4;image.data[i]=image.data[i+1]=image.data[i+2]=220+n*35;image.data[i+3]=alpha*225;
       }
+      ctx.putImageData(image,0,0);
     } else {
-      const g = ctx.createRadialGradient(64, 87, 0, 64, 76, 55);
-      g.addColorStop(0, "rgba(255,247,177,1)");
-      g.addColorStop(0.18, "rgba(255,177,65,.9)");
-      g.addColorStop(0.45, "rgba(230,76,14,.6)");
-      g.addColorStop(1, "rgba(170,30,0,0)");
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, 128, 128);
+      const g=ctx.createLinearGradient(0,128,0,0);g.addColorStop(0,'rgba(255,112,18,.9)');g.addColorStop(.25,'rgba(255,192,57,.95)');g.addColorStop(.6,'rgba(255,99,10,.85)');g.addColorStop(1,'rgba(212,49,0,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(35,126);ctx.bezierCurveTo(15,102,32,75,33,47);ctx.bezierCurveTo(48,61,37,79,51,86);ctx.bezierCurveTo(42,51,69,26,63,3);ctx.bezierCurveTo(89,35,84,65,79,86);ctx.bezierCurveTo(99,70,101,47,99,37);ctx.bezierCurveTo(120,78,115,110,91,126);ctx.closePath();ctx.fill();
+      const core=ctx.createRadialGradient(64,112,1,64,104,26);core.addColorStop(0,'rgba(255,246,186,.95)');core.addColorStop(.5,'rgba(255,187,52,.8)');core.addColorStop(1,'rgba(255,100,10,0)');ctx.fillStyle=core;ctx.fillRect(25,68,78,60);
     }
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
@@ -470,12 +494,12 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     fires = [];
   // Fictional fire locations. No named historical building is replaced/damaged.
   const columns = [
-    [-115, 65],
-    [-90, 110],
-    [-230, -110],
+    [-118, 58],
+    [-88, 75],
+    [-152, 49],
     [142, 22],
-    [-230, 140],
-    [-160, -180],
+    [-195, 90],
+    [-165, -100],
   ];
   for (let k = 0; k < columns.length; k++) {
     const [x, z] = columns[k];
@@ -505,20 +529,21 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
         color: 0xffc288,
       });
       const s = new THREE.Sprite(mat);
-      s.position.set(x + (j - 1) * 2, 12, z);
+      s.position.set(x + (j % 2) * 1.8, 10.5, z + (j - 1) * 4);
+      s.renderOrder=3;
       s.scale.set(4, 8, 1);
       owned.add(s);
       flames.push({
         sprite: s,
-        x: x + (j - 1) * 2,
-        z,
+        x: x + (j % 2) * 1.8,
+        z: z + (j - 1) * 4,
         seed: rng() * 10,
         column: k,
       });
     }
     if (k < 4) {
       const light = new THREE.PointLight(0xff9b3f, 0, 24, 2);
-      light.position.set(x, 4, z);
+      light.position.set(x, 8, z);
       owned.add(light);
       fires.push(light);
     }
@@ -544,7 +569,9 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
   owned.add(dust);
   const debris = new THREE.Group();
   debris.name = "FICTIONAL_FALLING_PLASTER";
-  debris.position.set(125, 0, 20);
+  // The generic shop eave sits near Z=28.4 at X=145. Fragments fall just
+  // outside it, ahead-left of the impact camera, clear of the guided path.
+  debris.position.set(145, groundHeight(145,30.2), 30.2);
   owned.add(debris);
   const debrisPieces = [];
   for (let i = 0; i < 14; i++) {
@@ -559,16 +586,52 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       debris,
     );
     m.visible = false;
+    m.castShadow = false;
     debrisPieces.push({
       mesh: m,
       x: m.position.x,
       y: m.position.y,
       z: m.position.z,
       delay: rng() * 1.8,
+      floor: m.scale.y * .5 + .005,
     });
   }
-  const parcel = crate(118, 31, 0.12, 0.8);
+  const parcel = crate(114.8, 29.3, 0.12, 0.8);
+  parcel.traverse(o=>{if(o.isMesh)o.castShadow=false;});
   parcel.name = "JEJAKA_FICTIONAL_SHELTER_PARCEL";
+  parcel.visible=false;
+  const contactCanvas=document.createElement('canvas');contactCanvas.width=contactCanvas.height=64;
+  const contactContext=contactCanvas.getContext('2d'),contactGradient=contactContext.createRadialGradient(32,32,1,32,32,32);
+  contactGradient.addColorStop(0,'rgba(0,0,0,.38)');contactGradient.addColorStop(.6,'rgba(0,0,0,.25)');contactGradient.addColorStop(1,'rgba(0,0,0,0)');
+  contactContext.fillStyle=contactGradient;contactContext.fillRect(0,0,64,64);
+  const contactTexture=new THREE.CanvasTexture(contactCanvas);surfaces.textures.push(contactTexture);
+  const contactGeo=new THREE.PlaneGeometry(1.4,1.1);geometries.push(contactGeo);
+  const contact=new THREE.Mesh(contactGeo,new THREE.MeshBasicMaterial({map:contactTexture,transparent:true,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1}));
+  contact.rotation.x=-Math.PI/2;contact.position.y=.008;parcel.add(contact);
+
+  // Batch the original procedural stall/props and refined fixtures by material.
+  // Animated parcel/debris, billboards, sky and instanced facade bands retain
+  // their own identities; static detail should not cost one draw per screw.
+  owned.updateMatrixWorld(true);
+  const propBatches = new Map(), staticParts = [];
+  owned.traverse(o => {
+    if (!o.isMesh || o.isInstancedMesh || o.material?.isShaderMaterial || Array.isArray(o.material)) return;
+    let ancestor = o;
+    while (ancestor && ancestor !== owned) {
+      if (ancestor === parcel || ancestor === debris) return;
+      ancestor = ancestor.parent;
+    }
+    const key = o.material.uuid + ":" + o.castShadow + ":" + o.receiveShadow;
+    if (!propBatches.has(key)) propBatches.set(key, { material:o.material,cast:o.castShadow,receive:o.receiveShadow,parts:[] });
+    propBatches.get(key).parts.push(o.geometry.clone().applyMatrix4(o.matrixWorld));staticParts.push(o);
+  });
+  for (const o of staticParts) o.removeFromParent();
+  for (const b of propBatches.values()) {
+    const geo = mergeGeometries(b.parts,false);b.parts.forEach(g=>g.dispose());
+    if (!geo) continue;
+    geometries.push(geo);const mesh=new THREE.Mesh(geo,b.material);mesh.castShadow=b.cast;mesh.receiveShadow=b.receive;
+    mesh.name="JEJAKA_BATCHED_STREET_DETAIL";mesh.userData.evidenceStatus="authored_production_layer";owned.add(mesh);
+  }
   let parcelMoved = false,
     parcelTravel = 0;
   function choose(beatId, choiceId, instant = false) {
@@ -588,7 +651,7 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       collapseTime = -1;
       parcelMoved = false;
       parcelTravel = 0;
-      parcel.position.set(118, groundHeight(118, 31), 31);
+      parcel.position.set(114.8, groundHeight(114.8, 29.3), 29.3);
       debrisPieces.forEach((p) => {
         p.mesh.visible = false;
         p.mesh.position.set(p.x, p.y, p.z);
@@ -598,9 +661,9 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     if (next > 0.85) phase = Math.max(phase, next - 0.05);
     phaseTarget = next;
   }
-  const fogCalm = new THREE.Color(0xbab7a5),
+  const fogCalm = new THREE.Color(0xc0c9c6),
     fogDanger = new THREE.Color(0x8d8170);
-  const skyCalm = new THREE.Color(0xd7c4a0),
+  const skyCalm = new THREE.Color(0xd2d7ce),
     skyDanger = new THREE.Color(0xafa18b);
   function update(dt, elapsed, nextPhase) {
     if (disposed) return;
@@ -614,16 +677,18 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       dt,
     );
     parcel.position.set(
-      THREE.MathUtils.lerp(118, 121, parcelTravel),
-      groundHeight(118, 31),
-      THREE.MathUtils.lerp(31, 33, parcelTravel),
+      THREE.MathUtils.lerp(114.8, 113.3, parcelTravel),
+      groundHeight(114.8, 29.3),
+      THREE.MathUtils.lerp(29.3, 30.5, parcelTravel),
     );
     parcel.rotation.y = 0.12 + parcelTravel * 0.2;
+    parcel.visible = phaseTarget >= .45 && phaseTarget < .8;
     const danger = THREE.MathUtils.smoothstep(phase, 0.32, 0.93);
     scene.fog.color.copy(fogCalm).lerp(fogDanger, danger);
     scene.fog.density = 0.00185 + danger * 0.0011;
     skyUniforms.bottom.value.copy(skyCalm).lerp(skyDanger, danger);
-    sun.intensity = 3 - danger * 0.8;
+    sun.intensity = 2.65 - danger * 0.65;
+    waterUniforms.value = elapsed;
     for (const p of smoke) {
       const active = THREE.MathUtils.smoothstep(
         phase,
@@ -633,12 +698,13 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       p.age = (p.age + dt * 0.026 * (0.8 + p.seed * 0.03)) % 1;
       const a = p.age;
       p.sprite.position.set(
-        p.x + a * 12 + Math.sin(elapsed * 0.08 + p.seed) * 2,
-        11 + a * 55,
-        p.z + a * 4,
+        p.x + a * 18 + Math.sin(elapsed * 0.08 + p.seed) * 2,
+        10 + a * 55,
+        p.z + a * 5,
       );
-      p.sprite.scale.setScalar(7 + a * 25);
-      p.sprite.material.opacity = active * Math.sin(a * Math.PI) * 0.7;
+      p.sprite.scale.set(13 + a * 27,16 + a * 26,1);
+      p.sprite.material.opacity = active * (.5+.5*Math.sin(a*Math.PI)) * (1-THREE.MathUtils.smoothstep(a,.8,1)) * .82;
+      p.sprite.visible = active > .01;
       p.sprite.material.rotation += dt * 0.015;
     }
     for (const p of flames) {
@@ -647,28 +713,33 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
         0.43 + p.column * 0.04,
         0.65 + p.column * 0.04,
       );
+      const heroFire=p.column<3;
+      p.sprite.position.set(p.x,(heroFire?13:10.7)+Math.sin(elapsed*1.8+p.seed)*.2,p.z);
       p.sprite.material.opacity =
-        active * (0.5 + 0.22 * Math.sin(elapsed * 8 + p.seed));
+        active * (0.66 + 0.15 * Math.sin(elapsed * 8 + p.seed));
+      p.sprite.visible = active > .01;
       p.sprite.scale.set(
-        4 + Math.sin(elapsed * 3 + p.seed),
-        7 + Math.sin(elapsed * 7 + p.seed) * 1.4,
+        (heroFire?6.6:5.2) + Math.sin(elapsed * 3 + p.seed)*.65,
+        (heroFire?13:9.2) + Math.sin(elapsed * 7 + p.seed) * 1.25,
         1,
       );
     }
     fires.forEach(
-      (l, i) => (l.intensity = danger * (16 + Math.sin(elapsed * 11 + i) * 3)),
+      (l, i) => (l.intensity = danger * (44 + Math.sin(elapsed * 11 + i) * 8)),
     );
     dust.rotation.y = Math.sin(elapsed * 0.025) * 0.025;
     dust.position.y = Math.sin(elapsed * 0.2) * 0.12;
     dustMat.opacity = 0.15 + danger * 0.3;
-    if (phaseTarget > 0.58 && collapseTime < 0) collapseTime = elapsed;
+    if (phaseTarget > 0.30 && collapseTime < 0) collapseTime = elapsed;
     if (collapseTime >= 0) {
       const t = elapsed - collapseTime;
       debrisPieces.forEach((p) => {
         const a = t - p.delay;
         p.mesh.visible = a > 0;
-        p.mesh.position.y = a > 0 ? Math.max(0.12, p.y - 4.9 * a * a) : p.y;
-        if (a > 0 && p.mesh.position.y > 0.12) {
+        p.mesh.position.y = a > 0 ? Math.max(p.floor, p.y - 4.9 * a * a) : p.y;
+        p.mesh.position.x = p.x + Math.max(0,Math.min(a,1))*(.3+p.delay*.12);
+        p.mesh.position.z = p.z + Math.max(0,Math.min(a,1))*(.4+p.delay*.14);
+        if (a > 0 && p.mesh.position.y > p.floor) {
           p.mesh.rotation.x += dt * (1 + p.delay);
           p.mesh.rotation.z += dt * 0.7;
         }
@@ -680,6 +751,7 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
     model,
     update,
     setPhase,
+    setQuality,
     groundHeight,
     choose,
     dispose() {
@@ -687,6 +759,7 @@ export async function createWorld({ scene, renderer, onProgress = () => {} }) {
       disposed = true;
       scene.remove(owned, model);
       scene.fog = oldFog;
+      scene.environment = oldEnvironment;environment.dispose();surfaces.dispose();
       const textures = new Set([smokeTex, flameTex]);
       model.traverse((o) => {
         if (o.isMesh) {

@@ -1,70 +1,79 @@
 # Civilian character production
 
-## Asset
+## Assets and appearance
 
-`assets/characters.glb` contains one original adult civilian model, one deformation skeleton and five animation clips. The model stands approximately 1.76 metres tall and faces positive Z after glTF conversion. Its feet sit at ground level. Clothing consists of a plain collared shirt with a breast pocket, trousers, a belt and simple shoes. These clothes are plausible reconstruction choices, not the recorded clothing of a historical individual.
+`assets/characters.glb` is the adult civilian used for Damar and supporting men. `assets/sari.glb` is the adult woman used for Sari. Both are fictional characters. Their geometry, colour, clothing, and movement do not establish a recorded person's appearance or a particular garment's presence in Surabaya in November 1945.
 
-The geometry uses restrained facial detail, close-cropped hair, a shaped nose, small eyes and articulated fingers. The intended viewing distance is three metres or more. Long facial close-ups and facial lip-sync fall outside this asset's capabilities.
+The current assets replace the earlier primitive face and hands with anatomical head, neck, eyelid, and hand topology derived from MakeHuman's CC0 `hm08` base mesh. Licensed skin and brown-eye texture derivatives retain the matching UV layout. The skin images contain the used head/hand islands and an authored forearm tile; unused body regions have been removed. Close-cropped hair is carried by the scalp texture, with an authored bun for Sari. The shirt, trousers, wrap skirt, footwear, rig, and five motion clips are authored for Jejaka.
+
+These are moderate-detail game characters intended for conversations at approximately two to four metres. They support more believable heads and hands than the earlier assets, but have no facial rig, lip-sync, eye animation, cloth simulation, or motion capture. Extreme facial close-ups should not be staged as though those systems exist.
+
+## Export comparison
+
+The counts below are read from each exported GLB, not estimated from the Blender viewport. A primitive normally requires a separate material submission in the runtime; complete frame cost also depends on visibility, shadows, and shaders.
+
+| Asset | Earlier triangles | Current triangles | Earlier material primitives | Current material primitives | Current file size |
+|---|---:|---:|---:|---:|---:|
+| Male civilian | 52,406 | 31,820 | 9 | 5 | 1,253,840 bytes |
+| Sari | 38,476 | 25,030 | 9 | 6 | 1,037,160 bytes |
+
+The textured skin and cloth add shading and texture work. Lower triangle and primitive counts alone are not a measured frame-rate gain on a particular device.
 
 ## Animation clips
 
-| Clip | Duration | Use |
+| Clip | Duration | Intended use |
 |---|---:|---|
-| Idle | 3.0 seconds | Quiet breathing and small head movement |
-| Walk | 1.0 second | In-place walking loop |
+| Idle | 3.0 seconds | Small breathing, head motion, and a restrained weight shift |
+| Walk | 1.0 second | In-place walking with complementary arm swing |
 | Run | 0.75 seconds | In-place escape movement |
 | Crouch | 2.0 seconds | Sustained protective posture |
-| Gesture | 2.5 seconds | A short conversational hand gesture |
+| Gesture | 2.5 seconds | A restrained conversational hand and head gesture |
 
-Runtime movement must translate the character in step with the in-place clip. Blend clips over a short transition instead of switching poses in a single frame. Stop horizontal travel before returning to Idle. Clip durations follow a 24-frame-per-second export.
+The export is sampled at 24 frames per second. Runtime movement must translate the actor in step with the clip and blend between actions. The rigs retain the `hand.R` bone used by the notebook prop and the existing bone/clip vocabulary. Anatomical fingers are in a relaxed fixed shape and move with the wrist; they are not individually animated.
 
-The shirt and blouse use connected surfaces with blended shoulder and elbow weights. The male trousers use a connected surface with blended knee weights. The face, jaw and nose share a smooth volume, and the shortened neck sits inside the collar. Hands, shoes and some secondary details retain rigid weights. The rig provides skeletal animation without cloth simulation or a facial rig. Avoid extreme joint poses, and keep the supplied movements within their authored range. The model does not include motion capture.
+Shirt and trouser joints have blended weights. Hands and footwear use simple binding. The shoe uppers use a low, fitted profile with a shared lasting edge and thin outline-matched sole; the sole rests at ground height in the neutral pose. Sari has skin ankles beneath the skirt instead of exposed trouser stubs. The male trouser hem reaches the shoe collar. Sari's skirt follows the hips and does not simulate fabric. Use Idle and Gesture for her shop encounter; avoid Crouch, large strides, or close shots of the hem during motion. A movement clip being included does not establish that every pose is suitable for the skirt.
 
-## Runtime instances
+## Runtime interface
 
-Use the Three.js `SkeletonUtils.clone` helper for independent animated instances. A regular `Object3D.clone` does not provide the required independent skeleton bindings. Give each instance its own `AnimationMixer`.
-
-Clone materials before recolouring an individual character. The exported names are:
+Use `SkeletonUtils.clone` for independent skinned instances and a separate `AnimationMixer` for each actor. Clone a material before recolouring an instance. Current exported material names are:
 
 - `CIVILIAN_SHIRT`
 - `CIVILIAN_TROUSERS`
-- `CIVILIAN_COLLAR`
-- `CIVILIAN_BELT`
-- `CIVILIAN_SKIN`
-- `CIVILIAN_HAIR`
-- `CIVILIAN_EYE`
-- `CIVILIAN_FACE_DETAIL`
 - `CIVILIAN_SHOES`
+- `CIVILIAN_SKIN`
+- `CIVILIAN_EYE`
+- `CIVILIAN_HAIR` for Sari's bun only
 
-Muted cream, grey, ochre and brown provide clothing variations. Modest changes in height and body scale can separate supporting figures. Do not assign ethnicity, allegiance or occupation on the basis of a palette variation.
+The shirt remains available for restrained runtime tint variation. Collars share its material; belts share the shoe material. Supporting characters should be distinguished by posture, staging, scale, and clothing colour without assigning nationality or allegiance from a palette choice.
 
-## Source and editability
+## Source and rights
 
-`tools/build_characters.py` constructs the geometry, skeleton and animations from scratch in Blender. It requires no external character models, textures, motion libraries or accounts. The generated character is original project material. Existing research governs period interpretation; the model's existence does not establish historical accuracy.
+The source register, original mesh data, licence explanation, complete CC0 text, and checksums are in [character_sources](../tools/character_sources/README.md). MakeHuman's graphical assets are CC0; no MakeHuman application code is included in these generators. `character_anatomy.py` is the project's fitting and binding code.
 
-The script exports the character separately from the city. It does not open or modify the production reconstruction. Blender 4.0.2 generated the delivered GLB.
+The supplied skin texture names are upstream production identifiers. They do not identify an archival Indonesian person or certify the historical appearance of these fictional residents. Archive evidence and production asset licensing remain separate.
 
-## Checks performed
+`tools/prepare_character_textures.py` reproduces the supplied derivatives from the original PNG files listed in the source register. Normal model rebuilding uses the bundled derivatives and requires no network access. Cloth weave, normal maps, and garment geometry are authored production detail, not a record of a historical textile.
 
-The export contains one mesh with nine material primitives, one skin and the five named clips. Binary header and length checks passed. Fresh Blender processes imported both GLBs, recovered five actions with animated channels and rendered a mid-gesture pose. Separate CPU renders were inspected for each standing silhouette and the animated gestures. The male model also passed an earlier running-pose round trip.
+## Rebuild
 
-The runtime must still verify character placement, ground contact, animation speed and transition behaviour within each encounter. These checks do not establish film-quality facial animation or full crowd simulation.
-
-## Bu Sari variant
-
-`assets/sari.glb` provides an adult shopkeeper variant at approximately 1.63 metres. She wears a plain long-sleeved blouse, a muted wrap skirt and a hair bun. The clothes and appearance are authored interpretations for a fictional character. No specific historical person or recorded shopkeeper is represented.
-
-Sari uses the same material names, skeleton and five clip names. Idle and Gesture suit her shop encounter. Walk and Run use shorter strides to suit the wrap skirt. The skirt has a simple rigid hip attachment; avoid Crouch, extreme movement and close shots of the hem during travel. It does not simulate fabric.
-
-`tools/build_sari.py` invokes the shared generator with the Sari variant selected. It writes `assets/sari.glb` and its own metadata without overwriting `characters.glb`. A CPU render of the exported variant's source scene and a fresh-import mid-gesture render were inspected. Export header, one skin and five animation names passed the same binary checks as the male model.
-
-## Rebuild on a standard Blender installation
-
-From the repository root, use a Blender installation that supports the export options in the script:
+On a standard Blender installation with glTF export support, run from the repository root:
 
 ```bash
 blender --background --factory-startup --python-exit-code 1 --python experience/tools/build_characters.py
 blender --background --factory-startup --python-exit-code 1 --python experience/tools/build_sari.py
 ```
 
-The generators locate `experience/assets/` relative to their own source, export the chosen model, render a CPU inspection image into the system temporary directory, and validate the GLB header, skin and clip names. `JEJAKA_QA_DIR` can select another inspection-image directory. Standard Blender installations normally bundle Python dependencies; an extracted distribution build can use `JEJAKA_PYTHON_EXTRA` with compatible site directories separated by the operating system's path separator. Blender4.0.2 was used for the included exports. Newer Blender versions may require adapting NLA/action export options. These scripts create new scenes and never open the production city master.
+The scripts build new scenes, export their selected actor and rig, render a CPU inspection image in the temporary directory, and check the actual GLB header, clips, skin, and geometry counts. They never open the production city master. `JEJAKA_QA_DIR` can select another inspection image directory. The shared script locates its source data and asset textures relative to itself.
+
+Blender 4.0.2 generated these files. For an extracted Blender package, `JEJAKA_PYTHON_EXTRA` can supply compatible Python site directories separated by the operating system's path separator. A standard Blender bundle normally supplies its own dependencies. This does not establish compatibility with the city master reported as a Blender 5.2.2 file; preserve that master.
+
+## Verification
+
+Both final GLBs passed binary length/header checks and contain one skin, one mesh, and all five named clips. Blender generated CPU renders of each exported source scene. The hand/sleeve overlap found in the first Sari render was corrected by trimming the reused wrist surface to its binding point. Collar panels were reduced and refitted to the chest, and their material merged with the shirt. A further inspected pass replaced the rounded shoe/platform construction, refitted ankles and hems, and brought the exposed forearm tile closer to the face and hand tones. The final assets were then imported into a fresh Blender process for animation-channel and pose checks; see the release verification record for the exact executed checks and remaining runtime limitations.
+
+
+## Runtime crouch correction
+
+The delivered GLBs retain an earlier Crouch pelvis translation on local Z, which moved the hips backward and left the bent feet above the ground. The runtime recognizes that specific constant-Y, negative-Z track and retargets it to a 0.17-metre local-Y lowering with zero local-Z translation. It leaves rebuilt or differently authored tracks unchanged. The source generator now uses the corrected local-Y translation; the release assets were not regenerated for this focused repair.
+
+An actual Three.js pose check of the delivered male GLB compared Idle, the legacy Crouch and the retargeted Crouch using skeletal world positions and skinned shoe vertices. The corrected pose retains the resting shoe height within 1 mm and lowers the head by about 19 cm. This is a protective crouch, not a bespoke kneeling or receiving animation. The clothing and hands still use the supplied skeletal clips without facial performance or hand-object constraints.
