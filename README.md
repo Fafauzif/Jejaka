@@ -1,57 +1,27 @@
-# JEJAKA · Field edition
+# Jejaka — Catatan yang Tertinggal
 
-A guided, first-person historical-fiction experience in reconstructed Surabaya, November 1945.
+An Indonesian-first, first-person browser historical-fiction experience set around an authored Surabaya street and river crossing in November1945. Raka meets Sari folding batik, crosses to recover her cloth, moves between cover during warnings and impacts, helps a family or opens a handcart lane, and passes his notebook to Damar. The non-graphic ending and historical battle outcome remain fixed; local actions change the surviving account and immediate world.
 
-Raka Pradana arrives with a camera and notebook to record civilian life around Jembatan Merah. The visitor meets residents, chooses what to write, witnesses a disruption, and returns toward Kali Mas. His notebook preserves the selected account after a fixed, non-graphic death ending.
+The compact route targets approximately three minutes of ordinary play, without a punishing countdown. This is a tested development checkpoint with material limits; see `experience/docs/CONTINUATION_VERIFICATION.md` for actual completed checks and unverified goals. Automated traversal is not a human pace or learning study.
 
 ## Run
 
-From the repository root:
+Serve the repository root over HTTP, for example `python3 -m http.server 8080`, then open `http://localhost:8080/experience/`. Runtime entry is `experience/index.html` → `experience/game/app.js`. No build, backend, API key, purchase or network asset service is required. Root `vercel.json` retains the existing static hosting setup; no deployment was performed.
 
-```bash
-python3 -m http.server 8000
-```
-
-Open `http://localhost:8000/experience/`. No dependency installation or build is required. Use a current browser with WebGL2, ES modules, import maps and DecompressionStream support. Headphones improve the spatial sound cues. Short first-person transitions are the default. The chapter is self-paced: stop to listen, compose a photograph, choose an action, or open the notebook. Ordinary walking is available in the pause menu. Total visit duration depends on those choices; no visitor-tested duration is claimed.
-
-## Deploy on Vercel
-
-Import this GitHub repository. Keep **Root Directory** at the repository root. Select **Other** if Vercel asks for a framework. Root `vercel.json` disables installation/build and serves `experience/` as the output directory. No environment variables are needed. The deployed site opens the experience at `/`.
-
-The existing live baseline is https://jejakaprototype.vercel.app/. This field-edition package is prepared for the next GitHub/Vercel deployment; local verification does not deploy it. Test the updated preview after committing the extracted files.
+Read `INSTALL_CONTINUATION.md` before overlaying the ZIP onto your checkout. It was prepared against commit `417a8a6d259ffb77e11c0bfe2b02bf42b0616fb9`; merge subsequent overlapping edits deliberately. Original research/source/master assets remain in the repository. Previous field edition: `experience/legacy/`.
 
 ## Play
 
-| Control | Action |
-|---|---|
-| On-screen action / E | Record an observation or raise the camera |
-| Camera shutter / Space | Capture the composed bridge photograph |
-| Choice buttons | Select the account or action |
-| Continue button | Short first-person transition to the next encounter |
-| Skip travel | Arrive at the next scene through a brief fade |
-| Hold W / ↑ | Walk while held |
-| Drag the scene / ← → | Look around |
-| N | Open/close notebook |
-| Esc | Pause or close an overlay |
+Phone: move with the left pad while dragging the street to look. Merunduk crouches; Lari runs. Approach the gold marker and use the contextual action. Hold Bantu at the family or handcart; release to stop. Camera, notebook, settings, pause and ending use visible buttons. Phones default to the low visual tier, retaining the essential people, objects, danger cues and story.
 
-On touchscreens, use the on-screen controls and drag to look. The notebook stores observations, selected choices and a rendered bridge photograph. Save a standalone, printable HTML book containing the chosen observations and the actual photograph. Browser-local continuation works where storage is available. The final view and historical afterword do not create diary entries after Raka's death.
+Desktop: WASD moves; drag to look, or arrows to move/turn. E interacts; hold E to physically assist. Ctrl crouches, Shift runs. C raises camera, Space takes photograph, N notebook, M route sketch, Esc pause. Settings include language, quality, volume and reduced motion/flashes. Progress saves locally when storage is available; notebook can be downloaded.
 
-## Repository guide
+## Evidence boundaries
 
-- [Start here for another developer or agent](AGENTS.md)
-- [Field edition architecture](docs/context/EDITION_2.md)
-- [Current project handoff](docs/context/PROJECT_HANDOFF.md)
-- [Competition context and limits](docs/context/COMPETITION.md)
-- [Detailed story and route](experience/docs/STORY_ROUTE.md)
-- [Historical boundaries and references](experience/docs/HISTORICAL_NOTES.md)
-- [Verification and limits](experience/docs/VERIFICATION.md)
-- [Character sources and animation](experience/docs/CHARACTER_PRODUCTION.md)
-- [Audio production and voice provenance](experience/docs/AUDIO_PRODUCTION.md)
+Raka, Sari, Damar, the street choreography, family story, cloth pattern, danger and precise local destruction are fiction. The game does not claim an exact attack, weapon, address, day or recovered testimony. Batik-process and transmission claims are narrowly sourced in `experience/docs/CULTURAL_RECORD.md`; no claim establishes Sari's workshop in1945. Historical context and original reconstruction records remain separate. Supplied commercial-film/game references informed composition only and are not runtime assets.
 
-The playable frontend lives in `experience/`. The existing `output/`, `research/`, `references/`, `assets/` and `progress/` folders preserve the architectural reconstruction and its evidence. PALAGAN names in those folders are historical asset identifiers. The original Blender-kit README is archived in `docs/reconstruction/README_ARCHIVE.md`.
+## Development
 
-## Scope and rights
+`node --test experience/game/*.test.mjs experience/tests/*.test.mjs`
 
-Raka, Sari, Damar, dialogue, choices, sound and damage sequences are fictional. The district draws on wartime maps and architectural references, with reconstructed details. No exact day, attack target or building-damage state is established by the dramatization. The project includes source and licence notices; read `experience/docs/credits/` and the original attribution records before redistributing modified assets.
-
-This edition includes an optimized route district, refined surfaces and bridge fixtures, new character anatomy and authored animation, photo composition, scene choices and a portable notebook. It remains a prototype with a finite guided route and staged effects. Museum deployment, hardware performance and learning outcomes require separate testing.
+The active rules are renderer-independent in `simulation.js`; original world/civilian/effect modules use vendored Three.js. Browser harnesses and evidence methods are described in the verification record. Test hooks require `?test=1`; a normal journey requires no developer hook.

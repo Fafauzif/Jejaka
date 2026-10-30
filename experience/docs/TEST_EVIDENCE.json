@@ -1,0 +1,429 @@
+{
+  "date": "2026-10-30",
+  "baseline": "417a8a6d259ffb77e11c0bfe2b02bf42b0616fb9",
+  "frozen_runtime_sha256": {
+    "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+    "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4",
+    "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+    "experience/game/app.js": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986",
+    "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+    "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+    "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83"
+  },
+  "unit_checks": {
+    "passed": 38,
+    "failed": 0,
+    "command": "node --test experience/game/*.test.mjs experience/tests/*.test.mjs"
+  },
+  "staged_integration": {
+    "passed": 15,
+    "method": "Disclosed test teleports and ending hook; not natural traversal",
+    "checks": [
+      "Title reaches a ready, enabled state",
+      "WASD moves the embodied player through the scene",
+      "River outside the bridge blocks forward travel",
+      "Pause freezes narrative time and resumes",
+      "Sari choice uses the dialog and records a world consequence",
+      "Actual camera shutter creates and records an image",
+      "Reload and Continue restore progress, choice and captured photograph",
+      "Damar encounter advances the physical errand",
+      "Parcel causes impact and persistent aftermath with active effects",
+      "Shelter help choice opens the courtyard and preserves its branch",
+      "Non-graphic ending reaches historical afterword without posthumous notes",
+      "Notebook download contains all nine entries, captured photo and sources",
+      "Narrow viewport notebook stays within the screen",
+      "New account resets temporary state; low quality, reduced motion and Indonesian persist",
+      "No uncaught errors, console errors or failed resource requests"
+    ]
+  },
+  "natural_sessions": [
+    {
+      "case": "earlier portrait",
+      "method": "CDP Input.dispatchTouchEvent and Playwright touchscreen.tap; genuine touch contacts",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "source_hash": null,
+      "source_hashes": {
+        "experience/game/app.js": "1cc047858ed787aa16dd9489d87102c7268c357677a809c1dccf1acc5785bd64",
+        "experience/game/simulation.js": "bb752f5e191ee39273dc0689338663e8d2ca9e4dcf94144db5a1f89ce7dd0800",
+        "experience/game/world.js": "8539417c762e00773593916d34cbf36e95006d3f7a996cbe833b55c34402f56f",
+        "experience/game/actors.js": "41d586107c0f42c71b5cc82afe29f4eaf5f645ef6407ed36968f993429a9414c",
+        "experience/game/effects.js": "d1b03d2a283de6df22672cc38a7eeca07a0f5df5cb897d7f5944a4e92aaa70fe",
+        "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+        "experience/game.css": "1adaaff730bb642cbda55e8fc588e6ac73f51e2d8e1e08b0a019272021bec72a"
+      },
+      "natural_ending": true,
+      "wall_seconds": 535.093,
+      "application_clock_seconds": 167.69949999999523,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": false,
+        "testimony": true,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": true,
+        "cartCleared": false,
+        "shelterOpen": true,
+        "safeLane": false,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [
+        "Simultaneous native touch movement and look",
+        "Touch cancellation releases movement",
+        "Bridge photograph works with touch",
+        "Touch crouch accessible",
+        "Natural ending and afterword reached using touch alone",
+        "No uncaught runtime errors"
+      ],
+      "limitations": [
+        "Chromium touch emulation; no physical phone/GPU benchmark.",
+        "Automation uses read-only player/objective telemetry to steer; this is not unguided human play or a measured learning study.",
+        "Wall-clock and simulation durations reported separately; software WebGL can slow active traversal."
+      ]
+    },
+    {
+      "case": "earlier desktop helped/protected",
+      "method": "Playwright native keyboard/mouse; read-only opt-in state for navigation. No teleports, direct handler calls, state/clock mutations.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1
+      },
+      "source_hash": "27a8a69b7dca9d2f5bd0a507303fc5de0302b21764cdc355646f1ece7d8f5b8a",
+      "source_hashes": null,
+      "natural_ending": true,
+      "wall_seconds": 450.577,
+      "application_clock_seconds": 128.3824999999971,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": false,
+        "testimony": true,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": true,
+        "cartCleared": false,
+        "shelterOpen": true,
+        "safeLane": false,
+        "clothSaved": true,
+        "exposed": false,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [],
+      "limitations": [
+        "Automated navigation is not a human learning test or representative human pace.",
+        "Software WebGL timings are not physical laptop/phone benchmarks."
+      ]
+    },
+    {
+      "case": "before cart repair: portrait lifecycle/exposed/help",
+      "method": "CDP Input.dispatchTouchEvent and Playwright touchscreen.tap; genuine touch contacts",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "source_hash": null,
+      "source_hashes": {
+        "experience/game/app.js": "6c76bca89bbdd4cff9fe15a67e76786cf3cdf8d1234912aa3b352a5974d8edaf",
+        "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+        "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
+        "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+        "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+        "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+        "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4"
+      },
+      "natural_ending": true,
+      "wall_seconds": 534.229,
+      "application_clock_seconds": 163.21679999999535,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": false,
+        "testimony": true,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": true,
+        "cartCleared": false,
+        "shelterOpen": true,
+        "safeLane": false,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [
+        "Simultaneous native touch movement and look",
+        "Touch cancellation releases movement",
+        "Touch pause freezes movement/time and resumes",
+        "Save reload Continue restores actual traversal and Sari choice",
+        "Bridge photograph works with touch",
+        "Pause reload Continue restores actual northern aftermath without progression reset",
+        "Touch crouch accessible",
+        "Natural ending and afterword reached using touch alone",
+        "No uncaught runtime errors"
+      ],
+      "limitations": [
+        "Chromium touch emulation; no physical phone/GPU benchmark.",
+        "Automation uses read-only player/objective telemetry to steer; this is not unguided human play or a measured learning study.",
+        "Wall-clock and simulation durations reported separately; software WebGL can slow active traversal.",
+        "Headless foreground-tab switch did not deliver a game blur/visibility event; actual OS focus-loss pause remains unverified."
+      ]
+    },
+    {
+      "case": "before cart repair: desktop warned/exposed/cart",
+      "method": "Playwright native keyboard/mouse; read-only opt-in state for navigation. No teleports, direct handler calls, state/clock mutations.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1
+      },
+      "source_hash": "bc35e78a4a4e6a281f513ffd6f72eacb3acd86284edca03fc2f9b985e58acdfd",
+      "source_hashes": null,
+      "natural_ending": true,
+      "wall_seconds": 407.433,
+      "application_clock_seconds": 118.91629999999756,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": true,
+        "testimony": false,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": false,
+        "cartCleared": true,
+        "shelterOpen": false,
+        "safeLane": true,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [],
+      "limitations": [
+        "Automated navigation is not a human learning test or representative human pace.",
+        "Software WebGL timings are not physical laptop/phone benchmarks."
+      ]
+    },
+    {
+      "case": "before cart repair: landscape comfort/subpath",
+      "method": "CDP Input.dispatchTouchEvent and Playwright touchscreen.tap; genuine touch contacts",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "source_hash": null,
+      "source_hashes": {
+        "experience/game/app.js": "6c76bca89bbdd4cff9fe15a67e76786cf3cdf8d1234912aa3b352a5974d8edaf",
+        "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+        "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
+        "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+        "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+        "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+        "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4"
+      },
+      "natural_ending": true,
+      "wall_seconds": 609.291,
+      "application_clock_seconds": 150.04889999999625,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": true,
+        "testimony": false,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": true,
+        "cartCleared": false,
+        "shelterOpen": true,
+        "safeLane": false,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [
+        "Simultaneous native touch movement and look",
+        "Touch cancellation releases movement",
+        "Bridge photograph works with touch",
+        "Touch crouch accessible",
+        "Orientation transition keeps controls in viewport",
+        "Natural ending and afterword reached using touch alone",
+        "No uncaught runtime errors"
+      ],
+      "limitations": [
+        "Chromium touch emulation; no physical phone/GPU benchmark.",
+        "Automation uses read-only player/objective telemetry to steer; this is not unguided human play or a measured learning study.",
+        "Wall-clock and simulation durations reported separately; software WebGL can slow active traversal."
+      ]
+    },
+    {
+      "case": "shipped repair portrait lifecycle/cart",
+      "method": "CDP Input.dispatchTouchEvent and Playwright touchscreen.tap; genuine touch contacts",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "source_hash": null,
+      "source_hashes": {
+        "experience/game/app.js": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986",
+        "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+        "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
+        "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+        "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+        "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+        "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4"
+      },
+      "natural_ending": true,
+      "wall_seconds": 684.713,
+      "application_clock_seconds": 184.51559999999455,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": false,
+        "testimony": true,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": false,
+        "cartCleared": true,
+        "shelterOpen": false,
+        "safeLane": true,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [
+        "Browser-native selective contact-release preflight",
+        "Simultaneous native touch movement and look",
+        "Touch cancellation releases movement",
+        "Startup actual-frame touch crouch on/off preflight",
+        "Touch pause freezes movement/time and resumes",
+        "Save reload Continue restores actual traversal and Sari choice",
+        "Bridge photograph works with touch",
+        "Pause reload Continue restores actual northern aftermath without progression reset",
+        "Touch crouch accessible",
+        "Natural ending and afterword reached using touch alone",
+        "No uncaught runtime errors"
+      ],
+      "limitations": [
+        "Chromium touch emulation; no physical phone/GPU benchmark.",
+        "Automation uses read-only player/objective telemetry to steer; this is not unguided human play or a measured learning study.",
+        "Wall-clock and simulation durations reported separately; software WebGL can slow active traversal.",
+        "Headless foreground-tab switch did not deliver a game blur/visibility event; actual OS focus-loss pause remains unverified."
+      ]
+    },
+    {
+      "case": "shipped repair desktop/cart follow",
+      "method": "Playwright native keyboard/mouse; read-only opt-in state for navigation. No teleports, direct handler calls, state/clock mutations.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1
+      },
+      "source_hash": "2d7095ed191f7835084ac2cafaa51748f82db80b7c951c3f0916f8ad2b519e1c",
+      "source_hashes": null,
+      "natural_ending": true,
+      "wall_seconds": 569.76,
+      "application_clock_seconds": 119.10009999999787,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": true,
+        "testimony": false,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": false,
+        "cartCleared": true,
+        "shelterOpen": false,
+        "safeLane": true,
+        "clothSaved": false,
+        "exposed": true,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [],
+      "limitations": [
+        "Automated navigation is not a human learning test or representative human pace.",
+        "Software WebGL timings are not physical laptop/phone benchmarks."
+      ]
+    },
+    {
+      "case": "shipped repair landscape comfort/subpath",
+      "method": "CDP Input.dispatchTouchEvent and Playwright touchscreen.tap; genuine touch contacts",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "source_hash": null,
+      "source_hashes": {
+        "experience/game/app.js": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986",
+        "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+        "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
+        "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+        "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+        "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
+        "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4"
+      },
+      "natural_ending": true,
+      "wall_seconds": 751.559,
+      "application_clock_seconds": 152.3494999999968,
+      "errors": [],
+      "final_flags": {
+        "sariWarned": true,
+        "testimony": false,
+        "photographed": true,
+        "metDamar": true,
+        "parcel": true,
+        "rescued": true,
+        "cartCleared": false,
+        "shelterOpen": true,
+        "safeLane": false,
+        "clothSaved": true,
+        "exposed": false,
+        "returnImpact": true,
+        "impact": true,
+        "notebookPassed": true
+      },
+      "check_names": [
+        "Browser-native selective contact-release preflight",
+        "Simultaneous native touch movement and look",
+        "Touch cancellation releases movement",
+        "Startup actual-frame touch crouch on/off preflight",
+        "Bridge photograph works with touch",
+        "Touch crouch accessible",
+        "Orientation transition keeps controls in viewport",
+        "Natural ending and afterword reached using touch alone",
+        "No uncaught runtime errors"
+      ],
+      "limitations": [
+        "Chromium touch emulation; no physical phone/GPU benchmark.",
+        "Automation uses read-only player/objective telemetry to steer; this is not unguided human play or a measured learning study.",
+        "Wall-clock and simulation durations reported separately; software WebGL can slow active traversal."
+      ]
+    }
+  ],
+  "timing_note": "Application clock pauses for panels and bounds long frames. Wall duration includes automation, captures and loading. Neither is a representative human three-minute measurement.",
+  "device_note": "Chromium150 / ANGLE Vulkan SwiftShader, native touch emulation; no physical-device FPS claim.",
+  "legacy_note": "26 HTTP resource checks at normal/subpath routes; not a fresh legacy gameplay test."
+}

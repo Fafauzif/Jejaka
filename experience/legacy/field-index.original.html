@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#20291f" />
+    <meta
+      name="description"
+      content="Jejaka. Sebuah catatan dari Surabaya. Pengalaman sejarah interaktif dari sudut pandang seorang wartawan fiktif."
+    />
+    <title>JEJAKA — Sebuah catatan dari Surabaya</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23222d24'/%3E%3Ctext x='15' y='35' font-family='serif' font-size='34' fill='%23eee5d1'%3EJ%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./lib/three.module.js",
+          "three/addons/": "./lib/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      id="scene"
+      aria-label="Rekonstruksi tiga dimensi kawasan Jembatan Merah"
+    ></div>
+    <div class="film-grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div id="flash" aria-hidden="true"></div>
+    <div id="scene-fade" aria-hidden="true"></div>
+    <main id="cover" class="screen cover">
+      <header class="masthead">
+        <span>ARSIP PENGALAMAN</span><span>SURABAYA · NOVEMBER 1945</span>
+      </header>
+      <div class="cover-body">
+        <div class="eyebrow">
+          <span class="small-line"></span> CATATAN LAPANGAN / 01
+        </div>
+        <h1>JEJAKA<span class="title-period">.</span></h1>
+        <p class="cover-subtitle">Sebuah catatan<br />dari Surabaya.</p>
+        <p class="cover-description">
+          Temui warga. Ambil foto. Tentukan cerita<br
+            class="desktop-br"
+          />
+          yang tertinggal di buku catatanmu.
+        </p>
+        <div class="cover-actions">
+          <button id="start" class="primary" disabled>
+            <span id="start-label">Menyiapkan kota…</span
+            ><span aria-hidden="true">↗</span></button
+          ><button id="continue" class="text-button" hidden>
+            Lanjutkan catatan
+          </button>
+        </div>
+        <div class="load-track"><div id="load-bar"></div></div>
+        <p id="load-status" class="load-status" role="status">
+          Membuka rekonstruksi kawasan Kali Mas
+        </p>
+      </div>
+      <footer class="cover-footer">
+        <span
+          >PENGALAMAN CERITA TERPANDU<br /><b
+            >Alur cepat · dapat dijeda kapan saja</b
+          ></span
+        ><button id="cover-about" class="text-button">
+          Tentang rekonstruksi <span aria-hidden="true">↗</span>
+        </button>
+      </footer>
+      <div class="cover-location" aria-hidden="true">
+        JEMBATAN MERAH<br /><span>Jawa Timur, Indonesia</span>
+      </div>
+    </main>
+    <section
+      id="intro"
+      class="screen dark-screen"
+      hidden
+      aria-labelledby="intro-title"
+    >
+      <div class="intro-content">
+        <span class="eyebrow">SEBELUM MEMBUKA CATATAN</span>
+        <h2 id="intro-title">Namamu Raka Pradana.</h2>
+        <p>
+          Kau seorang wartawan. Redaksi mengirimmu ke Surabaya untuk mencatat
+          kehidupan warga di tengah ketegangan.
+        </p>
+        <p>Kamera untuk melihat. Pensil untuk mencatat. Kau memilih apa yang sempat diselamatkan.</p>
+        <p class="translation">
+          You are a journalist. Your editor has sent you to record civilian life
+          in Surabaya. You carry a camera, a pencil, and an unfinished notebook.
+        </p>
+        <div class="content-notice">
+          Memuat suara pertempuran, cedera, dan kematian tokoh secara tidak
+          grafis. Tokoh serta perjumpaan dalam cerita ini fiktif.
+        </div>
+        <p class="play-instructions">Geser layar untuk melihat. Pilih tindakan di depanmu. Perjalanan antaradegan berlangsung singkat; berjalan santai tersedia di menu jeda.</p>
+        <p class="translation">Drag to look. Choose how to act. Short transitions connect each scene; walking is available in the pause menu.</p>
+        <div class="intro-options">
+          <label
+            ><input id="intro-motion" type="checkbox" /> Gerakan kamera
+            minimum</label
+          ><label
+            ><input id="intro-english" type="checkbox" checked /> English
+            subtitles</label
+          >
+        </div>
+        <button id="enter" class="primary">
+          Buka catatan <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+    <section id="hud" hidden aria-label="Kontrol pengalaman">
+      <header class="hud-top">
+        <button id="brand" aria-label="Jeda pengalaman">
+          JEJAKA<span>.</span>
+        </button>
+        <div class="location">
+          <span id="chapter-count">01 / 11</span
+          ><span id="chapter-title">JEMBATAN MERAH</span>
+        </div>
+        <button
+          id="pause-button"
+          class="outline"
+          aria-label="Jeda dan pengaturan"
+        >
+          Jeda <kbd>Esc</kbd>
+        </button>
+      </header>
+      <div class="chapter-marker">
+        <span id="chapter-subtitle">01 — Kedatangan</span>
+        <h2 id="objective">Ikuti jalan menuju sungai.</h2>
+        <p id="objective-en"></p>
+      </div>
+      <div id="arrival" class="arrival">
+        <span class="eyebrow" id="arrival-location"></span>
+        <h2 id="arrival-title"></h2>
+      </div>
+      <div id="dialogue" class="dialogue" role="status">
+        <span id="speaker"></span>
+        <p id="line"></p>
+        <p id="line-en" class="translation"></p>
+      </div>
+      <div id="interaction" class="interaction">
+        <div id="choices" class="choices"></div>
+        <button id="act" class="primary action">
+          <span id="act-label">Catat pengamatan</span><kbd>E</kbd></button
+        ><button id="walk" class="primary action" hidden>
+          <span>Lanjut perjalanan</span><span aria-hidden="true">→</span>
+        </button>
+        <div id="walking" hidden>
+          <span class="walking-dot"></span> Berjalan
+          <button id="stop-walk" class="text-button">Berhenti</button>
+        </div>
+        <button id="skip-travel" class="text-button" hidden>Langsung ke tujuan →</button>
+        <p id="pacing"></p>
+        <button id="skip-scene" class="text-button" hidden>Lanjut ke catatan terakhir →</button>
+      </div>
+      <footer class="hud-bottom">
+        <button id="notebook-button" class="notebook-button">
+          <span class="book-icon" aria-hidden="true"></span
+          ><span>Buku catatan<small id="note-count">0 pengamatan</small></span
+          ><kbd>N</kbd>
+        </button>
+        <div class="control-hint">
+          Geser untuk melihat <span>·</span> <kbd>E</kbd> bertindak <span>·</span> <kbd>N</kbd> catatan
+        </div>
+        <button
+          id="audio-toggle"
+          class="text-button"
+          aria-label="Matikan suara"
+        >
+          Suara aktif
+        </button>
+      </footer>
+      <section id="viewfinder" class="viewfinder" hidden aria-label="Kamera Raka">
+        <div class="finder-top"><span>KAMERA RAKA</span><span>JEMBATAN MERAH / 01</span></div>
+        <div class="finder-frame" aria-hidden="true"><span></span><span></span><span></span><span></span><i>+</i></div>
+        <div class="viewfinder-controls">
+          <p>Geser untuk memilih bingkai. Simpan satu pandangan dari tempatmu berdiri.</p>
+          <p class="translation">Drag to compose. Keep one view from where you stand.</p>
+          <div><button id="photo-cancel" class="outline">Kembali</button><button id="photo-capture" class="primary">Ambil foto <kbd>Space</kbd></button></div>
+        </div>
+      </section>
+      <div id="toast" class="toast" role="status"></div>
+      <div class="chapter-progress"><div id="chapter-progress-bar"></div></div>
+    </section>
+    <section
+      id="journal"
+      class="modal paper-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="journal-title"
+    >
+      <div class="journal-wrap">
+        <header class="journal-header">
+          <span>BUKU MILIK RAKA PRADANA</span
+          ><button id="close-journal" class="text-button">
+            Tutup <kbd>N</kbd>
+          </button>
+        </header>
+        <div class="journal-spread">
+          <div class="journal-left">
+            <span class="eyebrow">SURABAYA / NOVEMBER 1945</span>
+            <h2 id="journal-title">Catatan<br />lapangan.</h2>
+            <p class="assignment-label">DARI REDAKSI</p>
+            <p class="handwritten">
+              Cari orang yang masih membuka pintu. Tanyakan apa yang ingin
+              mereka sampaikan. Tulis nama mereka dengan benar.
+            </p>
+            <p class="translation">
+              Find the people still opening their doors. Ask what they want to
+              say. Get their names right.
+            </p>
+            <div class="journal-rule"></div>
+            <p id="journal-objective"></p>
+            <span class="journal-owner">R. Pradana</span>
+          </div>
+          <div class="journal-right">
+            <h3>Pengamatan</h3>
+            <div id="entries"></div>
+            <p id="journal-empty">Halaman ini masih kosong.</p>
+          </div>
+        </div>
+        <footer class="journal-footer">
+          <span>Kesaksian tokoh fiktif · Rekonstruksi naratif</span
+          ><button id="download-notes" class="text-button">
+            Simpan buku ↓
+          </button>
+        </footer>
+      </div>
+    </section>
+    <section
+      id="pause"
+      class="modal pause-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pause-title"
+    >
+      <div class="pause-content">
+        <span class="eyebrow">CATATAN DITUTUP SEMENTARA</span>
+        <h2 id="pause-title">Jeda.</h2>
+        <button id="resume" class="primary">
+          Kembali ke jalan <span>→</span>
+        </button>
+        <div class="setting-row"><label for="pacing-select">Perjalanan</label><select id="pacing-select"><option value="brisk">Alur cepat</option><option value="walk">Berjalan santai</option></select></div>
+        <div class="setting-row"><label for="quality-select">Kualitas gambar</label><select id="quality-select"><option value="auto">Otomatis</option><option value="high">Detail</option><option value="low">Ringan</option></select></div>
+        <div class="setting-row">
+          <label for="volume">Volume</label
+          ><input
+            id="volume"
+            type="range"
+            min="0"
+            max="1"
+            step=".05"
+            value=".55"
+          />
+        </div>
+        <label class="setting-row"
+          ><span>English subtitles</span
+          ><input id="english" type="checkbox" checked /></label
+        ><label class="setting-row"
+          ><span>Gerakan kamera minimum</span
+          ><input id="motion" type="checkbox" /></label
+        ><button id="about" class="text-button">Sejarah dan sumber ↗</button
+        ><button id="restart" class="text-button danger">
+          Mulai dari awal
+        </button>
+        <p class="save-notice">
+          Catatan tersimpan pada browser ini jika penyimpanan tersedia.
+        </p>
+      </div>
+    </section>
+    <section
+      id="about-modal"
+      class="modal about-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="about-title"
+    >
+      <article>
+        <header>
+          <span class="eyebrow">TENTANG PENGALAMAN INI</span
+          ><button id="close-about" class="text-button">Tutup ×</button>
+        </header>
+        <h2 id="about-title">Sejarah, rekonstruksi,<br />dan cerita.</h2>
+        <p>
+          Jejaka menempatkan seorang wartawan fiktif di kawasan Jembatan Merah
+          dan Kali Mas, Surabaya, pada November 1945. Raka Pradana, Bu Sari,
+          Damar, dialog, pilihan, dan urutan kejadian merupakan karya fiksi.
+        </p>
+        <p>
+          Tim menyusun tata kawasan dari peta masa perang dan foto bangunan.
+          Sebagian fasad, warna, interior, aktivitas warga, serta kerusakan
+          merupakan perkiraan atau dramatisasi. Adegan ini tidak merekonstruksi
+          satu hari atau serangan tertentu.
+        </p>
+        <p class="translation">
+          The setting draws on wartime cartography and architectural references.
+          Characters, encounters, choices, sound, and damage sequences are
+          fictional. This experience does not reconstruct a specific attack or
+          claim to reproduce a witness’s testimony.
+        </p>
+        <h3>Bacaan dan arsip</h3>
+        <ul>
+          <li>
+            <a
+              href="https://opus.lib.uts.edu.au/handle/10453/28090"
+              target="_blank"
+              rel="noopener"
+              >P. R. S. Mani: dispatches and diary, 1945 — UTS Library</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://film.iwmcollections.org.uk/record/19875"
+              target="_blank"
+              rel="noopener"
+              >Fighting in Surabaya, JFU 437 — Imperial War Museums</a
+            >
+            (katalog film; bukan sumber suara)
+          </li>
+          <li>
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Java_Soerabaja.jpg"
+              target="_blank"
+              rel="noopener"
+              >Peta Soerabaja, revisi udara 1943</a
+            >
+          </li>
+        </ul>
+        <h3>Kredit produksi</h3>
+        <p>
+          Rekonstruksi arsitektur PALAGAN / proyek Jejaka. Three.js oleh
+          Three.js Authors (MIT). Karakter, gerak, dan efek suara dalam edisi
+          ini merupakan aset produksi orisinal. Lihat dokumen atribusi untuk
+          sumber tekstur dan bangunan.
+        </p>
+        <a href="./docs/HISTORICAL_NOTES.md" target="_blank" rel="noopener"
+          >Catatan sejarah dan batas rekonstruksi ↗</a
+        >
+      </article>
+    </section>
+    <section
+      id="ending"
+      class="screen ending-screen"
+      hidden
+      aria-labelledby="ending-title"
+    >
+      <div class="ending-content">
+        <span class="eyebrow">HALAMAN TERAKHIR</span>
+        <h2 id="ending-title">Catatan ini<br />belum selesai.</h2>
+        <p id="ending-account"></p>
+        <p id="ending-account-en" class="translation"></p>
+        <div class="ending-rule"></div>
+        <p>
+          Raka Pradana adalah tokoh fiktif. Serangan besar dimulai pada 10
+          November 1945; pertempuran berlanjut selama November. Kisah ini tidak
+          menetapkan tanggal serangan atau kondisi bangunan tertentu sebagai
+          fakta.
+        </p>
+        <div class="ending-actions">
+          <button id="ending-notes" class="primary">
+            Baca catatan yang tersisa ↗</button
+          ><button id="ending-sources" class="text-button">
+            Sejarah dan sumber</button
+          ><button id="ending-restart" class="text-button">
+            Mulai kembali
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="error" class="screen dark-screen" hidden role="alert">
+      <div class="intro-content">
+        <span class="eyebrow">PENGALAMAN BELUM DAPAT DIBUKA</span>
+        <h2>Kota belum termuat.</h2>
+        <p id="error-message"></p>
+        <button onclick="location.reload()" class="primary">
+          Coba kembali ↻
+        </button>
+        <p>
+          Aktifkan akselerasi grafis pada pengaturan browser, lalu muat ulang.
+          Jika masih gagal, coba Chrome atau Edge terbaru dan tutup tab yang memakai banyak memori.
+        </p>
+      </div>
+    </section>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,3 +1,15 @@
+# Current continuation build
+
+Read `handoff/08_CONTINUATION_RESULT.md` and `experience/docs/CONTINUATION_VERIFICATION.md` first for current implementation and actual evidence. The settled direction in handoff/01_LOCKED_USER_DIRECTION.md remains authoritative. Older checkpoint test claims and file hashes apply only to that earlier archive. Preserve research/master assets and legacy edition. No push/deploy authorized.
+
+# Checkpoint continuation override — 30 October 2026
+
+Latest user direction: full browser game-runtime replacement, stylized cinematic, old edition preserved. Clarifications now lock a roughly THREE-MINUTE, fast-paced, Indonesian-first experience, essential PHONE support, dense civilian population, stealth/cover and helping, and culture-through-play. Read `handoff/01_LOCKED_USER_DIRECTION.md` and the supplied reference guide before implementing; these supersede older duration/language/desktop assumptions. The answers are settled: do not ask them again. The user explicitly requests specialist agents, an adversarial independent council, repeated actual playthroughs and an evidence-based review/fix/replay loop up to4 rounds; follow `handoff/06_GAME_REVIEW_CONTRACT.md` and the role briefs. Never invent independence, gameplay checks or passing scores. Read `handoff/00_CONTINUE_HERE.md` FIRST; it supersedes conflicting guided-tour implementation descriptions below. Active app is `experience/index.html` -> `experience/game/app.js`, with new simulation/world/actors/effects modules and `experience/game.css`. Old field edition is at `experience/legacy/`. Preserve historical research, source geometry and attribution. User requested an early checkpoint to continue in a new chat, not a final release.
+
+Run `node --test experience/game/*.test.mjs experience/tests/*.test.mjs`. New browser harness: `experience/game/browser-test.cjs`; old browser harnesses exercise the previous UI. No push/deployment authorized. Deliver repository-root extraction ZIP.
+
+---
+
 # Jejaka: instructions for continuing this repository
 
 ## Current objective
