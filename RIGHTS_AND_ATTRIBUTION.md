@@ -19,3 +19,10 @@ Some historical documents are openly readable but have reserved, qualified, or u
 
 ## Third-party skills
 The recommended Blender skill repository is linked at a pinned revision. Its executable scripts are not silently vendored or run by this kit. Review the upstream licence and installer. Recommendations and source excerpts are not assertions of runtime compatibility on the owner's machine.
+
+
+## Escape revision
+
+The new street geometry, props, interactive cloth illustration, effects shaders and procedural sound are original production work. Existing local Sari/civilian meshes, rigs, textures, fonts and Three.js are reused from this repository; preserve their existing credit and licence records. The original detailed reconstruction, research images and master/source assets remain unchanged. No reference-film/game image, museum textile scan, new paid asset, voice service or source branding was added to the runtime.
+
+People, relationships, exact streets, refuge, shop, motif, attacks and dialogue are fictional staging. The source record in `experience/docs/ESCAPE_CULTURAL_RECORD.md` distinguishes verified general history/craft from interpretation and unavailable sources. Historical sources are not a licence to copy their imagery. New captions are not presented as the old MP3 performances.

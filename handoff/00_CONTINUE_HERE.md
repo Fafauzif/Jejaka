@@ -1,3 +1,5 @@
+> Latest escape revision: read `09_ESCAPE_REVISION.md` and `experience/docs/ESCAPE_VERIFICATION.md` for the active implementation and actual checks. The notices and checkpoint text below are preserved history. Settled answers remain unchanged; the latest user request expands review/refinement to 10–20 substantive passes.
+
 > Continued build: read `08_CONTINUATION_RESULT.md` and `experience/docs/CONTINUATION_VERIFICATION.md` for the delivered implementation and actual evidence. The text below is the original checkpoint history; its earlier test counts and unfinished-feature descriptions are not the current release record. Settled user answers remain unchanged.
 
 # Jejaka implementation checkpoint — 30 October 2026

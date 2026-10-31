@@ -1,131 +1,969 @@
 {
-  "base_commit": "417a8a6d259ffb77e11c0bfe2b02bf42b0616fb9",
-  "format": "repository-root overlay",
+  "release": "Jejaka escape revision3.0.0",
+  "base_commit": "8a2701eb74821ee49f164162de4665d3300cfec1",
+  "created_utc": "2026-10-31T00:20:19.849109+00:00",
+  "extraction": "Repository root, no enclosing directory. Compare overlapping edits newer than base before replacing.",
   "deletions": [],
-  "files": {
-    "AGENTS.md": "772541951f1e628e9764ae436f12ae3eec8bc1aad261e81f21ceb524ce5eff30",
-    "DESIGN.md": "8f825c44b83eac77b6a15d4a0429646861ad13fd7b26e6dfc1ae0588957ed707",
-    "INSTALLATION.md": "e27805a5b9b9c21baef0419f3a55d96af83138fd2b6aab365e3e4ea0acd89ea7",
-    "INSTALL_CONTINUATION.md": "bd2c255166574b11d4b94a51d3d48d41cb9b973d1f95aeaf16aa40ba63956f5b",
-    "README.md": "a600df786cf0daf617ee802523af0b55bcb12577bc5de81e9e63536d1941650a",
-    "RIGHTS_AND_ATTRIBUTION.md": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0",
-    "experience/AGENTS.md": "dacf0630fbf2c52b77e659a58d02f46a3deda55ca655d9c51655d4121a1df465",
-    "experience/app.js": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e",
-    "experience/assets/audio/afterword.mp3": "327b65fc5b15720055d9d527014f70893fa6707c539343e33d048b98e27a9f3c",
-    "experience/assets/audio/arrival.mp3": "c408fc5c581ae6343df732d468c0ff4a34c6fee3ec4593138dd62b22a46b4fcc",
-    "experience/assets/audio/bridge.mp3": "683304d8e21209d6d1ba3313e18841cd460e890dad493941995ee600122739da",
-    "experience/assets/audio/damar.mp3": "704d719acb7881bbfef08cc55572ba0678b3700ce68c9513e401d6ca0f51949b",
-    "experience/assets/audio/impact.mp3": "2d1e22257c532a626016334b0152c790dfa8af1c340ece53929d593ac38c7494",
-    "experience/assets/audio/intro-id.mp3": "609b5706dbade7efd290b1f085b09cd2c1dcf39d5953c9c7785efac787afe50d",
-    "experience/assets/audio/lastview.mp3": "8c0c05586a566d7d4fe5089e10341c340ce707e26c59077cae1adca199daf6b2",
-    "experience/assets/audio/return.mp3": "4680801251bda53d188a2132415f095418dd3eec649179fb4b3bb76d773c9e68",
-    "experience/assets/audio/sari.mp3": "8781b61836dc51d0e52557ec256f4178d8103010957536c316cd549e3841bae5",
-    "experience/assets/audio/shelter.mp3": "7ea7a7b3c9a48eea4ecd86575085409764694ea0504c1fd542ea9b0b6b4d1ce2",
-    "experience/assets/audio/street.mp3": "a63cbf20827bf5299065b8e1defa3d6a537e77075fe1728047f4bc2a25e4443b",
-    "experience/assets/audio/voice-manifest.json": "d6c2ed1a98af81c0784dfb42bd9bdc909870cd40211ceae7e6a2d9f176205642",
-    "experience/assets/audio/wounded.mp3": "f5a2aeb2975f0ad3539a024ff1693fb8f667dc3fde7671990b5a776a9c8f75fd",
-    "experience/assets/character-textures/brown-eye.jpg": "a6ae39fd960b6abc1e31b94b0fdf4c1685d3dbaa7d33a5b1877764a48e263e26",
-    "experience/assets/character-textures/female-shirt.jpg": "89859602ab5809ab4275ae562914dd0561cb233120c610649b9fe99004423f2c",
-    "experience/assets/character-textures/female-skin.jpg": "9b198114a9e78bc45e3f2fbef69ac99e0e4751d96330e8aa44d681ec351cf49c",
-    "experience/assets/character-textures/female-trouser.jpg": "fd55a140bc2805058103346304d6b0c0fc67d7ea4a771e385b7204d6d7ef5488",
-    "experience/assets/character-textures/linen-normal.png": "98f544fa55f5acca0055ecbd87dd17c9c28a1d70f22b2136d506e343c7e66be7",
-    "experience/assets/character-textures/linen-weave.jpg": "412485a97434f674ce38720cfb69985dae0e1edfbe8a8c0c50f47b1e51ed53ba",
-    "experience/assets/character-textures/male-shirt.jpg": "8a9b5a7bce7c5808d9bb2840d897f8b9e60cb8e9a285c992efaab20d80c8be37",
-    "experience/assets/character-textures/male-skin.jpg": "89657ddb6d23cacb854816f7b75b91e42284fa4726e1c0882247ddac3dbfadea",
-    "experience/assets/character-textures/male-trouser.jpg": "1cbbfe409b4fc3d62cd708607de8f6d76f5e1838ad34f9bc18aefc91b7ba13e6",
-    "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
-    "experience/assets/characters.json": "d49aadf8813a15216613f50af8fd6050723599a59b71d0d654e8b7a03898779d",
-    "experience/assets/district-route.glb.gz": "5d257e7b27a335e122660e4a0a707142a98f6a8d7bb44551efaef37f68d71a8f",
-    "experience/assets/district-route.glb.json": "b2533370de8408f0fffa83af0489f74948946912188daa99040667cbfcf35841",
-    "experience/assets/district.glb.gz": "0ad1573af49cc9fb4e1b170dee4f84eca6a9f8d088ea48256e8aaf4e94f67852",
-    "experience/assets/fonts/JejakaSans.woff": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
-    "experience/assets/fonts/JejakaSerif.woff": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
-    "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
-    "experience/assets/sari.json": "0d5d31ab3dbb69baee0a7432067032b3cb1752918cdc8282ae4a3f9cde2dcc39",
-    "experience/audio.js": "be6f1e8ecb86fa0515842befdd13109fdfb4b3687fb774d7e77274fefd094eb8",
-    "experience/docs/AUDIO_PRODUCTION.md": "8ea54da7482308700965c1dcab725b5b1a012dd6c2a9fc02b390b090aa0ba907",
-    "experience/docs/CHARACTER_PRODUCTION.md": "92b07bea6c9e186090151e60fd31a6ba925a301aec93e64e1a98474fad77cb14",
-    "experience/docs/CONTINUATION_VERIFICATION.md": "badd25008d09b35ab0e8796c175e909cb7b837d9f5bbdd983ad74afbd21a9b55",
-    "experience/docs/CULTURAL_RECORD.md": "7089ec9382e8c1604910881c8de28cd5f8c4b9210da713e225745846c79b9ba3",
-    "experience/docs/EDITORIAL_STANDARD.md": "70325296b2fb1952d042295382835b09bcf0f12645aa70a2d040cf1833d5fd06",
-    "experience/docs/HISTORICAL_NOTES.md": "b43042b6ebd15f1e887139bd255bfd5cc1bd1f74d389c84cb0531bf24705e19b",
-    "experience/docs/STORY_ROUTE.md": "6fdf1426bd4959601cb080922c2908bef54df77a47e8a4b8e8c9b4e76c365f91",
-    "experience/docs/TECHNICAL_REFERENCES.md": "23bc2836f9b1dd52aef10b55a2359b0cf5937d371d9acd5462de3828f77176de",
-    "experience/docs/TEST_EVIDENCE.json": "b17e41dcda92c013fed82e531149d843e0d4e9c0919f77d8a16a15662adf0154",
-    "experience/docs/VERIFICATION.md": "8becdf612563640713c6d9bc2647821f979b9c658149f1be53c53ad47ebde529",
-    "experience/docs/WORLD_PRODUCTION.md": "0c8fd5089cc94402d57b62f5b2ec128b8264818c51f68ba354c113c27e4adb03",
-    "experience/docs/credits/ASSET_CATALOG.json": "2dd47f02e0129565d933cb3fc28839c7b987436565108355291d2309ce530ffe",
-    "experience/docs/credits/CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
-    "experience/docs/credits/DEJAVU_FONT_LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
-    "experience/docs/credits/IMAGE_CREDITS.md": "8ced2f093fa10065eef8e89b43c278fff9631a94cf2e733cf47d555c961ea2e9",
-    "experience/docs/credits/POLY_HAVEN_CC0_NOTICE.md": "adf045519e5ef0d9bd8c3702402351c79a038dd3bdbaf9fd9066f20f9cab40c8",
-    "experience/docs/credits/RECONSTRUCTION_RIGHTS.md": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0",
-    "experience/environment-detail.js": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb",
-    "experience/game/TOUCH_TESTING.md": "0e3e8bf531bc05c54c8915826ee196ddca74d7225fe584bc86b21efb3048592d",
-    "experience/game/actors.js": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
-    "experience/game/app.js": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986",
-    "experience/game/browser-test.cjs": "309a09514a731bf0180632ac4305d4be3749f5cd2d55b875eb9a681ff97f9fb4",
-    "experience/game/effects.js": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
-    "experience/game/effects.test.mjs": "5ecdaa2b273bc13c509e508e9148df9401d0a490572665ff113aa99afd65e248",
-    "experience/game/natural-play.cjs": "53007c6a8793dbb104758964278d8bf8e7eb2f28d2c239006f1251fe2fc68315",
-    "experience/game/simulation.js": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
-    "experience/game/simulation.test.mjs": "c86f52adecffcf3ff398719df06fb765ccf087bed4f2bb04008dbd0ac0cb3583",
-    "experience/game/touch-play.cjs": "90e422a290c851bf3baa0534e84d953f01a61fa53b04a0842f81e33c37b017f5",
-    "experience/game/world.js": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
-    "experience/game.css": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4",
-    "experience/index.html": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997",
-    "experience/legacy/app.js": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e",
-    "experience/legacy/audio.js": "1f5a11f84d1053116f09bb35c3bc8db5b53a40272d74b39332c81a64d3c10b8e",
-    "experience/legacy/environment-detail.js": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb",
-    "experience/legacy/field-index.original.html": "12a48967997bcbef27f131bdbeab17f75dd29724041b6791993f7e2680453d39",
-    "experience/legacy/index.html": "efaea186ab648d06cedd3def2c36dcdfba535dccd7e5032c31766936dc2f787d",
-    "experience/legacy/notebook-export.js": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a",
-    "experience/legacy/pacing.js": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc",
-    "experience/legacy/state.js": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec",
-    "experience/legacy/story.js": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71",
-    "experience/legacy/style.css": "4eaffaf61baa580a822cd1789329b1e58d388e86f4e227b2076d560115904ce9",
-    "experience/legacy/world.js": "669e4fc84e73348a4ee9d552cfdfebfcaa41dab06b98d2380ee1f8a749834c3f",
-    "experience/lib/LICENSE": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
-    "experience/lib/addons/loaders/GLTFLoader.js": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
-    "experience/lib/addons/utils/BufferGeometryUtils.js": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6",
-    "experience/lib/addons/utils/SkeletonUtils.js": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
-    "experience/lib/three.module.js": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
-    "experience/notebook-export.js": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a",
-    "experience/pacing.js": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc",
-    "experience/package.json": "ba26e9b6a87c5ab88adf9b10e883e5466ec834a2eed289de3ae72b2c548a9cc5",
-    "experience/state.js": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec",
-    "experience/story.js": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71",
-    "experience/style.css": "f780e8af90920ec567292742bc136f3eac17d1f2fb96b2c2739ba6e24dff33d0",
-    "experience/tests/README.md": "5e8827f875e805a3cb1af101f631bb53e04493374d8564c3797ddd7a0717f154",
-    "experience/tests/animation-clock.test.mjs": "14a918ee3a10d06c6ad5c16efe55240a14b159c58b615112e09b5c253ef186b8",
-    "experience/tests/audio-browser.cjs": "0a461dcf99eed2f624fdab5d4c5a27898949a70241dae3ae41655e34bc79ceb6",
-    "experience/tests/browser-smoke.cjs": "ea0b5baecf8d87b906ed76e5270d83722cf63dbd533a95b9b58ad140e72886c9",
-    "experience/tests/notebook-export.test.mjs": "f7dc71a08b0a7f39c566d1c4ea32ea44479b95be230ccf1425dd250e7ee8987a",
-    "experience/tests/pacing.test.mjs": "8cf7156705c49bdea6a8688466d269e8b9a4d5ba33e9f59f58e3bdce398e7b07",
-    "experience/tests/state.test.mjs": "b6092c135a86a4f761ebe8419591218d8c41421ba89dcdd4fba363303f3adc02",
-    "experience/tests/v2-browser.cjs": "30e600cfb1494d8c93f4e1e0d54c2515cfd2eff70b2a062a42ced0a6df34f0f9",
-    "experience/tools/build_characters.py": "e054e9f1d597d33a8e86852924c71f67a26c020d459a81aea6bd80f20fdd4cc5",
-    "experience/tools/build_sari.py": "02fd6e13c8f61da0dd90dd889d6a52e74736fc7f2747b08299fc7b300c69fb63",
-    "experience/tools/character_anatomy.py": "3a2fc857b8eebd9b253d55ad368e6880facd750e9a50934b856bdfae60048ea7",
-    "experience/tools/character_sources/LICENSE-CC0.txt": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
-    "experience/tools/character_sources/MAKEHUMAN-LICENSE.md": "edd99571ca62698f78c943fd4fffb159a413c315fa0d4819d3cec5cadaf8b4f1",
-    "experience/tools/character_sources/README.md": "12b92dd2ad5dd318c6c02d7dbf8b042401e28887b4682832d3f10602a2added7",
-    "experience/tools/character_sources/SOURCE_MANIFEST.json": "4e822b917d7bd1dd62e4abfe02793ab96945f76ea619546ad8434d90c16993db",
-    "experience/tools/character_sources/makehuman-base.obj": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
-    "experience/tools/character_sources/makehuman-eyes.obj": "783fe1e6331162c876520b4c2bed7a8ca06354ca15497e8ebd68bb1b59f4d3de",
-    "experience/tools/optimize_district.py": "9ef3cfc871526b9853572f8c7280474ed49b97159a0a5fb4722a64419289a118",
-    "experience/tools/pack_city.py": "b0fd60cf85df2194b84069bd1ece3d6738b140bbbf5cb1b8b0f3f386dbcec761",
-    "experience/tools/package_release.py": "31ee76754f1e643849bc549af6627ede37f87ec5d67ada2c6b78d26a56dd9dc1",
-    "experience/tools/prepare_character_textures.py": "6c42fb31e7ed83d350bc1969d30a3d948ea09dfe9363da2d4df68c6da8563b1c",
-    "experience/world.js": "81a5934e6f116325e062a6b6f7a1719aa112a82f5a2a2eaf67703a571d864a09",
-    "handoff/00_CONTINUE_HERE.md": "4acfbe7eb62bf4256717c47d86b927aa5462dfab271ad80d84eb8cd201e38080",
-    "handoff/01_LOCKED_USER_DIRECTION.md": "31002d8c587f46679ad68c3b13b0978573c09c3d2308e542627ae4086f29e22b",
-    "handoff/02_USER_ANSWERS_VERBATIM.md": "d968a1c18cd6d7a9e0a0443e7e7a490c8e80fc46e3cdf230482a21afc21e9074",
-    "handoff/03_REFERENCE_GUIDE.md": "0e1307443dac57a151a9e4bb6001ea772b3cc9863213acf19b817637307373a4",
-    "handoff/04_NEXT_RUN_BUILD_TARGET.md": "8ff965dc8761e2506133a4d8e3333ceee17f40be6e2a0cf4edf89e705c68b368",
-    "handoff/06_GAME_REVIEW_CONTRACT.md": "a7fcdd905aa1c7ec32efc02d88c00dedaaa08c0d790964f7311392123a172394",
-    "handoff/08_CONTINUATION_RESULT.md": "8c91ac5ecc9c6b2e9fc68c0da4733b6a219ff151a0ea3d84c883955601028e8f",
-    "index.html": "d6b6b9043f0b5d62cade885bb19c11949511904a889b99fa56c603881b8549e0",
-    "vercel.json": "905a805cd976ae378c643a1c547835fc9a81e2830021ec48db60f098fa8bac79"
-  }
+  "preserved": "Research, master Blender sources, older editions, unrelated repository content. No push or deployment.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 9190,
+      "sha256": "54bce53649f79599a425b06a650b89b8128037695680b4081b44f6aa1b17ddbb",
+      "action": "replace",
+      "base_sha256": "772541951f1e628e9764ae436f12ae3eec8bc1aad261e81f21ceb524ce5eff30"
+    },
+    {
+      "path": "DESIGN.md",
+      "bytes": 4805,
+      "sha256": "8f825c44b83eac77b6a15d4a0429646861ad13fd7b26e6dfc1ae0588957ed707",
+      "action": "unchanged",
+      "base_sha256": "8f825c44b83eac77b6a15d4a0429646861ad13fd7b26e6dfc1ae0588957ed707"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "bytes": 619,
+      "sha256": "c61544940ff01d47b239e327910c9ea34753b8315feeb58671faf31662facb4e",
+      "action": "replace",
+      "base_sha256": "e27805a5b9b9c21baef0419f3a55d96af83138fd2b6aab365e3e4ea0acd89ea7"
+    },
+    {
+      "path": "INSTALL_ESCAPE_REVISION.md",
+      "bytes": 1890,
+      "sha256": "ca76023639f77fde33eb9bb87cd2a1759c1f4446cb94f3c2aab24f86aaee3ecc",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "README.md",
+      "bytes": 4509,
+      "sha256": "8fe73a3ae6b55368756d6b6d8381a28fe47d1c7eea659c246522b44721bf99e1",
+      "action": "replace",
+      "base_sha256": "a600df786cf0daf617ee802523af0b55bcb12577bc5de81e9e63536d1941650a"
+    },
+    {
+      "path": "RIGHTS_AND_ATTRIBUTION.md",
+      "bytes": 3801,
+      "sha256": "a49595412ec0b67cb02ecb0ffa40ede46526de655a928ce71e6afded7daf4b3b",
+      "action": "replace",
+      "base_sha256": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0"
+    },
+    {
+      "path": "experience/AGENTS.md",
+      "bytes": 848,
+      "sha256": "dacf0630fbf2c52b77e659a58d02f46a3deda55ca655d9c51655d4121a1df465",
+      "action": "unchanged",
+      "base_sha256": "dacf0630fbf2c52b77e659a58d02f46a3deda55ca655d9c51655d4121a1df465"
+    },
+    {
+      "path": "experience/app.js",
+      "bytes": 45529,
+      "sha256": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e",
+      "action": "unchanged",
+      "base_sha256": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e"
+    },
+    {
+      "path": "experience/assets/audio/afterword.mp3",
+      "bytes": 203136,
+      "sha256": "327b65fc5b15720055d9d527014f70893fa6707c539343e33d048b98e27a9f3c",
+      "action": "unchanged",
+      "base_sha256": "327b65fc5b15720055d9d527014f70893fa6707c539343e33d048b98e27a9f3c"
+    },
+    {
+      "path": "experience/assets/audio/arrival.mp3",
+      "bytes": 105216,
+      "sha256": "c408fc5c581ae6343df732d468c0ff4a34c6fee3ec4593138dd62b22a46b4fcc",
+      "action": "unchanged",
+      "base_sha256": "c408fc5c581ae6343df732d468c0ff4a34c6fee3ec4593138dd62b22a46b4fcc"
+    },
+    {
+      "path": "experience/assets/audio/bridge.mp3",
+      "bytes": 99456,
+      "sha256": "683304d8e21209d6d1ba3313e18841cd460e890dad493941995ee600122739da",
+      "action": "unchanged",
+      "base_sha256": "683304d8e21209d6d1ba3313e18841cd460e890dad493941995ee600122739da"
+    },
+    {
+      "path": "experience/assets/audio/damar.mp3",
+      "bytes": 125184,
+      "sha256": "704d719acb7881bbfef08cc55572ba0678b3700ce68c9513e401d6ca0f51949b",
+      "action": "unchanged",
+      "base_sha256": "704d719acb7881bbfef08cc55572ba0678b3700ce68c9513e401d6ca0f51949b"
+    },
+    {
+      "path": "experience/assets/audio/impact.mp3",
+      "bytes": 39552,
+      "sha256": "2d1e22257c532a626016334b0152c790dfa8af1c340ece53929d593ac38c7494",
+      "action": "unchanged",
+      "base_sha256": "2d1e22257c532a626016334b0152c790dfa8af1c340ece53929d593ac38c7494"
+    },
+    {
+      "path": "experience/assets/audio/intro-id.mp3",
+      "bytes": 147840,
+      "sha256": "609b5706dbade7efd290b1f085b09cd2c1dcf39d5953c9c7785efac787afe50d",
+      "action": "unchanged",
+      "base_sha256": "609b5706dbade7efd290b1f085b09cd2c1dcf39d5953c9c7785efac787afe50d"
+    },
+    {
+      "path": "experience/assets/audio/lastview.mp3",
+      "bytes": 12288,
+      "sha256": "8c0c05586a566d7d4fe5089e10341c340ce707e26c59077cae1adca199daf6b2",
+      "action": "unchanged",
+      "base_sha256": "8c0c05586a566d7d4fe5089e10341c340ce707e26c59077cae1adca199daf6b2"
+    },
+    {
+      "path": "experience/assets/audio/return.mp3",
+      "bytes": 104448,
+      "sha256": "4680801251bda53d188a2132415f095418dd3eec649179fb4b3bb76d773c9e68",
+      "action": "unchanged",
+      "base_sha256": "4680801251bda53d188a2132415f095418dd3eec649179fb4b3bb76d773c9e68"
+    },
+    {
+      "path": "experience/assets/audio/sari.mp3",
+      "bytes": 120576,
+      "sha256": "8781b61836dc51d0e52557ec256f4178d8103010957536c316cd549e3841bae5",
+      "action": "unchanged",
+      "base_sha256": "8781b61836dc51d0e52557ec256f4178d8103010957536c316cd549e3841bae5"
+    },
+    {
+      "path": "experience/assets/audio/shelter.mp3",
+      "bytes": 86784,
+      "sha256": "7ea7a7b3c9a48eea4ecd86575085409764694ea0504c1fd542ea9b0b6b4d1ce2",
+      "action": "unchanged",
+      "base_sha256": "7ea7a7b3c9a48eea4ecd86575085409764694ea0504c1fd542ea9b0b6b4d1ce2"
+    },
+    {
+      "path": "experience/assets/audio/street.mp3",
+      "bytes": 149376,
+      "sha256": "a63cbf20827bf5299065b8e1defa3d6a537e77075fe1728047f4bc2a25e4443b",
+      "action": "unchanged",
+      "base_sha256": "a63cbf20827bf5299065b8e1defa3d6a537e77075fe1728047f4bc2a25e4443b"
+    },
+    {
+      "path": "experience/assets/audio/voice-manifest.json",
+      "bytes": 3261,
+      "sha256": "d6c2ed1a98af81c0784dfb42bd9bdc909870cd40211ceae7e6a2d9f176205642",
+      "action": "unchanged",
+      "base_sha256": "d6c2ed1a98af81c0784dfb42bd9bdc909870cd40211ceae7e6a2d9f176205642"
+    },
+    {
+      "path": "experience/assets/audio/wounded.mp3",
+      "bytes": 85632,
+      "sha256": "f5a2aeb2975f0ad3539a024ff1693fb8f667dc3fde7671990b5a776a9c8f75fd",
+      "action": "unchanged",
+      "base_sha256": "f5a2aeb2975f0ad3539a024ff1693fb8f667dc3fde7671990b5a776a9c8f75fd"
+    },
+    {
+      "path": "experience/assets/character-textures/brown-eye.jpg",
+      "bytes": 7428,
+      "sha256": "a6ae39fd960b6abc1e31b94b0fdf4c1685d3dbaa7d33a5b1877764a48e263e26",
+      "action": "unchanged",
+      "base_sha256": "a6ae39fd960b6abc1e31b94b0fdf4c1685d3dbaa7d33a5b1877764a48e263e26"
+    },
+    {
+      "path": "experience/assets/character-textures/female-shirt.jpg",
+      "bytes": 6779,
+      "sha256": "89859602ab5809ab4275ae562914dd0561cb233120c610649b9fe99004423f2c",
+      "action": "unchanged",
+      "base_sha256": "89859602ab5809ab4275ae562914dd0561cb233120c610649b9fe99004423f2c"
+    },
+    {
+      "path": "experience/assets/character-textures/female-skin.jpg",
+      "bytes": 65646,
+      "sha256": "9b198114a9e78bc45e3f2fbef69ac99e0e4751d96330e8aa44d681ec351cf49c",
+      "action": "unchanged",
+      "base_sha256": "9b198114a9e78bc45e3f2fbef69ac99e0e4751d96330e8aa44d681ec351cf49c"
+    },
+    {
+      "path": "experience/assets/character-textures/female-trouser.jpg",
+      "bytes": 4988,
+      "sha256": "fd55a140bc2805058103346304d6b0c0fc67d7ea4a771e385b7204d6d7ef5488",
+      "action": "unchanged",
+      "base_sha256": "fd55a140bc2805058103346304d6b0c0fc67d7ea4a771e385b7204d6d7ef5488"
+    },
+    {
+      "path": "experience/assets/character-textures/linen-normal.png",
+      "bytes": 633,
+      "sha256": "98f544fa55f5acca0055ecbd87dd17c9c28a1d70f22b2136d506e343c7e66be7",
+      "action": "unchanged",
+      "base_sha256": "98f544fa55f5acca0055ecbd87dd17c9c28a1d70f22b2136d506e343c7e66be7"
+    },
+    {
+      "path": "experience/assets/character-textures/linen-weave.jpg",
+      "bytes": 7378,
+      "sha256": "412485a97434f674ce38720cfb69985dae0e1edfbe8a8c0c50f47b1e51ed53ba",
+      "action": "unchanged",
+      "base_sha256": "412485a97434f674ce38720cfb69985dae0e1edfbe8a8c0c50f47b1e51ed53ba"
+    },
+    {
+      "path": "experience/assets/character-textures/male-shirt.jpg",
+      "bytes": 7000,
+      "sha256": "8a9b5a7bce7c5808d9bb2840d897f8b9e60cb8e9a285c992efaab20d80c8be37",
+      "action": "unchanged",
+      "base_sha256": "8a9b5a7bce7c5808d9bb2840d897f8b9e60cb8e9a285c992efaab20d80c8be37"
+    },
+    {
+      "path": "experience/assets/character-textures/male-skin.jpg",
+      "bytes": 64761,
+      "sha256": "89657ddb6d23cacb854816f7b75b91e42284fa4726e1c0882247ddac3dbfadea",
+      "action": "unchanged",
+      "base_sha256": "89657ddb6d23cacb854816f7b75b91e42284fa4726e1c0882247ddac3dbfadea"
+    },
+    {
+      "path": "experience/assets/character-textures/male-trouser.jpg",
+      "bytes": 5556,
+      "sha256": "1cbbfe409b4fc3d62cd708607de8f6d76f5e1838ad34f9bc18aefc91b7ba13e6",
+      "action": "unchanged",
+      "base_sha256": "1cbbfe409b4fc3d62cd708607de8f6d76f5e1838ad34f9bc18aefc91b7ba13e6"
+    },
+    {
+      "path": "experience/assets/characters.glb",
+      "bytes": 1253840,
+      "sha256": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+      "action": "unchanged",
+      "base_sha256": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c"
+    },
+    {
+      "path": "experience/assets/characters.json",
+      "bytes": 431,
+      "sha256": "d49aadf8813a15216613f50af8fd6050723599a59b71d0d654e8b7a03898779d",
+      "action": "unchanged",
+      "base_sha256": "d49aadf8813a15216613f50af8fd6050723599a59b71d0d654e8b7a03898779d"
+    },
+    {
+      "path": "experience/assets/district-route.glb.gz",
+      "bytes": 7175486,
+      "sha256": "5d257e7b27a335e122660e4a0a707142a98f6a8d7bb44551efaef37f68d71a8f",
+      "action": "unchanged",
+      "base_sha256": "5d257e7b27a335e122660e4a0a707142a98f6a8d7bb44551efaef37f68d71a8f"
+    },
+    {
+      "path": "experience/assets/district-route.glb.json",
+      "bytes": 494,
+      "sha256": "b2533370de8408f0fffa83af0489f74948946912188daa99040667cbfcf35841",
+      "action": "unchanged",
+      "base_sha256": "b2533370de8408f0fffa83af0489f74948946912188daa99040667cbfcf35841"
+    },
+    {
+      "path": "experience/assets/district.glb.gz",
+      "bytes": 15981642,
+      "sha256": "0ad1573af49cc9fb4e1b170dee4f84eca6a9f8d088ea48256e8aaf4e94f67852",
+      "action": "unchanged",
+      "base_sha256": "0ad1573af49cc9fb4e1b170dee4f84eca6a9f8d088ea48256e8aaf4e94f67852"
+    },
+    {
+      "path": "experience/assets/fonts/JejakaSans.woff",
+      "bytes": 379400,
+      "sha256": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
+      "action": "unchanged",
+      "base_sha256": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605"
+    },
+    {
+      "path": "experience/assets/fonts/JejakaSerif.woff",
+      "bytes": 211260,
+      "sha256": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
+      "action": "unchanged",
+      "base_sha256": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0"
+    },
+    {
+      "path": "experience/assets/sari.glb",
+      "bytes": 1037160,
+      "sha256": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
+      "action": "unchanged",
+      "base_sha256": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+    },
+    {
+      "path": "experience/assets/sari.json",
+      "bytes": 446,
+      "sha256": "0d5d31ab3dbb69baee0a7432067032b3cb1752918cdc8282ae4a3f9cde2dcc39",
+      "action": "unchanged",
+      "base_sha256": "0d5d31ab3dbb69baee0a7432067032b3cb1752918cdc8282ae4a3f9cde2dcc39"
+    },
+    {
+      "path": "experience/audio.js",
+      "bytes": 20230,
+      "sha256": "be6f1e8ecb86fa0515842befdd13109fdfb4b3687fb774d7e77274fefd094eb8",
+      "action": "unchanged",
+      "base_sha256": "be6f1e8ecb86fa0515842befdd13109fdfb4b3687fb774d7e77274fefd094eb8"
+    },
+    {
+      "path": "experience/docs/AUDIO_PRODUCTION.md",
+      "bytes": 9649,
+      "sha256": "8ea54da7482308700965c1dcab725b5b1a012dd6c2a9fc02b390b090aa0ba907",
+      "action": "unchanged",
+      "base_sha256": "8ea54da7482308700965c1dcab725b5b1a012dd6c2a9fc02b390b090aa0ba907"
+    },
+    {
+      "path": "experience/docs/CHARACTER_PRODUCTION.md",
+      "bytes": 7773,
+      "sha256": "92b07bea6c9e186090151e60fd31a6ba925a301aec93e64e1a98474fad77cb14",
+      "action": "unchanged",
+      "base_sha256": "92b07bea6c9e186090151e60fd31a6ba925a301aec93e64e1a98474fad77cb14"
+    },
+    {
+      "path": "experience/docs/CONTINUATION_VERIFICATION.md",
+      "bytes": 9233,
+      "sha256": "badd25008d09b35ab0e8796c175e909cb7b837d9f5bbdd983ad74afbd21a9b55",
+      "action": "unchanged",
+      "base_sha256": "badd25008d09b35ab0e8796c175e909cb7b837d9f5bbdd983ad74afbd21a9b55"
+    },
+    {
+      "path": "experience/docs/CULTURAL_RECORD.md",
+      "bytes": 5805,
+      "sha256": "7089ec9382e8c1604910881c8de28cd5f8c4b9210da713e225745846c79b9ba3",
+      "action": "unchanged",
+      "base_sha256": "7089ec9382e8c1604910881c8de28cd5f8c4b9210da713e225745846c79b9ba3"
+    },
+    {
+      "path": "experience/docs/EDITORIAL_STANDARD.md",
+      "bytes": 5583,
+      "sha256": "70325296b2fb1952d042295382835b09bcf0f12645aa70a2d040cf1833d5fd06",
+      "action": "unchanged",
+      "base_sha256": "70325296b2fb1952d042295382835b09bcf0f12645aa70a2d040cf1833d5fd06"
+    },
+    {
+      "path": "experience/docs/ESCAPE_CULTURAL_RECORD.md",
+      "bytes": 11327,
+      "sha256": "cab4ea1f389ee2ccfee730d72db5cfe6b20d9ba7ba72e5d0ea69f9f5b04c1089",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/docs/ESCAPE_TEST_DRIVERS.md",
+      "bytes": 2978,
+      "sha256": "2e402e577c7e79526a7262b6f3beb09e2104eaf49010bfb36440552c82cc5c8b",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/docs/ESCAPE_TEST_EVIDENCE.json",
+      "bytes": 145226,
+      "sha256": "80fae69a493f951a9cb886ce9c7117f2401154c6f0658d536c116a1b774a748a",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/docs/ESCAPE_VERIFICATION.md",
+      "bytes": 10043,
+      "sha256": "5ca1eb233d4ad21629dbf42a8dfef7c0298824944013eef13823cd735c1b7307",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/docs/HISTORICAL_NOTES.md",
+      "bytes": 6430,
+      "sha256": "b43042b6ebd15f1e887139bd255bfd5cc1bd1f74d389c84cb0531bf24705e19b",
+      "action": "unchanged",
+      "base_sha256": "b43042b6ebd15f1e887139bd255bfd5cc1bd1f74d389c84cb0531bf24705e19b"
+    },
+    {
+      "path": "experience/docs/STORY_ROUTE.md",
+      "bytes": 22142,
+      "sha256": "6fdf1426bd4959601cb080922c2908bef54df77a47e8a4b8e8c9b4e76c365f91",
+      "action": "unchanged",
+      "base_sha256": "6fdf1426bd4959601cb080922c2908bef54df77a47e8a4b8e8c9b4e76c365f91"
+    },
+    {
+      "path": "experience/docs/TECHNICAL_REFERENCES.md",
+      "bytes": 1747,
+      "sha256": "23bc2836f9b1dd52aef10b55a2359b0cf5937d371d9acd5462de3828f77176de",
+      "action": "unchanged",
+      "base_sha256": "23bc2836f9b1dd52aef10b55a2359b0cf5937d371d9acd5462de3828f77176de"
+    },
+    {
+      "path": "experience/docs/TEST_EVIDENCE.json",
+      "bytes": 18793,
+      "sha256": "b17e41dcda92c013fed82e531149d843e0d4e9c0919f77d8a16a15662adf0154",
+      "action": "unchanged",
+      "base_sha256": "b17e41dcda92c013fed82e531149d843e0d4e9c0919f77d8a16a15662adf0154"
+    },
+    {
+      "path": "experience/docs/VERIFICATION.md",
+      "bytes": 8257,
+      "sha256": "8becdf612563640713c6d9bc2647821f979b9c658149f1be53c53ad47ebde529",
+      "action": "unchanged",
+      "base_sha256": "8becdf612563640713c6d9bc2647821f979b9c658149f1be53c53ad47ebde529"
+    },
+    {
+      "path": "experience/docs/WORLD_PRODUCTION.md",
+      "bytes": 6706,
+      "sha256": "0c8fd5089cc94402d57b62f5b2ec128b8264818c51f68ba354c113c27e4adb03",
+      "action": "unchanged",
+      "base_sha256": "0c8fd5089cc94402d57b62f5b2ec128b8264818c51f68ba354c113c27e4adb03"
+    },
+    {
+      "path": "experience/docs/credits/ASSET_CATALOG.json",
+      "bytes": 24191,
+      "sha256": "2dd47f02e0129565d933cb3fc28839c7b987436565108355291d2309ce530ffe",
+      "action": "unchanged",
+      "base_sha256": "2dd47f02e0129565d933cb3fc28839c7b987436565108355291d2309ce530ffe"
+    },
+    {
+      "path": "experience/docs/credits/CC0-1.0.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "action": "unchanged",
+      "base_sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "experience/docs/credits/DEJAVU_FONT_LICENSE.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "action": "unchanged",
+      "base_sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    },
+    {
+      "path": "experience/docs/credits/IMAGE_CREDITS.md",
+      "bytes": 5855,
+      "sha256": "8ced2f093fa10065eef8e89b43c278fff9631a94cf2e733cf47d555c961ea2e9",
+      "action": "unchanged",
+      "base_sha256": "8ced2f093fa10065eef8e89b43c278fff9631a94cf2e733cf47d555c961ea2e9"
+    },
+    {
+      "path": "experience/docs/credits/POLY_HAVEN_CC0_NOTICE.md",
+      "bytes": 1508,
+      "sha256": "adf045519e5ef0d9bd8c3702402351c79a038dd3bdbaf9fd9066f20f9cab40c8",
+      "action": "unchanged",
+      "base_sha256": "adf045519e5ef0d9bd8c3702402351c79a038dd3bdbaf9fd9066f20f9cab40c8"
+    },
+    {
+      "path": "experience/docs/credits/RECONSTRUCTION_RIGHTS.md",
+      "bytes": 2889,
+      "sha256": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0",
+      "action": "unchanged",
+      "base_sha256": "1d9fdeec84813e5ed17d082f8d828454f2528a0f78ea41e2c55018b98401eaa0"
+    },
+    {
+      "path": "experience/environment-detail.js",
+      "bytes": 11824,
+      "sha256": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb",
+      "action": "unchanged",
+      "base_sha256": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb"
+    },
+    {
+      "path": "experience/escape.css",
+      "bytes": 13224,
+      "sha256": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/actors.js",
+      "bytes": 77707,
+      "sha256": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/actors.test.mjs",
+      "bytes": 10240,
+      "sha256": "4ccd1c85fb720d076ff90a967c0c15fb59093c3a5e33e052f4e6eb95de6518a2",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/app.js",
+      "bytes": 26612,
+      "sha256": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/audio.js",
+      "bytes": 13132,
+      "sha256": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/browser-test.cjs",
+      "bytes": 39693,
+      "sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/controls.js",
+      "bytes": 1419,
+      "sha256": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/desktop-test.cjs",
+      "bytes": 30129,
+      "sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/effects.js",
+      "bytes": 13875,
+      "sha256": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/rules.js",
+      "bytes": 7334,
+      "sha256": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/rules.test.mjs",
+      "bytes": 5383,
+      "sha256": "afe475940d66492e29caa2cb659748659754da87d72ab72da6cd3cf55d9f8024",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/story.js",
+      "bytes": 7155,
+      "sha256": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/escape/world.js",
+      "bytes": 37370,
+      "sha256": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/game.css",
+      "bytes": 27564,
+      "sha256": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4",
+      "action": "unchanged",
+      "base_sha256": "dd4e0e67b3043baf60c078b408a4889d093fc18bd8963a87d0aafd4abcf57dc4"
+    },
+    {
+      "path": "experience/game/TOUCH_TESTING.md",
+      "bytes": 3498,
+      "sha256": "0e3e8bf531bc05c54c8915826ee196ddca74d7225fe584bc86b21efb3048592d",
+      "action": "unchanged",
+      "base_sha256": "0e3e8bf531bc05c54c8915826ee196ddca74d7225fe584bc86b21efb3048592d"
+    },
+    {
+      "path": "experience/game/actors.js",
+      "bytes": 17350,
+      "sha256": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912",
+      "action": "unchanged",
+      "base_sha256": "318b5aa8876bdd4ac2e927a0c937b0252066767df899adbd218da1127454a912"
+    },
+    {
+      "path": "experience/game/app.js",
+      "bytes": 49026,
+      "sha256": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986",
+      "action": "unchanged",
+      "base_sha256": "0a7b4fa92edac53c77e60d5edfbd1c6f3b7e9609fd64ec168445c162d4570986"
+    },
+    {
+      "path": "experience/game/browser-test.cjs",
+      "bytes": 12983,
+      "sha256": "309a09514a731bf0180632ac4305d4be3749f5cd2d55b875eb9a681ff97f9fb4",
+      "action": "unchanged",
+      "base_sha256": "309a09514a731bf0180632ac4305d4be3749f5cd2d55b875eb9a681ff97f9fb4"
+    },
+    {
+      "path": "experience/game/effects.js",
+      "bytes": 14649,
+      "sha256": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0",
+      "action": "unchanged",
+      "base_sha256": "5b707d782ac4a9f55d43a41829e5f8a73c427d2437b6d6bd8b653c77034ab9c0"
+    },
+    {
+      "path": "experience/game/effects.test.mjs",
+      "bytes": 1881,
+      "sha256": "5ecdaa2b273bc13c509e508e9148df9401d0a490572665ff113aa99afd65e248",
+      "action": "unchanged",
+      "base_sha256": "5ecdaa2b273bc13c509e508e9148df9401d0a490572665ff113aa99afd65e248"
+    },
+    {
+      "path": "experience/game/natural-play.cjs",
+      "bytes": 13050,
+      "sha256": "53007c6a8793dbb104758964278d8bf8e7eb2f28d2c239006f1251fe2fc68315",
+      "action": "unchanged",
+      "base_sha256": "53007c6a8793dbb104758964278d8bf8e7eb2f28d2c239006f1251fe2fc68315"
+    },
+    {
+      "path": "experience/game/simulation.js",
+      "bytes": 18820,
+      "sha256": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d",
+      "action": "unchanged",
+      "base_sha256": "47c7f09a33263f030e02790ad5a234ef4d09b390c93c99d851e9bd53b8d52d4d"
+    },
+    {
+      "path": "experience/game/simulation.test.mjs",
+      "bytes": 8304,
+      "sha256": "c86f52adecffcf3ff398719df06fb765ccf087bed4f2bb04008dbd0ac0cb3583",
+      "action": "unchanged",
+      "base_sha256": "c86f52adecffcf3ff398719df06fb765ccf087bed4f2bb04008dbd0ac0cb3583"
+    },
+    {
+      "path": "experience/game/touch-play.cjs",
+      "bytes": 23398,
+      "sha256": "90e422a290c851bf3baa0534e84d953f01a61fa53b04a0842f81e33c37b017f5",
+      "action": "unchanged",
+      "base_sha256": "90e422a290c851bf3baa0534e84d953f01a61fa53b04a0842f81e33c37b017f5"
+    },
+    {
+      "path": "experience/game/world.js",
+      "bytes": 30897,
+      "sha256": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83",
+      "action": "unchanged",
+      "base_sha256": "1ea2f190517a361a4378d00870e802099ecdc55f2dd1d722c379ecb884fe8b83"
+    },
+    {
+      "path": "experience/index.html",
+      "bytes": 5927,
+      "sha256": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+      "action": "replace",
+      "base_sha256": "a62981fe00b692081c4d0aa0ebe383ef1bb2195c15d8e83774c8bc2b5c0d6997"
+    },
+    {
+      "path": "experience/legacy/app.js",
+      "bytes": 45529,
+      "sha256": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e",
+      "action": "unchanged",
+      "base_sha256": "9cfe584d262627117f34c0c4c6f8e4515909d6805bf26449dc25297db187fa0e"
+    },
+    {
+      "path": "experience/legacy/audio.js",
+      "bytes": 20231,
+      "sha256": "1f5a11f84d1053116f09bb35c3bc8db5b53a40272d74b39332c81a64d3c10b8e",
+      "action": "unchanged",
+      "base_sha256": "1f5a11f84d1053116f09bb35c3bc8db5b53a40272d74b39332c81a64d3c10b8e"
+    },
+    {
+      "path": "experience/legacy/environment-detail.js",
+      "bytes": 11824,
+      "sha256": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb",
+      "action": "unchanged",
+      "base_sha256": "6e0c126a0f120ff8c9bf85adacd0c8967cb8ddcfe7a9babcecf1f00f98c54ddb"
+    },
+    {
+      "path": "experience/legacy/field-index.original.html",
+      "bytes": 15763,
+      "sha256": "12a48967997bcbef27f131bdbeab17f75dd29724041b6791993f7e2680453d39",
+      "action": "unchanged",
+      "base_sha256": "12a48967997bcbef27f131bdbeab17f75dd29724041b6791993f7e2680453d39"
+    },
+    {
+      "path": "experience/legacy/index.html",
+      "bytes": 15794,
+      "sha256": "efaea186ab648d06cedd3def2c36dcdfba535dccd7e5032c31766936dc2f787d",
+      "action": "unchanged",
+      "base_sha256": "efaea186ab648d06cedd3def2c36dcdfba535dccd7e5032c31766936dc2f787d"
+    },
+    {
+      "path": "experience/legacy/notebook-export.js",
+      "bytes": 3311,
+      "sha256": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a",
+      "action": "unchanged",
+      "base_sha256": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a"
+    },
+    {
+      "path": "experience/legacy/pacing.js",
+      "bytes": 871,
+      "sha256": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc",
+      "action": "unchanged",
+      "base_sha256": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc"
+    },
+    {
+      "path": "experience/legacy/state.js",
+      "bytes": 3540,
+      "sha256": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec",
+      "action": "unchanged",
+      "base_sha256": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec"
+    },
+    {
+      "path": "experience/legacy/story.js",
+      "bytes": 21679,
+      "sha256": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71",
+      "action": "unchanged",
+      "base_sha256": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71"
+    },
+    {
+      "path": "experience/legacy/style.css",
+      "bytes": 24995,
+      "sha256": "4eaffaf61baa580a822cd1789329b1e58d388e86f4e227b2076d560115904ce9",
+      "action": "unchanged",
+      "base_sha256": "4eaffaf61baa580a822cd1789329b1e58d388e86f4e227b2076d560115904ce9"
+    },
+    {
+      "path": "experience/legacy/world.js",
+      "bytes": 30644,
+      "sha256": "669e4fc84e73348a4ee9d552cfdfebfcaa41dab06b98d2380ee1f8a749834c3f",
+      "action": "unchanged",
+      "base_sha256": "669e4fc84e73348a4ee9d552cfdfebfcaa41dab06b98d2380ee1f8a749834c3f"
+    },
+    {
+      "path": "experience/lib/LICENSE",
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "action": "unchanged",
+      "base_sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+    },
+    {
+      "path": "experience/lib/addons/loaders/GLTFLoader.js",
+      "bytes": 110029,
+      "sha256": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
+      "action": "unchanged",
+      "base_sha256": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f"
+    },
+    {
+      "path": "experience/lib/addons/utils/BufferGeometryUtils.js",
+      "bytes": 31768,
+      "sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6",
+      "action": "unchanged",
+      "base_sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+    },
+    {
+      "path": "experience/lib/addons/utils/SkeletonUtils.js",
+      "bytes": 8802,
+      "sha256": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
+      "action": "unchanged",
+      "base_sha256": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991"
+    },
+    {
+      "path": "experience/lib/three.module.js",
+      "bytes": 1304820,
+      "sha256": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
+      "action": "unchanged",
+      "base_sha256": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416"
+    },
+    {
+      "path": "experience/notebook-export.js",
+      "bytes": 3311,
+      "sha256": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a",
+      "action": "unchanged",
+      "base_sha256": "5df7157cf6129de5b6c648e3117c164f281f7f5ad8e2539e5a3390750f8aa48a"
+    },
+    {
+      "path": "experience/pacing.js",
+      "bytes": 871,
+      "sha256": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc",
+      "action": "unchanged",
+      "base_sha256": "b32251e1710b99978521236c2a06a1b1df83a63a921ca7ae1b9d6ee0eabdb9cc"
+    },
+    {
+      "path": "experience/package.json",
+      "bytes": 243,
+      "sha256": "df9d7d34a52b8804f36847238d54b913d1560eb655494dccc4d21564fcb087d0",
+      "action": "replace",
+      "base_sha256": "ba26e9b6a87c5ab88adf9b10e883e5466ec834a2eed289de3ae72b2c548a9cc5"
+    },
+    {
+      "path": "experience/previous/index.html",
+      "bytes": 9171,
+      "sha256": "5921036208cbf916f884c3a69995a2baf8e18543eec554c0db96e64cc4b8c7e6",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "experience/state.js",
+      "bytes": 3540,
+      "sha256": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec",
+      "action": "unchanged",
+      "base_sha256": "e532c4fb7320b9905b304babd4fe6173e0bc7ae2b5b8072ade3e11d0319b56ec"
+    },
+    {
+      "path": "experience/story.js",
+      "bytes": 21679,
+      "sha256": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71",
+      "action": "unchanged",
+      "base_sha256": "6155302885ad8cb92840c5c658fd84643abddaceb972413ad7ed4b103ae19f71"
+    },
+    {
+      "path": "experience/style.css",
+      "bytes": 24993,
+      "sha256": "f780e8af90920ec567292742bc136f3eac17d1f2fb96b2c2739ba6e24dff33d0",
+      "action": "unchanged",
+      "base_sha256": "f780e8af90920ec567292742bc136f3eac17d1f2fb96b2c2739ba6e24dff33d0"
+    },
+    {
+      "path": "experience/tests/README.md",
+      "bytes": 3054,
+      "sha256": "5e8827f875e805a3cb1af101f631bb53e04493374d8564c3797ddd7a0717f154",
+      "action": "unchanged",
+      "base_sha256": "5e8827f875e805a3cb1af101f631bb53e04493374d8564c3797ddd7a0717f154"
+    },
+    {
+      "path": "experience/tests/animation-clock.test.mjs",
+      "bytes": 958,
+      "sha256": "14a918ee3a10d06c6ad5c16efe55240a14b159c58b615112e09b5c253ef186b8",
+      "action": "unchanged",
+      "base_sha256": "14a918ee3a10d06c6ad5c16efe55240a14b159c58b615112e09b5c253ef186b8"
+    },
+    {
+      "path": "experience/tests/audio-browser.cjs",
+      "bytes": 10784,
+      "sha256": "0a461dcf99eed2f624fdab5d4c5a27898949a70241dae3ae41655e34bc79ceb6",
+      "action": "unchanged",
+      "base_sha256": "0a461dcf99eed2f624fdab5d4c5a27898949a70241dae3ae41655e34bc79ceb6"
+    },
+    {
+      "path": "experience/tests/browser-smoke.cjs",
+      "bytes": 8080,
+      "sha256": "ea0b5baecf8d87b906ed76e5270d83722cf63dbd533a95b9b58ad140e72886c9",
+      "action": "unchanged",
+      "base_sha256": "ea0b5baecf8d87b906ed76e5270d83722cf63dbd533a95b9b58ad140e72886c9"
+    },
+    {
+      "path": "experience/tests/notebook-export.test.mjs",
+      "bytes": 1220,
+      "sha256": "f7dc71a08b0a7f39c566d1c4ea32ea44479b95be230ccf1425dd250e7ee8987a",
+      "action": "unchanged",
+      "base_sha256": "f7dc71a08b0a7f39c566d1c4ea32ea44479b95be230ccf1425dd250e7ee8987a"
+    },
+    {
+      "path": "experience/tests/pacing.test.mjs",
+      "bytes": 1372,
+      "sha256": "8cf7156705c49bdea6a8688466d269e8b9a4d5ba33e9f59f58e3bdce398e7b07",
+      "action": "unchanged",
+      "base_sha256": "8cf7156705c49bdea6a8688466d269e8b9a4d5ba33e9f59f58e3bdce398e7b07"
+    },
+    {
+      "path": "experience/tests/state.test.mjs",
+      "bytes": 3456,
+      "sha256": "b6092c135a86a4f761ebe8419591218d8c41421ba89dcdd4fba363303f3adc02",
+      "action": "unchanged",
+      "base_sha256": "b6092c135a86a4f761ebe8419591218d8c41421ba89dcdd4fba363303f3adc02"
+    },
+    {
+      "path": "experience/tests/v2-browser.cjs",
+      "bytes": 20361,
+      "sha256": "30e600cfb1494d8c93f4e1e0d54c2515cfd2eff70b2a062a42ced0a6df34f0f9",
+      "action": "unchanged",
+      "base_sha256": "30e600cfb1494d8c93f4e1e0d54c2515cfd2eff70b2a062a42ced0a6df34f0f9"
+    },
+    {
+      "path": "experience/tools/build_characters.py",
+      "bytes": 23932,
+      "sha256": "e054e9f1d597d33a8e86852924c71f67a26c020d459a81aea6bd80f20fdd4cc5",
+      "action": "unchanged",
+      "base_sha256": "e054e9f1d597d33a8e86852924c71f67a26c020d459a81aea6bd80f20fdd4cc5"
+    },
+    {
+      "path": "experience/tools/build_sari.py",
+      "bytes": 255,
+      "sha256": "02fd6e13c8f61da0dd90dd889d6a52e74736fc7f2747b08299fc7b300c69fb63",
+      "action": "unchanged",
+      "base_sha256": "02fd6e13c8f61da0dd90dd889d6a52e74736fc7f2747b08299fc7b300c69fb63"
+    },
+    {
+      "path": "experience/tools/character_anatomy.py",
+      "bytes": 3719,
+      "sha256": "3a2fc857b8eebd9b253d55ad368e6880facd750e9a50934b856bdfae60048ea7",
+      "action": "unchanged",
+      "base_sha256": "3a2fc857b8eebd9b253d55ad368e6880facd750e9a50934b856bdfae60048ea7"
+    },
+    {
+      "path": "experience/tools/character_sources/LICENSE-CC0.txt",
+      "bytes": 6962,
+      "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
+      "action": "unchanged",
+      "base_sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+    },
+    {
+      "path": "experience/tools/character_sources/MAKEHUMAN-LICENSE.md",
+      "bytes": 3598,
+      "sha256": "edd99571ca62698f78c943fd4fffb159a413c315fa0d4819d3cec5cadaf8b4f1",
+      "action": "unchanged",
+      "base_sha256": "edd99571ca62698f78c943fd4fffb159a413c315fa0d4819d3cec5cadaf8b4f1"
+    },
+    {
+      "path": "experience/tools/character_sources/README.md",
+      "bytes": 3035,
+      "sha256": "12b92dd2ad5dd318c6c02d7dbf8b042401e28887b4682832d3f10602a2added7",
+      "action": "unchanged",
+      "base_sha256": "12b92dd2ad5dd318c6c02d7dbf8b042401e28887b4682832d3f10602a2added7"
+    },
+    {
+      "path": "experience/tools/character_sources/SOURCE_MANIFEST.json",
+      "bytes": 2530,
+      "sha256": "4e822b917d7bd1dd62e4abfe02793ab96945f76ea619546ad8434d90c16993db",
+      "action": "unchanged",
+      "base_sha256": "4e822b917d7bd1dd62e4abfe02793ab96945f76ea619546ad8434d90c16993db"
+    },
+    {
+      "path": "experience/tools/character_sources/makehuman-base.obj",
+      "bytes": 1749303,
+      "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+      "action": "unchanged",
+      "base_sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    {
+      "path": "experience/tools/character_sources/makehuman-eyes.obj",
+      "bytes": 6604,
+      "sha256": "783fe1e6331162c876520b4c2bed7a8ca06354ca15497e8ebd68bb1b59f4d3de",
+      "action": "unchanged",
+      "base_sha256": "783fe1e6331162c876520b4c2bed7a8ca06354ca15497e8ebd68bb1b59f4d3de"
+    },
+    {
+      "path": "experience/tools/optimize_district.py",
+      "bytes": 9108,
+      "sha256": "9ef3cfc871526b9853572f8c7280474ed49b97159a0a5fb4722a64419289a118",
+      "action": "unchanged",
+      "base_sha256": "9ef3cfc871526b9853572f8c7280474ed49b97159a0a5fb4722a64419289a118"
+    },
+    {
+      "path": "experience/tools/pack_city.py",
+      "bytes": 584,
+      "sha256": "b0fd60cf85df2194b84069bd1ece3d6738b140bbbf5cb1b8b0f3f386dbcec761",
+      "action": "unchanged",
+      "base_sha256": "b0fd60cf85df2194b84069bd1ece3d6738b140bbbf5cb1b8b0f3f386dbcec761"
+    },
+    {
+      "path": "experience/tools/package_release.py",
+      "bytes": 1821,
+      "sha256": "31ee76754f1e643849bc549af6627ede37f87ec5d67ada2c6b78d26a56dd9dc1",
+      "action": "unchanged",
+      "base_sha256": "31ee76754f1e643849bc549af6627ede37f87ec5d67ada2c6b78d26a56dd9dc1"
+    },
+    {
+      "path": "experience/tools/prepare_character_textures.py",
+      "bytes": 3109,
+      "sha256": "6c42fb31e7ed83d350bc1969d30a3d948ea09dfe9363da2d4df68c6da8563b1c",
+      "action": "unchanged",
+      "base_sha256": "6c42fb31e7ed83d350bc1969d30a3d948ea09dfe9363da2d4df68c6da8563b1c"
+    },
+    {
+      "path": "experience/world.js",
+      "bytes": 30643,
+      "sha256": "81a5934e6f116325e062a6b6f7a1719aa112a82f5a2a2eaf67703a571d864a09",
+      "action": "unchanged",
+      "base_sha256": "81a5934e6f116325e062a6b6f7a1719aa112a82f5a2a2eaf67703a571d864a09"
+    },
+    {
+      "path": "handoff/00_CONTINUE_HERE.md",
+      "bytes": 13452,
+      "sha256": "4bfc4871084a9a951a272d2e51d0eac212e0ffa4d6c62118cf35d616a6bdf782",
+      "action": "replace",
+      "base_sha256": "4acfbe7eb62bf4256717c47d86b927aa5462dfab271ad80d84eb8cd201e38080"
+    },
+    {
+      "path": "handoff/09_ESCAPE_REVISION.md",
+      "bytes": 3711,
+      "sha256": "394a0ba29cd896e4d6f90597a1a6b98774866c1beb0f71b041f0ff95eaa2be08",
+      "action": "add",
+      "base_sha256": null
+    },
+    {
+      "path": "index.html",
+      "bytes": 476,
+      "sha256": "d6b6b9043f0b5d62cade885bb19c11949511904a889b99fa56c603881b8549e0",
+      "action": "unchanged",
+      "base_sha256": "d6b6b9043f0b5d62cade885bb19c11949511904a889b99fa56c603881b8549e0"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 534,
+      "sha256": "905a805cd976ae378c643a1c547835fc9a81e2830021ec48db60f098fa8bac79",
+      "action": "unchanged",
+      "base_sha256": "905a805cd976ae378c643a1c547835fc9a81e2830021ec48db60f098fa8bac79"
+    }
+  ]
 }

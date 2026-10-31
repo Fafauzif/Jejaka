@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#161a18">
+  <meta name="description" content="A first-person historical-fiction game. Walk through Surabaya, listen to its residents, and preserve a journalist’s unfinished account.">
+  <title>Jejaka — Catatan yang Tertinggal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23b94b37' width='64' height='64'/%3E%3Cpath d='M20 16h26v25c0 14-22 16-26 3' fill='none' stroke='%23f2e6ce' stroke-width='7'/%3E%3C/svg%3E">
+  <link rel="preload" href="./assets/fonts/JejakaSerif.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="./assets/fonts/JejakaSans.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="./game.css">
+  <script type="importmap">{"imports":{"three":"./lib/three.module.js","three/addons/":"./lib/addons/"}}</script>
+</head>
+<body>
+  <div id="world" aria-label="First-person view of a fictional Surabaya street"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+  <div id="damage-vignette" aria-hidden="true"></div>
+  <div id="letterbox" aria-hidden="true"></div>
+
+  <main id="title-screen" class="title-screen">
+    <header class="title-header">
+      <a class="wordmark" href="./" aria-label="Jejaka home"><span class="archive-mark" aria-hidden="true">J</span><span>JEJAKA<span id="wordmark-caption" class="wordmark-caption">A JOURNALIST’S ACCOUNT</span></span></a>
+      <button id="language-toggle" class="language-button" type="button" aria-label="Change language">EN <span aria-hidden="true">/</span> ID</button>
+    </header>
+    <section class="title-story" aria-labelledby="game-title">
+      <p id="title-kicker" class="eyebrow"><span class="red-line"></span> SURABAYA · NOVEMBER 1945</p>
+      <h1 id="game-title">JEJAKA<span class="title-period">.</span></h1>
+      <h2 id="title-subtitle">The unfinished account</h2>
+      <p id="title-description" class="title-description">A city on the edge. A notebook in your hands.<br>Walk its streets. Listen to its people.<br>Leave something that will outlive you.</p>
+      <div class="title-actions">
+        <button id="start-button" class="start-button" type="button" disabled><span>Enter the city</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+        <button id="continue-button" class="continue-button" type="button" hidden>Continue your account <span aria-hidden="true">↗</span></button>
+      </div>
+      <p id="load-status" class="load-status" role="status">Preparing the district…</p>
+      <div class="title-utility"><button id="settings-button" class="text-button" type="button">Settings &amp; controls</button><span aria-hidden="true">/</span><button id="history-button" class="text-button" type="button">History &amp; fiction</button></div>
+    </section>
+    <aside class="scene-label" aria-label="Setting"><span class="scene-cross" aria-hidden="true">+</span><div><span id="scene-kicker" class="eyebrow">01 / KALI MAS</span><p id="scene-description">Between the river<br>and the red bridge.</p></div></aside>
+    <footer class="title-footer"><p id="title-footer-label">AN INTERACTIVE HISTORICAL FICTION</p><p id="content-note" class="content-note">Contains scenes of war and a non-graphic death.<br>Headphones recommended. Desktop first.</p></footer>
+  </main>
+
+  <section id="hud" class="hud" aria-label="Game information" hidden>
+    <div class="objective-block"><p id="chapter-label" class="eyebrow">01 / A CITY STILL BREATHING</p><h2 id="objective-title">Find Sari</h2><p id="objective-text">Follow the street toward the red bridge.</p></div>
+    <div id="danger-cue" class="danger-cue" role="status" hidden></div><div id="compass" class="compass" aria-label="Compass">N</div>
+    <nav class="hud-actions" aria-label="Game tools">
+      <button id="notebook-button" class="hud-button" type="button" aria-label="Open notebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h13v18H5zM8 3v18m3-13h4m-4 4h4"/></svg><span>Notebook <kbd>N</kbd></span></button>
+      <button id="camera-button" class="hud-button" type="button" aria-label="Raise camera"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h5l2-3h5l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></svg><span>Camera <kbd>C</kbd></span></button>
+      <button id="pause-button" class="hud-button pause-button" type="button" aria-label="Pause game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m8-14v14"/></svg><span>Pause <kbd>Esc</kbd></span></button>
+    </nav>
+    <div id="reticle" class="reticle" aria-hidden="true"><span></span></div>
+    <div id="interaction-prompt" class="interaction-prompt" role="status"></div>
+    <div class="player-status"><div class="status-top"><span id="stance">WALKING</span><span id="safety-label">STAY OBSERVANT</span></div><div class="stamina-track" aria-label="Stamina"><div id="stamina-fill"></div></div></div>
+    <p id="controls-hint" class="controls-hint"><kbd>W A S D</kbd> move <span>·</span> drag to look <span>·</span> <kbd>E</kbd> interact <span>·</span> <kbd>Shift</kbd> run <span>·</span> <kbd>Ctrl</kbd> crouch</p>
+    <div id="subtitle" class="subtitle" aria-live="polite" hidden><span id="subtitle-speaker"></span><p id="subtitle-text"></p></div>
+  </section>
+
+  <div id="viewfinder" class="viewfinder" hidden>
+    <div class="viewfinder-header"><span id="viewfinder-header-label" class="eyebrow">RAKA PRADANA / FIELD CAMERA</span><button id="close-camera" class="quiet-button" type="button">Lower camera <kbd>C</kbd></button></div>
+    <div id="viewfinder-frame" class="viewfinder-frame" aria-hidden="true"><span class="viewfinder-cross">+</span><span id="viewfinder-caption" class="viewfinder-caption">THE EYE REMEMBERS</span></div>
+    <div class="viewfinder-footer"><p id="viewfinder-description">Compose an observation. Preserve what you can see.</p><button id="shutter-button" class="shutter-button" type="button"><span class="shutter-circle" aria-hidden="true"></span><span>Take photograph <kbd>Space</kbd></span></button><span class="viewfinder-count" aria-hidden="true">35 mm<br>1 / 125</span></div>
+  </div>
+
+  <section id="pause-screen" class="pause-screen" aria-labelledby="pause-heading" hidden>
+    <div class="pause-content"><p id="pause-kicker" class="eyebrow">A MOMENT BETWEEN PAGES</p><h2 id="pause-heading">The city can wait.</h2><p id="pause-description" class="pause-description">Your account is saved on this device.</p><div class="pause-actions"><button id="resume-button" class="primary-button" type="button">Return to the street <span aria-hidden="true">→</span></button><button id="pause-settings-button" class="quiet-button" type="button">Settings &amp; controls</button><button id="pause-history-button" class="quiet-button" type="button">History &amp; fiction</button><button id="pause-title-button" class="quiet-button" type="button">Back to title</button><button id="restart-button" class="text-button restart-button" type="button">Begin a new account</button></div></div><span class="pause-decoration" aria-hidden="true">II</span>
+  </section>
+
+  <dialog id="panel" class="panel" aria-labelledby="panel-title"><div class="panel-header"><span id="panel-header-label" class="eyebrow">JEJAKA / FIELD NOTES</span><button id="panel-close" class="panel-close" type="button" aria-label="Close panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><h2 id="panel-title"></h2><div id="panel-content" class="panel-content"></div><div class="panel-footer"><span id="panel-footer-title">THE UNFINISHED ACCOUNT</span><span>SURABAYA / 1945</span></div></dialog>
+
+  <div id="loading-error" class="loading-error" role="alert" hidden><p id="loading-error-kicker" class="eyebrow">THE CITY COULDN’T OPEN</p><h2 id="loading-error-title">A connection was lost.</h2><p id="loading-error-message">Please reload the page. Jejaka needs a browser with WebGL support.</p><button id="retry-button" class="primary-button" type="button">Try again</button></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="mobile-controls" class="mobile-controls" hidden aria-label="Touch movement controls"><div class="move-pad"><button data-move="forward" type="button" aria-label="Move forward">↑</button><button data-move="left" type="button" aria-label="Move left">←</button><button data-move="back" type="button" aria-label="Move backward">↓</button><button data-move="right" type="button" aria-label="Move right">→</button></div><div class="touch-verbs"><button id="mobile-crouch" type="button" aria-pressed="false">Merunduk</button><button id="mobile-run" type="button" aria-pressed="false">Lari</button><button id="mobile-help" type="button" hidden>Tahan Bantu</button><button id="mobile-interact" class="mobile-interact" type="button">Interaksi</button></div></div>
+  <script type="module" src="./game/app.js"></script>
+</body>
+</html>

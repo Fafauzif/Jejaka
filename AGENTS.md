@@ -1,3 +1,13 @@
+# Active escape revision — latest user direction
+
+The latest user explicitly requests a much larger revision and 10–20 substantive review/refine/play passes, with several hours available. That supersedes the earlier up-to-four-round cap and acceptance of the old guided errand route. They reject forced photography, unclear sudden fire, unnatural Indonesian, weak animation/chaos and an incoherent death. The active replacement is now `experience/index.html` → `experience/escape/app.js` with `escape.css`; the former active game is preserved at `experience/previous/`, and the earlier field edition at `experience/legacy/`.
+
+Read `handoff/09_ESCAPE_REVISION.md`, `experience/docs/ESCAPE_CULTURAL_RECORD.md` and the current escape verification record. The central experience is escorting Sari and Adi through an expanding civilian escape with readable causes, meaningful cover/help, visible culture and historical context. The latest story deliberately replaces the unearned fixed death with reaching refuge. Preserve all original research/master/source assets. No push or deployment is authorized; deliver a root-extraction ZIP. Do not ask the settled questions again.
+
+New tests: `node --test experience/escape/*.test.mjs experience/game/*.test.mjs experience/tests/*.test.mjs`. Old browser harnesses target older UIs; do not report their result as new escape evidence. Native touch completion requires genuine touch contacts. Bind evidence to frozen source hashes, retain failed observations and separate automated clocks from human pacing. No physical-device performance or measured learning claim without evidence.
+
+---
+
 # Current continuation build
 
 Read `handoff/08_CONTINUATION_RESULT.md` and `experience/docs/CONTINUATION_VERIFICATION.md` first for current implementation and actual evidence. The settled direction in handoff/01_LOCKED_USER_DIRECTION.md remains authoritative. Older checkpoint test claims and file hashes apply only to that earlier archive. Preserve research/master assets and legacy edition. No push/deploy authorized.

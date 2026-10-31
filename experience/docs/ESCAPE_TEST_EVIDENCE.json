@@ -1,0 +1,2968 @@
+{
+  "release": "Jejaka escape3.0.0",
+  "base_commit": "8a2701eb74821ee49f164162de4665d3300cfec1",
+  "recorded_utc": "2026-10-31T00:20:00.792407+00:00",
+  "runtime_sha256": {
+    "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+    "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+    "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+    "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+    "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+    "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+    "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+    "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+    "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+    "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+  },
+  "journeys_complete_all_candidates": 8,
+  "journeys_complete_current_runtime": 3,
+  "completion_count_policy": "Checkpointed runs count as fully complete only after ordinary ending, zero observed errors/failures/cleanup errors, frozen bindings and successful browser/server finalization. Sealed endings and partial attempts remain separately labeled. Historical older-schema runs lack explicit cleanup fields.",
+  "runs": [
+    {
+      "name": "bootstrap-a",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": true,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": false,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1,
+        "quality": "low",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "configuration": null,
+      "wall_seconds": 70.714,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 11.050200000000013,
+      "capture_and_measurement_seconds": 24.085,
+      "measured_pause_seconds": 0,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [],
+      "source_hashes": {
+        "experience/index.html": "9d6533430aa0a01af8f82ae04be2f5975cb1e46ea5db6ed689e5763facf69415",
+        "experience/escape.css": "b27d8b00430a1c15bc2a5f216bba63854a22231fe11a75818aae5820be2dcf25",
+        "experience/escape/actors.js": "0f2b68f78f814ca785d3bedf39cac1c0fa5e678307b4470f31f5ebc23d89d6ab",
+        "experience/escape/app.js": "01afaccb40946b0e953e90a62602ae3383b3e629f8edd1a87d78f05cd424ff1a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "a2184889a5a4a3bce41ee1fb03de6e0d5b6c53fbbb810120a5e6a9f8a6a956a8",
+        "experience/escape/rules.js": "884ebc2efda9d1335ab1299d083288f856962581205844f1781dc7ff3fbec3d8",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "cd012a7930bb59aa74a452f494fef033fef8f51e2d8a4167aa1237c20da6c8e7"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "b27d8b00430a1c15bc2a5f216bba63854a22231fe11a75818aae5820be2dcf25",
+        "experience/escape/actors.js": "6b3a35025a9f95aaf40a1e587670056a7357ddc52995bec5856129b7afc9a888",
+        "experience/escape/app.js": "01afaccb40946b0e953e90a62602ae3383b3e629f8edd1a87d78f05cd424ff1a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "a2184889a5a4a3bce41ee1fb03de6e0d5b6c53fbbb810120a5e6a9f8a6a956a8",
+        "experience/escape/rules.js": "c72c0af3a3bdd11a41d04d30c73b26181f797d01f66b75124a291952078db25b",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "cd012a7930bb59aa74a452f494fef033fef8f51e2d8a4167aa1237c20da6c8e7"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": null,
+      "driver_frozen": null,
+      "asset_hashes": null,
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-c2-alternate",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": true,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1,
+        "quality": "low",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "configuration": null,
+      "wall_seconds": 700.556,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": 26.562,
+      "application_clock_seconds": 84.59909999999748,
+      "capture_and_measurement_seconds": 141.54500000000002,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Actual alley outcome captured",
+          "passed": true
+        },
+        {
+          "name": "Native reload and Continue 05c-pretrap-continue",
+          "passed": true
+        },
+        {
+          "name": "Physical child rescue interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Natural complete alternate journey with actual reunion",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "bfc3d75c01ef629381d9292ad9f4bacb3a8727c77fecc07981a592e5133c8015",
+      "driver_frozen": null,
+      "asset_hashes": null,
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-c2-assistance",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1,
+        "quality": "low",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "configuration": null,
+      "wall_seconds": 311.203,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": 10.254,
+      "application_clock_seconds": 35.89950000000028,
+      "capture_and_measurement_seconds": 66.73299999999999,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "Native navigation stalled {\"target\":{\"x\":24,\"z\":-61},\"s\":{\"p\":{\"x\":19.34456390559143,\"z\":-52.280354840167305,\"yaw\":-0.4903999807371723,\"vx\":0,\"vz\":0,\"stance\":\"run\"},\"phase\":2,\"time\":35.89950000000028,\"phaseTime\":18.01620000000027,\"workProgress\":1,\"helpProgress\":0,\"bridgeProgress\":0,\"learned\":true,\"helped\":false,\"bridgeHelped\":false,\"clothIntact\":true,\"exposed\":false,\"exposures\":0,\"safe\":false,\"mode\":\"play\",\"caption\":null,\"danger\":null,\"hazards\":[\"alley\"],\"objective\":\"Jalan depan tertutup. Belok ",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Native keyboard pause freezes cast positions/time/audio: 03b-warning-pause",
+          "passed": true
+        },
+        {
+          "name": "Actual alley outcome captured",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "bfc3d75c01ef629381d9292ad9f4bacb3a8727c77fecc07981a592e5133c8015",
+      "driver_frozen": null,
+      "asset_hashes": null,
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Partial: ordinary driver diagonal met an existing barrel. Not a proved inescapable game trap; final drivers use an ordinary backstep."
+    },
+    {
+      "name": "desktop-candidate-b",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": true,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 640,
+        "height": 400,
+        "dpr": 1,
+        "quality": "low",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "configuration": null,
+      "wall_seconds": 715.819,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 83.28369999999761,
+      "capture_and_measurement_seconds": 106.49900000000001,
+      "measured_pause_seconds": 0,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Natural ending via ordinary keyboard/mouse, including wax sample, interrupted/resumed Adi and cart help",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "63a278fd9e3672068a0c55ac02372b479611b0ddf1fca9fa67938a3f19cab07c",
+        "experience/escape/app.js": "c9dbc2e0334dfb1ad7346c3c8c248abc00e1fc8d97216baae4b2100dd22f5152",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "a2184889a5a4a3bce41ee1fb03de6e0d5b6c53fbbb810120a5e6a9f8a6a956a8",
+        "experience/escape/rules.js": "6052a46c8fbf604d3a1877712eaf25deaa2e1c8b516e9163781474f30d48cde0",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "5dc43fc332c9241d52cd9f47e857825d48b55c8c4e2319db1f95e34bdaa296a4"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "63a278fd9e3672068a0c55ac02372b479611b0ddf1fca9fa67938a3f19cab07c",
+        "experience/escape/app.js": "c9dbc2e0334dfb1ad7346c3c8c248abc00e1fc8d97216baae4b2100dd22f5152",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "a2184889a5a4a3bce41ee1fb03de6e0d5b6c53fbbb810120a5e6a9f8a6a956a8",
+        "experience/escape/rules.js": "6052a46c8fbf604d3a1877712eaf25deaa2e1c8b516e9163781474f30d48cde0",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "5dc43fc332c9241d52cd9f47e857825d48b55c8c4e2319db1f95e34bdaa296a4"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": null,
+      "driver_frozen": null,
+      "asset_hashes": null,
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-g-assistance",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": false,
+      "natural_ending_observed": false,
+      "full_driver_finalized": false,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": "failed-partial",
+      "browser_closed": true,
+      "server_closed": true,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 960,
+        "height": 640
+      },
+      "configuration": "Quality preset before boot; all progress remains input-driven. Native post-help camera return observed without manual yaw/pitch correction.",
+      "wall_seconds": 1698.871,
+      "natural_ending_wall_seconds": 1698.871,
+      "measured_pause_and_reload_seconds": 16.297,
+      "application_clock_seconds": 129.28269999999563,
+      "capture_and_measurement_seconds": 327.405,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "page.waitForFunction: Timeout 300000ms exceeded.",
+      "failure_stage": "before-natural-ending",
+      "checks": [
+        {
+          "name": "Actual browser focus loss",
+          "passed": null
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cloth",
+          "passed": true
+        },
+        {
+          "name": "Native keyboard pause freezes cast positions/time/audio: 03b-warning-pause",
+          "passed": true
+        },
+        {
+          "name": "Visible protected status before local impact",
+          "passed": true
+        },
+        {
+          "name": "Actual sheltered alley outcome behind cover",
+          "passed": true
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: child",
+          "passed": true
+        },
+        {
+          "name": "Physical child rescue interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cart",
+          "passed": true
+        },
+        {
+          "name": "Cart side push loses reach; repositioned native help completes",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "410d857cb88b4982fb03116aaad0d34a5448a242bda025654b95dde37c979176",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
+        "experience/assets/fonts/JejakaSans.woff": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
+        "experience/assets/fonts/JejakaSerif.woff": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
+        "experience/lib/three.module.js": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
+        "experience/lib/addons/loaders/GLTFLoader.js": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
+        "experience/lib/addons/utils/SkeletonUtils.js": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
+        "experience/lib/addons/utils/BufferGeometryUtils.js": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+      },
+      "assets_frozen": true,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-h-assistance",
+      "report_kind": "partial-report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": false,
+      "natural_ending_observed": false,
+      "full_driver_finalized": false,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": true,
+      "before_matches_current_runtime": true,
+      "frozen": true,
+      "evidence_status": "partial",
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 960,
+        "height": 640
+      },
+      "configuration": "Quality preset before boot; all progress remains input-driven. Native post-help camera return observed without manual yaw/pitch correction.",
+      "wall_seconds": 407.426,
+      "natural_ending_wall_seconds": 407.426,
+      "measured_pause_and_reload_seconds": 13.267,
+      "application_clock_seconds": 28.833500000000328,
+      "capture_and_measurement_seconds": 115.352,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Actual browser focus loss",
+          "passed": null
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cloth",
+          "passed": true
+        },
+        {
+          "name": "Native keyboard pause freezes cast positions/time/audio: 03b-warning-pause",
+          "passed": true
+        },
+        {
+          "name": "Visible protected status before local impact",
+          "passed": true
+        },
+        {
+          "name": "Actual sheltered alley outcome behind cover",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "partial-or-natural-ending-seal",
+      "used_driver_sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
+        "experience/assets/fonts/JejakaSans.woff": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
+        "experience/assets/fonts/JejakaSerif.woff": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
+        "experience/lib/three.module.js": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
+        "experience/lib/addons/loaders/GLTFLoader.js": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
+        "experience/lib/addons/utils/SkeletonUtils.js": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
+        "experience/lib/addons/utils/BufferGeometryUtils.js": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+      },
+      "assets_frozen": true,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-h-assistance-r2",
+      "report_kind": "partial-report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": false,
+      "natural_ending_observed": false,
+      "full_driver_finalized": false,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": true,
+      "before_matches_current_runtime": true,
+      "frozen": true,
+      "evidence_status": "partial",
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 960,
+        "height": 640
+      },
+      "configuration": "Quality preset before boot; all progress remains input-driven. Native post-help camera return observed without manual yaw/pitch correction.",
+      "wall_seconds": 156.543,
+      "natural_ending_wall_seconds": 156.543,
+      "measured_pause_and_reload_seconds": 0,
+      "application_clock_seconds": 9.099899999999993,
+      "capture_and_measurement_seconds": 58.345,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Actual browser focus loss",
+          "passed": null
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cloth",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "partial-or-natural-ending-seal",
+      "used_driver_sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
+        "experience/assets/fonts/JejakaSans.woff": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
+        "experience/assets/fonts/JejakaSerif.woff": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
+        "experience/lib/three.module.js": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
+        "experience/lib/addons/loaders/GLTFLoader.js": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
+        "experience/lib/addons/utils/SkeletonUtils.js": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
+        "experience/lib/addons/utils/BufferGeometryUtils.js": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+      },
+      "assets_frozen": true,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "desktop-h-assistance-root",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": true,
+      "natural_ending_observed": true,
+      "full_driver_finalized": true,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": true,
+      "before_matches_current_runtime": true,
+      "frozen": true,
+      "evidence_status": "complete",
+      "browser_closed": true,
+      "server_closed": true,
+      "cleanup_error": null,
+      "method": "Native Playwright keyboard/mouse; read-only __ESCAPE navigation and evidence. No teleports, direct game handler calls, state writes, clock acceleration or ending skips.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 960,
+        "height": 640
+      },
+      "configuration": "Quality preset before boot; all progress remains input-driven. Native post-help camera return observed without manual yaw/pitch correction.",
+      "wall_seconds": 1496.461,
+      "natural_ending_wall_seconds": 1459.88,
+      "measured_pause_and_reload_seconds": 13.889,
+      "application_clock_seconds": 109.3323999999961,
+      "capture_and_measurement_seconds": 308.66900000000004,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Actual browser focus loss",
+          "passed": null
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cloth",
+          "passed": true
+        },
+        {
+          "name": "Native keyboard pause freezes cast positions/time/audio: 03b-warning-pause",
+          "passed": true
+        },
+        {
+          "name": "Visible protected status before local impact",
+          "passed": true
+        },
+        {
+          "name": "Actual sheltered alley outcome behind cover",
+          "passed": true
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: child",
+          "passed": true
+        },
+        {
+          "name": "Physical child rescue interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Automatic pitch AND yaw return after release without manual camera rescue: cart",
+          "passed": true
+        },
+        {
+          "name": "Cart side push loses reach; repositioned native help completes",
+          "passed": true
+        },
+        {
+          "name": "Natural complete assistance journey with actual reunion",
+          "passed": true
+        },
+        {
+          "name": "Optional primary-source history opens and returns to ending",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d",
+        "experience/assets/fonts/JejakaSans.woff": "048dfff199d499d5b9d3ac755580ed09214e734818718aa0e0f11eaf6cb6f605",
+        "experience/assets/fonts/JejakaSerif.woff": "999c69739eddaf04738aa3acbccd24e7d5a7d9e35fab3d634be40d44c46eaec0",
+        "experience/lib/three.module.js": "0a3368c165eea773490aec7b77c22de70e3eac288503409256fdbf4d12578416",
+        "experience/lib/addons/loaders/GLTFLoader.js": "6f1719dcc6a179d30273dfb0de07a8c898a7981f7b08e600b446387f5967371f",
+        "experience/lib/addons/utils/SkeletonUtils.js": "ee412be1aa05f3051c2bda8ea89612c1ba70c5c87de62b56040282120d5eb991",
+        "experience/lib/addons/utils/BufferGeometryUtils.js": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+      },
+      "assets_frozen": true,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": "Natural ending/state/consequences/bindings only; screenshot/history/replay/cleanup are separate."
+    },
+    {
+      "name": "phone-c-workshop",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": true,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 115.811,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 9.716500000000003,
+      "capture_and_measurement_seconds": null,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Bounded native workshop completed; full journey not claimed",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "4e0733d1bd0e962c5a6e6ea74cad7fecea1fe681c1bb6724518c29322f1354f5",
+        "experience/escape/app.js": "28a2124bbde1672d182917c8e6d3ca7622f61971ce8dc3200cd6e121f98e498f",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "d5bcbacf685cb74895d186e3cc9a35f245f7c46663169f819ace947c670d7534",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7fd884831b361a1f0aa37640462a147aaa4b8b68f02f9d5d9157f8247247d6a1"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "4e0733d1bd0e962c5a6e6ea74cad7fecea1fe681c1bb6724518c29322f1354f5",
+        "experience/escape/app.js": "28a2124bbde1672d182917c8e6d3ca7622f61971ce8dc3200cd6e121f98e498f",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "d5bcbacf685cb74895d186e3cc9a35f245f7c46663169f819ace947c670d7534",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7fd884831b361a1f0aa37640462a147aaa4b8b68f02f9d5d9157f8247247d6a1"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "3dac1950f2f3290dea73ce9de9620cd075851f2f543f296803d58bdee2837214",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-c1-workshop",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": true,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 78.506,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 13.066500000000032,
+      "capture_and_measurement_seconds": null,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Bounded native workshop completed; full journey not claimed",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "5bb42921e191ba34b2d19f7c50569cb5d679a48e2214180efaab7fb1bb28be52",
+        "experience/escape/app.js": "c5c7e79bc660806de533bed30eaaa0864bdf6a27daa6ce08c53fac675e004402",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "10f15f1d37cb10e27599f6f6b8a0674ea0b515ee2f82896accf738a20e66b66a",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "5bb42921e191ba34b2d19f7c50569cb5d679a48e2214180efaab7fb1bb28be52",
+        "experience/escape/app.js": "c5c7e79bc660806de533bed30eaaa0864bdf6a27daa6ce08c53fac675e004402",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "10f15f1d37cb10e27599f6f6b8a0674ea0b515ee2f82896accf738a20e66b66a",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "72039b5e789a0bc803e9bdf260ec71c25988f4ec76ba0f4a3c05f89c858a3f65",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-c2-portrait",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 70.88600000000001,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "page.waitForFunction: Timeout 60000ms exceeded.",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "f280c3c0a1d8c969c7b0e611df73b0af09ed7a041a4dde242139203c69167c1e",
+        "experience/escape.css": "f7f92b5d0f50581b3c0ea81edd977c908255dd81ff0240c0d4f5c9e4eaaf8aef",
+        "experience/escape/actors.js": "384e2a9edbbbbc2b1b145fced8a99c4eb32c739de2e717b89bd3817226ec5aa0",
+        "experience/escape/app.js": "b54cbcc037369c60ce504a0448296dbdbf03404555d5075d307e36362822c4f7",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/effects.js": "c71454f1fae345d9d47b9a82d1b6dd6953367a5686aa5fe155020c9c76a7df16",
+        "experience/escape/rules.js": "2bcdcff6ecd95b976fdee26abe2b398c24f51ce231458a25df282c0c138f55df",
+        "experience/escape/story.js": "a38085c8d37dda596231a891e298fb01584f0b9cfc7a60c48840ac6452cb46c2",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "18c5f161ee0ab13a27c3d05de8f84755d47e63944f4bf767450f6dbe8cb16aa2",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": null,
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Real simultaneous-touch button failure; repaired and replayed on D/F/G."
+    },
+    {
+      "name": "phone-d-portrait",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": true,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 921.535,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 139.6487999999978,
+      "capture_and_measurement_seconds": 150.45600000000002,
+      "measured_pause_seconds": 12.291,
+      "reload_wall_seconds": 24.905,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual moving-family compositor sequence captured",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Native pause while holding help then reload Continue preserves partial physical rescue",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Touch pause freezes actual cast/effects and resumes",
+          "passed": true
+        },
+        {
+          "name": "Native volume slider and mute controls",
+          "passed": true
+        },
+        {
+          "name": "Real reload Continue restores child consequence and nearby cast",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 0.3",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 1",
+          "passed": true
+        },
+        {
+          "name": "Cart help visibly completed through native follow",
+          "passed": true
+        },
+        {
+          "name": "Actual bridge community observed crossing after help",
+          "passed": true
+        },
+        {
+          "name": "Native run and crouch remain mutually exclusive",
+          "passed": true
+        },
+        {
+          "name": "Physical community consequence matches chosen bridge branch",
+          "passed": true
+        },
+        {
+          "name": "Natural ending through native touch only",
+          "passed": true
+        },
+        {
+          "name": "Native history close and fresh replay reset controls",
+          "passed": true
+        },
+        {
+          "name": "No observed errors or failed resources",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "17394bf923fd958509bbb0d77e8e7f16628cff63fcae0039eece960bec7d37ff",
+        "experience/escape/app.js": "7065ca2a6aace6c201dc8e28d8834c765456d0cc7937e26a14a0d2a28fe0215a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "43dd2d0bbfe2ebd3e894c46ddc7061218c565d0ccbacfd3c787d65acdbd1f3b9",
+        "experience/escape/rules.js": "adaccdd1d21407be52816491519064ea4132a69ed5575091258237d7e181a621",
+        "experience/escape/story.js": "7848080423afa9ada99136b81ad7c852898986516b175d1d1e5b23a07f4743cd",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "17394bf923fd958509bbb0d77e8e7f16628cff63fcae0039eece960bec7d37ff",
+        "experience/escape/app.js": "7065ca2a6aace6c201dc8e28d8834c765456d0cc7937e26a14a0d2a28fe0215a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "43dd2d0bbfe2ebd3e894c46ddc7061218c565d0ccbacfd3c787d65acdbd1f3b9",
+        "experience/escape/rules.js": "adaccdd1d21407be52816491519064ea4132a69ed5575091258237d7e181a621",
+        "experience/escape/story.js": "7848080423afa9ada99136b81ad7c852898986516b175d1d1e5b23a07f4743cd",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "89991810cb011d13fbe55c3cd6dd162c7c6923d613dfbc75195e542676e0d20f",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-e-portrait",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 17.407,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "Native manual pitch was overridden by assist",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "936c1a95ce05cf05b9577fec9b9770c582e77d1579a388e3d9d2d1182be6c6a2",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "The exact manual-look test baseline raced active camera easing. Same-source retry corrected observation timing rather than changing the game."
+    },
+    {
+      "name": "phone-e-portrait-r2",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 204.98200000000003,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": 29.044,
+      "observed_errors": 0,
+      "failure": "page.waitForFunction: Timeout 180000ms exceeded.",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual moving-family compositor sequence captured",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Native pause while holding help then reload Continue preserves partial physical rescue",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Touch pause freezes actual cast/effects and resumes",
+          "passed": true
+        },
+        {
+          "name": "Native volume slider and mute controls",
+          "passed": true
+        },
+        {
+          "name": "Real reload Continue restores child consequence and nearby cast",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 0.3",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 1",
+          "passed": true
+        },
+        {
+          "name": "Cart help visibly completed through native follow",
+          "passed": true
+        },
+        {
+          "name": "Actual bridge community observed crossing after help",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "edf97bc4d3d7beadfb2bebb1fb774582591999aa165de76b6c4c05c0d01fdd85",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Real delayed-companion completion failure; repaired in F with route-progress leash and ordered bridge waypoints."
+    },
+    {
+      "name": "phone-e-small-workshop",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": true,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 167.082,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 15.30000000000009,
+      "capture_and_measurement_seconds": 31.328000000000003,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup 360x640",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 01b-culture-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Bounded native workshop completed; full journey not claimed",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "56eba69cbe41ccc72be305483f626d04dba9bf3e62b54b1a26890af2dc592870",
+        "experience/escape/actors.js": "f2417d4995ebe81a4a923f0fac3cd5bb3e57943e9f1f0e10c78ff9836e970039",
+        "experience/escape/app.js": "feadc76c918fad0a906628650c3a75090c01b08decc1d81de310fd5976072700",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "6aedbab6c948444dfd70feaadac1365a9d68fb222e9df14e61d7050a132310f6",
+        "experience/escape/story.js": "5eb95462c273589ebe103ebe2e9c49c1326c06e1d110c15aa90c50ebe4d36b6f",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "d03c2483db2fe3685d2d540b78d9dc9a5288a63c247484e502e0c6dffa628d1f",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-f-landscape",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 84.95199999999998,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "Attempt did not actually shelter from the local alley impact",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "7fffc0d8f7d8616b6f38940159b95af6c42ed289af9277a20e7e88d29a99a22e",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Incomplete: culture caption overlap and an exposed edge-of-cover position. Caption was repaired in G; physical protection rules were not broadened."
+    },
+    {
+      "name": "phone-f-portrait",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": true,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 942.96,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 148.59839999999974,
+      "capture_and_measurement_seconds": 173.02599999999998,
+      "measured_pause_seconds": 14.631,
+      "reload_wall_seconds": 31.215,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup 390x844",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual moving-family compositor sequence captured",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Native pause while holding help then reload Continue preserves partial physical rescue",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Touch pause freezes actual cast/effects and resumes",
+          "passed": true
+        },
+        {
+          "name": "Native volume slider and mute controls",
+          "passed": true
+        },
+        {
+          "name": "Real reload Continue restores child consequence and nearby cast",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 0.3",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 1",
+          "passed": true
+        },
+        {
+          "name": "Cart help visibly completed through native follow",
+          "passed": true
+        },
+        {
+          "name": "Actual bridge community observed crossing after help",
+          "passed": true
+        },
+        {
+          "name": "Native run and crouch remain mutually exclusive",
+          "passed": true
+        },
+        {
+          "name": "Physical community consequence matches chosen bridge branch",
+          "passed": true
+        },
+        {
+          "name": "Natural ending through native touch only",
+          "passed": true
+        },
+        {
+          "name": "Native history close and fresh replay reset controls",
+          "passed": true
+        },
+        {
+          "name": "No observed errors or failed resources",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "d03c2483db2fe3685d2d540b78d9dc9a5288a63c247484e502e0c6dffa628d1f",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-f-small-workshop",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": true,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 154.129,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 15.283400000000093,
+      "capture_and_measurement_seconds": 44.722,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup 360x640",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 01b-culture-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Bounded native workshop completed; full journey not claimed",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "d03c2483db2fe3685d2d540b78d9dc9a5288a63c247484e502e0c6dffa628d1f",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Bounded compact workshop verification; not a complete journey."
+    },
+    {
+      "name": "phone-g-landscape",
+      "report_kind": "report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": null,
+      "natural_ending_observed": false,
+      "full_driver_finalized": null,
+      "schema": "historical-no-finalization-field",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": null,
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 109.26,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": "Protected warning was not actually displayed before impact",
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 01b-culture-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "71db59ede80f50c6a25745321a8fec32ae328bf984b713f42fcf14768d2b8bd0",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": true,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null,
+      "review_note": "Incomplete: generic native controller overshot a narrow QA target, reversed, and crouched after impact. Correct exposed outcome retained; retry uses ordinary crouch during approach and visible cover feedback."
+    },
+    {
+      "name": "phone-g-landscape-r3",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": true,
+      "natural_ending_observed": true,
+      "full_driver_finalized": true,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": false,
+      "before_matches_current_runtime": false,
+      "frozen": true,
+      "evidence_status": "completed",
+      "browser_closed": true,
+      "server_closed": true,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 1081.76,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 130.18309999999565,
+      "capture_and_measurement_seconds": 181.412,
+      "measured_pause_seconds": 0,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual visible protected feedback before impact",
+          "passed": true
+        },
+        {
+          "name": "Local alley cover produces sheltered outcome",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait after orientation",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape restored",
+          "passed": true
+        },
+        {
+          "name": "Cart bypass preserves different queue/ending branch",
+          "passed": true
+        },
+        {
+          "name": "Native run and crouch remain mutually exclusive",
+          "passed": true
+        },
+        {
+          "name": "Physical community consequence matches chosen bridge branch",
+          "passed": true
+        },
+        {
+          "name": "Natural ending through native touch only",
+          "passed": true
+        },
+        {
+          "name": "Native history close and fresh replay reset controls",
+          "passed": true
+        },
+        {
+          "name": "No observed errors or failed resources",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": true,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": 0,
+      "seal_scope": "Natural ending/state/consequences/bindings only; screenshot/history/replay/cleanup are separate."
+    },
+    {
+      "name": "phone-h-landscape",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": true,
+      "natural_ending_observed": true,
+      "full_driver_finalized": true,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": true,
+      "before_matches_current_runtime": true,
+      "frozen": true,
+      "evidence_status": "completed",
+      "browser_closed": true,
+      "server_closed": true,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 1022.183,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 129.48299999999517,
+      "capture_and_measurement_seconds": 151.855,
+      "measured_pause_seconds": 0,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual visible protected feedback before impact",
+          "passed": true
+        },
+        {
+          "name": "Local alley cover produces sheltered outcome",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait after orientation",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape restored",
+          "passed": true
+        },
+        {
+          "name": "Cart bypass preserves different queue/ending branch",
+          "passed": true
+        },
+        {
+          "name": "Native run and crouch remain mutually exclusive",
+          "passed": true
+        },
+        {
+          "name": "Physical community consequence matches chosen bridge branch",
+          "passed": true
+        },
+        {
+          "name": "Natural ending through native touch only",
+          "passed": true
+        },
+        {
+          "name": "Native history close and fresh replay reset controls",
+          "passed": true
+        },
+        {
+          "name": "No observed errors or failed resources",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": true,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": 0,
+      "seal_scope": "Natural ending/state/consequences/bindings only; screenshot/history/replay/cleanup are separate."
+    },
+    {
+      "name": "phone-h-landscape-interrupted",
+      "report_kind": "partial-report.json",
+      "complete_natural_journey": false,
+      "natural_ending_sealed": false,
+      "natural_ending_observed": false,
+      "full_driver_finalized": false,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": null,
+      "before_matches_current_runtime": true,
+      "frozen": null,
+      "evidence_status": "running",
+      "browser_closed": null,
+      "server_closed": null,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": null,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": null,
+      "capture_and_measurement_seconds": 32.768,
+      "measured_pause_seconds": null,
+      "reload_wall_seconds": null,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit landscape startup",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": null,
+      "binding_stage": "partial-or-natural-ending-seal",
+      "used_driver_sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "driver_frozen": null,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": null,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": null,
+      "seal_scope": null
+    },
+    {
+      "name": "phone-h-portrait",
+      "report_kind": "report.json",
+      "complete_natural_journey": true,
+      "natural_ending_sealed": true,
+      "natural_ending_observed": true,
+      "full_driver_finalized": true,
+      "schema": "checkpointed",
+      "bounded": false,
+      "current_runtime": true,
+      "before_matches_current_runtime": true,
+      "frozen": true,
+      "evidence_status": "completed",
+      "browser_closed": true,
+      "server_closed": true,
+      "cleanup_error": null,
+      "method": "Native CDP Input.dispatchTouchEvent + Playwright locator.tap only. Opt-in readonly __ESCAPE navigation evidence.",
+      "browser": "150.0.7871.100",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "configuration": "Low quality preset before boot; landscape also mute+comfort. No player/progression mutations.",
+      "wall_seconds": 1056.594,
+      "natural_ending_wall_seconds": null,
+      "measured_pause_and_reload_seconds": null,
+      "application_clock_seconds": 147.28229999999922,
+      "capture_and_measurement_seconds": 189.75,
+      "measured_pause_seconds": 14.793,
+      "reload_wall_seconds": 26.264,
+      "observed_errors": 0,
+      "failure": null,
+      "failure_stage": null,
+      "checks": [
+        {
+          "name": "Selective contact-release native adapter preflight",
+          "passed": true
+        },
+        {
+          "name": "All three hero rigs loaded without failure",
+          "passed": true
+        },
+        {
+          "name": "Measured controls fit portrait startup 390x844",
+          "passed": true
+        },
+        {
+          "name": "Native mute toggle changes audio master; no water loop",
+          "passed": true
+        },
+        {
+          "name": "Actual app secondary native run crouch sound and pause while joystick held",
+          "passed": true
+        },
+        {
+          "name": "Simultaneous touch look/move and cancellation",
+          "passed": true
+        },
+        {
+          "name": "Actual-frame crouch toggles",
+          "passed": true
+        },
+        {
+          "name": "Actual manual native look overrides assist and remains after release",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 01b-culture-held",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Actual moving-family compositor sequence captured",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return 06-child-held",
+          "passed": true
+        },
+        {
+          "name": "Native pause while holding help then reload Continue preserves partial physical rescue",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return help",
+          "passed": true
+        },
+        {
+          "name": "Physical child help interrupted and resumed",
+          "passed": true
+        },
+        {
+          "name": "Touch pause freezes actual cast/effects and resumes",
+          "passed": true
+        },
+        {
+          "name": "Native volume slider and mute controls",
+          "passed": true
+        },
+        {
+          "name": "Real reload Continue restores child consequence and nearby cast",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 0.3",
+          "passed": true
+        },
+        {
+          "name": "Post-help camera return cart 1",
+          "passed": true
+        },
+        {
+          "name": "Cart help visibly completed through native follow",
+          "passed": true
+        },
+        {
+          "name": "Actual bridge community observed crossing after help",
+          "passed": true
+        },
+        {
+          "name": "Native run and crouch remain mutually exclusive",
+          "passed": true
+        },
+        {
+          "name": "Physical community consequence matches chosen bridge branch",
+          "passed": true
+        },
+        {
+          "name": "Natural ending through native touch only",
+          "passed": true
+        },
+        {
+          "name": "Native history close and fresh replay reset controls",
+          "passed": true
+        },
+        {
+          "name": "No observed errors or failed resources",
+          "passed": true
+        }
+      ],
+      "source_hashes": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "binding_stage": "full-report-finalization",
+      "used_driver_sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "driver_frozen": true,
+      "asset_hashes": {
+        "experience/assets/characters.glb": "9c0b6556c8b4d126e4c9b90299203bb87dfbc0e116d452b17dda426d802c587c",
+        "experience/assets/sari.glb": "21127b5f2600f9319c8db34aaa493cfc97aa43601f098b7f7110a3947817cc3d"
+      },
+      "assets_frozen": true,
+      "renderer_backend": {
+        "vendor": "WebKit",
+        "renderer": "WebKit WebGL",
+        "unmaskedVendor": "Google Inc. (Google)",
+        "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "seal_errors_observed": 0,
+      "seal_scope": "Natural ending/state/consequences/bindings only; screenshot/history/replay/cleanup are separate."
+    }
+  ],
+  "limits": [
+    "Browser-native touch emulation and software WebGL are not physical-phone performance or Safari verification.",
+    "Application clock clamps long frame deltas and pauses; automated wall time includes software rendering, screenshots and test interaction. Neither measures a normal human three-minute journey.",
+    "AI legibility review is not a human learning-outcome or retention study.",
+    "Original theatrical layout, people, dialogue, local attacks, workshop, school and pattern are fiction.",
+    "Audio signal measurements do not establish pleasantness on phone speakers or an independent listening test."
+  ],
+  "unaided_ui_review": {
+    "completed": false,
+    "scope": "Bounded AI legibility and exploration check; not a human learning or native-performance test",
+    "method": "Unaided visible-UI ordinary keyboard/mouse, no hooks/source/walkthrough",
+    "browser_version": "150.0.7871.100",
+    "viewport": {
+      "width": 1365,
+      "height": 900
+    },
+    "wall_seconds": 915.375,
+    "runtime_candidate": "F",
+    "runtime_sha256": {
+      "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+      "experience/escape.css": "543c7a3b68532614f215618e807d2ccb430d84bddefdd4b81e16dd0918df507a",
+      "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+      "experience/escape/app.js": "c8b6eeac8b104aa07e129887a0aba64155475607af3555d736079485564eb52a",
+      "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+      "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+      "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+      "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+      "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+      "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+    },
+    "current_runtime": false,
+    "binding_note": "Lead verified frozen F hashes across the attempt; the reviewer did not read source or hashes. This is historical F legibility evidence; G changes warning HUD and landscape caption layout.",
+    "comprehension": {
+      "whoWhyWhere": "Raka, neighbor to Sari, is helping Sari and her younger brother Adi evacuate from a Surabaya street in November1945 to a school across the river amid fighting after Indonesian independence.",
+      "culturalPracticeObjectRelation": "Canting drips malam, batik wax. Holding/stretching cloth and seeing pale motif lines persist against dark dyed fabric makes wax-resist legible. Sari teaches Adi as an older sister in an everyday neighborhood stall.",
+      "whyHelpingMatters": "The siblings need to stay together and escape danger; the title instruction not to let go of Adi's hand makes separation a personal risk. Helping begins with shared work and becomes civilian evacuation.",
+      "knowledgeLimits": "This understanding comes from visible entry text, objectives, subtitles and cloth/scene appearance. It is an AI reading result; it does not establish historical learning by a human. No ending or later cultural material observed."
+    },
+    "findings": [
+      {
+        "type": "clear",
+        "finding": "Role, neighbor/sibling relationships, destination and immediate civilian stakes were explicit on entry."
+      },
+      {
+        "type": "clear",
+        "finding": "Canting→wax→color-resist explanation aligns with the cloth interaction and visibly contrasting motif lines."
+      },
+      {
+        "type": "clear",
+        "finding": "Burning rubble and large right-alley instruction make the detour reason clear; pause menu is useful for recovery."
+      },
+      {
+        "type": "uncertain",
+        "finding": "Repeated E holds and the change from stretch cloth to hold/look at line did not make the precise completion condition obvious. Under software rendering the first dialogue stayed visible for minutes."
+      },
+      {
+        "type": "missed_prompt",
+        "finding": "I continued toward the global alley objective after a resident asked to crouch/wait; a later explicit cover banner made the warning harder to miss."
+      },
+      {
+        "type": "fixture_limitation",
+        "finding": "No drag command was available. Click→move had no clear turning effect, so rightward inspection/navigation was constrained. This does not prove a production control bug."
+      },
+      {
+        "type": "performance_caveat",
+        "finding": "Software renderer and earlier orphan contention dominated wall time; no general native performance conclusion is justified."
+      }
+    ],
+    "stop": {
+      "chapter": "03 / 07 — Lewat gang sebelah",
+      "marker": "GANG KANAN, 18 m",
+      "warning": "BERLINDUNG — Dari depan · cari tembok atau peti",
+      "reason": "Parent bounded this exploration after concrete story/culture/chaos/missed-prompt observations. The generic fixture lacked mouse-down/up or drag commands; click followed by move did not visibly turn the view. Subsequent crouch+D produced no marker change. This is an input-fixture/navigation limitation, not a proved game trap.",
+      "completionClaim": "The river crossing, school arrival and ending were not observed."
+    },
+    "observed_errors": 0,
+    "limits": [
+      "Includes screenshot capture, waits, interpretation, infrastructure diagnosis and pause/settings inspection.",
+      "Earlier orphan non-TTY browser contended until exact retained session73001 was closed with Ctrl-C; current game session13573 was preserved.",
+      "Software rendering advanced movement/dialogue very slowly. Screenshots took roughly tens of seconds. These timings are not human completion time."
+    ]
+  },
+  "interrupted_attempts": [
+    {
+      "name": "desktop-h-assistance",
+      "record_kind": "INTERRUPTION.json",
+      "completed": false,
+      "natural_ending_verified": false,
+      "status": "external-interruption-partial",
+      "last_persisted_milestone": {
+        "stage": "pass:Actual sheltered alley outcome behind cover",
+        "at": "2026-10-30T23:00:33.580Z",
+        "wallSeconds": 407.426
+      },
+      "source_hashes_before": null,
+      "source_hashes_after_interruption": null,
+      "runtime_hashes_still_match": null,
+      "used_driver_sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "captures": null,
+      "limits": null
+    },
+    {
+      "name": "desktop-h-assistance-r2",
+      "record_kind": "ORCHESTRATION_SWITCH.json",
+      "completed": false,
+      "natural_ending_verified": false,
+      "status": "orchestration-switch-partial",
+      "last_persisted_milestone": {
+        "stage": "capture:03-cloth-completed",
+        "at": "2026-10-30T23:11:42.443Z",
+        "wallSeconds": 156.543
+      },
+      "source_hashes_before": null,
+      "source_hashes_after_interruption": null,
+      "runtime_hashes_still_match": null,
+      "used_driver_sha256": "3a32d6df15b6881888b48a941455a456d61eefd59b94080d235d55754529cf70",
+      "captures": null,
+      "limits": null
+    },
+    {
+      "name": "phone-g-landscape-r2",
+      "record_kind": "INTERRUPTED.json",
+      "completed": false,
+      "natural_ending_verified": false,
+      "status": "Infrastructure interruption; retained exec session no longer exists after tool update. No natural ending proof or final report was produced.",
+      "last_persisted_milestone": {
+        "phase": 7,
+        "phaseObservationClock": 124.16559999999527,
+        "refugeCaptureClock": 125.68229999999514,
+        "lastAction": "Native run and crouch remain mutually exclusive",
+        "lastActionWallSeconds": 1072.232
+      },
+      "source_hashes_before": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after_interruption": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "39983b633a37bfcdf5972eee8a14ab4abc9f1671b1069b02b974df4fd542e9a1",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "runtime_hashes_still_match": true,
+      "used_driver_sha256": "5d251ab0ec07c0dfb210eaa1b452875ad7d2ce1dfb79ea1ffd7c28136dd26855",
+      "captures": 23,
+      "limits": [
+        "No final report/check count/error summary or natural ending/history/replay proof survived.",
+        "No game hang or timeout is demonstrated by the missing process/session.",
+        "The original process could not be gracefully closed or queried after tool/session loss; no replacement browser was launched during inspection."
+      ]
+    },
+    {
+      "name": "phone-h-landscape-interrupted",
+      "record_kind": "INTERRUPTED.json",
+      "completed": false,
+      "natural_ending_verified": false,
+      "status": "Execution environment changed at UTC date turnover; root retained exec session69937 became unknown, no retained renderer/browser process or final report/ending seal. This is an externally interrupted partial attempt, not a completed journey or established game failure.",
+      "last_persisted_milestone": {
+        "stage": "capture 03-visible-collapse",
+        "at": "2026-10-30T23:59:27.438Z"
+      },
+      "source_hashes_before": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "source_hashes_after_interruption": {
+        "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+        "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+        "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+        "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+        "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+        "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+        "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+        "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+        "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+        "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+      },
+      "runtime_hashes_still_match": true,
+      "used_driver_sha256": "75fe59b22fb3f243fb56a1dde7aff07ea29f8347eadb26f6c9ab172ca37d350c",
+      "captures": null,
+      "limits": null
+    }
+  ],
+  "unfinalized_standalone_seals": [],
+  "native_unit_test": {
+    "command": "npm test --prefix experience",
+    "passed": 57,
+    "total": 57,
+    "failed": 0,
+    "tested_manifest": "candidate-h.sha256",
+    "tested_runtime_sha256": {
+      "experience/index.html": "2143204c12770b1a01380b4dbcb07338a35306844a3bebd484d59c12822ec1fd",
+      "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f",
+      "experience/escape/actors.js": "ce3b207e209b776381eac7e5836993426cac5b6c9c1ed5655ebadaae289b868a",
+      "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+      "experience/escape/audio.js": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+      "experience/escape/controls.js": "e85e55c386c5e71aa97aca00c0cd787a47523c3f65cfcae72890f2e5647fb7c9",
+      "experience/escape/effects.js": "896cfabc5ed45314f637134772ffc2288508dcaa72cdc6a1c8c32319924a9260",
+      "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+      "experience/escape/story.js": "157d4329dd4b4617136497a0f4b886a65b259df6ea393d6712545d775d3dc784",
+      "experience/escape/world.js": "7150c2ff512c5d4600a65cd46cbcf610c93fdffa637e0eb17017dfcca15bd1cb"
+    },
+    "test_source_sha256": {
+      "experience/escape/actors.test.mjs": "4ccd1c85fb720d076ff90a967c0c15fb59093c3a5e33e052f4e6eb95de6518a2",
+      "experience/escape/rules.test.mjs": "afe475940d66492e29caa2cb659748659754da87d72ab72da6cd3cf55d9f8024",
+      "experience/game/effects.test.mjs": "5ecdaa2b273bc13c509e508e9148df9401d0a490572665ff113aa99afd65e248",
+      "experience/game/simulation.test.mjs": "c86f52adecffcf3ff398719df06fb765ccf087bed4f2bb04008dbd0ac0cb3583",
+      "experience/tests/animation-clock.test.mjs": "14a918ee3a10d06c6ad5c16efe55240a14b159c58b615112e09b5c253ef186b8",
+      "experience/tests/notebook-export.test.mjs": "f7dc71a08b0a7f39c566d1c4ea32ea44479b95be230ccf1425dd250e7ee8987a",
+      "experience/tests/pacing.test.mjs": "8cf7156705c49bdea6a8688466d269e8b9a4d5ba33e9f59f58e3bdce398e7b07",
+      "experience/tests/state.test.mjs": "b6092c135a86a4f761ebe8419591218d8c41421ba89dcdd4fba363303f3adc02",
+      "experience/package.json": "df9d7d34a52b8804f36847238d54b913d1560eb655494dccc4d21564fcb087d0"
+    },
+    "current_runtime_match": true,
+    "note": "Actual native suites, not play sessions. Extracted-package rerun is separate."
+  },
+  "g_warning_status_check": {
+    "passed": 6,
+    "total": 6,
+    "method": "Read-only isolated VM executes actual G tickDanger and actual unchanged impactProtection/assessImpact rules. DOM/audio/render are stand-ins; no browser, CSS layout or WebGL claim.",
+    "tested_source_hashes": {
+      "experience/escape/app.js": "e85a91ec71cfffc7f12f6d927d9651be783d3b141157629790d7e80c8c6c0809",
+      "experience/escape/rules.js": "e8a12d60c7d8a61b468ccfe7cfc86f194a4edad174047107ea961d2d02ee44f9",
+      "experience/escape.css": "43211da97577d9cfae3f9b2f94443362571927e8a9ff931450d55b9df8c4187f"
+    },
+    "current_sources_match": true
+  },
+  "audio_signal_check": {
+    "checks_passed": 10,
+    "checks_total": 10,
+    "tested_source_sha256": "5b113fe432c2e262a7dc9bde45545628a4d203d71a0d6027bc7d2277242cc883",
+    "current_source_matches": true,
+    "note": "Real AudioContext post-master PCM probe. Not listening, phone-speaker or human perception evidence."
+  }
+}

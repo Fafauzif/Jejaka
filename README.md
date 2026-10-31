@@ -1,3 +1,16 @@
+# Jejaka — Jangan Lepaskan Tangan Adi
+
+A first-person Indonesian escape story set against the November 1945 fighting in Surabaya. You are Raka, helping Sari and her younger brother Adi reach a school refuge. See a wax-resist cloth demonstration, follow visible changes in the streets, take cover and physically help people through the city.
+
+The active static application is `experience/index.html` → `experience/escape/app.js`. Start `python3 -m http.server 8080` at repository root and open `http://localhost:8080/experience/`. No build, account, API key or runtime service is required; use a modern WebGL browser. Vercel's output remains `experience`.
+
+Read [INSTALL_ESCAPE_REVISION.md](INSTALL_ESCAPE_REVISION.md) for the overlay and controls, [the latest direction](handoff/09_ESCAPE_REVISION.md), [cultural/historical claim boundaries](experience/docs/ESCAPE_CULTURAL_RECORD.md), and [actual verification](experience/docs/ESCAPE_VERIFICATION.md).
+
+The immediately previous game remains at `experience/previous/`; the field edition remains at `experience/legacy/`. All original research, cartography and master/source assets are preserved. Older documentation below describes those previous editions and is not current escape verification.
+
+<details>
+<summary>Archived documentation for the previous edition</summary>
+
 # Jejaka — Catatan yang Tertinggal
 
 An Indonesian-first, first-person browser historical-fiction experience set around an authored Surabaya street and river crossing in November1945. Raka meets Sari folding batik, crosses to recover her cloth, moves between cover during warnings and impacts, helps a family or opens a handcart lane, and passes his notebook to Damar. The non-graphic ending and historical battle outcome remain fixed; local actions change the surviving account and immediate world.
@@ -25,3 +38,5 @@ Raka, Sari, Damar, the street choreography, family story, cloth pattern, danger 
 `node --test experience/game/*.test.mjs experience/tests/*.test.mjs`
 
 The active rules are renderer-independent in `simulation.js`; original world/civilian/effect modules use vendored Three.js. Browser harnesses and evidence methods are described in the verification record. Test hooks require `?test=1`; a normal journey requires no developer hook.
+
+</details>
