@@ -4,9 +4,13 @@ A first-person Indonesian escape story set against the November 1945 fighting in
 
 The active static application is `experience/index.html` → `experience/escape/app.js`. Start `python3 -m http.server 8080` at repository root and open `http://localhost:8080/experience/`. No build, account, API key or runtime service is required; use a modern WebGL browser. Vercel's output remains `experience`.
 
-Read [INSTALL_ESCAPE_REVISION.md](INSTALL_ESCAPE_REVISION.md) for the overlay and controls, [the latest direction](handoff/09_ESCAPE_REVISION.md), [cultural/historical claim boundaries](experience/docs/ESCAPE_CULTURAL_RECORD.md), and [actual verification](experience/docs/ESCAPE_VERIFICATION.md).
+Read [INSTALL_ESCAPE_REVISION.md](INSTALL_ESCAPE_REVISION.md) for the overlay and controls, [the latest direction](handoff/10_GROUNDED_REVISION.md), [current cultural claim boundaries](experience/docs/GROUNDED_CULTURE.md), [map/history boundaries](experience/docs/GROUNDED_GEOGRAPHY.md), and [actual verification](experience/docs/GROUNDED_VERIFICATION.md). The earlier `ESCAPE_CULTURAL_RECORD.md` remains a historical ledger.
 
-The immediately previous game remains at `experience/previous/`; the field edition remains at `experience/legacy/`. All original research, cartography and master/source assets are preserved. Older documentation below describes those previous editions and is not current escape verification.
+The earlier photo/delivery edition remains at `experience/previous/`; the field edition remains at `experience/legacy/`. The preceding H escape revision is preserved in Git at the documented base commit and in its separately delivered ZIP. All original research, cartography and master/source assets are preserved. Older documentation below describes those previous editions and is not current escape verification.
+
+This is a development checkpoint: **71 native tests pass; no complete grounded journey is verified.** The fourth touch run completed the workshop, then failed its late-crouching strategy. Final label/driver corrections have no browser replay under the four-round cap.
+
+The current main route targets approximately four to five minutes. Kembang Djepoen, the Kali Mas crossing and west-bank quay relationships follow a coarse period-map reading, with distances compressed50%; the people and local escape incidents are fiction. Read [MASTER_AI_CONTEXT.md](MASTER_AI_CONTEXT.md) for the full product, competition, research and continuation context.
 
 <details>
 <summary>Archived documentation for the previous edition</summary>

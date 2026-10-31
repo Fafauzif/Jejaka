@@ -1,3 +1,5 @@
+> **Latest: read `10_GROUNDED_REVISION.md` and root `MASTER_AI_CONTEXT.md`.** User1A/2B/3A locks map-grounded relationships, disclosed compression, 4–5min main route, Indonesian captions/environment only. Earlier duration and geography below are preserved history.
+
 > Latest escape revision: read `09_ESCAPE_REVISION.md` and `experience/docs/ESCAPE_VERIFICATION.md` for the active implementation and actual checks. The notices and checkpoint text below are preserved history. Settled answers remain unchanged; the latest user request expands review/refinement to 10–20 substantive passes.
 
 > Continued build: read `08_CONTINUATION_RESULT.md` and `experience/docs/CONTINUATION_VERIFICATION.md` for the delivered implementation and actual evidence. The text below is the original checkpoint history; its earlier test counts and unfinished-feature descriptions are not the current release record. Settled user answers remain unchanged.

@@ -1,3 +1,4 @@
+import { LAYOUT } from './layout.js';
 /**
  * Original civilian cast for Jejaka's escape edition.
  * Bodies are articulated from shared meshes, with speed-driven planted-foot
@@ -56,15 +57,13 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
   const palette = [0x8a9e95, 0xbba37c, 0x8c7066, 0xd5c6a4, 0x5f817e, 0xaea99b, 0x786a75, 0x827b63];
   const skins = [0xb78861, 0x9d6a49, 0xc29470, 0x9f7252, 0xac7d58];
   const trousers = [0x424a46, 0x554d40, 0x545e59, 0x4b474b, 0x665c48];
-  const route = [[0, 7], [0, -30], [24, -32], [24, -46], [24, -82], [24, -93], [24, -108], [20, -114], [0, -126], [-20, -150], [-23.3, -170], [-23.3, -197], [-20, -228.5]];
-  // Match the authored burning storefronts in effects.js. These are pedestrian
-  // avoidance footprints, not player damage volumes or extra world colliders.
-  const burningFronts = [
-    { x: -6, z: -45, phase: 1, radius: 4.23 }, { x: 8, z: -45.3, phase: 1, radius: 3.58 },
-    { x: 29.3, z: -65, phase: 2, radius: 3.42 }, { x: 32, z: -100, phase: 3, radius: 2.6 },
-    { x: -20, z: -137, phase: 4, radius: 3.9 }, { x: 17, z: -144, phase: 4, radius: 4.88 },
-    { x: 30, z: -174, phase: 5, radius: 4.23 }
-  ];
+  const W = LAYOUT.workshop, R = LAYOUT.rescue, C = LAYOUT.cart, F = LAYOUT.refuge;
+  const laneSide=Math.sign(LAYOUT.bridge.laneX-C.x)||-1, queueX=C.x+laneSide*1.3, cartShift=LAYOUT.cartShift??-laneSide*3.2;
+  const RI = LAYOUT.routeIndices, LAST = LAYOUT.actorRoute.length - 1;
+  const route = LAYOUT.actorRoute.map(p => [p.x, p.z]);
+  const rescuePoint = (x, z) => ({ x: R.x + x - 24.65, z: R.z + z + 92.73 });
+  const workshopPoint = (x, y, z) => new THREE.Vector3(W.x + x + 4.3, y, W.z + z - 2.5);
+  const burningFronts = LAYOUT.fireSites;
   function fireAt(x, z, margin = 0) {
     return burningFronts.find(f => current.phase >= f.phase && Math.hypot(x - f.x, z - f.z) < f.radius + margin);
   }
@@ -72,18 +71,23 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     return (current.phase === 3 && !current.helped) || (current.phase === 4 && current.helpedAt > 0 && current.time >= current.helpedAt && current.time - current.helpedAt < 2.2);
   }
   function rescueWorkingArea(x, z) {
-    return rescueStageActive() && x > 21.5 && x < 27.4 && z < -87.4 && z > -96.8;
+    return rescueStageActive() && x > R.x - 3.15 && x < R.x + 2.75 && z < R.z + 5.33 && z > R.z - 4.07;
   }
 
-  const people = [], heroes = {}, dropped = [];
-  const districts = [
-    { name: 'market', count: 40, x: 0, z: -6, w: 12, d: 42, route: [[-5, 10], [-5, -20], [5, -20], [5, 10]], escape: 1 },
-    { name: 'alley', count: 16, x: 24, z: -59, w: 5.4, d: 35, route: [[22, -43], [22, -72], [26, -72], [26, -43]], escape: 4 },
-    { name: 'courtyard', count: 16, x: 23, z: -88, w: 15, d: 14, route: [[17, -81], [29, -81], [29, -95], [19, -95]], escape: 6 },
-    { name: 'plaza', count: 26, x: 0, z: -132, w: 30, d: 21, route: [[-13, -121], [13, -121], [13, -140], [-13, -140]], escape: 9 },
-    { name: 'bridge', count: 12, x: -20, z: -164, w: 5.2, d: 19, route: [[-22, -155], [-22, -172], [-18, -172], [-18, -155]], escape: 10 },
-    { name: 'refuge', count: 7, x: -20, z: -217, w: 17, d: 13, route: [[-27, -211], [-13, -211], [-13, -224], [-27, -224]], escape: 12 }
-  ];
+  const people=[],heroes={},dropped=[];
+  const activitySites=scene.userData.escapeActivitySites||[],marketPairSites=new Map(),usedActivitySites=new Set();
+  const around = (index, dx=0, dz=0) => [route[index][0]+dx, route[index][1]+dz];
+  const district = (name,count,start,end) => ({name,count,start,end,x:(route[start][0]+route[end][0])/2,z:(route[start][1]+route[end][1])/2,w:6,d:Math.max(10,Math.hypot(route[start][0]-route[end][0],route[start][1]-route[end][1])),route:[around(start,-1.4),around(end,-1.4),around(end,1.4),around(start,1.4)],escape:start+1});
+  const marketRoad=LAYOUT.data.roads.find(r=>r.id==='R_KEMBANG').points;
+  function marketPoint(z,lane=0){
+    const pair=marketRoad.slice(0,-1).map((a,i)=>[a,marketRoad[i+1]]).find(([a,b])=>z>=Math.min(a.z,b.z)&&z<=Math.max(a.z,b.z));
+    if(!pair)return [W.x+lane,z];const [a,b]=pair,t=clamp((z-a.z)/(b.z-a.z),0,1);return[a.x+(b.x-a.x)*t+lane,z];
+  }
+  function marketBand(name,count,minZ,maxZ,role){const [x,z]=marketPoint((minZ+maxZ)/2);return{name,count,start:RI.workshop,end:RI.depart,x,z,w:5,d:maxZ-minZ,marketGroup:true,marketRole:role,minZ,maxZ,route:[marketPoint(minZ,-1.7),marketPoint(maxZ,-1.7),marketPoint(maxZ,1.7),marketPoint(minZ,1.7)],escape:RI.depart};}
+  // Residents occupy real street bands behind, near and in front of the start.
+  // All exist from boot and perform ordinary routines; no view-triggered spawn,
+  // fading, camera-facing cards, relocation or synchronized entrance is used.
+  const districts=[marketBand('marketRear',12,W.z+22,W.z+42,'rear'),marketBand('marketNear',12,W.z+8,W.z+18,'near'),marketBand('marketForward',16,LAYOUT.actorRoute[RI.warning].z+5,W.z-8,'forward'),district('alley',16,RI.coverApproach,RI.rescueApproach),district('courtyard',16,RI.rescueApproach,RI.rescue),district('plaza',26,RI.plaza,RI.bridgeGather),district('bridge',12,RI.bridgeGather,RI.bridgeApproach),district('refuge',7,RI.schoolApproach,RI.refugeApproach)];
   function person(i, x, z, hero = '', district = null) {
     const female = hero === 'sari' || (!hero && i % 3 === 1);
     return { i, id: hero || `civilian-${i}`, hero, district, x, z, homeX: x, homeZ: z,
@@ -98,21 +102,38 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       targetX: x, targetZ: z, routeIndex: 1, routineIndex: i % 4, mode: 'routine', reaction: .25 + random() * 1.9,
       alertedAt: null, age: 0, stopped: 1, look: 0, renderTier: 'near', pending: 0, drop: false };
   }
-  for (const [name, x, z] of [['sari', -4.3, 2.5], ['adi', -2, 2], ['wiryo', -23.2, -181.5]]) {
+  for (const [name, x, z] of [['sari', W.x, W.z], ['adi', W.x+2.3, W.z-.5], ['wiryo',C.x+laneSide*3.2,C.z+.5]]) {
     const p = person(people.length, x, z, name); people.push(p); heroes[name] = p;
   }
   for (const district of districts) for (let n = 0; n < district.count; n++) {
-    const p = person(people.length, district.x + (random() - .5) * district.w, district.z + (random() - .5) * district.d, '', district);
+    const index = district.start + Math.floor(random() * Math.max(1, district.end - district.start)), u = random(), start = route[index], end = route[index+1], dx=end[0]-start[0],dz=end[1]-start[1],length=Math.hypot(dx,dz)||1,lane=(random()-.5)*3;
+    const p = person(people.length, start[0]+dx*u-dz/length*lane, start[1]+dz*u+dx/length*lane, '', district);
     // Keep the natural workshop approach open: residents still trade and walk
     // on the right and farther up-street, rather than masking Sari's hands.
-    if (district.name === 'market' && p.z >= 0) { p.x = 3.4 + p.i % 5 * .7; p.homeX = p.x; p.targetX = p.x; }
+    if(district.marketGroup){
+      const group=Math.floor(n/4),slot=n%4,side=group%2?1:-1;
+      const z=district.minZ+(group+.5)/Math.ceil(district.count/4)*(district.maxZ-district.minZ)+(slot===1?.55:slot===3?-.7:0);
+      const [x]=marketPoint(z,side*(slot<2?1.8:1.3)+(slot===1?.12:0));
+      p.x=p.homeX=p.targetX=x;p.z=p.homeZ=p.targetZ=z;
+      p.marketRole=district.marketRole;p.marketOrder=n;p.job=[0,4,1,2][slot];p.bag=slot===2;
+      p.routineYaw=slot===0?Math.atan2(.12,.55):slot===1?Math.atan2(-.12,-.55):side<0?Math.PI/2:-Math.PI/2;
+      if(slot<2){
+        const key=district.name+':'+group;
+        if(!marketPairSites.has(key)){
+          const candidates=activitySites.filter(a=>!usedActivitySites.has(a)&&a.customer&&a.z>=district.minZ-2&&a.z<=district.maxZ+2).sort((a,b)=>Math.abs(a.z-z)-Math.abs(b.z-z));
+          const site=candidates[0]||null;marketPairSites.set(key,site);if(site)usedActivitySites.add(site);
+        }
+        const site=marketPairSites.get(key);
+        if(site){const here=slot?site.customer:site,other=slot?site:site.customer;p.x=p.homeX=p.targetX=here.x;p.z=p.homeZ=p.targetZ=here.z;p.routineYaw=Math.atan2(other.x-here.x,other.z-here.z);p.activityKind=site.kind;}
+      }
+    }
     if (district.name === 'plaza' && n < 6) {
       // These existing residents are present from boot. Their local departure
       // starts when the visitor reaches the square, not thirty metres earlier.
-      const homes = [[4.6, -131.4], [5.5, -132.2], [9.4, -135.2], [10.3, -136], [-5.7, -137.6], [-6.35, -137.8]];
+      const homes = [[LAYOUT.plaza.x+1.5,LAYOUT.plaza.z-1],[LAYOUT.plaza.x+2,LAYOUT.plaza.z-2],[LAYOUT.plaza.x-.7,LAYOUT.plaza.z-3],[LAYOUT.plaza.x-1.1,LAYOUT.plaza.z-4],[LAYOUT.plaza.x+.6,LAYOUT.plaza.z-5],[LAYOUT.plaza.x+.1,LAYOUT.plaza.z-5.3]];
       p.x = p.homeX = homes[n][0]; p.z = p.homeZ = homes[n][1];
       p.plazaRole = n < 4 ? 'crossing' : n === 4 ? 'helper' : 'supported';
-      p.plazaOrder = n; p.plazaStep = 0; p.plazaFinished = false;
+      p.plazaOrder = n; p.wiryoRouteIndex=null;p.queueRouteIndex=null;p.plazaStep = 0; p.plazaFinished = false;
       p.bag = n === 1 || n === 3; p.yaw = p.plazaHomeYaw = n < 4 ? -Math.PI / 2 : n === 4 ? -1.87 : 1.27;
     }
     p.routeIndex = district.escape; people.push(p);
@@ -214,13 +235,15 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     if (p.hat === 2) add('straw', [hx, headY + .13, hz], [1, 1, 1], 0xc0a578, [0, look, 0]);
     if (p.hero === 'sari') {
       add('shawl', [0, hipY + .43, .04], [1, .76, 1], 0xe6d6b7, [.1, 0, .12]);
-      add('bundle', [0, hipY + .13, .39], [1, 1, 1], current.helped === false && current.phase > 4 ? 0xb39470 : 0xffffff, [0, 0, Math.PI / 2]);
+      if(!(current.phase===0&&!current.learned))add('bundle',[0,hipY+.13,.39],[1,1,1],current.helped===false&&current.phase>4?0xb39470:0xffffff,[0,0,Math.PI/2]);
     }
-    if (p.hero === 'sari' && current.phase === 0 && !current.learned) {
+    if(p.hero==='sari'&&current.phase===0&&!current.learned&&(current.workStage||0)===0){
       const stroke = Math.sin(t * 1.6 + 1) * .028;
       segment('tool', [.14, hipY + .12 + stroke, .4], [.12, hipY + .08 + stroke, .55], .012, 0x74583d);
       add('cup', [.12, hipY + .08 + stroke, .55], [.025, .017, .026], 0x9c7c43);
       segment('tool', [.13, hipY + .075 + stroke, .56], [.145, hipY + .06 + stroke, .59], .006, 0xb79a60);
+    }else if(p.hero==='sari'&&current.phase===0&&!current.learned){
+      segment('tool',[.2,hipY+.08,.05],[.2,hipY-.03,.05],.012,0x74583d);add('cup',[.2,hipY+.08,.05],[.025,.017,.026],0xad8b4a);
     } else if (p.hero === 'sari') {
       segment('tool', [.16, hipY + .15, .36], [.19, hipY + .11, .50], .012, 0x74583d);
       add('cup', [.19, hipY + .11, .50], [.025, .017, .026], 0xad8b4a);
@@ -231,7 +254,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
   function blocked(x, z, radius = .24, person = null) {
     // This is a pre-war social staging boundary, never a player collider.
     // Once the attack starts, ordinary escape routes can use this space.
-    if (person && !person.hero && (current.phase || 0) === 0 && x + radius > -7 && x - radius < 1 && z + radius > 1 && z - radius < 9) return true;
+    if (person && !person.hero && (current.phase || 0) === 0 && x + radius > W.x-2.7 && x-radius<W.x+5.3 && z+radius>W.z-1.5 && z-radius<W.z+6.5) return true;
     if (person && !person.hero) for (const f of burningFronts) {
       if (current.phase < f.phase) continue;
       const next = Math.hypot(x - f.x, z - f.z), previous = Math.hypot(person.x - f.x, person.z - f.z);
@@ -255,12 +278,12 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     // Neighbours separate locally; they do not march in synchronized rigid lanes.
     let avoidX = 0, avoidZ = 0;
     for (const other of people) {
-      if (other === p || Math.abs(other.z - p.z) > .8 || Math.abs(other.x - p.x) > .8) continue;
+      if ((p.hero === 'sari' && other.hero === 'adi' && current.phase === 3 && !current.helped) || other === p || Math.abs(other.z - p.z) > .8 || Math.abs(other.x - p.x) > .8) continue;
       const ox = p.x - other.x, oz = p.z - other.z, d = Math.hypot(ox, oz);
       if (d > .01 && d < .68) { const force = (.68 - d) * (p.hero && !other.hero ? .12 : !p.hero && other.hero ? 1.3 : .7); avoidX += ox / d * force; avoidZ += oz / d * force; }
     }
     const toPlayerX = p.x - player.x, toPlayerZ = p.z - player.z, cameraDistance = Math.hypot(toPlayerX, toPlayerZ);
-    const minimum = p.hero ? 1.6 : .78;
+    const minimum = p.hero ? 1.6 : 1.25;
     if (cameraDistance < minimum && cameraDistance > .01) {
       const force = (minimum - cameraDistance) * 2.3; avoidX += toPlayerX / cameraDistance * force; avoidZ += toPlayerZ / cameraDistance * force;
     }
@@ -315,7 +338,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       if (departureStartedAt === null) departureStartedAt = Number.isFinite(state.learnedAt) && state.learnedAt >= 0 ? state.learnedAt : clock;
       const packingTime = Math.max(0, clock - departureStartedAt);
       if (packingTime < 1.5) { p.speed *= Math.exp(-dt * 8); p.mode = 'packing'; p.packingTime = packingTime; return; }
-      const target = state.companionTarget && Number.isFinite(state.companionTarget.x) && Number.isFinite(state.companionTarget.z) ? state.companionTarget : { x: 0, z: -20 };
+      const target = state.companionTarget && Number.isFinite(state.companionTarget.x) && Number.isFinite(state.companionTarget.z) ? state.companionTarget : {x:route[RI.depart][0],z:route[RI.depart][1]};
       const tx = target.x + (p.hero === 'sari' ? -.65 : .6), tz = target.z;
       const dx = tx - p.x, dz = tz - p.z, d = Math.hypot(dx, dz), pd = Math.hypot(player.x - p.x, player.z - p.z);
       const ahead = ((player.x - p.x) * dx + (player.z - p.z) * dz) / Math.max(.01, d) < -3;
@@ -328,15 +351,21 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       if (phase < 5) { p.mode = state.war > .4 ? 'duck' : 'routine'; p.speed = 0; return; }
       const progress = state.bridgeHelped ? 1 : clamp(state.bridgeProgress || 0, 0, 1);
       p.mode = progress > 0 && progress < 1 ? 'push' : progress === 0 ? 'wait' : 'run';
-      if (progress >= 1) walk(p, -24.5, -226, 3.8, dt, player);
-      else { const nx = -23.2 + progress * 3.2; const travelled = Math.abs(nx - p.x); p.distance += travelled; p.gait = (p.gait + travelled / 1.04) % 1; p.x = nx; p.z = -181.5; p.yaw = Math.PI / 2; p.speed = travelled / Math.max(.001, dt); }
+      if(progress>=1){
+        p.wiryoRouteIndex=Math.max(RI.bridgeExit,p.wiryoRouteIndex||p.routeIndex||RI.bridgeExit);
+        let goal=route[p.wiryoRouteIndex],tx=p.wiryoRouteIndex<=RI.bridgeExit?queueX:goal[0],tz=p.wiryoRouteIndex<=RI.bridgeExit?LAYOUT.bridge.minZ-3:goal[1];
+        if(Math.hypot(tx-p.x,tz-p.z)<.75&&p.wiryoRouteIndex<LAST){goal=route[++p.wiryoRouteIndex];tx=goal[0];tz=goal[1];}
+        p.routeIndex=p.wiryoRouteIndex;const arrived=p.wiryoRouteIndex===LAST&&Math.hypot(p.x-F.x,p.z-F.z)<3;
+        p.mode=arrived?'wait':'run';walk(p,tx,tz,arrived?0:3.8,dt,player);
+      }
+      else { const nx=C.x+laneSide*3.2+progress*cartShift; const travelled = Math.abs(nx - p.x); p.distance += travelled; p.gait = (p.gait + travelled / 1.04) % 1; p.x = nx; p.z = C.z+.5; p.yaw=laneSide<0?Math.PI/2:-Math.PI/2;p.speed=travelled / Math.max(.001, dt); }
       return;
     }
     const releasedAge = phase === 4 && state.helped && Number.isFinite(state.helpedAt) && state.helpedAt > 0 ? (state.time || 0) - state.helpedAt : Infinity;
     if (releasedAge >= 0 && releasedAge < 1.2) {
       // Let the actual rescued child stand and rejoin before running again.
       // No route gate or position reset: a moving player can continue at once.
-      p.speed = 0; p.routeIndex = Math.max(6, p.routeIndex);
+      p.speed = 0; p.routeIndex = Math.max(RI.plaza, p.routeIndex);
       p.recoveryRise = clamp(releasedAge / .8, 0, 1);
       if (p.hero === 'adi') {
         p.trapLatched = false; p.trapAnchor = null; p.helpRise = 1; p.mode = 'recover';
@@ -344,59 +373,64 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       } else p.mode = 'steady';
       return;
     }
-    const fallback = [0, 3, 4, 5, 9, 11, 12, 12][Math.min(7, phase)];
+    const fallback = [RI.workshop,RI.coverApproach,RI.rescueApproach,RI.rescue,RI.bridgeApproach,RI.bridgeExit,LAST,LAST][Math.min(7,phase)];
     let finalIndex = goalIndex(state.companionTarget, fallback);
-    if (phase === 3 && !state.helped) finalIndex = 5;
-    if (p.hero === 'adi' && phase === 2) finalIndex = 5;
-    if (p.hero === 'adi' && phase === 3 && !state.helped && (p.trapLatched || Math.hypot(p.x - 24.6, p.z + 93) < .32)) {
+    if (phase === 3 && !state.helped) finalIndex = RI.rescue;
+    if (p.hero === 'adi' && phase === 2) finalIndex = RI.rescue;
+    if (p.hero === 'adi' && phase === 3 && !state.helped && (p.trapLatched || Math.hypot(p.x-R.x,p.z-R.z) < .32)) {
       const h = clamp(state.helpProgress || 0, 0, 1), crawl = clamp(h / .65, 0, 1);
       if (!p.trapLatched) { p.trapLatched = true; p.trapAnchor = { x: p.x, z: p.z }; }
       const nx = p.trapAnchor.x - 1.05 * crawl, nz = p.trapAnchor.z + .28 * crawl;
       p.speed = Math.hypot(nx - p.x, nz - p.z) / Math.max(.001, dt); p.x = nx; p.z = nz;
       p.mode = 'trapped'; p.yaw = Math.PI * .8; p.helpRise = clamp((h - .35) / .65, 0, 1); return;
     }
-    if (p.hero === 'sari' && phase === 3 && !state.helped && p.routeIndex >= 5 && p.z < -88) {
-      const d = Math.hypot(p.x - 24.2, p.z + 92.22); p.mode = d < .15 ? 'help' : 'walk';
-      walk(p, 24.2, -92.22, d < .15 ? 0 : 3.4, dt, player, .08);
+    if (p.hero === 'sari' && phase === 3 && !state.helped && p.routeIndex >= RI.rescue && p.z < R.z+4.73) {
+      // Work from the child's east flank. The north approach remains clear,
+      // and Sari follows the extraction instead of filling the player's view.
+      const child = heroes.adi, tx = child.x + .46, tz = child.z + .1;
+      const d = Math.hypot(p.x - tx, p.z - tz); p.mode = d < .28 ? 'help' : 'walk';
+      walk(p, tx, tz, d < .08 ? 0 : 3.4, dt, player, .08);
       p.yaw += angle(Math.atan2(heroes.adi.x - p.x, heroes.adi.z - p.z) - p.yaw) * Math.min(1, dt * 5); return;
     }
-    if (p.hero === 'adi' && phase > 3 && p.trapLatched) { p.trapLatched = false; p.routeIndex = Math.max(6, p.routeIndex); }
-    if (phase > 3 && !state.helped && p.z > -96) {
-      p.heroBypass = p.heroBypass || 0; const bypass = p.heroBypass === 0 ? [20.7, -90.5] : [20.7, -96];
+    if (p.hero === 'adi' && phase > 3 && p.trapLatched) { p.trapLatched = false; p.routeIndex = Math.max(RI.plaza, p.routeIndex); }
+    if (phase > 3 && !state.helped && p.z > R.z-3.27) {
+      p.heroBypass = p.heroBypass || 0; const bp=rescuePoint(20.7,p.heroBypass===0?-90.5:-96),bypass=[bp.x,bp.z];
       if (Math.hypot(p.x - bypass[0], p.z - bypass[1]) < .65) p.heroBypass++;
       if (p.heroBypass < 2) { p.mode = 'run'; walk(p, bypass[0], bypass[1], 6.5, dt, player); return; }
-      p.routeIndex = Math.max(6, p.routeIndex);
+      p.routeIndex = Math.max(RI.plaza, p.routeIndex);
     }
-    p.routeIndex = clamp(p.routeIndex, 1, 12);
-    const bridgeRails = colliders.filter(c => c.tag === 'bridge rail' && c.maxX < 0).sort((a, b) => a.minX - b.minX);
-    const entryRail = bridgeRails[0], farRail = bridgeRails[1];
-    const entryClearZ = entryRail ? entryRail.maxZ + .24 + .1 : -173.16;
-    const laneMinX = Math.max(route[10][0] - .3, entryRail ? entryRail.maxX + .24 + .04 : -Infinity);
-    const laneMaxX = Math.min(route[10][0] + .3, farRail ? farRail.minX - .24 - .04 : Infinity);
-    const nearEntry = finalIndex >= 11 && p.z > -177 && p.z < route[10][1] + 2;
+    p.routeIndex = clamp(p.routeIndex,1,LAST);
+    const bridgeRails = colliders.filter(c => c.tag === 'bridge rail').sort((a, b) => a.minX - b.minX);
+    const westRail=bridgeRails[0],eastRail=bridgeRails.at(-1);
+    const entryRail=laneSide<0?westRail:eastRail;
+    const entryClearZ = entryRail ? entryRail.maxZ + .24 + .1 : LAYOUT.bridge.maxZ+.34;
+    const laneMinX = Math.max(route[RI.bridgeApproach][0] - .3, westRail ? westRail.maxX + .24 + .04 : -Infinity);
+    const laneMaxX = Math.min(route[RI.bridgeApproach][0] + .3, eastRail ? eastRail.minX - .24 - .04 : Infinity);
+    const nearEntry = finalIndex >= RI.bridgeExit && p.z > LAYOUT.bridge.maxZ-.35 && p.z < route[RI.bridgeApproach][1] + 2;
     const outsideLane = p.x < laneMinX - .03 || p.x > laneMaxX + .03;
     // A valid older save or a player backtrack may leave a companion beside
     // the exterior of the rail. Revisit the real approach waypoint rather
     // than aiming diagonally through the rail/water toward the school.
-    if (nearEntry && outsideLane && p.routeIndex >= 11) p.routeIndex = 10;
-    while (p.routeIndex < finalIndex && Math.hypot(route[p.routeIndex][0] - p.x, route[p.routeIndex][1] - p.z) < (p.routeIndex === 10 ? .25 : 1.1)) p.routeIndex++;
-    const target = route[Math.min(p.routeIndex, finalIndex)], bridgeLane = p.routeIndex >= 10 && p.routeIndex <= 11;
-    const offset = bridgeLane ? 0 : p.hero === 'sari' ? -.65 : .6;
+    if (nearEntry && outsideLane && p.routeIndex >= RI.bridgeEntry) p.routeIndex = RI.bridgeApproach;
+    while (p.routeIndex < finalIndex && Math.hypot(route[p.routeIndex][0] - p.x, route[p.routeIndex][1] - p.z) < (p.routeIndex === RI.bridgeApproach ? .25 : 1.1)) p.routeIndex++;
+    const target = route[Math.min(p.routeIndex, finalIndex)], bridgeLane = p.routeIndex >= RI.bridgeApproach && p.routeIndex <= RI.bridgeExit;
+    const reachingChild=p.hero==='adi'&&phase<=3&&p.routeIndex>=RI.rescue&&finalIndex===RI.rescue;
+    const offset=bridgeLane||reachingChild?0:p.hero==='sari'?-.65:.6;
     let tx = target[0] + offset, tz = target[1];
-    const navigation = bridgeLane && finalIndex >= 11 ? { minX: laneMinX, maxX: laneMaxX, precise: p.routeIndex === 10, returnToEntry: nearEntry && outsideLane && p.z <= entryClearZ } : null;
-    if (navigation?.returnToEntry) { tx = p.x; tz = route[10][1]; }
-    if (phase >= 6 && finalIndex === 12 && p.routeIndex >= 12) { tx = p.hero === 'sari' ? -20.6 : -19.5; tz = p.hero === 'sari' ? -228.5 : -228.3; }
+    const navigation = bridgeLane && finalIndex >= RI.bridgeExit ? { minX: laneMinX, maxX: laneMaxX, precise: p.routeIndex === RI.bridgeApproach, returnToEntry: nearEntry && outsideLane && p.z <= entryClearZ } : null;
+    if (navigation?.returnToEntry) { tx = p.x; tz = route[RI.bridgeApproach][1]; }
+    if (phase >= 6 && finalIndex === LAST && p.routeIndex >= LAST) { tx = p.hero === 'sari' ? F.x-.1 : F.x+1; tz = p.hero === 'sari' ? F.z+.55 : F.z+.75; }
     const dx = tx - p.x, dz = tz - p.z, d = Math.hypot(dx, dz), pd = Math.hypot(player.x - p.x, player.z - p.z);
     const ahead = ((player.x - p.x) * dx + (player.z - p.z) * dz) / Math.max(.01, d) < -5;
-    let speed = p.hero === 'adi' ? 7.65 : 6.8;
+    let speed = p.hero === 'adi' ? 5.1 : 4.6;
     const lag = projectRoute(player, Math.max(0, p.routeIndex - 2), finalIndex).along - projectRoute(p, Math.max(0, p.routeIndex - 2), finalIndex).along;
     if (lag > 6 || (pd > 10 && !ahead)) speed = p.hero === 'adi' ? 8.4 : 8.2;
     if (pd > 13 && lag < -5) speed = 0;
     if (d < (p.hero === 'adi' && phase === 3 && !state.helped ? .25 : 1.0) && p.routeIndex >= finalIndex) speed = 0;
     if (phase >= 6 && p.routeIndex >= finalIndex && Math.hypot(tx - p.x, tz - p.z) < .45) speed = 0;
-    p.mode = speed > 0 ? 'run' : phase >= 6 && p.routeIndex >= finalIndex ? 'rest' : 'wait';
+    p.mode=speed>0?'run':phase>=6&&finalIndex===LAST&&p.routeIndex>=LAST?'rest':'wait';
     if (phase >= 6 && speed === 0) p.yaw += angle(Math.atan2(player.x - p.x, player.z - p.z) - p.yaw) * Math.min(1, dt * 3);
-    if (p.hero === 'adi' && phase === 3 && !state.helped && p.routeIndex === 5 && p.z < -90) { p.mode = 'duck'; speed = Math.min(speed, 1.4); }
+    if (p.hero === 'adi' && phase === 3 && !state.helped && p.routeIndex === RI.rescue && p.z < R.z+2.73) { p.mode = 'duck'; speed = Math.min(speed, 1.4); }
     p.look = Math.sin(t * .7 + p.i) > .76 ? .38 : 0;
     walk(p, tx, tz, speed, dt, player, .24, navigation);
   }
@@ -426,14 +460,14 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     walk(p, target.x, target.z, 3.8, dt, player); return true;
   }
   function clearRescueArea(p, dt, player) {
-    if (!rescueStageActive() || p.x <= 21.5 || p.x >= 32 || p.z >= -85.8 || p.z <= -99.5) return false;
-    if (!Number.isFinite(p.rescueBypassZ)) p.rescueBypassZ = p.z < -92 ? -97.2 : -87;
-    const edgeZ = p.rescueBypassZ, aroundEast = p.x > 26.6 && Math.abs(p.z - edgeZ) > .3;
-    p.mode = 'run'; p.coverTarget = null; p.beamBypass = edgeZ < -92 ? 1 : 0;
-    p.routeIndex = Math.max(5, p.routeIndex);
+    if (!rescueStageActive() || p.x<=R.x-3.15||p.x>=R.x+7.35||p.z>=R.z+6.93||p.z<=R.z-6.77) return false;
+    if (!Number.isFinite(p.rescueBypassZ)) p.rescueBypassZ = p.z<R.z+.73?R.z-4.47:R.z+5.73;
+    const edgeZ = p.rescueBypassZ, aroundEast = p.x>R.x+1.95 && Math.abs(p.z - edgeZ) > .3;
+    p.mode = 'run'; p.coverTarget = null; p.beamBypass = edgeZ<R.z+.73 ? 1 : 0;
+    p.routeIndex=Math.max(RI.rescue,p.routeIndex);
     // East-side residents first use the edge of the yard, then cross west.
     // They do not run between Raka and the child during the lifted-frame action.
-    walk(p, aroundEast ? Math.max(27.7, p.x) : 20.65, edgeZ, 3.2, dt, player); return true;
+    walk(p, aroundEast ? Math.max(R.x+3.05,p.x):R.x-4, edgeZ, 3.2, dt, player); return true;
   }
   function movePlazaResident(p, dt, t, state, player) {
     if (!p.plazaRole) return false;
@@ -446,25 +480,32 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     if (elapsed < delay || heldUntilImpact) { p.mode = waitingMode; p.speed *= Math.exp(-dt * 7); return true; }
     if (plazaImpactAt !== null && clock - plazaImpactAt < .7 + p.plazaOrder * .035) { p.mode = 'shield'; p.speed *= Math.exp(-dt * 8); return true; }
     if (!p.plazaFinished) {
-      const lane = p.plazaOrder % 2 ? .6 : -.35;
-      const path = held ? [[-10.5, -136.5], [-13.5, -146], [-20, -160]] : p.plazaOrder < 2 ? [[0, -132.7], [-9.5, -135.4], [-13.5, -146], [-20, -160]] : [[2, -135.2], [-10, -136], [-14, -147], [-20, -160.7]];
-      let target = path[p.plazaStep];
-      if (Math.hypot(target[0] + lane - p.x, target[1] - p.z) < .75) {
-        if (p.plazaStep < path.length - 1) target = path[++p.plazaStep];
-        else { p.plazaFinished = true; p.routeIndex = 10; }
-      }
-      if (!p.plazaFinished) { p.mode = 'run'; walk(p, target[0] + lane, target[1], held ? 2.55 : 3.25 + (p.plazaOrder % 2) * .18, dt, player); return true; }
+      const lane=p.plazaOrder%2?.55:-.55;
+      const path=[around(RI.plaza,lane,-3),around(RI.bridgeGather,lane),around(RI.bridgeApproach)];
+      let target=path[p.plazaStep];
+      if(Math.hypot(target[0]-p.x,target[1]-p.z)<.7){if(p.plazaStep<path.length-1)target=path[++p.plazaStep];else{p.plazaFinished=true;p.routeIndex=RI.bridgeEntry;}}
+      if(!p.plazaFinished){p.mode='run';walk(p,target[0],target[1],held?2.55:3.35,dt,player);return true;}
     }
     if (Math.hypot(route[p.routeIndex][0] - p.x, route[p.routeIndex][1] - p.z) < 1.1 && p.routeIndex < route.length - 1) p.routeIndex++;
     const goal = route[p.routeIndex];
-    p.mode = p.routeIndex === route.length - 1 && p.z < -223 ? 'wait' : 'run';
-    walk(p, goal[0] + (p.routeIndex >= 10 && p.routeIndex <= 11 ? 0 : (p.plazaOrder % 2 ? .5 : -.5)), goal[1], p.mode === 'wait' ? 0 : held ? 2.55 : 3.4, dt, player);
+    p.mode = p.routeIndex === route.length - 1 && Math.hypot(p.x-F.x,p.z-F.z)<3 ? 'wait' : 'run';
+    walk(p, goal[0] + (p.routeIndex >= RI.bridgeApproach && p.routeIndex <= RI.bridgeExit ? 0 : (p.plazaOrder % 2 ? .5 : -.5)), goal[1], p.mode === 'wait' ? 0 : held ? 2.55 : 3.4, dt, player);
     return true;
   }
   function moveCivilian(p, dt, t, state, player) {
-    if (escapeBurningFront(p, dt, player) || clearRescueArea(p, dt, player) || movePlazaResident(p, dt, t, state, player)) return;
+    if(escapeBurningFront(p,dt,player)||clearRescueArea(p,dt,player))return;
+    const cameraD = Math.hypot(p.x - player.x, p.z - player.z);
+    if (cameraD < 1.25 && !p.communityRole) {
+      // Move actual nearby bodies aside, rather than fading people in the
+      // foreground or allowing a face/hat to occupy the first-person camera.
+      const dx=(p.x-player.x)||(cameraD<.01?.2:0),dz=p.z-player.z,d=Math.max(.01,Math.hypot(dx,dz));
+      p.mode = (state.war || 0) > .08 ? 'run' : 'walk';
+      walk(p, player.x + dx / d * 1.8, player.z + dz / d * 1.8, 1.4, dt, player);
+      return;
+    }
+    if(movePlazaResident(p,dt,t,state,player))return;
     if (p.coverTarget && (fireAt(p.coverTarget.x, p.coverTarget.z, .4) || rescueWorkingArea(p.coverTarget.x, p.coverTarget.z))) p.coverTarget = null;
-    const district = p.district, danger = (state.war || 0) > .08 && (player.z < p.homeZ + 30 || district.name === 'market');
+    const district = p.district, danger = (state.war || 0) > .08 && (player.z < p.homeZ + 30 || district.marketGroup===true);
     if (danger && p.alertedAt === null) p.alertedAt = p.age + p.reaction;
     if (p.alertedAt !== null && p.age < p.alertedAt) { p.mode = 'shield'; p.speed *= Math.exp(-dt * 6); return; }
     if (p.alertedAt !== null) {
@@ -487,14 +528,14 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       let goal = route[p.routeIndex]; const lane = (p.i % 5 - 2) * .47;
       // The fallen frame has a real west-side opening. Fleeing adults take it,
       // leaving the small trapped child visible instead of piling onto his spot.
-      if (!state.helped && (state.phase || 0) >= 3 && p.routeIndex >= 5 && p.routeIndex <= 6 && p.z > -95.8) {
+      if (!state.helped && (state.phase || 0) >= 3 && p.routeIndex>=RI.rescue&&p.routeIndex<=RI.plaza&&p.z>R.z-3.07) {
         if (p.beamBypass === undefined) p.beamBypass = 0;
-        const bypass = p.beamBypass === 0 ? [20.7, -90.5] : [20.7, -96];
+        const bypass = p.beamBypass === 0 ? [R.x-3.95,R.z+2.23]:[R.x-3.95,R.z-3.27];
         if (Math.hypot(p.x - bypass[0], p.z - bypass[1]) < .75) p.beamBypass++;
-        if (p.beamBypass >= 2) { p.routeIndex = Math.max(6, p.routeIndex); goal = route[p.routeIndex]; }
-        else goal = p.beamBypass === 0 ? [20.7, -90.5] : [20.7, -96];
+        if (p.beamBypass >= 2) { p.routeIndex = Math.max(RI.plaza, p.routeIndex); goal = route[p.routeIndex]; }
+        else goal = p.beamBypass === 0 ? [R.x-3.95,R.z+2.23]:[R.x-3.95,R.z-3.27];
       }
-      if (p.routeIndex === route.length - 1 && p.z < -214) { p.mode = p.i % 3 ? 'wait' : 'help'; p.speed *= Math.exp(-dt * 7); return; }
+      if (p.routeIndex === route.length - 1 && Math.hypot(p.x-F.x,p.z-F.z)<14) { p.mode = p.i % 3 ? 'wait' : 'help'; p.speed *= Math.exp(-dt * 7); return; }
       const aftermathPause = p.i % 11 === 0 && elapsed > 7 && elapsed < 11;
       if (aftermathPause) { p.mode = 'help'; p.speed *= Math.exp(-dt * 7); return; }
       walk(p, goal[0] + lane, goal[1] + p.i % 3 * .5, 3.15 + p.i % 6 * .24, dt, player); return;
@@ -503,9 +544,9 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     // Conversations, a drink, cloth handling and customers remain independent
     // of the player. Only some residents are perpetually walking.
     if (p.job === 0 || p.job === 2 || p.job === 4) {
-      p.speed *= Math.exp(-dt * 7); p.yaw += angle((p.i % 2 ? Math.PI / 2 : -Math.PI / 2) - p.yaw) * Math.min(1, dt * 2); return;
+      p.speed *= Math.exp(-dt * 7); p.yaw += angle((p.routineYaw??(p.i%2?Math.PI/2:-Math.PI/2)) - p.yaw) * Math.min(1, dt * 2); return;
     }
-    const routine = district.name === 'market' ? (p.homeZ >= 0 ? [[3.3, 12], [7, 12], [7, -3], [3.3, -3]] : [[-6, -5], [-6, -22], [6, -22], [6, -5]]) : district.route;
+    const routine=district.route;
     const wp = routine[p.routineIndex];
     if (Math.hypot(wp[0] - p.x, wp[1] - p.z) < .45) p.routineIndex = (p.routineIndex + 1) % routine.length;
     const target = routine[p.routineIndex]; walk(p, target[0] + (p.i % 3 - 1) * .28, target[1], .68 + p.i % 4 * .13, dt, player);
@@ -513,19 +554,20 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
   function update(dt, t, state = {}, player = { x: 0, z: 12 }) {
     current = state;
     selectActive();
+    if(state.phase===0&&previousPhase>0)reset();
     updateCommunity(dt, t, state, player);
     if (Array.isArray(state.colliders)) colliders = state.colliders;
-    if (state.phase === 0 && previousPhase > 0) reset();
     previousPhase = state.phase || 0;
     if (!state.paused) {
       const clock = Number.isFinite(state.time) ? state.time : t;
-      if (plazaEnteredAt === null && state.phase >= 4 && player.z < -115) plazaEnteredAt = clock;
+      if (plazaEnteredAt === null && state.phase >= 4 && Math.hypot(player.x-LAYOUT.plaza.x,player.z-LAYOUT.plaza.z)<18) plazaEnteredAt = clock;
       if (plazaEnteredAt !== null && plazaImpactAt === null && state.hazards?.includes('square')) plazaImpactAt = clock;
     }
     stats.plaza = { stagedResidents: 6, entered: plazaEnteredAt !== null, enteredAt: plazaEnteredAt, impactAt: plazaImpactAt, near: 0, moving: 0, sheltered: 0 };
     const cap = quality === 'low' ? 70 : quality === 'high' ? 120 : 95;
     for (const batch of Object.values(batches)) batch.count = 0;
-    stats.active = stats.visible = stats.near = stats.mid = stats.hidden = stats.moving = stats.overflows = 0;
+    stats.active=stats.visible=stats.near=stats.mid=stats.hidden=stats.moving=stats.overflows=0;
+    stats.marketResidentsInRange={rear:0,near:0,forward:0,moving:0};
     for (const p of people) {
       const active = activeIds.has(p.i);
       if (!active) { stats.hidden++; continue; }
@@ -536,7 +578,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       // The guided bridge lane already handles personal space. A second
       // camera shove here could put a companion outside a rail before its end,
       // defeating navigation and trapping them against the river corner.
-      const guidedBridge = p.hero !== 'wiryo' && p.routeIndex >= 10 && p.z < route[10][1] + 2 && p.z > route[11][1] - 1;
+      const guidedBridge=p.routeIndex>=RI.bridgeApproach && p.z < route[RI.bridgeApproach][1] + 2 && p.z > route[RI.bridgeExit][1] - 1;
       if (!state.paused && p.hero && !guidedBridge && !['trapped', 'help', 'rest', 'push', 'recover', 'steady'].includes(p.mode)) {
         const dx = p.x - player.x, dz = p.z - player.z, d = Math.hypot(dx, dz);
         if (d < 1.5) {
@@ -550,7 +592,8 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       }
       if (distance > (quality === 'low' ? 72 : 105)) { stats.hidden++; continue; }
       p.renderTier = distance < 20 || !!p.hero ? 'near' : 'mid'; stats[p.renderTier]++; stats.visible++;
-      if (p.speed > .1) stats.moving++;
+      if(p.speed>.1)stats.moving++;
+      if(p.marketRole){stats.marketResidentsInRange[p.marketRole]++;if(p.speed>.1)stats.marketResidentsInRange.moving++;}
       if (p.plazaRole) { if (distance < 24) stats.plaza.near++; if (p.speed > .1) stats.plaza.moving++; if (['duck', 'help', 'shield'].includes(p.mode)) stats.plaza.sheltered++; }
       if (p.model) drawHeroModel(p, dt, t, state, player); else draw(p, t, player);
     }
@@ -569,10 +612,10 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     }
   }
   function reset() {
-    dropped.length = 0; departureStartedAt = null; plazaEnteredAt = plazaImpactAt = null; community.x = -21.3; community.z = -177; community.speed = community.distance = 0; community.releasedAt = null;
+    dropped.length = 0; departureStartedAt = null; plazaEnteredAt = plazaImpactAt = null; community.x=queueX;community.z=C.z+5;community.routeIndex=RI.bridgeExit; community.speed=community.distance=0;community.releasedAt=null;community.cleared=false;community.yaw=Math.PI;community.hasRendered=false;
     for (const p of people) {
-      p.x = p.homeX; p.z = p.homeZ; p.speed = 0; p.routeIndex = p.hero === 'wiryo' ? 10 : p.district?.escape || 1;
-      p.plazaStep = 0; p.plazaFinished = false; if (p.plazaRole) p.yaw = p.plazaHomeYaw; p.mode = 'routine'; p.alertedAt = null; p.beamBypass = undefined; p.heroBypass = 0; p.coverTarget = null; p.fireEscapeTarget = null; p.rescueBypassZ = null; p.trapLatched = false; p.trapAnchor = null; p.drop = false; p.helpRise = 0; p.look = 0;
+      p.x = p.homeX; p.z = p.homeZ; p.speed = 0; p.routeIndex = p.hero === 'wiryo' ? RI.bridgeApproach : p.district?.escape || 1;
+      p.wiryoRouteIndex=null;p.queueRouteIndex=null;p.plazaStep = 0; p.plazaFinished = false; if (p.plazaRole) p.yaw = p.plazaHomeYaw; p.mode = 'routine'; p.alertedAt = null; p.beamBypass = undefined; p.heroBypass = 0; p.coverTarget = null; p.fireEscapeTarget = null; p.rescueBypassZ = null; p.trapLatched = false; p.trapAnchor = null; p.drop = false; p.helpRise = 0; p.look = 0;
     }
   }
   function projectRoute(point, from = 0, to = route.length - 1) {
@@ -608,16 +651,16 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     }
     if (best) return best;
     const d = p.district, side = p.i % 2 ? -1 : 1;
-    const x = d.name === 'market' ? side * 7.4 : d.name === 'alley' ? 24 + side * 3 : d.name === 'courtyard' ? 24 + side * 6 : d.name === 'plaza' ? side * 17 : d.name === 'bridge' ? -20 + side * 2.7 : -20 + side * 8;
+    const x=d.x+side*2.3;
     const z = clamp(p.homeZ + 1, d.z - d.d / 2, d.z + d.d / 2);
     if (!blocked(x, z, .25, p) && !fireAt(x, z, .4) && !rescueWorkingArea(x, z)) return { x, z };
     // A lack of a local safe prop is not a reason to return into the fire.
     return { x: p.x, z: p.z };
   }
   const bridgeResidents = people.filter(p => p.district?.name === 'bridge');
-  const community = { x: -21.3, z: -177, speed: 0, distance: 0, releasedAt: null, cleared: false, carriers: bridgeResidents.slice(0, 2), waiters: bridgeResidents.slice(2, 5) };
-  community.carriers.forEach((p, i) => { p.communityRole = 'carrier'; p.carrierSide = i ? 1 : -1; p.x = p.homeX = -21.3 + p.carrierSide * .73; p.z = p.homeZ = -177; p.yaw = Math.PI; p.bag = false; });
-  community.waiters.forEach((p, i) => { p.communityRole = 'waiter'; p.queueIndex = i; p.x = p.homeX = -20.7 + (i % 2) * 1.2; p.z = p.homeZ = -174.8 + Math.floor(i / 2) * 1.2; p.yaw = Math.PI; });
+  const community = {x:queueX,z:C.z+5,routeIndex:RI.bridgeExit,yaw:Math.PI,hasRendered:false, speed: 0, distance: 0, releasedAt: null, cleared: false, carriers: bridgeResidents.slice(0, 2), waiters: bridgeResidents.slice(2, 5) };
+  community.carriers.forEach((p, i) => { p.communityRole = 'carrier'; p.carrierSide = i ? 1 : -1; p.x=p.homeX=queueX+p.carrierSide*.73;p.z=p.homeZ=C.z+5; p.yaw = Math.PI; p.bag = false; });
+  community.waiters.forEach((p, i) => { p.communityRole = 'waiter'; p.queueIndex = i; p.x=p.homeX=C.x+laneSide*.7+(i%2)*1.2;p.z=p.homeZ=C.z+7.2+Math.floor(i/2)*1.2; p.yaw = Math.PI; });
   const stretcher = new THREE.Group(); stretcher.name = 'Two residents carry a blanket through the opened lane'; root.add(stretcher);
   const stretcherWood = new THREE.MeshStandardMaterial({ color: 0x785e40, roughness: .94 }), stretcherCloth = new THREE.MeshStandardMaterial({ color: 0xa79b83, map: fabric, roughness: 1 });
   function stretcherPart(geometry, material, x, y, z) { const m = new THREE.Mesh(geometry, material); m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true; m.userData.ownedGeometry = true; stretcher.add(m); return m; }
@@ -628,32 +671,32 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
   function selectActive() {
     if (activeQuality === quality) return;
     activeQuality = quality; const cap = quality === 'low' ? 70 : quality === 'high' ? 120 : 95;
-    const required = people.filter(p => p.hero || p.communityRole || p.plazaRole), rest = people.filter(p => !p.hero && !p.communityRole && !p.plazaRole).sort((a, b) => (a.i * 47) % 117 - (b.i * 47) % 117);
+    const required = people.filter(p => p.hero||p.communityRole||p.plazaRole||(p.marketRole&&p.marketOrder<4)), rest = people.filter(p=>!p.hero&&!p.communityRole&&!p.plazaRole&&!(p.marketRole&&p.marketOrder<4)).sort((a, b) => (a.i * 47) % 117 - (b.i * 47) % 117);
     activeIds = new Set([...required, ...rest].slice(0, cap).map(p => p.i));
   }
   function updateCommunity(dt, t, state, player) {
     const clock = Number.isFinite(state.time) ? state.time : t;
+    if(state.paused&&community.hasRendered)return;
     if (state.bridgeHelped && community.releasedAt === null) community.releasedAt = clock;
     const moving = community.releasedAt !== null && clock > community.releasedAt + .4;
     community.cleared = moving;
     if (moving && !state.paused) {
-      const tx = community.z > -198 ? -21.3 : -23, tz = community.z > -198 ? -199 : -224;
+      const goal=route[community.routeIndex];const tx=community.routeIndex<=RI.bridgeExit?queueX:goal[0],tz=community.routeIndex<=RI.bridgeExit?LAYOUT.bridge.minZ-3:goal[1];
       const dx = tx - community.x, dz = tz - community.z, d = Math.hypot(dx, dz), step = Math.min(d, dt * 1.7);
-      if (d > .25 && !blocked(community.x + dx / d * step, community.z + dz / d * step, .88)) { community.x += dx / d * step; community.z += dz / d * step; community.distance += step; community.speed = step / Math.max(.001, dt); }
-      else community.speed = 0;
-    } else community.speed = 0;
-    stretcher.position.set(community.x, 0, community.z); stretcher.visible = Math.hypot(community.x - player.x, community.z - player.z) < (quality === 'low' ? 72 : 105);
-    for (const p of community.carriers) { p.x = community.x + p.carrierSide * .73; p.z = community.z; p.yaw = Math.PI; p.mode = 'carry'; p.speed = community.speed; p.distance = community.distance; p.gait = (community.distance / 1.04 + .2) % 1; }
+      if (d > .25 && !blocked(community.x + dx / d * step, community.z + dz / d * step, .88)) { community.x += dx / d * step; community.z += dz / d * step; community.distance += step;community.yaw+=angle(Math.atan2(dx,dz)-community.yaw)*Math.min(1,dt*5); community.speed = step / Math.max(.001, dt); }
+      else { community.speed=0;if(d<.75&&community.routeIndex<LAST)community.routeIndex++; }
+    } else community.speed=0;
+    stretcher.position.set(community.x,0,community.z);stretcher.rotation.y=community.yaw;community.hasRendered=true;stretcher.visible = Math.hypot(community.x - player.x, community.z - player.z) < (quality === 'low' ? 72 : 105);
+    for (const p of community.carriers) { p.x=community.x-Math.cos(community.yaw)*p.carrierSide*.73;p.z=community.z+Math.sin(community.yaw)*p.carrierSide*.73;p.yaw=community.yaw; p.mode = 'carry'; p.speed = community.speed; p.distance = community.distance; p.gait = (community.distance / 1.04 + .2) % 1; }
     stats.community = { waiting: !moving, carriers: 2, queuedResidents: 3, travelledMetres: +community.distance.toFixed(2) };
   }
   function moveCommunityWaiter(p, dt, t, state, player) {
     const clock = Number.isFinite(state.time) ? state.time : t;
     if (!state.bridgeHelped || community.releasedAt === null || clock < community.releasedAt + .8 + p.queueIndex * .4) { p.speed = 0; p.mode = 'wait'; p.yaw = Math.PI; return; }
-    const tx = p.z > -198 ? -21.3 + (p.queueIndex - 1) * .35 : -25 + p.queueIndex * .8, tz = p.z > -198 ? -199 : -224;
-    p.mode = p.z < -222 ? 'wait' : 'walk'; walk(p, tx, tz, p.z < -222 ? 0 : 1.7, dt, player);
+    p.queueRouteIndex=p.queueRouteIndex||RI.bridgeExit;const goal=route[p.queueRouteIndex],tx=p.queueRouteIndex<=RI.bridgeExit?queueX+(p.queueIndex-1)*.35:goal[0]+(p.queueIndex-1)*.35,tz=p.queueRouteIndex<=RI.bridgeExit?LAYOUT.bridge.minZ-3:goal[1];if(Math.hypot(tx-p.x,tz-p.z)<.8&&p.queueRouteIndex<LAST)p.queueRouteIndex++;const arrived=p.queueRouteIndex===LAST&&Math.hypot(p.x-F.x,p.z-F.z)<3;p.mode=arrived?'wait':'walk';walk(p,tx,tz,arrived?0:1.7,dt,player);
   }
   function snapshot() {
-    const saved = { version: 1, phase: previousPhase, heroes: {}, community: { x: community.x, z: community.z, distance: community.distance, released: community.cleared } };
+    const saved = { version:2,layoutId:LAYOUT.id,phase:previousPhase, heroes: {}, community: { x: community.x, z: community.z, distance: community.distance, released: community.cleared } };
     for (const [key, p] of Object.entries(heroes)) saved.heroes[key] = {
       x: p.x, z: p.z, yaw: p.yaw, routeIndex: p.routeIndex, gait: ((p.gait % 1) + 1) % 1,
       trapLatched: key === 'adi' && !!p.trapLatched,
@@ -663,30 +706,30 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     return saved;
   }
   function validTrapAnchor(anchor) {
-    return anchor && [anchor.x, anchor.z].every(Number.isFinite) && Math.hypot(anchor.x - 24.6, anchor.z + 93) < .55;
+    return anchor && [anchor.x, anchor.z].every(Number.isFinite) && Math.hypot(anchor.x-R.x,anchor.z-R.z) < .55;
   }
   function restore(data, state = {}, player = { x: 0, z: 12 }) {
     // Caller invokes this once at boot/Continue, after world.update restores
     // the dynamic rack/cart colliders. No normal frame calls this method.
     current = state; previousPhase = clamp(Math.trunc(state.phase || 0), 0, 7); departureStartedAt = Number.isFinite(state.learnedAt) && state.learnedAt >= 0 ? state.learnedAt : null;
     if (Array.isArray(state.colliders)) colliders = state.colliders;
-    const result = { restored: [], fallback: [] }, samePhase = data?.version === 1 && data.phase === previousPhase && data.heroes && typeof data.heroes === 'object';
+    const result = { restored: [], fallback: [] }, samePhase = data?.version===2&&data.layoutId===LAYOUT.id&& data.phase === previousPhase && data.heroes && typeof data.heroes === 'object';
     for (const [key, p] of Object.entries(heroes)) {
       const raw = samePhase ? data.heroes[key] : null;
-      const valid = raw && [raw.x, raw.z, raw.yaw, raw.gait].every(Number.isFinite) && raw.x > -64 && raw.x < 64 && raw.z > -244 && raw.z < 29 && Number.isInteger(raw.routeIndex) && raw.routeIndex >= 1 && raw.routeIndex < route.length && raw.gait >= 0 && raw.gait <= 1 && !blocked(raw.x, raw.z, .19, p);
+      const valid = raw && [raw.x, raw.z, raw.yaw, raw.gait].every(Number.isFinite) && raw.x>LAYOUT.bounds.minX&&raw.x<LAYOUT.bounds.maxX&&raw.z>LAYOUT.bounds.minZ&&raw.z<LAYOUT.bounds.maxZ && Number.isInteger(raw.routeIndex) && raw.routeIndex >= 1 && raw.routeIndex < route.length && raw.gait >= 0 && raw.gait <= 1 && !blocked(raw.x, raw.z, .19, p);
       let point;
       if (valid) { point = raw; result.restored.push(key); }
       else {
-        if (previousPhase === 0) point = { x: p.homeX, z: p.homeZ, routeIndex: key === 'wiryo' ? 10 : 1, yaw: key === 'sari' ? -.3217505544 : Math.PI };
-        else if (key === 'wiryo') point = state.bridgeHelped && previousPhase >= 6 ? { x: -24.5, z: -226, routeIndex: 12, yaw: 0 } : { x: -23.2 + clamp(state.bridgeProgress || 0, 0, 1) * 3.2, z: -181.5, routeIndex: 10, yaw: Math.PI / 2 };
+        if (previousPhase === 0) point = { x: p.homeX, z: p.homeZ, routeIndex:key==='wiryo'?RI.bridgeApproach:1, yaw: key === 'sari' ? -.3217505544 : Math.PI };
+        else if (key === 'wiryo') point = state.bridgeHelped && previousPhase >= 6 ? {x:queueX,z:LAYOUT.bridge.minZ-5,routeIndex:LAST,yaw:0}:{x:C.x+laneSide*3.2+clamp(state.bridgeProgress||0,0,1)*cartShift,z:C.z+.5,routeIndex:RI.bridgeApproach,yaw:laneSide<0?Math.PI/2:-Math.PI/2};
         else if (previousPhase === 3 && !state.helped) {
           const crawl = clamp((state.helpProgress || 0) / .65, 0, 1);
-          point = key === 'adi' ? { x: 24.65 - 1.05 * crawl, z: -92.73 + .28 * crawl, routeIndex: 5, yaw: Math.PI * .8 } : { x: 24.2, z: -92.22, routeIndex: 5, yaw: 2.4 };
-        } else if (previousPhase >= 7) point = key === 'sari' ? { x: -20.6, z: -228.5, routeIndex: 12, yaw: 0 } : { x: -19.5, z: -228.3, routeIndex: 12, yaw: 0 };
+          point = key === 'adi' ? {x:R.x-1.05*crawl,z:R.z+.28*crawl,routeIndex:RI.rescue,yaw:Math.PI*.8}:{x:R.x+.46-1.05*crawl,z:R.z+.1+.28*crawl,routeIndex:RI.rescue,yaw:-Math.PI/2};
+        } else if (previousPhase >= 7) point = key === 'sari' ? {x:F.x-.1,z:F.z+.55,routeIndex:LAST,yaw:0}:{x:F.x+1,z:F.z+.75,routeIndex:LAST,yaw:0};
         else {
-          const bands = [[0, 1], [0, 3], [1, 5], [3, 5], [5, 10], [9, 11], [11, 12]], band = bands[previousPhase] || [0, 12];
+          const bands=[[0,RI.depart],[0,RI.coverApproach],[RI.warning,RI.rescue],[RI.cover,RI.rescue],[RI.rescue,RI.bridgeApproach],[RI.bridgeGather,RI.bridgeExit],[RI.bridgeExit,LAST]],band=bands[previousPhase]||[0,LAST];
           const projected = projectRoute(player, band[0], band[1]); point = sampleRoute(projected.along + (key === 'adi' ? 3.2 : 2.1));
-          if (point.routeIndex >= 10 && point.routeIndex <= 11) point.x = -23.3;
+          if (point.routeIndex>=RI.bridgeApproach&&point.routeIndex<=RI.bridgeExit) point.x=LAYOUT.bridge.laneX;
           else point.x += key === 'sari' ? -.65 : .6;
           point.yaw = player.yaw || 0;
         }
@@ -700,8 +743,8 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       p.x = point.x; p.z = point.z; p.yaw = angle(point.yaw || 0); p.routeIndex = point.routeIndex;
       // Repair an older late-companion snapshot on the north riverbank by
       // resuming at the bridge approach. Preserve her exact saved position.
-      if (previousPhase >= 6 && p.routeIndex < 10 && p.z < -170 && p.z > -177) p.routeIndex = 10;
-      p.gait = point.gait || 0; p.speed = 0;
+      if (previousPhase >= 6 && p.routeIndex<RI.bridgeApproach&&p.z<LAYOUT.bridge.maxZ+5&&p.z>LAYOUT.bridge.maxZ-.35) p.routeIndex = RI.bridgeApproach;
+      p.gait=point.gait||0;p.speed=0;p.wiryoRouteIndex=key==='wiryo'&&state.bridgeHelped?Math.max(RI.bridgeExit,p.routeIndex):null;
       p.trapLatched = false; p.trapAnchor = null; p.helpRise = 0; p.mode = 'wait';
       if (key === 'adi' && previousPhase === 3 && !state.helped) {
         const progress = clamp(Number(state.helpProgress) || 0, 0, 1), crawl = clamp(progress / .65, 0, 1);
@@ -720,11 +763,11 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       }
     }
     if (state.bridgeHelped) {
-      const q = data?.community, validQueue = q && [q.x, q.z, q.distance].every(Number.isFinite) && q.x > -24 && q.x < -19.5 && q.z >= -226 && q.z <= -174 && q.distance >= 0 && q.distance < 100;
-      if (validQueue) { community.x = q.x; community.z = q.z; community.distance = q.distance; }
-      else { const projected = projectRoute(player, 10, 12); community.x = -21.3; community.z = Math.max(-224, Math.min(-177, projected.z + 4)); community.distance = Math.abs(community.z + 177); }
+      const q = data?.community, validQueue = q && [q.x, q.z, q.distance].every(Number.isFinite) && q.x>LAYOUT.bounds.minX&&q.x<LAYOUT.bounds.maxX&&q.z>=LAYOUT.bounds.minZ&&q.z<=LAYOUT.bounds.maxZ && q.distance >= 0 && q.distance < 1000;
+      if (validQueue) { community.x=q.x;community.z=q.z;community.distance=q.distance;community.routeIndex=projectRoute(q,RI.bridgeEntry,LAST).index; }
+      else { community.x=queueX;community.z=C.z+5;community.routeIndex=RI.bridgeExit;community.distance=0; }
       community.releasedAt = (state.time || 0) - 1;
-    } else { community.x = -21.3; community.z = -177; community.releasedAt = null; community.distance = 0; }
+    } else { community.x=queueX;community.z=C.z+5;community.routeIndex=RI.bridgeExit; community.releasedAt = null; community.distance = 0; }
     return result;
   }
 
@@ -770,7 +813,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     wrapper.scale.set(scale * p.wide, scale, scale); wrapper.position.set(p.x, -box.min.y * scale, p.z); wrapper.rotation.y = p.yaw; wrapper.updateMatrixWorld(true);
     if (p.hero === 'adi' && bone('head')) bone('head').scale.multiplyScalar(1.12);
     const mixer = new THREE.AnimationMixer(object), actions = Object.fromEntries(data.animations.map(clip => [clip.name, mixer.clipAction(clip)]));
-    const model = { wrapper, object, bones, bone, mixer, actions, current: null, scale, baseY: -box.min.y * scale, groundCorrection: 0, hipsRest: bone('hips').position.clone(), headRest: bone('head').quaternion.clone(), seatAmount: 0, seatGarments, footBase: {}, footOrient: {}, tool: null, bundle: null };
+    const model = { wrapper, object, bones, bone, mixer, actions, current: null, scale, baseY: -box.min.y * scale, groundCorrection: 0, hipsRest: bone('hips').position.clone(), headRest: bone('head').quaternion.clone(), seatAmount: 0, seatGarments, footBase: {}, footOrient: {}, tool: null, bundle: null, poseBase: null, footPlants: {}, locomotionCycle: 0 };
     for (const side of ['L', 'R']) {
       const foot = bone(`foot.${side}`); if (!foot) continue;
       model.footBase[side] = wrapper.worldToLocal(foot.getWorldPosition(new THREE.Vector3()));
@@ -791,7 +834,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       const cup = new THREE.Mesh(new THREE.SphereGeometry(.024, 12, 8), brass); cup.scale.y = .7; cup.position.set(0, 0, .076);
       const spout = new THREE.Mesh(new THREE.CylinderGeometry(.004, .007, .055, 8), brass); spout.rotation.x = Math.PI / 2 + .25; spout.position.set(.014, -.009, .111);
       for (const mesh of [handle, cup, spout]) { mesh.castShadow = true; mesh.userData.ownedGeometry = mesh.userData.ownedMaterial = true; model.tool.add(mesh); }
-      model.tool.position.set(.008, .045, .018); bone('hand.R').add(model.tool);
+      model.tool.scale.setScalar(1.2); model.tool.position.set(.008, .045, .018); bone('hand.R').add(model.tool);
       model.bundle = new THREE.Group(); const roll = new THREE.Mesh(new THREE.CylinderGeometry(.105, .105, .43, 12), new THREE.MeshStandardMaterial({ color: 0xffffff, map: scene.userData.jejakaTextileTexture || fabric, roughness: 1 }));
       roll.rotation.z = Math.PI / 2; roll.userData.ownedGeometry = roll.userData.ownedMaterial = true; roll.castShadow = true; model.bundle.add(roll); model.bundle.position.set(0, .04, .035); bone('hand.L').add(model.bundle);
     }
@@ -863,7 +906,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     const hips = model.bone('hips'); if (!hips || amount <= 0) return;
     const startFeet = Object.fromEntries(['L', 'R'].map(side => [side, model.wrapper.localToWorld(model.footBase[side].clone())]));
     const seatY = p.hero === 'adi' ? .57 : .61;
-    model.wrapper.position.z += (-229.0 - model.wrapper.position.z) * amount;
+    model.wrapper.position.z += (F.z+.05-model.wrapper.position.z)*amount;
     model.wrapper.rotation.y = p.yaw * (1 - amount);
     model.wrapper.updateMatrixWorld(true);
     const standingHips = hips.getWorldPosition(new THREE.Vector3());
@@ -872,7 +915,7 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     model.wrapper.updateMatrixWorld(true);
     const forward = new THREE.Vector3(0, 0, 1).applyQuaternion(model.wrapper.quaternion);
     for (const side of ['L', 'R']) {
-      const target = startFeet[side], seated = new THREE.Vector3(p.x + (side === 'L' ? -.12 : .12) * model.scale * p.wide, target.y + (p.hero === 'adi' ? .105 : 0), p.hero === 'adi' ? -228.70 : -228.42);
+      const target = startFeet[side], seated = new THREE.Vector3(p.x + (side === 'L' ? -.12 : .12) * model.scale * p.wide, target.y + (p.hero === 'adi' ? .105 : 0), p.hero==='adi'?F.z+.35:F.z+.63);
       target.lerp(seated, amount);
       chainIK(model, `thigh.${side}`, `shin.${side}`, `foot.${side}`, target, forward);
       const foot = model.bone(`foot.${side}`), wantedWorld = model.wrapper.getWorldQuaternion(new THREE.Quaternion()).multiply(model.footOrient[side]);
@@ -888,9 +931,68 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     if (!prop) return; const hand = model.bone(`hand.${side}`); hand.updateWorldMatrix(true, false);
     const desired = new THREE.Quaternion().setFromEuler(new THREE.Euler(pitch, yaw, 0)); prop.parent.updateWorldMatrix(true, false); prop.quaternion.copy(prop.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(desired));
   }
+  function restoreAnimationBase(model) {
+    if (!model.poseBase) return;
+    for (const [bone, position, quaternion, scale] of model.poseBase) {
+      bone.position.copy(position); bone.quaternion.copy(quaternion); bone.scale.copy(scale);
+    }
+  }
+  function rememberAnimationBase(model) {
+    if(!model.poseBase)model.poseBase=Object.values(model.bones).map(bone=>[bone,bone.position.clone(),bone.quaternion.clone(),bone.scale.clone()]);
+    else for(const [bone,position,quaternion,scale] of model.poseBase){position.copy(bone.position);quaternion.copy(bone.quaternion);scale.copy(bone.scale);}
+  }
+  function poseLocomotion(model, p, moving, running) {
+    if (!moving) { model.footPlants = {}; return; }
+    // Root distance, not wall time, advances the stride. Shorter children take
+    // more steps; a stationary person cannot keep skating through a Run clip.
+    const stride = (running ? 1.05 : .8) * model.scale;
+    const cycle = ((p.distance / stride) % 1 + 1) % 1;
+    model.locomotionCycle = cycle;
+    const spine = model.bone('spine'), hips = model.bone('hips');
+    const swing = Math.sin(cycle * Math.PI * 2), bounce = Math.sin(cycle * Math.PI * 4);
+    if (hips) { hips.position.y -= running ? .12 : .035; hips.position.x += swing * (running ? .018 : .008); }
+    if (spine) spine.quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(running ? .095 : .012, swing * (running ? .085 : .035), swing * (running ? .05 : .018))));
+    const head = model.bone('head');
+    if (head) head.quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-.018 * bounce, -.045 * swing, -.02 * swing)));
+    model.wrapper.updateMatrixWorld(true);
+    const pole = new THREE.Vector3(0, 0, 1).applyAxisAngle(up, p.yaw), stance = running ? .52 : .64;
+    for (const side of ['L', 'R']) {
+      const phase = (cycle + (side === 'L' ? .5 : 0)) % 1, base = model.footBase[side]; if (!base) continue;
+      const planted = phase < stance, previous = model.footPlants[side];
+      const reach = (running ? .43 : .35) * model.scale;
+      let forward, lift = 0;
+      if (planted) forward = (.5 - phase / stance) * stride;
+      else { const u = (phase - stance) / (1 - stance), ease = u * u * (3 - 2 * u); forward = (-.5 + ease) * stride; lift = Math.sin(u * Math.PI) * (running ? .19 : .09) * model.scale; }
+      let target = model.wrapper.localToWorld(base.clone().add(new THREE.Vector3(0, lift / model.scale, forward / model.scale)));
+      if (planted) {
+        const changed = !previous || !previous.planted || Math.abs(angle(p.yaw - previous.yaw)) > .45 || Math.hypot(previous.target.x - p.x, previous.target.z - p.z) > reach + .25 * model.scale;
+        if (!changed) target = previous.target.clone();
+        model.footPlants[side] = { planted: true, target: target.clone(), yaw: p.yaw };
+      } else model.footPlants[side] = { planted: false, target: target.clone(), yaw: p.yaw };
+      chainIK(model, `thigh.${side}`, `shin.${side}`, `foot.${side}`, target, pole);
+      const foot = model.bone(`foot.${side}`), desired = model.wrapper.getWorldQuaternion(new THREE.Quaternion()).multiply(model.footOrient[side]);
+      if (!planted) desired.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -.18 * Math.sin((phase - stance) / (1 - stance) * Math.PI)));
+      foot.quaternion.copy(foot.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(desired));
+    }
+    model.wrapper.updateMatrixWorld(true);
+  }
+  function handProps(model) {
+    if (!model.tool) return;
+    if (model.tool.parent !== model.bone('hand.R')) model.bone('hand.R').add(model.tool);
+    model.tool.position.set(.008, .045, .018);
+  }
+  function stowRescueProps(model, p) {
+    const hips = model.bone('hips');
+    if (model.bundle.parent !== hips) hips.add(model.bundle);
+    model.bundle.position.set(-.27, .035, -.08); model.bundle.visible = true;
+    if (model.tool.parent !== hips) hips.add(model.tool);
+    model.tool.position.set(.18, .07, .02);
+    orientPropAtHand(model, 'L', model.bundle, p.yaw + .1);
+    orientPropAtHand(model, 'R', model.tool, p.yaw, -.5);
+  }
   function drawHeroModel(p, dt, t, state, player) {
     const model = p.model; if (!model) return;
-    model.wrapper.visible = true; if (state.paused && model.hasRendered) return; model.wrapper.position.set(p.x, model.baseY, p.z); model.wrapper.rotation.y = p.yaw;
+    model.wrapper.visible = true; if (state.paused && model.hasRendered) return; restoreAnimationBase(model); model.wrapper.position.set(p.x, model.baseY, p.z); model.wrapper.rotation.y = p.yaw;
     if ((model.seatAmount > 0 && state.phase < 6) || (model.recoveryPose && state.phase < 4)) {
       // A replay may retain the Idle clip. Restore its base bindings before
       // leaving the authored seated offsets, even when clip values are cached.
@@ -898,37 +1000,57 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     }
     const speed = p.speed || 0, crouch = ['duck', 'help', 'trapped'].includes(p.mode), clip = crouch ? 'Crouch' : state.phase === 0 && state.learned && speed > .18 ? 'Walk' : speed > 2.2 ? 'Run' : speed > .18 ? 'Walk' : 'Idle';
     const rate = clip === 'Run' ? clamp(speed / 3.4, .85, 2.25) : clip === 'Walk' ? clamp(speed / 1.15, .55, 1.8) : 1;
-    setHeroClip(model, clip, rate); if (!state.paused) model.mixer.update(dt);
+    const locomotion = (clip === 'Run' || clip === 'Walk') && !crouch;
+    setHeroClip(model, clip, locomotion ? 0 : rate);
+    if (locomotion) {
+      const cycle = ((p.distance / ((clip === 'Run' ? 1.05 : .8) * model.scale)) % 1 + 1) % 1;
+      model.actions[clip].time = cycle * model.actions[clip].getClip().duration;
+    }
+    if (!state.paused) model.mixer.update(dt);
+    rememberAnimationBase(model);
     model.wrapper.updateMatrixWorld(true);
+    poseLocomotion(model, p, locomotion, clip === 'Run');
+    handProps(model);
     const sitting = (p.hero === 'sari' || p.hero === 'adi') && state.phase >= 6 && p.mode === 'rest';
     if (state.phase < 6) model.seatAmount = 0;
     else model.seatAmount = clamp(model.seatAmount + (sitting ? 1 : -1) * dt / .85, 0, 1);
     poseSeated(model, p, model.seatAmount);
-    const garmentFold = p.hero === 'sari' && p.mode === 'help' ? 1 : p.hero === 'sari' && p.mode === 'steady' ? 1 : model.seatAmount;
+    const garmentFold = p.hero === 'sari' && p.mode === 'help' ? 1 : p.hero === 'sari' && p.mode === 'steady' ? 1 : p.hero === 'sari' && locomotion ? .35 : model.seatAmount;
     poseSeatedGarments(model, garmentFold);
     if (p.hero === 'sari' && state.phase === 0 && !state.learned) {
-      const stroke = Math.sin(t * 1.65) * .035;
-      poseArm(model, p, 'R', new THREE.Vector3(-4.45 + stroke * .5, 1.12, 3.05 - stroke * .866));
-      poseArm(model, p, 'L', new THREE.Vector3(-4.4, 1.12, 2.96));
-      model.bundle.visible = false; orientPropAtHand(model, 'R', model.tool, p.yaw, -.08);
+      const stage=Number(state.workStage)||0;
+      if(stage===0){
+        const stroke=Math.sin(t*1.65)*.035;
+        poseArm(model,p,'R',workshopPoint(-4.48+stroke*.5,1.12,3.05-stroke*.866));
+        poseArm(model,p,'L',workshopPoint(-4.4,1.12,2.96));
+        orientPropAtHand(model,'R',model.tool,p.yaw,-.08);
+      }else{
+        // The prepared swatch is an illustration of dye resistance/removal.
+        // She holds/indicates its edge; she does not keep applying wax while
+        // telling Adi that the cloth is being coloured or the wax removed.
+        const gesture=Math.sin(t*1.25)*.018;
+        poseArm(model,p,'R',workshopPoint(-4.48,stage===1?1.03:1.16+gesture,3.05));
+        poseArm(model,p,'L',workshopPoint(-4.4,1.11,2.96));
+        if(model.tool.parent!==model.bone('hips'))model.bone('hips').add(model.tool);
+        model.tool.position.set(.18,.07,.02);orientPropAtHand(model,'R',model.tool,p.yaw,-.5);
+      }
+      model.bundle.visible=false;
     } else if (p.hero === 'sari' && p.mode === 'packing') {
       const fold = Math.sin(clamp(p.packingTime || 0, 0, 1.5) / 1.5 * Math.PI) * .035;
       poseArm(model, p, 'L', localTarget(model, -.08, 1.08 + fold, .3)); poseArm(model, p, 'R', localTarget(model, .14, 1.07 + fold, .29));
       model.bundle.visible = true; orientPropAtHand(model, 'R', model.tool, p.yaw, -.35); orientPropAtHand(model, 'L', model.bundle, p.yaw);
     } else if (p.hero === 'sari' && p.mode === 'help') {
       poseKneel(model, p, .52, .14);
-      const child = heroes.adi, grip = new THREE.Vector3(p.x * .42 + child.x * .58, .62 + (child.helpRise || 0) * .22, p.z * .42 + child.z * .58);
-      poseArm(model, p, 'L', grip); poseArm(model, p, 'R', localTarget(model, .16, .7, .28));
-      if (model.bundle.parent !== model.bone('forearm.L')) model.bone('forearm.L').add(model.bundle); model.bundle.position.set(-.02, .07, -.055);
-      model.bundle.visible = true; orientPropAtHand(model, 'R', model.tool, p.yaw, -.5); orientPropAtHand(model, 'L', model.bundle, p.yaw);
+      const child = heroes.adi, grip = new THREE.Vector3(p.x * .3 + child.x * .7, .62 + (child.helpRise || 0) * .22, p.z * .3 + child.z * .7);
+      poseArm(model, p, 'L', grip); poseArm(model, p, 'R', grip.clone().add(new THREE.Vector3(.03, -.1, .04)));
+      stowRescueProps(model, p);
     } else if (p.hero === 'sari' && p.mode === 'steady') {
       const rise = p.recoveryRise || 0, stow = clamp((rise - .55) / .45, 0, 1);
       poseKneel(model, p, .52 * (1 - rise), .14 * (1 - rise));
       const child = heroes.adi, grip = new THREE.Vector3(p.x * .42 + child.x * .58, .84, p.z * .42 + child.z * .58);
       poseArm(model, p, 'L', grip.lerp(localTarget(model, -.12, 1.03, .28), stow));
       poseArm(model, p, 'R', localTarget(model, .16 + .08 * rise, .7 + .24 * rise, .28 - .12 * rise));
-      if (model.bundle.parent !== model.bone('forearm.L')) model.bone('forearm.L').add(model.bundle); model.bundle.position.set(-.02, .07, -.055);
-      model.bundle.visible = true; orientPropAtHand(model, 'R', model.tool, p.yaw, -.5); orientPropAtHand(model, 'L', model.bundle, p.yaw);
+      stowRescueProps(model, p);
     } else if (p.hero === 'sari') {
       if (model.bundle.parent !== model.bone('hand.L')) model.bone('hand.L').add(model.bundle); model.bundle.position.set(0, .04, .035);
       poseArm(model, p, 'L', localTarget(model, -.12, 1.03 - .25 * model.seatAmount, .28));
@@ -938,15 +1060,22 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
       // The Idle clip supplies quiet breathing while the child regains balance.
       const head = model.bone('head'); head?.quaternion.copy(model.headRest);
     } else if (p.hero === 'adi' && p.mode === 'trapped') {
-      const rise = p.helpRise || 0; poseKneel(model, p, .52 * (1 - rise), .28 * (1 - rise));
-      const sari = heroes.sari, grip = new THREE.Vector3(sari.x * .42 + p.x * .58, .62 + rise * .22, sari.z * .42 + p.z * .58);
+      const rise = p.helpRise || 0; poseKneel(model,p,.52*(1-rise),.28*(1-rise));
+      // One foot stays under the lower edge of the fallen frame until it has
+      // lifted. Then the same leg follows the visible crawl out of the opening.
+      const freeFoot=model.wrapper.localToWorld(model.footBase.R.clone());
+      const pinnedFoot=new THREE.Vector3(R.x+.12,model.baseY+model.footBase.R.y*model.scale,R.z-.47);
+      const release=clamp((Number(state.helpProgress)||0)/.58,0,1);
+      pinnedFoot.lerp(freeFoot,release);
+      chainIK(model,'thigh.R','shin.R','foot.R',pinnedFoot,new THREE.Vector3(0,0,1).applyAxisAngle(up,p.yaw));
+      const sari = heroes.sari, grip = new THREE.Vector3(sari.x * .3 + p.x * .7, .62 + rise * .22, sari.z * .3 + p.z * .7);
       if (Math.hypot(sari.x - p.x, sari.z - p.z) < 1.2) poseArm(model, p, 'L', grip);
       poseArm(model, p, 'R', localTarget(model, .12, .39 + rise * .55, .2));
     } else if (p.hero === 'wiryo' && p.mode === 'push') {
       const spine = model.bone('spine'); spine?.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), .4));
       model.bone('hips').position.z += .07; model.wrapper.updateMatrixWorld(true);
-      const edge = -22.6 + clamp(state.bridgeProgress || 0, 0, 1) * 3.2;
-      poseArm(model, p, 'L', new THREE.Vector3(edge, 1.1, -181.28)); poseArm(model, p, 'R', new THREE.Vector3(edge, 1.1, -181.72));
+      const edge=C.x+laneSide*2.6+clamp(state.bridgeProgress||0,0,1)*cartShift;
+      poseArm(model, p, 'L', new THREE.Vector3(edge,1.1,C.z+.72)); poseArm(model, p, 'R', new THREE.Vector3(edge,1.1,C.z+.28));
     } else if (p.hero === 'adi' && p.mode === 'rest') {
       const head = model.bone('head'); head?.quaternion.copy(model.headRest).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), (-.25 + Math.sin(t * .5) * .05) * model.seatAmount));
       poseArm(model, p, 'L', localTarget(model, -.13, .85, .19)); poseArm(model, p, 'R', localTarget(model, .13, .85, .19));
@@ -959,11 +1088,12 @@ export function createActors(THREE, scene, { quality = 'balanced' } = {}) {
     // This is a modest correction, not a claim of captured motion or solved gait.
     model.wrapper.updateMatrixWorld(true);
     const feet = ['L', 'R'].map(side => ({ bone: model.bone(`foot.${side}`), rest: model.footBase[side] })).filter(x => x.bone && x.rest);
-    if (feet.length) {
+    if (feet.length && !locomotion) {
       const error = Math.min(...feet.map(x => x.bone.getWorldPosition(new THREE.Vector3()).y - x.rest.y * model.scale - (p.hero === 'adi' ? .105 * model.seatAmount : p.hero === 'sari' ? .002 * model.seatAmount : 0)));
       model.groundCorrection += (clamp(-error, -.14, .14) - model.groundCorrection) * Math.min(1, dt * 18);
       model.wrapper.position.y += model.groundCorrection; model.wrapper.updateMatrixWorld(true);
     }
+    if (locomotion) model.groundCorrection = 0;
     model.recoveryPose = p.mode === 'recover' || p.mode === 'steady';
     model.hasRendered = true;
   }

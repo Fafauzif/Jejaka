@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import * as THREE from '../lib/three.module.js';
 import { createActors } from './actors.js';
 import { createWorld } from './world.js';
-import { collides, createPlayer, createRun } from './rules.js';
+import { collides, createPlayer, createRun, impactProtection, assessImpact } from './rules.js';
 
-// Geometry and navigation regressions from the failed E2 refuge journey.
+// Current map-guided district: physical route, rescue, Continue and pause regressions.
 // This Node fixture does not load GLBs, render frames or benchmark physics.
 const originalDocument = globalThis.document;
 globalThis.document = {
@@ -30,191 +30,108 @@ after(() => {
   else globalThis.document = originalDocument;
 });
 
-function restoreLateFamily(t, sari) {
-  const scene = new THREE.Scene();
-  const world = createWorld(THREE, scene, { quality: 'high' });
-  const actors = createActors(THREE, scene, { quality: 'high' });
-  t.after(() => { actors.dispose(); world.dispose(); });
-
-  const state = Object.assign(createRun(), {
-    phase: 6,
-    time: 166.3823,
-    phaseTime: 40,
-    learned: true,
-    helped: true,
-    helpedAt: 59.7998,
-    helpProgress: 1,
-    bridgeHelped: true,
-    bridgeProgress: 1,
-    alleySealed: true,
-    alleySealedAt: 40,
-    plazaCutoff: true,
-    plazaCutoffAt: 85,
-    war: 1,
-    companionTarget: { x: -20, z: -226.5 },
-    colliders: world.colliders,
-  });
-  const player = Object.assign(createPlayer(), {
-    x: -19.996038714812848,
-    z: -225.52573370685414,
-    yaw: 0.023642354002021956,
-  });
-  const snapshot = {
-    version: 1,
-    phase: 6,
-    heroes: {
-      sari: { ...sari, gait: 0 },
-      adi: {
-        x: -19.551492822988383, z: -227.97417218210188,
-        yaw: -0.17960649521771035, routeIndex: 12, gait: 0,
-      },
-      wiryo: {
-        x: -24.493246886994793, z: -225.93299185614165,
-        yaw: 3.2420340002178216, routeIndex: 10, gait: 0,
-      },
-    },
-  };
-  state.groupPositions = [player, snapshot.heroes.sari, snapshot.heroes.adi];
-  world.update(0, state.time, state, player);
-  const restored = actors.restore(snapshot, state, player);
-  assert(restored.restored.includes('sari'), 'The captured position must restore, not use a fallback.');
-  assert.equal(actors.heroes.sari.x, sari.x);
-  assert.equal(actors.heroes.sari.z, sari.z);
-  return { actors, world, state, player };
+import { LAYOUT } from './layout.js';
+const R=LAYOUT.rescue,F=LAYOUT.refuge,B=LAYOUT.bridge,RI=LAYOUT.routeIndices,LAST=LAYOUT.actorRoute.length-1;
+test('crouching at the actual G04 exposed-impact root protects without widening cover or skipping the route', t => {
+ const world=createWorld(THREE,new THREE.Scene(),{quality:'low'});
+ t.after(()=>world.dispose());
+ // Recorded G04 impact, not its intended target. This is native geometry only.
+ const p={...createPlayer(),x:-53.76811065923358,z:-28.41899335053767},h={...LAYOUT.events.coverImpact,radius:26};
+ world.update(0,112.883,{...createRun(),phase:2,time:112.883,phaseTime:12.6998},p);
+ const standing=impactProtection({...p,stance:'walk'},h,world.colliders,world.cover),crouching=impactProtection({...p,stance:'crouch'},h,world.colliders,world.cover);
+ assert.equal(standing.reason,'exposed');assert.equal(crouching.reason,'cover');
+ assert(crouching.distance<26,'Being outside the attack radius is not a cover result');
+ const exposed={...createRun(),phase:2},sheltered={...createRun(),phase:2};
+ assert.equal(assessImpact(exposed,{...p,stance:'walk'},world.cover,h,world.colliders),false);
+ assert.equal(assessImpact(sheltered,{...p,stance:'crouch'},world.cover,h,world.colliders),true);
+ assert.equal(exposed.exposures,1);assert.equal(exposed.clothIntact,false);
+ assert.equal(sheltered.exposures,0);assert.equal(sheltered.clothIntact,true);
+ assert.equal(exposed.phase,2);assert.equal(sheltered.phase,2);
+});
+function setup(t,phase=6,{helped=true,cleared=true}={}) {
+ const scene=new THREE.Scene(),world=createWorld(THREE,scene,{quality:'low'}),actors=createActors(THREE,scene,{quality:'low'});
+ t.after(()=>{actors.dispose();world.dispose();});
+ const state=Object.assign(createRun(),{phase,time:120,phaseTime:20,learned:true,learnedAt:30,helped,helpedAt:helped?70:0,helpProgress:helped?1:0,bridgeHelped:cleared,bridgeProgress:cleared?1:0,war:1,companionTarget:{...F},colliders:world.colliders});
+ const player=Object.assign(createPlayer(),{x:F.x,z:F.z+2.55,yaw:0});
+ const snapshot={version:2,layoutId:LAYOUT.id,phase,heroes:{sari:{x:F.x-.1,z:F.z+.55,yaw:0,routeIndex:LAST,gait:0},adi:{x:F.x+1,z:F.z+.75,yaw:0,routeIndex:LAST,gait:0},wiryo:{x:LAYOUT.cart.x+Math.sign(B.laneX-LAYOUT.cart.x)*3.2,z:LAYOUT.cart.z+.5,yaw:Math.PI/2,routeIndex:RI.bridgeApproach,gait:0}}};
+ const run={world,actors,state,player,snapshot};return run;
 }
+function restore(run){run.state.groupPositions=[run.player,...Object.values(run.snapshot.heroes)];run.world.update(0,run.state.time,run.state,run.player);return run.actors.restore(run.snapshot,run.state,run.player);}
+function step(run,dt=.05){const {actors,world,state,player}=run;state.time+=dt;state.phaseTime+=dt;state.groupPositions=[player,actors.heroes.sari,actors.heroes.adi];world.update(dt,state.time,state,player);actors.update(dt,state.time,state,player);}
+function finish(run,key='sari',limit=160){const p=run.actors.heroes[key];const target=key==='sari'?{x:F.x-.1,z:F.z+.55}:{x:F.x+1,z:F.z+.75};const visited=[p.routeIndex];for(let t=0;t<limit;t+=.05){const before={x:p.x,z:p.z};step(run);assert(Math.hypot(p.x-before.x,p.z-before.z)<.81,'Physical walk cannot teleport');assert(!collides(p.x,p.z,run.world.colliders,.24),'Hero root must remain outside solids/water');if(visited.at(-1)!==p.routeIndex)visited.push(p.routeIndex);if(p.mode==='rest'&&p.routeIndex===LAST&&Math.hypot(p.x-target.x,p.z-target.z)<.6)return visited;}assert.fail('Companion failed to arrive '+JSON.stringify({key,x:p.x,z:p.z,routeIndex:p.routeIndex,mode:p.mode}));}
 
-function followRemainingRoute({ actors, world, state, player }) {
-  const sari = actors.heroes.sari;
-  const visited = [sari.routeIndex];
-  const river = world.colliders.filter(collider => collider.tag === 'river');
-  const step = 0.05;
-  for (let frame = 0; frame < 30 / step; frame++) {
-    state.time += step;
-    state.phaseTime += step;
-    state.groupPositions = [player, actors.heroes.sari, actors.heroes.adi];
-    world.update(step, state.time, state, player);
-    actors.update(step, state.time, state, player);
-    if (visited.at(-1) !== sari.routeIndex) visited.push(sari.routeIndex);
-    assert(!collides(sari.x, sari.z, river, 0.24), 'Sari must use the bridge, not the river.');
-    assert(!collides(sari.x, sari.z, world.colliders, 0.24), 'Sari must remain outside solid geometry.');
-    if (sari.mode === 'rest' && sari.routeIndex === 12
-      && Math.hypot(sari.x + 20.6, sari.z + 228.5) < 0.6) return visited;
-  }
-  assert.fail(`Sari did not reach refuge within 30 native seconds: ${JSON.stringify({
-    x: sari.x, z: sari.z, routeIndex: sari.routeIndex, mode: sari.mode,
-  })}`);
-}
-
-test('a late plaza companion follows the west bridge route when the player is already at school', t => {
-  const run = restoreLateFamily(t, {
-    x: -1.4483060750619607,
-    z: -125.95992026736332,
-    yaw: 1.613337324579677,
-    routeIndex: 8,
-  });
-  assert.equal(run.actors.heroes.sari.routeIndex, 8);
-  assert.deepEqual(followRemainingRoute(run), [8, 9, 10, 11, 12]);
+test('a late companion follows the mapped bridge then quay turns to the real-school footprint approach',t=>{
+ const run=setup(t);const point=LAYOUT.actorRoute[RI.plaza];run.snapshot.heroes.sari={...run.snapshot.heroes.sari,x:point.x,z:point.z,routeIndex:RI.plaza};assert(restore(run).restored.includes('sari'));const visited=finish(run);assert(visited.includes(RI.bridgeApproach)&&visited.includes(RI.bridgeExit)&&visited.includes(RI.quayBreather)&&visited.includes(RI.connectorWest)&&visited.at(-1)===LAST);
 });
 
-test('an old bank-edge snapshot keeps its position and recovers through the bridge approach', t => {
-  const run = restoreLateFamily(t, {
-    x: -15.532661642780873,
-    z: -176.75441624703646,
-    yaw: 3.23828914937123,
-    routeIndex: 8,
-  });
-  assert.equal(run.actors.heroes.sari.routeIndex, 10);
-  assert.deepEqual(followRemainingRoute(run), [10, 11, 12]);
+test('legal exterior bridge-entry saves recover continuously and Continue retains their recovery roots',t=>{
+ for(const [key,side] of [['sari',-1],['adi',1]]){
+  const run=setup(t),rails=run.world.colliders.filter(c=>c.tag==='bridge rail').sort((a,b)=>a.minX-b.minX),rail=rails[side<0?0:1];
+  const x=side<0?rail.minX-.241:rail.maxX+.241;
+  const z=[.241,.5,1,2,3,4].map(d=>rail.maxZ+d).find(z=>!collides(x,z,run.world.colliders,.24));
+  assert(Number.isFinite(z),'An exterior entry fixture must be physically legal');
+  run.snapshot.heroes[key]={x,z,yaw:0,routeIndex:RI.bridgeEntry,gait:0};assert(restore(run).restored.includes(key));
+  const p=run.actors.heroes[key];assert.equal(p.x,x);assert.equal(p.z,z);
+  for(let i=0;i<30;i++)step(run);
+  const saved=run.actors.snapshot(),position={x:p.x,z:p.z};
+  const continued=setup(t);continued.snapshot=saved;assert(restore(continued).restored.includes(key));assert.equal(continued.actors.heroes[key].x,position.x);assert.equal(continued.actors.heroes[key].z,position.z);
+  finish(continued,key);
+ }
 });
 
-// Additional regressions from the actual G side-cart/backtracking failure.
-// Uses the authored world solids; GLBs/rendering remain outside this Node suite.
-function restoreBridgeEntry(t, heroKey, raw, { cleared = true, snapshot = null, time = 96.366 } = {}) {
-  const scene = new THREE.Scene();
-  const world = createWorld(THREE, scene, { quality: 'balanced' });
-  const actors = createActors(THREE, scene, { quality: 'balanced' });
-  t.after(() => { actors.dispose(); world.dispose(); });
-  const state = Object.assign(createRun(), {
-    phase: 6, time, phaseTime: 20, learned: true, helped: true,
-    helpedAt: 45, helpProgress: 1, bridgeHelped: cleared,
-    bridgeProgress: cleared ? 1 : 0, alleySealed: true,
-    alleySealedAt: 30, plazaCutoff: true, plazaCutoffAt: 55,
-    war: 1, companionTarget: { x: -20, z: -226.5 }, colliders: world.colliders,
-  });
-  const player = Object.assign(createPlayer(), { x: -20, z: -225.5, yaw: 0 });
-  const data = snapshot || { version: 1, phase: 6, heroes: {
-    sari: { x: -20.6, z: -228.5, yaw: 0, routeIndex: 12, gait: 0 },
-    adi: { x: -19.5, z: -228.3, yaw: 0, routeIndex: 12, gait: 0 },
-    wiryo: { x: cleared ? -24.5 : -23.2, z: cleared ? -226 : -181.5, yaw: 0, routeIndex: 10, gait: 0 },
-    [heroKey]: { ...raw, yaw: raw.yaw || 0, gait: raw.gait || 0 },
-  } };
-  state.groupPositions = [player, data.heroes.sari, data.heroes.adi];
-  world.update(0, time, state, player);
-  const restored = actors.restore(data, state, player);
-  assert(restored.restored.includes(heroKey), 'The legal captured root must restore without a fallback.');
-  const hero = actors.heroes[heroKey];
-  assert.equal(hero.x, raw.x); assert.equal(hero.z, raw.z);
-  return { actors, world, state, player, hero, heroKey, visited: [hero.routeIndex] };
-}
-function stepBridgeEntry(run, dt) {
-  const { actors, world, state, player, hero, visited } = run;
-  const before = { x: hero.x, z: hero.z };
-  state.time += dt; state.phaseTime += dt;
-  state.groupPositions = [player, actors.heroes.sari, actors.heroes.adi];
-  world.update(dt, state.time, state, player);
-  actors.update(dt, state.time, state, player);
-  const distance = Math.hypot(hero.x - before.x, hero.z - before.z);
-  assert(distance <= dt * 16 + .001, 'Recovery must be continuous walking, not a position reset.');
-  const samples = Math.max(1, Math.ceil(distance / .025));
-  for (let j = 1; j <= samples; j++) {
-    const x = before.x + (hero.x - before.x) * j / samples;
-    const z = before.z + (hero.z - before.z) * j / samples;
-    assert(!collides(x, z, world.colliders, .24), 'The complete walked segment must remain outside river, rails and solids.');
-  }
-  if (visited.at(-1) !== hero.routeIndex) visited.push(hero.routeIndex);
-}
-function finishBridgeEntry(run, dt = .05) {
-  const target = run.heroKey === 'sari' ? { x: -20.6, z: -228.5 } : { x: -19.5, z: -228.3 };
-  for (let elapsed = 0; elapsed < 30; elapsed += dt) {
-    stepBridgeEntry(run, dt);
-    if (run.hero.mode === 'rest' && run.hero.routeIndex === 12 && Math.hypot(run.hero.x - target.x, run.hero.z - target.z) < .6) return;
-  }
-  assert.fail(`Companion remained trapped: ${JSON.stringify({ x: run.hero.x, z: run.hero.z, routeIndex: run.hero.routeIndex, mode: run.hero.mode })}`);
-}
-
-test('either bridge-rail corner recovers physically and Continue preserves the exact recovery root', t => {
-  for (const sample of [
-    { key: 'sari', x: -24.465759629, z: -176.759376896, cleared: true, dt: .05 },
-    { key: 'adi', x: -15.534, z: -176.759376896, cleared: false, dt: .1 },
-  ]) {
-    const run = restoreBridgeEntry(t, sample.key, { x: sample.x, z: sample.z, routeIndex: 11 }, { cleared: sample.cleared });
-    for (let elapsed = 0; elapsed < 3 && run.hero.z < sample.z + .6; elapsed += sample.dt) stepBridgeEntry(run, sample.dt);
-    assert(run.hero.z > sample.z + .6 && run.hero.z < -173.5, 'The first recovery leg must walk back along the exterior before aligning.');
-    assert.equal(run.hero.routeIndex, 10);
-    const snapshot = run.actors.snapshot(), saved = snapshot.heroes[sample.key];
-    const continued = restoreBridgeEntry(t, sample.key, saved, { cleared: sample.cleared, snapshot, time: run.state.time });
-    assert.equal(continued.hero.x, saved.x); assert.equal(continued.hero.z, saved.z);
-    finishBridgeEntry(continued, sample.dt);
-    assert.deepEqual(continued.visited, [10, 11, 12]);
-  }
+test('backtracking beside the entry cannot shove a companion into the river and a bridge wait is not a school seat',t=>{
+ const run=setup(t);run.snapshot.heroes.sari={x:LAYOUT.actorRoute[RI.bridgeApproach].x,z:LAYOUT.actorRoute[RI.bridgeApproach].z+.2,yaw:0,routeIndex:RI.bridgeEntry,gait:0};
+ run.player.x=run.snapshot.heroes.sari.x-Math.sign(B.laneX-LAYOUT.cart.x)*.55;run.player.z=run.snapshot.heroes.sari.z+.2;restore(run);
+ for(let i=0;i<240;i++)step(run);
+ assert(run.actors.heroes.sari.z<B.maxZ-1,'Companion must enter the mapped bridge despite nearby player');assert.notEqual(run.actors.heroes.sari.mode,'rest');
+ run.player.x=F.x;run.player.z=F.z+2.55;finish(run);
 });
 
-test('a player backtracking beside the bridge mouth cannot shove a companion outside its entry', t => {
-  const run = restoreBridgeEntry(t, 'sari', { x: -24.1455, z: -171.9816, routeIndex: 11 });
-  run.player.x = -23.3008; run.player.z = -171.6432;
-  for (let elapsed = 0; elapsed < 10; elapsed += .05) stepBridgeEntry(run, .05);
-  assert(run.hero.z < -177.5, 'Sari must enter the bridge even while the player remains beside the mouth.');
-  assert.notEqual(run.hero.mode, 'rest', 'Waiting for the player on a bridge is not sitting at the school.');
-  assert.deepEqual(run.visited, [11, 10, 11]);
-  run.player.x = -20; run.player.z = -225.5;
-  finishBridgeEntry(run);
+test('an approaching child save remains approaching until reaching the actual mapped rack',t=>{
+ const run=setup(t,3,{helped:false,cleared:false});run.state.helpProgress=0;run.state.companionTarget={...R};run.player.x=R.x-.65;run.player.z=R.z+2.03;
+ const a=LAYOUT.actorRoute[RI.rescueApproach];run.snapshot.heroes.adi={x:a.x,z:a.z,yaw:0,routeIndex:RI.rescueApproach,gait:.3};
+ run.snapshot.heroes.sari={x:R.x+.46,z:R.z+.1,yaw:-Math.PI/2,routeIndex:RI.rescue,gait:0};
+ assert(restore(run).restored.includes('adi'));assert.equal(run.actors.heroes.adi.trapLatched,false);
+ for(let i=0;i<500&&!run.actors.heroes.adi.trapLatched;i++)step(run);
+ const child=run.actors.heroes.adi;assert.equal(child.trapLatched,true);assert(Math.hypot(child.trapAnchor.x-R.x,child.trapAnchor.z-R.z)<.55);
 });
 
-test('pausing beside a companion freezes the post-walk personal-space adjustment too', t => {
-  const run = restoreBridgeEntry(t, 'sari', { x: -1.4483060750619607, z: -125.95992026736332, routeIndex: 8 });
-  run.player.x = -1; run.player.z = -125.9; run.state.paused = true;
-  const fields = p => ({ x: p.x, z: p.z, gait: p.gait, distance: p.distance, speed: p.speed, routeIndex: p.routeIndex });
-  const before = fields(run.hero);
-  for (let frame = 0; frame < 20; frame++) run.actors.update(.05, run.state.time, run.state, run.player);
-  assert.deepEqual(fields(run.hero), before);
+test('partial extraction Continue preserves the same child root and clears space for the flank helper',t=>{
+ const run=setup(t,3,{helped:false,cleared:false}),h=.46,crawl=h/.65;run.state.helpProgress=h;run.state.companionTarget={...R};run.player.x=R.x-.65;run.player.z=R.z+2.03;
+ run.snapshot.heroes.adi={x:R.x-1.05*crawl,z:R.z+.28*crawl,yaw:Math.PI*.8,routeIndex:RI.rescue,gait:0,trapLatched:true,trapAnchor:{...R},helpRise:(h-.35)/.65};
+ run.snapshot.heroes.sari={x:R.x+.46-1.05*crawl,z:R.z+.1+.28*crawl,yaw:-Math.PI/2,routeIndex:RI.rescue,gait:0};
+ assert(restore(run).restored.includes('adi'));const a=run.actors.heroes.adi,before={x:a.x,z:a.z};step(run);assert(Math.hypot(a.x-before.x,a.z-before.z)<1e-6);
+ for(let i=0;i<20;i++)step(run);const helper=run.actors.heroes.sari;assert.equal(helper.mode,'help');assert(!collides(helper.x,helper.z,run.world.colliders,.24),'The helper must occupy actual clear floor beside the rack');
+ assert(helper.x>a.x+.35&&helper.z<a.z+.4,'Helper must remain on east flank, leaving ordinary north approach open');
+});
+
+test('pausing freezes roots, gait and the moving community instead of reposing carriers',t=>{
+ const run=setup(t);const p=LAYOUT.actorRoute[RI.bridgeApproach];run.snapshot.heroes.sari={x:p.x,z:p.z,yaw:0,routeIndex:RI.bridgeEntry,gait:0};restore(run);for(let i=0;i<30;i++)step(run);
+ const fields=()=>JSON.stringify({people:run.actors.people.map(p=>({x:p.x,z:p.z,yaw:p.yaw,speed:p.speed,gait:p.gait,mode:p.mode})),community:run.actors.stats.community});const before=fields();run.state.paused=true;
+ for(let i=0;i<30;i++)run.actors.update(.05,run.state.time,run.state,run.player);assert.equal(fields(),before);
+});
+
+test('old authored-stage actor snapshots cannot masquerade as mapped-district positions',t=>{
+ const run=setup(t,3,{helped:false,cleared:false});run.snapshot.version=1;delete run.snapshot.layoutId;const result=restore(run);assert.deepEqual(result.restored,[]);assert.equal(result.fallback.length,3);assert(Math.hypot(run.actors.heroes.adi.x-R.x,run.actors.heroes.adi.z-R.z)<.6);
+});
+
+test('waiting at an intermediate quay conversation stays standing rather than sitting before the school',t=>{
+ const run=setup(t);run.state.companionTarget={...LAYOUT.quayBreather};run.snapshot.heroes.sari={x:LAYOUT.quayBreather.x-.65,z:LAYOUT.quayBreather.z,yaw:0,routeIndex:RI.quayBreather,gait:0};restore(run);for(let i=0;i<20;i++)step(run);assert.equal(run.actors.heroes.sari.mode,'wait');assert(run.actors.heroes.sari.routeIndex<LAST);
+});
+
+test('restarting after releasing the bridge queue resets its visible consequence on the first new frame',t=>{
+ const run=setup(t);restore(run);for(let i=0;i<80;i++)step(run);assert(run.actors.stats.community.travelledMetres>0);
+ Object.assign(run.state,createRun());run.actors.update(0,0,run.state,LAYOUT.spawn);
+ assert.equal(run.actors.stats.community.waiting,true);assert.equal(run.actors.stats.community.travelledMetres,0);
+ for(const p of run.actors.people.filter(p=>p.communityRole==='carrier')){assert.equal(p.x,p.homeX);assert.equal(p.z,p.homeZ);}
+});
+
+test('living street residents exist from boot behind and ahead of spawn and retain their home positions',t=>{
+ const run=setup(t,0,{helped:false,cleared:false});Object.assign(run.state,createRun());Object.assign(run.player,LAYOUT.spawn);run.state.colliders=run.world.colliders;
+ const market=run.actors.people.filter(p=>p.marketRole),homes=market.map(p=>({x:p.x,z:p.z,homeX:p.homeX,homeZ:p.homeZ}));
+ assert.equal(market.length,40);assert(market.some(p=>p.z>LAYOUT.spawn.z+18));assert(market.some(p=>p.z<LAYOUT.spawn.z-18));
+ for(const p of market)assert(!collides(p.x,p.z,run.world.colliders,.24),'Initial residents must occupy real clear street/forecourt space');
+ run.world.update(.05,.05,run.state,run.player);run.actors.update(.05,.05,run.state,run.player);assert.equal(run.actors.stats.active,70);
+ const bands=run.actors.stats.marketResidentsInRange;assert(bands.rear>=4&&bands.near>=4&&bands.forward>=4,'Low tier must retain physical near/rear/front groups');
+ for(let i=0;i<market.length;i++){assert.equal(market[i].homeX,homes[i].homeX);assert.equal(market[i].homeZ,homes[i].homeZ);assert(Math.hypot(market[i].x-homes[i].x,market[i].z-homes[i].z)<.2,'The first frame must walk, not relocate a resident');}
 });

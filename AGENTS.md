@@ -1,3 +1,13 @@
+# Grounded revision — 31 October 2026 latest user decisions
+
+Read `MASTER_AI_CONTEXT.md` and `handoff/10_GROUNDED_REVISION.md` first. Latest answers: **1A** real street/river/landmark relationships with explicitly disclosed distance compression; **2B** a roughly **four-to-five-minute MAIN route**; **3A** natural Indonesian captions and environmental sound, **no voiceover**. User authorized implementation and another independent critique/fix/actual-play loop capped by the latest user at **four rounds maximum (latest user reduction from5–6), with the earlier2–3hour ceiling still in force**, and separately requests a comprehensive standalone master AI context Markdown plus the tested repository-root overlay ZIP. These override the older three-minute direction below. No push/deployment/submission is authorized.
+
+Active modules remain `experience/index.html` → `experience/escape/app.js`; new `layout.js` contains map-derived topology with uniform 50% travel-distance compression. Fictional people, workshop, attacks, cart and school refuge use remain fiction. Keep mapped geometry, inferred architecture and fictional events distinct. A catalogue record is not an inspected image, native geometric clearance is not map fidelity, and source hashes invalidate affected old play results. Latest working base is `f57363b5543ed3f9428f8ba01b879107e39dc0ab` (the previous delivered H ZIP); all29 remote changed paths were byte-compared with that ZIP before integration.
+
+Use fresh named freezes and real native desktop/touch input. One software-WebGL renderer at a time. Label snapshots, bounded component runs, complete natural endings, cleanup and extracted-package checks separately. No fabricated independent scores, human learning, real-phone GPU results or human completion time. Previous H verification is historical for H, not this geometry or story. Preserve research, original maps/photos, master geometry, prior editions and unrelated files. `MASTER_AI_CONTEXT.md` must be finalized with actual release evidence and also delivered separately.
+
+---
+
 # Active escape revision — latest user direction
 
 The latest user explicitly requests a much larger revision and 10–20 substantive review/refine/play passes, with several hours available. That supersedes the earlier up-to-four-round cap and acceptance of the old guided errand route. They reject forced photography, unclear sudden fire, unnatural Indonesian, weak animation/chaos and an incoherent death. The active replacement is now `experience/index.html` → `experience/escape/app.js` with `escape.css`; the former active game is preserved at `experience/previous/`, and the earlier field edition at `experience/legacy/`.

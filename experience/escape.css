@@ -30,3 +30,19 @@
 }
 #danger[data-protection=cover]{background:#172a23e6;border-color:#a7c7ae}
 #danger[data-protection=cover] b{color:#c7e4c4}
+
+/* Keep ending actions accessible in short landscape windows. */
+@media(max-height:500px) and (min-width:600px){
+ #ending{display:grid;grid-template-columns:minmax(0,1fr);overflow:auto}
+ .ending-content{width:min(760px,100%);padding:22px 32px 12px}
+ .ending-content h2{font-size:32px;margin-bottom:10px}
+ .ending-memory{padding:10px 0;margin:12px 0}
+ .ending-actions{position:sticky;bottom:0;padding:12px 0 8px;background:linear-gradient(transparent,#14251ff5 14%);z-index:1}
+ .ending-actions button{padding:10px 14px;font-size:12px;min-height:44px}
+}
+.route-map{width:100%;height:auto;border:1px solid #81938566;border-radius:3px;background:#d7cfb8}
+.route-map text{font-family:JejakaSans,Arial,sans-serif;fill:#253e38;font-size:13px}
+.route-map .route-label{font-size:15px;font-weight:bold}
+
+/* Dialogue and the objective already provide this instruction; avoid duplicate text. */
+#help-hint{display:none!important}

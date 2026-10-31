@@ -1,3 +1,5 @@
+> Historical H verification only. For the current grounded revision read `GROUNDED_VERIFICATION.md`; these older source hashes and journeys are not current-source proof.
+
 # Escape revision: actual verification
 
 Release source: repository base `8a2701eb74821ee49f164162de4665d3300cfec1`, with a new escape runtime. Evidence is bound to SHA256 hashes for the ten active HTML/CSS/JavaScript files in `ESCAPE_TEST_EVIDENCE.json`; the archive manifest covers every delivered file. Older editions and historical screenshots do not verify this runtime.

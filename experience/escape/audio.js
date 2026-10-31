@@ -1,3 +1,4 @@
+import {LAYOUT} from './layout.js';
 /** Original procedural sound, not archival audio or performed dialogue.
  * No river/water loop. Quiet beds, bounded transients and one final limiter.
  * Nothing starts until unlock() is called by a visitor's gesture.
@@ -109,7 +110,7 @@ export function createAudio() {
     s.frequency.exponentialRampToValueAtTime(Math.max(12, end), ctx.currentTime + delay + duration);
     return route(s, { gain, frequency: Math.max(300, start * 2.8), duration, pan, delay });
   }
-  let listener = { x: 0, z: 12, yaw: 0 };
+  let listener = { ...LAYOUT.spawn };
   function event(kind, options = {}) {
     if (!ctx || disposed || paused || muted || ctx.state !== 'running') return false;
     const now = ctx.currentTime;
@@ -149,7 +150,7 @@ export function createAudio() {
     } else if (kind === 'fire' || kind === 'crackle') {
       noiseHit(.035 * g, 1250 + rand() * 1300, .045 + rand() * .09, s.pan);
     } else return false;
-    stats.totalEvents++; stats.lastEvent = { kind, time: now, x: options.x ?? null, z: options.z ?? null, strength, attenuation: s.gain, pan: s.pan };
+    stats.totalEvents++; stats.lastEvent = { kind, time: now, x: options.x ?? null, z: options.z ?? null, strength, attenuation: s.gain, pan: s.pan, surface: options.surface ?? null };
     lastEventWall = now; return true;
   }
   function update(dt, time, state = {}, player = {}) {
@@ -161,9 +162,9 @@ export function createAudio() {
     const duck = captioned ? .65 : 1;
     safeParam(ambienceBus.gain, .72 * duck, .15);
     safeParam(airLayer.level.gain, .008 + war * .004, .7);
-    const sites = [[0, -46], [19, -105], [-3, -147]];
-    let nearFire = 0, nearest = sites[0], distance = Infinity;
-    if (war > .1) for (const site of sites) { const d = Math.hypot((player.x || 0) - site[0], (player.z || 0) - site[1]); if (d < distance) { distance = d; nearest = site; } nearFire = Math.max(nearFire, clamp(1 - d / 28, 0, 1)); }
+    const sites = LAYOUT.fireSites.filter(site => phase >= site.phase);
+    let nearFire = 0, nearest = null, distance = Infinity;
+    if (war > .1) for (const site of sites) { const d = Math.hypot((player.x || 0) - site.x, (player.z || 0) - site.z); if (d < distance) { distance = d; nearest = site; } nearFire = Math.max(nearFire, clamp(1 - d / 28, 0, 1)); }
     const fireGain = .018 * nearFire * war * duck;
     safeParam(fireLayer.level.gain, fireGain, .4); stats.fireGain = fireGain; stats.airGain = .008 + war * .004;
     // Locomotion sound follows actual displacement, never a held key in a wall.
@@ -171,21 +172,21 @@ export function createAudio() {
       const moved = Math.hypot(player.x - lastPlayer.x, player.z - lastPlayer.z);
       if (moved < 2) footDistance += moved; else footDistance = 0;
       const stride = player.stance === 'crouch' ? .85 : player.running || player.stance === 'run' ? 1.55 : 1.35;
-      if (footDistance >= stride) { footDistance %= stride; event('footstep', { strength: player.running ? 1.12 : .85, crouch: player.stance === 'crouch', surface: player.z < -175 && player.z > -195 ? 'wood' : 'stone' }); }
+      if (footDistance >= stride) { footDistance %= stride; event('footstep', { strength: player.running ? 1.12 : .85, crouch: player.stance === 'crouch', surface: player.z < LAYOUT.bridge.maxZ && player.z > LAYOUT.bridge.minZ && player.x > LAYOUT.bridge.railX[0] && player.x < LAYOUT.bridge.railX[1] ? 'wood' : 'stone' }); }
     }
     lastPlayer = { x: player.x, z: player.z };
     const step = clamp(Number(dt) || 0, 0, .2);
     nextWar -= step; nextMarket -= step; nextCrackle -= step;
     if (war > .2 && phase < 7 && nextWar <= 0) {
       nextWar = 6 + rand() * 6;
-      const farX = (rand() - .5) * 90, farZ = (player.z || 0) - 45 - rand() * 45;
-      event('distant', { x: farX, z: farZ, strength: .45 + war * .3 });
+      const candidates = LAYOUT.distantSites.filter(site => { const d = Math.hypot(site.x-player.x,site.z-player.z);return d>32&&d<220; });
+      if (candidates.length) { const site=candidates[Math.floor(rand()*candidates.length)]; event('distant', { x: site.x, z: site.z, strength: .45 + war * .3 }); }
     }
     if (war < .45 && phase < 3 && nextMarket <= 0) {
       nextMarket = 1.1 + rand() * 2.8;
-      event(rand() > .86 ? 'bell' : 'wood', { x: (rand() - .5) * 17, z: -6 - rand() * 24, strength: .22 });
+      event(rand() > .86 ? 'bell' : 'wood', { x: LAYOUT.workshop.x + (rand() - .5) * 17, z: LAYOUT.workshop.z - 6 - rand() * 24, strength: .22 });
     }
-    if (nearFire > .1 && nextCrackle <= 0) { nextCrackle = .16 + rand() * .32; event('crackle', { x: nearest[0], z: nearest[1], strength: nearFire * .65 }); }
+    if (nearFire > .1 && nextCrackle <= 0) { nextCrackle = .16 + rand() * .32; event('crackle', { x: nearest.x, z: nearest.z, strength: nearFire * .65 }); }
   }
   function setVolume(v) { volume = clamp(Number(v) || 0, 0, 1); mixTarget(); }
   function setMuted(v) { muted = Boolean(v); mixTarget(); }
